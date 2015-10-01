@@ -20,3 +20,9 @@ config{
 	# Setting up the language variable "L" to be passed along with links
 	config.linkVars = L
 }
+
+#[globalVar = GP:L=1]
+#	config.sys_language_uid = 1
+#	config.language = en
+#	config.locale_all = english
+#[global]

@@ -1,20 +1,23 @@
 # TYPO3 Base
 
-
 ## Installation
 
 1. clone repository
 
 ```
-git clone git@github.com:famelo/TYPO3-Base.git
+git clone ssh://git@gitlab.a3plus.de:30001/template/TYPO3-Base.git
 ```
 
-2. create database and import ```typo3conf/database.sql```
+2. dependencies installieren
 
-3. copy ```typo3conf/AdditionalConfiguration.php.example``` to ```typo3conf/AdditionalConfiguration.php``` and set configuration for local machine
+```
+cd TYPO3-Base
+composer install
+```
 
-4. login with ```admin:password``` and change the admin password
+3. create database and import ```database.sql```
 
+4. copy ```typo3conf/AdditionalConfiguration.php.example``` to ```typo3conf/AdditionalConfiguration.php``` and set configuration for local machine
 
 ### Structure of the template Extension
 
@@ -22,9 +25,8 @@ git clone git@github.com:famelo/TYPO3-Base.git
 Resources/Public              // Contains all css, js, images, fonts, etc
   - Media/*                   // Media files like images, etc
   - Components/*              // External Libraries and Components
+  - Styles/Components/*.less  // custom component styles
   - Styles/Base.less          // General Styling mainly focused towards desktop
-  - Styles/Mobile.less        // Special styling for mobile devices
-  - Styles/Tablet.less        // Special styling for tablet devices
   - Styles/Main.less          // ties all the other styles together
   - Scripts/Main.js           // Place to put custom JS code
 

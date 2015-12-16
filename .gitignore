@@ -110,3 +110,13 @@ crashlytics-build.properties
 /fileadmin/user_upload
 Build
 dynamicReturnTypeMeta.json
+typo3
+vendor
+index.php
+typo3conf/ext/builder
+typo3conf/ext/fluidbackend
+typo3conf/ext/fluidcontent
+typo3conf/ext/fluidpages
+typo3conf/ext/flux
+typo3conf/ext/realurl
+typo3conf/ext/vhs

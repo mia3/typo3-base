@@ -5,7 +5,7 @@
 1. clone repository
 
 ```
-git clone ssh://git@gitlab.a3plus.de:30001/template/TYPO3-Base.git
+git clone ssh://git@gitlab.a3plus.de:30001/a3plus/Elektro_Beckhoff.git
 ```
 
 2. dependencies installieren
@@ -15,7 +15,7 @@ cd TYPO3-Base
 composer install
 ```
 
-3. create database and import ```database.sql```
+3. download current userdata backup from ```http://backups.mia3.com/elektro-beckhoff.mia3.com/```, extract and import the database
 
 4. copy ```typo3conf/AdditionalConfiguration.php.example``` to ```typo3conf/AdditionalConfiguration.php``` and set configuration for local machine
 

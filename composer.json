@@ -7,12 +7,11 @@
     ],
     "require": {
         "typo3/cms": "7.6.*",
-        "fluidtypo3/flux": "*",
-        "fluidtypo3/fluidcontent": "*",
-        "fluidtypo3/fluidpages": "*",
-        "fluidtypo3/fluidbackend": "*",
-        "fluidtypo3/vhs": "*",
-        "typo3-ter/realurl": "^1.13"
+        "fluidtypo3/flux": "^7.3",
+        "fluidtypo3/fluidcontent": "^4.4",
+        "fluidtypo3/fluidpages": "^3.5",
+        "fluidtypo3/vhs": "^2.4",
+        "typo3-ter/realurl": "^2.0"
     },
     "prefer-stable": true,
     "minimum-stability": "dev",

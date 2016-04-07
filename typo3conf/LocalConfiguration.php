@@ -3,16 +3,10 @@ return [
     'BE' => [
         'debug' => false,
         'explicitADmode' => 'explicitAllow',
-        'installToolPassword' => '$P$Ce3fohFKs1/xIGCcVjafJ2E.q5UOEY0',
+        'installToolPassword' => '$P$CcCWW8zIDUEFvP42SaVIz9ACE6cDNg.',
         'loginSecurityLevel' => 'rsa',
     ],
-    'DB' => [
-        'database' => 'typo3-template',
-        'host' => 'localhost',
-        'password' => '',
-        'socket' => '',
-        'username' => 'root',
-    ],
+    'DB' => [],
     'EXT' => [
         'extConf' => [
             'rsaauth' => 'a:1:{s:18:"temporaryDirectory";s:0:"";}',

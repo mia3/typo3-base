@@ -274,7 +274,7 @@ return [
             'state' => 'active',
             'packagePath' => 'typo3conf/ext/realurl/',
             'suggestions' => [],
-            'composerName' => 'realurl',
+            'composerName' => 'dmitryd/typo3-realurl',
         ],
         'ws_less' => [
             'state' => 'active',
@@ -361,6 +361,12 @@ return [
             'suggestions' => [
                 'sys_action',
             ],
+        ],
+        'typo3_console' => [
+            'composerName' => 'helhum/typo3-console',
+            'state' => 'inactive',
+            'packagePath' => 'typo3conf/ext/typo3_console/',
+            'suggestions' => [],
         ],
         'version' => [
             'composerName' => 'typo3/cms-version',

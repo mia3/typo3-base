@@ -344,7 +344,7 @@ return [
         ],
         'scheduler' => [
             'composerName' => 'typo3/cms-scheduler',
-            'state' => 'inactive',
+            'state' => 'active',
             'packagePath' => 'typo3/sysext/scheduler/',
             'suggestions' => [],
         ],

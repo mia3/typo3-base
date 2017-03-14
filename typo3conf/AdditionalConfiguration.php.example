@@ -1,13 +1,16 @@
 <?php
 
-$GLOBALS['TYPO3_CONF_VARS']['DB'] = array(
-	'database' => '',
-	'extTablesDefinitionScript' => 'extTables.php',
-	'host' => 'localhost',
-	'socket' => '',
-	'username' => '',
-	'password' => '',
-);
+$GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'] = [
+	'Default' => [
+		'driver' => 'mysqli',
+		'host' => 'localhost',
+		'dbname' => '',
+		'user' => '',
+		'password' => '',
+		'unix_socket' => '',
+		'charset' => 'utf8',
+	],
+];
 
 $GLOBALS['TYPO3_CONF_VARS']['GFX']['im_path'] = '/opt/local/bin/';
 $GLOBALS['TYPO3_CONF_VARS']['GFX']['im_path_lzw'] = '/opt/local/bin/';

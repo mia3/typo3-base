@@ -6,7 +6,7 @@
         }
     ],
     "require": {
-        "typo3/cms": "^7.0",
+        "typo3/cms": "^8.0",
         "fluidtypo3/flux": "^8.0",
         "fluidtypo3/fluidcontent": "^5.0",
         "fluidtypo3/fluidpages": "^4.0",

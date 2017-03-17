@@ -12,6 +12,16 @@ $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'] = [
 	],
 ];
 
+// $GLOBALS['TYPO3_CONF_VARS']['MAIL'] = [
+//     'defaultMailFromAddress' => '',
+//     'defaultMailFromName' => '',
+//     'transport' => 'smtp',
+//     'transport_smtp_server' => 'rack.mia3.com:1025'
+// ];
+//
+// $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'smtp';
+// $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server'] = rack.mia3.com:1025';
+
 $GLOBALS['TYPO3_CONF_VARS']['GFX']['im_path'] = '/opt/local/bin/';
 $GLOBALS['TYPO3_CONF_VARS']['GFX']['im_path_lzw'] = '/opt/local/bin/';
 

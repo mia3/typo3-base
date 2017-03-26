@@ -293,6 +293,7 @@ return [
             'composerName' => 'dmitryd/typo3-realurl',
             'state' => 'active',
             'suggestions' => [],
+            'composerName' => 'dmitryd/typo3-realurl',
         ],
         'typo3_console' => [
             'packagePath' => 'typo3conf/ext/typo3_console/',
@@ -373,6 +374,12 @@ return [
             'suggestions' => [
                 'sys_action',
             ],
+        ],
+        'typo3_console' => [
+            'composerName' => 'helhum/typo3-console',
+            'state' => 'inactive',
+            'packagePath' => 'typo3conf/ext/typo3_console/',
+            'suggestions' => [],
         ],
         'version' => [
             'packagePath' => 'typo3/sysext/version/',

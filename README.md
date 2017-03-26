@@ -42,3 +42,11 @@ Resources/Private               // Templates
   - Partials                    // Reusable Parts
   - Extensions/[ExtName]/...    // Place to put altered extension templates
 ```
+
+### Usefull commands
+
+**Update Database Schema**
+
+```
+./vendor/bin/typo3cms database:updateschema
+```

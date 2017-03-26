@@ -11,4 +11,7 @@ $GLOBALS['TYPO3_CONF_VARS']['DB'] = array(
 
 $GLOBALS['TYPO3_CONF_VARS']['GFX']['im_path'] = '/opt/local/bin/';
 $GLOBALS['TYPO3_CONF_VARS']['GFX']['im_path_lzw'] = '/opt/local/bin/';
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'] = 1;
+
+// $GLOBALS['TYPO3_CONF_VARS']['BE']['debug'] = true;
+// $GLOBALS['TYPO3_CONF_VARS']['FE']['debug'] = true;
+// $GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'] = 1;

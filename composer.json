@@ -6,19 +6,19 @@
         }
     ],
     "require": {
-        "typo3/cms": "7.6.*",
-        "fluidtypo3/flux": "^7.3",
-        "fluidtypo3/fluidcontent": "^4.4",
-        "fluidtypo3/fluidpages": "^3.5",
-        "fluidtypo3/vhs": "^2.4",
-        "typo3-ter/realurl": "^2.0",
-        "helhum/typo3-console": "^1.3"
+        "typo3/cms": "^7.0",
+        "fluidtypo3/flux": "^8.0",
+        "fluidtypo3/fluidcontent": "^5.0",
+        "fluidtypo3/fluidpages": "^4.0",
+        "fluidtypo3/vhs": "^4.0",
+        "dmitryd/typo3-realurl": "^2.0",
+        "helhum/typo3-console": "^4.0"
     },
     "prefer-stable": true,
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "Famelo\\Template\\": "typo3conf/ext/template/Classes"
+            "Mia3\\Template\\": "typo3conf/ext/template/Classes"
         }
     }
 }

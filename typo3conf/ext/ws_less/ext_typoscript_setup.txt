@@ -1,9 +1,0 @@
-
-plugin.tx_wsless.variables {
-  
-    
-  
-    #test = #666
-  
-
-}

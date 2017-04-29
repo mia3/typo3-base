@@ -11,6 +11,12 @@ return [
         'core' => [
             'packagePath' => 'typo3/sysext/core/',
         ],
+        'frontend' => [
+            'packagePath' => 'typo3/sysext/frontend/',
+        ],
+        'css_styled_content' => [
+            'packagePath' => 'typo3/sysext/css_styled_content/',
+        ],
         'extbase' => [
             'packagePath' => 'typo3/sysext/extbase/',
         ],
@@ -28,12 +34,6 @@ return [
         ],
         'lang' => [
             'packagePath' => 'typo3/sysext/lang/',
-        ],
-        'setup' => [
-            'packagePath' => 'typo3/sysext/setup/',
-        ],
-        'rtehtmlarea' => [
-            'packagePath' => 'typo3/sysext/rtehtmlarea/',
         ],
         'rsaauth' => [
             'packagePath' => 'typo3/sysext/rsaauth/',
@@ -68,9 +68,6 @@ return [
         'cshmanual' => [
             'packagePath' => 'typo3/sysext/cshmanual/',
         ],
-        'css_styled_content' => [
-            'packagePath' => 'typo3/sysext/css_styled_content/',
-        ],
         'documentation' => [
             'packagePath' => 'typo3/sysext/documentation/',
         ],
@@ -85,9 +82,6 @@ return [
         ],
         'form' => [
             'packagePath' => 'typo3/sysext/form/',
-        ],
-        'frontend' => [
-            'packagePath' => 'typo3/sysext/frontend/',
         ],
         'impexp' => [
             'packagePath' => 'typo3/sysext/impexp/',
@@ -106,6 +100,9 @@ return [
         ],
         'scheduler' => [
             'packagePath' => 'typo3/sysext/scheduler/',
+        ],
+        'setup' => [
+            'packagePath' => 'typo3/sysext/setup/',
         ],
         'sv' => [
             'packagePath' => 'typo3/sysext/sv/',
@@ -145,9 +142,6 @@ return [
         ],
         'typo3_console' => [
             'packagePath' => 'typo3conf/ext/typo3_console/',
-        ],
-        'ws_less' => [
-            'packagePath' => 'typo3conf/ext/ws_less/',
         ],
     ],
     'version' => 5,

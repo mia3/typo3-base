@@ -4,6 +4,3 @@ if (!defined('TYPO3_MODE')) {
 }
 
 TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'Template');
-\FluidTYPO3\Flux\Core::registerProviderExtensionKey('Famelo.Template', 'Page');
-\FluidTYPO3\Flux\Core::registerProviderExtensionKey('Famelo.Template', 'Content');
-

@@ -1,12 +1,13 @@
-config{
+config {
 	### Language and locallization
 
 	# this must be set to the language of the site
-	language = {$config.language}
+	language = de
+	metaCharset = utf-8
 
 	# make sure to set this to the language your site is in
-	locale_all = {$config.locale_all}.UTF-8
-	htmlTag_langKey = {$config.locale_all}
+	locale_all = de_DE
+	htmlTag_langKey = de
 
 	# Sets the default system language
 	sys_language_uid = 0
@@ -21,8 +22,11 @@ config{
 	config.linkVars = L
 }
 
-#[globalVar = GP:L=1]
-#	config.sys_language_uid = 1
-#	config.language = en
-#	config.locale_all = english
-#[global]
+[globalVar = GP:L=1]
+	config {
+		language = en
+		locale_all = en_GB.utf8
+		htmlTag_langKey = en
+		sys_language_uid = 1
+	}
+[global]

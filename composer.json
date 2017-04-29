@@ -1,24 +1,34 @@
 {
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://composer.typo3.org/"
-        }
-    ],
-    "require": {
-        "typo3/cms": "^8.0",
-        "fluidtypo3/flux": "^8.0",
-        "fluidtypo3/fluidcontent": "^5.0",
-        "fluidtypo3/fluidpages": "^4.0",
-        "fluidtypo3/vhs": "^4.0",
-        "dmitryd/typo3-realurl": "^2.0",
-        "helhum/typo3-console": "^4.0"
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://composer.typo3.org/"
     },
-    "prefer-stable": true,
-    "minimum-stability": "dev",
-    "autoload": {
-        "psr-4": {
-            "Mia3\\Template\\": "typo3conf/ext/template/Classes"
-        }
+    {
+      "type": "composer",
+      "url": "http://packages.mia3.com"
+    },{
+      "type": "vcs",
+      "url": "https://github.com/NamelessCoder/flux.git"
     }
+  ],
+  "require": {
+    "typo3/cms": "^8.7",
+    "fluidtypo3/flux": "^8.0",
+    "fluidtypo3/fluidcontent": "^5.0",
+    "fluidtypo3/fluidpages": "^4.0",
+    "fluidtypo3/vhs": "^4.0",
+    "dmitryd/typo3-realurl": "^2.0",
+    "helhum/typo3-console": "^4.0"
+  },
+  "config": {
+    "secure-http": false
+  },
+  "prefer-stable": true,
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "Mia3\\Template\\": "typo3conf/ext/template/Classes"
+    }
+  }
 }

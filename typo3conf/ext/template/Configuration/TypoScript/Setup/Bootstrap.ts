@@ -6,21 +6,19 @@ page {
 			<!--<link rel="shortcut icon" href="{$config.template_path}/Resources/Public/img/favicon.ico" />-->
 			<!--<link rel="apple-touch-icon" href="{$config.template_path}/Resources/Public/img/apple-touch-icon.png">-->
 			<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    		<!--[if lt IE 9]>
-    		  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    		<![endif]-->
-    		<script src="{$config.template_path}/Resources/Public/Components/jquery/dist/jquery.min.js"></script>
+			<!--[if lt IE 9]>
+				<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<![endif]-->
+			<meta name="viewport" content="width=device-width, initial-scale=1">
 		)
 	}
 
 	includeCSS {
-		bootstrap = {$config.template_path}/Resources/Public/Styles/Main.less
-		bootstrap.outputdir = {$config.template_path}/Resources/Public/Styles/
+		main = {$config.template_path}/Resources/Public/Styles/Main.compiled.css
 	}
 
 	includeJS{
-		bootstrap = {$config.template_path}/Resources/Public/Components/bootstrap/dist/js/bootstrap.min.js
-		main = {$config.template_path}/Resources/Public/Scripts/Main.js
+		main = {$config.template_path}/Resources/Public/Scripts/Main.compiled.js
 	}
 }
 
@@ -28,7 +26,7 @@ page {
 config {
 	# Development
 	## Disable Cache
-	config.no_cache = 1
+	no_cache = 0
 
 	# html5? Yes, please!
 	doctype = html5
@@ -90,19 +88,18 @@ config {
 }
 
 # Customize the Page title
-config.noPageTitle = 1
+config.noPageTitle = 2
 page = PAGE
 page {
 	headerData {
 		11 = TEXT
 		11 {
 			data = page:title
-			noTrimWrap = |<title> | - {$config.title}</title>|
+			noTrimWrap = !<title> ! | {$config.title}</title>!
+			noTrimWrap.splitChar = !
 	  	}
 	}
 }
-
-
 
 // Add an id with the page-uid to the body tag
 page.bodyTag >

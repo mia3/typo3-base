@@ -52,16 +52,7 @@ TCEFORM.tt_content {
 	layout {
 		removeItems = 1,2,3
 		addItems {
-			22 = LLL:EXT:template/Resources/Private/Language/locallang_be.xml:tt_content.layout.striped
-			24 = LLL:EXT:template/Resources/Private/Language/locallang_be.xml:tt_content.layout.box-solo
-			26 = LLL:EXT:template/Resources/Private/Language/locallang_be.xml:tt_content.layout.box-white-solo
-			28 = LLL:EXT:template/Resources/Private/Language/locallang_be.xml:tt_content.layout.box-black-solo
-			30 = LLL:EXT:template/Resources/Private/Language/locallang_be.xml:tt_content.layout.box-red-solo
-			32 = LLL:EXT:template/Resources/Private/Language/locallang_be.xml:tt_content.layout.box-blue-solo
-			34 = LLL:EXT:template/Resources/Private/Language/locallang_be.xml:tt_content.layout.box-gray-solo
-			36 = LLL:EXT:template/Resources/Private/Language/locallang_be.xml:tt_content.layout.box-darkgray-solo
-			40 = LLL:EXT:template/Resources/Private/Language/locallang_be.xml:tt_content.layout.red-overlapping
-			41 = LLL:EXT:template/Resources/Private/Language/locallang_be.xml:tt_content.layout.red
+            21 = LLL:EXT:template/Resources/Private/Language/locallang_be.xml:tt_content.layout.full
 		}
 	}
 }

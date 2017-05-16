@@ -48,8 +48,7 @@ module.exports = {
     resolve: {
         modules: ['node_modules', dir_js],
         alias: {
-            'vue$': 'vue/dist/vue',
-            'BrunexBase': dir_brunex_base
+            'vue$': 'vue/dist/vue'
         }
     },
     devServer: {

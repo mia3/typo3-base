@@ -1,0 +1,20 @@
+.formField {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.formField-label {
+  width: 280px;
+  text-align: right;
+  padding-right: 10px;
+  padding-top: 5px;
+}
+
+.formField-control {
+  flex-grow: 1;
+}
+
+.formField-error {
+  display: block;
+  color: red;
+}

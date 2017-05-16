@@ -20,7 +20,7 @@ update-dependencies:
 	composer update
 
 migrate:
-	./vendor/typo3cms database:updateschema '*.add, *.change'
+	./vendor/bin/typo3cms database:updateschema '*.add, *.change'
 
 build:
 	cd $(assets_path) && ./node_modules/.bin/webpack -p

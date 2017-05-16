@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+    <meta type="array">
+        <type>database</type>
+        <description>Language labels for database tables/fields belonging to extension 'boilerplate'</description>
+    </meta>
+    <data type="array">
+        <languageKey index="default" type="array">
+            <!-- Content element: Header Layout -->
+            <label index="tt_content.header_layout.1"><![CDATA[H1]]></label>
+            <label index="tt_content.header_layout.2"><![CDATA[H2]]></label>
+            <label index="tt_content.header_layout.3"><![CDATA[H3]]></label>
+            <label index="tt_content.header_layout.4"><![CDATA[H4]]></label>
+            <label index="tt_content.header_layout.5"><![CDATA[H5]]></label>
+            <label index="tt_content.header_layout.6"><![CDATA[H6]]></label>
+
+            <!-- Content element: Layout -->
+            <label index="tt_content.layout.normal">Normal</label>
+            <label index="tt_content.layout.full">Volle Seitenbreite</label>
+        </languageKey>
+    </data>
+</T3locallang>

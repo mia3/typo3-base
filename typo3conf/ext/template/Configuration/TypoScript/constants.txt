@@ -10,5 +10,5 @@ config {
 	# Template Extension Path
 	template_path = typo3conf/ext/template
 
-	title = BRUNEX
+	title = Template
 }

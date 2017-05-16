@@ -1,5 +1,2 @@
+@import 'Variables.css';
 @import 'Components/*.css';
-
-.foo {
-    lost-column: 1/4;
-}

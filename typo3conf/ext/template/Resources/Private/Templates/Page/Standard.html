@@ -4,41 +4,19 @@
      xmlns="http://www.w3.org/1999/xhtml"
      lang="en">
 
-  <f:layout name="Page"/>
+    <f:layout name="Page"/>
 
-  <f:section name="Configuration">
-    <flux:form id="standard">
-      <!-- Insert fields, sheets, grid, form section objects etc. here, in this flux:form tag -->
-    </flux:form>
-    <flux:grid>
-      <!-- Edit this grid to change the "backend layout" structure -->
-      <flux:grid.row>
-        <flux:grid.column colPos="0" colspan="3" name="main"/>
-        <flux:grid.column colPos="1" name="right"/>
-      </flux:grid.row>
-    </flux:grid>
-  </f:section>
+    <f:section name="Configuration">
+        <flux:form id="standard">
+        </flux:form>
+        <flux:grid>
+            <flux:grid.row>
+                <flux:grid.column colPos="0" name="main"/>
+            </flux:grid.row>
+        </flux:grid>
+    </f:section>
 
-  <f:section name="Main">
-    <div class="container vue">
-      <div class="grid">
-        <div class="grid-cell">
-          <h2>Content main</h2>
-          <v:content.render column="0"/>
-        </div>
-        <div class="grid-cell">
-          <h2>Content right</h2>
-          <v:content.render column="1"/>
-        </div>
-      </div>
-
-      <h3>ViewHelper Example</h3>
-      <t:example someArgument="Hello World"/>
-      <hr>
-
-      <h3>Vue Example</h3>
-      <example></example>
-      <hr>
-    </div>
-  </f:section>
+    <f:section name="Main">
+        <v:content.render column="0"/>
+    </f:section>
 </div>

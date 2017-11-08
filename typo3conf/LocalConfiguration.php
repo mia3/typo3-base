@@ -19,6 +19,7 @@ return [
             'builder' => 'a:0:{}',
             'fal_mam' => 'a:1:{s:8:"fal_mam.";a:10:{s:8:"base_url";s:31:"http://10.10.31.45/default-dam/";s:14:"connector_name";s:10:"demo_typo3";s:8:"username";s:5:"typo3";s:8:"password";s:13:"passwordtypo3";s:8:"customer";s:0:"";s:9:"base_path";s:14:"fileadmin/mam/";s:11:"storage_pid";s:1:"4";s:14:"mam_shell_path";s:23:"/usr/local/mam/default/";s:10:"admin_mail";s:13:"marc@mia3.com";s:8:"logging.";a:2:{s:7:"baseUrl";s:0:"";s:9:"log_level";s:1:"1";}}}',
             'filemetadata' => 'a:0:{}',
+            'fluid_styled_content' => 'a:0:{}',
             'fluidcontent' => 'a:0:{}',
             'fluidpages' => 'a:3:{s:8:"autoload";s:1:"1";s:8:"doktypes";s:0:"";s:33:"pagesLanguageConfigurationOverlay";s:1:"0";}',
             'flux' => 'a:4:{s:9:"debugMode";s:1:"0";s:7:"compact";s:1:"0";s:17:"listNestedContent";s:1:"0";s:12:"handleErrors";s:1:"0";}',

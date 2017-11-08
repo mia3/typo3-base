@@ -11,17 +11,17 @@ return [
         'core' => [
             'packagePath' => 'typo3/sysext/core/',
         ],
-        'frontend' => [
-            'packagePath' => 'typo3/sysext/frontend/',
-        ],
-        'css_styled_content' => [
-            'packagePath' => 'typo3/sysext/css_styled_content/',
-        ],
         'extbase' => [
             'packagePath' => 'typo3/sysext/extbase/',
         ],
         'fluid' => [
             'packagePath' => 'typo3/sysext/fluid/',
+        ],
+        'frontend' => [
+            'packagePath' => 'typo3/sysext/frontend/',
+        ],
+        'fluid_styled_content' => [
+            'packagePath' => 'typo3/sysext/fluid_styled_content/',
         ],
         'info' => [
             'packagePath' => 'typo3/sysext/info/',

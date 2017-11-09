@@ -30,7 +30,7 @@ module.exports = {
                 options: {}
             },
             {
-                test: /\.css/,
+                test: /\.css$/,
                 loader: extractPlugin.extract({
                     use: [
                         {

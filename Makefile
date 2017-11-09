@@ -1,32 +1,39 @@
-.PHONY: install build build-watch migrate production/deploy
+.PHONY: help install test run build deploy/staging
+.DEFAULT_GOAL := help
+assets_path = web/typo3conf/ext/template/Resources/Public/
+web_root = ./web/
+
+help:
+	@grep -E '^[a-zA-Z\/_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 # ----------------------------------------------------------------------#
 # Local environment														#
 # ----------------------------------------------------------------------#
-assets_path = typo3conf/ext/template/Resources/Public/
 
-all: install build
+build: ## build assets without sourcemaps, etc.
+	cd $(assets_path) && ./node_modules/.bin/webpack -p
 
-# ----------------------------------------------------------------------#
-# Local environment														#
-# ----------------------------------------------------------------------#
+build-watch: ## keep building assets whenever a file changes and output sourcemaps
+	cd $(assets_path) && ./node_modules/.bin/webpack --watch
 
-install:
+install: ## install composer and yarn dependencies
 	cd $(assets_path) && yarn install
 	composer install
 
-update-dependencies:
+update-dependencies: ## update composer and yarn dependencies
 	cd $(assets_path) && yarn upgrade
 	composer update
 
-migrate:
+migrate:  ## apply any relevant database migration
 	./vendor/bin/typo3cms database:updateschema '*.add, *.change'
 
-build:
-	cd $(assets_path) && ./node_modules/.bin/webpack -p
+cache-clear: ## clear the local cache
+	./vendor/bin/typo3cms cache:flush
 
-build-watch:
-	cd $(assets_path) && ./node_modules/.bin/webpack --watch
+setup/config: ## creates a Additional Configuration File
+	$(shell cat web/typo3conf/AdditionalConfiguration.php.example | sed 's/\/\// /g' >> web/typo3conf/AdditionalConfiguration.php )
+
+setup/project: install build
 
 # ----------------------------------------------------------------------#
 # Backup environment													#
@@ -48,7 +55,7 @@ production/user = p284571
 production/port = 22
 production/path = /home/www/p284571/html/
 
-define shell_production
+define production/shell
     ssh $(production/user)@$(production/host) -p$(production/port) 'cd $(production/path) &&$1'
 endef
 
@@ -81,4 +88,7 @@ production/push-data:
 		'$(production/user)@$(production/host):$(production/path)'
 
 production/cache-clear:
-	$(call shell_production, ./vendor/typo3cms cache:clear)
+	$(call production/shell, php56 ./vendor/bin/typo3cms cache:flush)
+
+production/connection-test:
+	$(call production/shell, cd $(production/path) && ls -la)

@@ -33,7 +33,7 @@ cache-clear: ## clear the local cache
 setup/config: ## creates a Additional Configuration File
 	$(shell cat web/typo3conf/AdditionalConfiguration.php.example | sed 's/\/\// /g' >> web/typo3conf/AdditionalConfiguration.php )
 
-setup/project: install build
+setup/project: install build setup/config
 
 # ----------------------------------------------------------------------#
 # Backup environment													#
@@ -43,7 +43,7 @@ backup_host = rack.mia3.com
 backup_port = 3322
 backup_path = /var/www/public/typo3.template.mia3.com/backup/
 
-pull-backup:
+pull-backup: ## Pulls a Backup from this project
 	rsync -rz --progress -e 'ssh -p$(backup_port)' '$(backup_user)@$(backup_host):$(backup_path)' './'
 	beard db:restore usr_p284571_1.sql
 
@@ -59,7 +59,7 @@ define production/shell
     ssh $(production/user)@$(production/host) -p$(production/port) 'cd $(production/path) &&$1'
 endef
 
-production/deploy:
+production/deploy: ## Deploys to production
 	rsync -rz \
 		--progress \
 		--exclude=".git" \
@@ -76,7 +76,7 @@ production/deploy:
 	$(call shell_production, ./vendor/typo3cms database:updateschema '*.add, *.change' 2>&1)
 	$(call shell_production, ./vendor/typo3cms cache:clear)
 
-production/push-data:
+production/push-data: ## syncs dump, fileadmin and uploads folder to production
 	rsync -rz \
 		--progress \
 		--include="fileadmin/***" \
@@ -87,8 +87,8 @@ production/push-data:
 		'./' \
 		'$(production/user)@$(production/host):$(production/path)'
 
-production/cache-clear:
+production/cache-clear: ## clears Caches in production
 	$(call production/shell, php56 ./vendor/bin/typo3cms cache:flush)
 
-production/connection-test:
+production/connection-test: ## Tests connection to your project
 	$(call production/shell, cd $(production/path) && ls -la)

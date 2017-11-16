@@ -9,8 +9,11 @@
 /web/robots.txt
 /web/typo3conf/AdditionalConfiguration.php
 /web/typo3conf/ENABLE_INSTALL_TOOL
+/web/typo3conf/l10n/
 /web/typo3conf/ext/*
 !web/typo3conf/ext/template/
+/web/typo3conf/ext/template/Resources/Public/Build/
+/node_modules/
 
 #############################
 ##
@@ -100,17 +103,18 @@ crashlytics-build.properties
 ##  Typo3
 ##
 #############################
-/fileadmin/_temp_/
-/fileadmin/_processed_/
-/uploads/tx_extensionbuilder/
+web/fileadmin/_temp_/
+web/fileadmin/_processed_/
+web/fileadmin/user_upload
+web/uploads/tx_extensionbuilder/
 /web/typo3conf/temp_CACHED*
 /web/typo3conf/temp_fieldInfo.php
 /web/typo3conf/localconf_local.php
 /typo3_src
-/fileadmin/user_upload
-Build
+web/Build
 dynamicReturnTypeMeta.json
 /web/typo3
 /vendor
 /web/index.php
 /web/typo3temp/
+

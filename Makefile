@@ -1,6 +1,6 @@
 .PHONY: help install test run build deploy/staging
 .DEFAULT_GOAL := help
-assets_path = web/typo3conf/ext/template/Resources/Public/
+assets_path = typo3conf/ext/template/Resources/Public
 web_root = ./web/
 
 help:
@@ -10,30 +10,35 @@ help:
 # Local environment														#
 # ----------------------------------------------------------------------#
 
-build: ## build assets without sourcemaps, etc.
-	cd $(assets_path) && ./node_modules/.bin/webpack -p
+build/development:  ## build assets with sourcemaps
+	./node_modules/.bin/encore dev
 
-build-watch: ## keep building assets whenever a file changes and output sourcemaps
-	cd $(assets_path) && ./node_modules/.bin/webpack --watch
+build/production: ## build assets for production, minified version and without sorucemaps
+	./node_modules/.bin/encore production
 
 install: ## install composer and yarn dependencies
-	cd $(assets_path) && yarn install
+	yarn install &&
 	composer install
 
 update-dependencies: ## update composer and yarn dependencies
-	cd $(assets_path) && yarn upgrade
+	yarn upgrade &&
 	composer update
 
 migrate:  ## apply any relevant database migration
 	./vendor/bin/typo3cms database:updateschema '*.add, *.change'
 
-cache-clear: ## clear the local cache
+clear-cache: ## clear the local cache
 	./vendor/bin/typo3cms cache:flush
 
-setup/config: ## creates a Additional Configuration File
-	$(shell cat web/typo3conf/AdditionalConfiguration.php.example | sed 's/\/\// /g' >> web/typo3conf/AdditionalConfiguration.php )
+setup/database-connection: ##creates a AdditionalConfiguration.php
+	@read -p "Enter Host: " DB_HOST; \
+	read -p "Enter Database: " DB_NAME; \
+	read -p "Enter User: " DB_USER; \
+	read -p "Enter Password: " DB_PW; \
+ 	cat web/typo3conf/AdditionalConfiguration.php.example \
+	| sed "s/{{host}}/$$DB_HOST/g" | sed "s/{{dbName}}/$$DB_NAME/g" | sed "s/{{user}}/$$DB_USER/g" | sed "s/{{password}}/$$DB_PW/g" > web/typo3conf/AdditionalConfiguration.php ;
 
-setup/project: install build setup/config
+setup/project: install build/development setup/database-connection ## triggers commands for project installation
 
 # ----------------------------------------------------------------------#
 # Backup environment													#
@@ -53,42 +58,36 @@ pull-backup: ## Pulls a Backup from this project
 production/host = typo3.template.mia3.com
 production/user = p284571
 production/port = 22
-production/path = /home/www/p284571/html/
+production/path = /home/www/p284571/html
+
 
 define production/shell
-    ssh $(production/user)@$(production/host) -p$(production/port) 'cd $(production/path) &&$1'
+	ssh $(production/user)@$(production/host) -p$(production/port) 'cd $(production/path) &&$1'
 endef
 
-production/deploy: ## Deploys to production
-	rsync -rz \
+
+
+production/deploy: build/production  ## Deploys to production from your Local Machine. Updates Database schema and flushes caches
+	git -C ./ ls-files --exclude-standard -oi --directory > /tmp/excludes;
+	rsync --recursive --compress \
 		--progress \
 		--exclude=".git" \
-		--exclude="fileadmin" \
-		--exclude="uploads" \
-		--exclude="c7atreusdev.sql" \
-		--exclude='typo3temp' \
-		--exclude="typo3conf/AdditionalConfiguration.php" \
+		--exclude="web/typo3conf/AdditionalConfiguration.php" \
+		--exclude-from="/tmp/excludes" \
 		-e 'ssh -p$(production/port)' \
 		'./' \
 		'$(production/user)@$(production/host):$(production/path)'
-	$(call shell_production, composer install)
-	$(call shell_production, chmod -R 775 .)
-	$(call shell_production, ./vendor/typo3cms database:updateschema '*.add, *.change' 2>&1)
-	$(call shell_production, ./vendor/typo3cms cache:clear)
-
-production/push-data: ## syncs dump, fileadmin and uploads folder to production
 	rsync -rz \
 		--progress \
-		--include="fileadmin/***" \
-		--include="uploads/***" \
-		--include="c7atreusdev.sql" \
-		--exclude="*" \
 		-e 'ssh -p$(production/port)' \
-		'./' \
-		'$(production/user)@$(production/host):$(production/path)'
+		'./web/$(assets_path)/Build/' \
+		'$(production/user)@$(production/host):$(production/path)/web/$(assets_path)/Build/'
+	$(call production/shell, composer install)
+	$(call production/shell, php_cli ./vendor/bin/typo3cms database:updateschema)
+	$(call production/shell, php_cli ./vendor/bin/typo3cms cache:flush)
 
-production/cache-clear: ## clears Caches in production
-	$(call production/shell, php56 ./vendor/bin/typo3cms cache:flush)
+production/clear-cache: ## Fluses production caches
+	$(call production/shell, php_cli ./vendor/bin/typo3cms cache:flush)
 
 production/connection-test: ## Tests connection to your project
 	$(call production/shell, cd $(production/path) && ls -la)

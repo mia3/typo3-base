@@ -1,2 +1,2 @@
 @import 'Variables.css';
-@import 'Components/*.css';
+@import 'Components/**/*.css';

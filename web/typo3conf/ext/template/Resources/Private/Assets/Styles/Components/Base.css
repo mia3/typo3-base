@@ -27,3 +27,8 @@ body {
   display: table;
   clear: both;
 }
+
+img{
+  width: 100%;
+  height:auto;
+}

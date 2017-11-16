@@ -3,7 +3,7 @@ return [
     'BE' => [
         'debug' => true,
         'explicitADmode' => 'explicitAllow',
-        'installToolPassword' => '$P$CcCWW8zIDUEFvP42SaVIz9ACE6cDNg.',
+        'installToolPassword' => '$P$CbMBrYIAR4HWLQE1p/rEVJc/IzEyJ90',
         'loginSecurityLevel' => 'rsa',
     ],
     'DB' => [
@@ -42,8 +42,8 @@ return [
         'processor_colorspace' => 'RGB',
         'processor_effects' => -1,
         'processor_enabled' => 1,
-        'processor_path' => '/opt/local/bin/',
-        'processor_path_lzw' => '/opt/local/bin/',
+        'processor_path' => '/usr/local/bin/',
+        'processor_path_lzw' => '/usr/local/bin/',
     ],
     'INSTALL' => [
         'wizardDone' => [
@@ -94,4 +94,9 @@ return [
         'sqlDebug' => 0,
         'systemLogLevel' => 2,
     ],
+    'SC_OPTIONS' => [
+        'ElementBrowsers' => [
+            'file_reference' => "TYPO3\\CMS\\Recordlist\\Browser\\FileBrowser"
+        ]
+    ]
 ];

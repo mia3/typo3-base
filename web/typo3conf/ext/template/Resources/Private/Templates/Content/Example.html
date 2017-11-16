@@ -9,6 +9,7 @@
 		<flux:form id="example" options="{group: 'FCE'}">
 			<!-- Insert fields, sheets, grid, form section objects etc. here, in this flux:flexform tag -->
 			<flux:field.input name="settings.helloWorld" required="true" />
+			<flux:field.file  name="settings.image" allowed="jpg,png,svg" showThumbnails="1" />
 		</flux:form>
 	</f:section>
 
@@ -27,5 +28,6 @@
 		<p>
 			{settings.helloWorld}
 		</p>
+		<f:image src="{settings.image}" width="200"/>
 	</f:section>
 </div>

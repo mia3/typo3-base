@@ -8,7 +8,7 @@ config {
 	index_externals = 1
 
 	# Template Extension Path
-	template_path = typo3conf/ext/template
+	template_path = ./typo3conf/ext/template
 
 	title = Template
 }

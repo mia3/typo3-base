@@ -17,6 +17,9 @@ return [
         'fluid' => [
             'packagePath' => 'typo3/sysext/fluid/',
         ],
+        'install' => [
+            'packagePath' => 'typo3/sysext/install/',
+        ],
         'frontend' => [
             'packagePath' => 'typo3/sysext/frontend/',
         ],
@@ -86,9 +89,6 @@ return [
         'impexp' => [
             'packagePath' => 'typo3/sysext/impexp/',
         ],
-        'install' => [
-            'packagePath' => 'typo3/sysext/install/',
-        ],
         'lowlevel' => [
             'packagePath' => 'typo3/sysext/lowlevel/',
         ],
@@ -139,9 +139,6 @@ return [
         ],
         'realurl' => [
             'packagePath' => 'typo3conf/ext/realurl/',
-        ],
-        'typo3_console' => [
-            'packagePath' => 'typo3conf/ext/typo3_console/',
         ],
     ],
     'version' => 5,

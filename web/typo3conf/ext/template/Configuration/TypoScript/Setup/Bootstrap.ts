@@ -14,11 +14,11 @@ page {
 	}
 
 	includeCSS {
-		main = {$config.template_path}/Resources/Public/Styles/Main.compiled.css
+		main = {$config.template_path}/Resources/Public/Build/Main.compiled.css
 	}
 
 	includeJS{
-		main = {$config.template_path}/Resources/Public/Scripts/Main.compiled.js
+		main = {$config.template_path}/Resources/Public/Build/Main.compiled.js
 	}
 }
 

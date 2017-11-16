@@ -10,11 +10,8 @@ before_script:
     - ssh-keyscan -p 22 'typo3.template.mia3.com' >> ~/.ssh/known_hosts
     - ssh-keyscan -p 30001 'gitlab.mia3.com' >> ~/.ssh/known_hosts
 
-#stages:
-#    - test
-#    - review
-#    - staging
-#    - production
+stages:
+    - production
 
 cache:
     paths:

@@ -23,7 +23,6 @@ production:
   script:
     - make install
     - make build/production
-    - make clear-cache
   environment: production
   when: manual
   only:

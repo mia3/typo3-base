@@ -14,12 +14,12 @@
   ],
   "require": {
     "typo3/cms": "^8.7",
-    "fluidtypo3/flux": "^8.0",
-    "fluidtypo3/fluidcontent": "^5.0",
-    "fluidtypo3/fluidpages": "^4.0",
-    "fluidtypo3/vhs": "^4.0",
-    "dmitryd/typo3-realurl": "^2.0",
-    "helhum/typo3-console": "^4.0"
+    "fluidtypo3/flux": "^8.2",
+    "fluidtypo3/fluidcontent": "^5.2",
+    "fluidtypo3/fluidpages": "^4.1",
+    "fluidtypo3/vhs": "^4.2",
+    "dmitryd/typo3-realurl": "^2.1",
+    "helhum/typo3-console": "^4.4"
   },
   "config": {
     "secure-http": false
@@ -28,13 +28,16 @@
   "minimum-stability": "dev",
   "autoload": {
     "psr-4": {
-      "Mia3\\Template\\": "typo3conf/ext/template/Classes"
+      "Mia3\\Template\\": "web/typo3conf/ext/template/Classes"
     }
   },
   "extra": {
     "typo3/cms": {
       "cms-package-dir": "{$vendor-dir}/typo3/cms",
       "web-dir": "web"
+    },
+    "helhum/typo3-console": {
+      "install-extension-dummy": "0"
     }
   }
 }

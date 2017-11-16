@@ -17,11 +17,11 @@ build/production: ## build assets for production, minified version and without s
 	./node_modules/.bin/encore production
 
 install: ## install composer and yarn dependencies
-	yarn install &&
+	yarn install && \
 	composer install
 
 update-dependencies: ## update composer and yarn dependencies
-	yarn upgrade &&
+	yarn upgrade && \
 	composer update
 
 migrate:  ## apply any relevant database migration

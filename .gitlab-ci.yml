@@ -26,7 +26,8 @@ production:
   environment: production
   when: manual
   only:
-    - 2-update-typo3-base
+    - master
+    - test-deploy
 
 #tests:
 #    stage: test

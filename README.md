@@ -51,14 +51,30 @@ If you notice any Issue when using this repo as project base, please submit the 
     yarn.lock                   // installed Node-packages with their versions.
     ```
 
-4. After the installation is done, log in the installTool and check your Image scaling Note: From Default GraphicsMagick should be installed on your **local** machine. 
+4.  Log in via installTool (`local.your-project.de/typo3/install`) and check your Image scaling Note: From Default GraphicsMagick should be installed on your **local** machine, if not install it via Brew.
+   
+    Log into the backend with your admin user and create a new page. Enable the page and switch to ‚Behavior‘ and tick "Use as Root Page" checkbox.
+    
+    Go to WEB/Template settings and click "Click here to create an extension template."
+    Change the View from "Constant Editor" to "Info/Modify" and click on "Edit the whole template record"-button.
+        
+    Switch to "Options" and tick all three checkboxes(Constants, Setup, Rootlevel). Click on
+    "Includes"-Tab and include all items in the following order:         
+    - Fluid Content Elements
+    - Fluid Content Elements CSS
+    - Form
+    - Template
+        
+    Change to WEB/Page and edit the root Page. Go to the ‚Appearance‘-Tab and choose "Fluidpages" as Backend Layout for the root Page and subpages and save it.
 
 5. Now that you verified that your typo3 instance works, you can setup a gitlab project:
     - remove the `.git` folder to loose any reference to this repository 
     - initialize a new git repo with `git init`  and set the origin to your gitlab repository
     - make your initial commit.
 
-6. Make it awesome! 
+6. In the MakeFile configure the backup and production credentials
+
+7. Make it awesome! 
 
 ## MakeFile
 
@@ -67,16 +83,18 @@ If you have dependencies that your project is based on e.g. setting up a Search 
 
 Current Commands that exists:
 ```
-build/development              Build assets with sourcemaps
-build/production               Build assets for production, minified version and without sorucemaps
-cache-clear                    Clear the local cache
+build/development              Build assets with sourcemaps.
+build/production               Build assets for production, minified version and without sorucemaps.
+build/watch                    Build assets after changes.
+clear-cache                    Clear local cache.
 install                        Install composer and yarn dependencies
-migrate                        Apply any relevant database migration
+migrate                        Apply any relevant database migration.
 production/clear-cache         Fluses production caches
 production/connection-test     Tests connection to your project
 production/deploy              Deploys to production from your Local Machine. Updates Database schema and flushes caches
 pull-backup                    Pulls a Backup from this project
-setup/project                  Triggers commands for project installation
+setup/database-connection      Creates a AdditionalConfiguration.php
+setup/project                  Project installation.
 update-dependencies            Update composer and yarn dependencies
 
 ```
@@ -118,17 +136,28 @@ Resources/
 
 For compiling CSS and transpiling JavaScript we use webpack which is based on Node JS
 
+## Guidelines
 
-### Javascript Guidelines
+* [Zen Of CSS](http://gitlab.mia3.com:30000/snippets/4)
+* [Zen Of Naming](http://gitlab.mia3.com:30000/snippets/5)
 
-Instead of Jquery we will use Vue-Components for 
 
-before we go further we should discuss how you should structure make a component so the website doenst suffer from bad SEO results.
-By Example a good component is What its makes good 
-.....
+### Javascript
 
-### CSS Guidelines
+Including jQuery in your project will bring a huge overhead and it will cost you performance.
+Instead of using this huge library we use vue-components to encapsulate HTML and JS together. 
 
+
+Example:
+```html
+    <good-component>
+        <h1> Hello World </h1>
+    </good-component>
+    
+    <bad-component>
+        Hello World 
+    </bad-component>
+```
 
 ## Setup Gitlab Ci
 

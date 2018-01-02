@@ -10,27 +10,30 @@ help:
 # Local environment														#
 # ----------------------------------------------------------------------#
 
-build/development:  ## build assets with sourcemaps
+build/development:  ## Build assets with sourcemaps.
 	./node_modules/.bin/encore dev
 
-build/production: ## build assets for production, minified version and without sorucemaps
+build/production: ## Build assets for production, minified version and without sorucemaps.
 	./node_modules/.bin/encore production
 
-install: ## install composer and yarn dependencies
+build/watch: ## Build assets after changes.
+	./node_modules/.bin/encore dev --watch
+
+install: ## Install composer and yarn dependencies
 	yarn install && \
 	composer install
 
-update-dependencies: ## update composer and yarn dependencies
+update-dependencies: ## Update composer and yarn dependencies
 	yarn upgrade && \
 	composer update
 
-migrate:  ## apply any relevant database migration
+migrate:  ## Apply any relevant database migration.
 	./vendor/bin/typo3cms database:updateschema '*.add, *.change'
 
-clear-cache: ## clear the local cache
+clear-cache: ## Clear local cache.
 	./vendor/bin/typo3cms cache:flush
 
-setup/database-connection: ##creates a AdditionalConfiguration.php
+setup/database-connection: ## Creates a AdditionalConfiguration.php
 	@read -p "Enter Host: " DB_HOST; \
 	read -p "Enter Database: " DB_NAME; \
 	read -p "Enter User: " DB_USER; \
@@ -38,7 +41,7 @@ setup/database-connection: ##creates a AdditionalConfiguration.php
  	cat web/typo3conf/AdditionalConfiguration.php.example \
 	| sed "s/{{host}}/$$DB_HOST/g" | sed "s/{{dbName}}/$$DB_NAME/g" | sed "s/{{user}}/$$DB_USER/g" | sed "s/{{password}}/$$DB_PW/g" > web/typo3conf/AdditionalConfiguration.php ;
 
-setup/project: install build/development setup/database-connection ## triggers commands for project installation
+setup/project: install build/development setup/database-connection ## Project installation.
 
 # ----------------------------------------------------------------------#
 # Backup environment													#

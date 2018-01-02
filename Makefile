@@ -50,7 +50,8 @@ backup_path = /var/www/public/typo3.template.mia3.com/backup/
 
 pull-backup: ## Pulls a Backup from this project
 	rsync -rz --progress -e 'ssh -p$(backup_port)' '$(backup_user)@$(backup_host):$(backup_path)' './'
-	beard db:restore usr_p284571_1.sql
+	./vendor/bin/typo3cms database:import < usr_p284571_1.sql
+	./vendor/bin/typo3cms cache:flush
 
 # ----------------------------------------------------------------------#
 # Production environment												#

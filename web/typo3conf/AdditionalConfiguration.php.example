@@ -22,9 +22,6 @@ $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'] = [
 // $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport'] = 'smtp';
 // $GLOBALS['TYPO3_CONF_VARS']['MAIL']['transport_smtp_server'] = 'rack.mia3.com:1025';
 
-$GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_path'] = '/opt/local/bin/';
-$GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_path_lzw'] = '/opt/local/bin/';
-
 // $GLOBALS['TYPO3_CONF_VARS']['BE']['debug'] = true;
 // $GLOBALS['TYPO3_CONF_VARS']['FE']['debug'] = true;
 // $GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'] = 1;

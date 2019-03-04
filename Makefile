@@ -1,7 +1,6 @@
 .PHONY: help install test run build deploy/staging
 .DEFAULT_GOAL := help
-assets_path = typo3conf/ext/template/Resources/Public
-web_root = ./web/
+assets_path = public/typo3conf/ext/template/Resources/Public
 
 help:
 	@grep -E '^[a-zA-Z\/_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
@@ -39,22 +38,17 @@ setup/database-connection: ## Creates a AdditionalConfiguration.php
 	read -p "Enter User: " DB_USER; \
 	read -p "Enter Password: " DB_PW; \
  	cat public/typo3conf/AdditionalConfiguration.php.example \
-	| sed "s/{{host}}/$$DB_HOST/g" | sed "s/{{dbName}}/$$DB_NAME/g" | sed "s/{{user}}/$$DB_USER/g" | sed "s/{{password}}/$$DB_PW/g" > web/typo3conf/AdditionalConfiguration.php;
+	| sed "s/{{host}}/$$DB_HOST/g" | sed "s/{{dbName}}/$$DB_NAME/g" | sed "s/{{user}}/$$DB_USER/g" | sed "s/{{password}}/$$DB_PW/g" > public/typo3conf/AdditionalConfiguration.php;
 
-setup/project: install build/development setup/database-connection ## Project installation.
+setup: install setup/database-connection migrate build/development clear-cache ## Project installation.
+	./vendor/bin/typo3cms extension:setupactive
+	./vendor/bin/typo3cms backend:createadmin
 
 # ----------------------------------------------------------------------#
 # Backup environment													#
 # ----------------------------------------------------------------------#
-backup_user = mia3
-backup_host = rack.mia3.com
-backup_port = 3322
-backup_path = /var/www/public/typo3.template.mia3.com/backup/
 
-pull-backup: ## Pulls a Backup from this project
-	rsync -rz --progress -e 'ssh -p$(backup_port)' '$(backup_user)@$(backup_host):$(backup_path)' './'
-	./vendor/bin/typo3cms database:import < usr_p284571_1.sql
-	./vendor/bin/typo3cms cache:flush
+
 
 # ----------------------------------------------------------------------#
 # Production environment												#
@@ -70,13 +64,12 @@ define production/shell
 endef
 
 
-
 production/deploy: build/production  ## Deploys to production from your Local Machine. Updates Database schema and flushes caches
 	git -C ./ ls-files --exclude-standard -oi --directory > /tmp/excludes;
 	rsync --recursive --compress \
 		--progress \
 		--exclude=".git" \
-		--exclude="web/typo3conf/AdditionalConfiguration.php" \
+		--exclude="public/typo3conf/AdditionalConfiguration.php" \
 		--exclude-from="/tmp/excludes" \
 		-e 'ssh -p$(production/port)' \
 		'./' \
@@ -84,8 +77,8 @@ production/deploy: build/production  ## Deploys to production from your Local Ma
 	rsync -rz \
 		--progress \
 		-e 'ssh -p$(production/port)' \
-		'./web/$(assets_path)/Build/' \
-		'$(production/user)@$(production/host):$(production/path)/web/$(assets_path)/Build/'
+		'./$(assets_path)/Build/' \
+		'$(production/user)@$(production/host):$(production/path)/$(assets_path)/Build/'
 	$(call production/shell, composer install)
 	$(call production/shell, php_cli ./vendor/bin/typo3cms database:updateschema)
 	$(call production/shell, php_cli ./vendor/bin/typo3cms cache:flush)

@@ -15,4 +15,3 @@ Get going quickly with TYPO3 CMS.
 * `git add .`
 * `git commit -a -m "initial commit"`
 * `make setup`
-* `make build/watch`

@@ -1,0 +1,16 @@
+<div class="vue">
+	<header class="container">
+		<ul class="headerNavigation">
+			<v:page.menu>
+				<f:for each="{menu}" as="page">
+					<li class="headerNavigation--item">
+						<a href="{page.link}" class="headerNavigation--link">
+							{page.title}
+						</a>
+					</li>
+				</f:for>
+			</v:page.menu>
+		</ul>
+	</header>
+	<f:render section="Main"/>
+</div>

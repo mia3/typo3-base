@@ -6,21 +6,56 @@ root = true
 # Unix-style newlines with a newline ending every file
 [*]
 charset = utf-8
-indent_style = space
-indent_size = 4
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[Makefile]
+# CSS-Files
+[*.css]
 indent_style = tab
 indent_size = 4
 
-[*.{js,py,vue}]
-indent_style = space
+# HTML-Files
+[*.html]
+indent_style = tab
 indent_size = 4
-charset = utf-8
 
-[*.{css,less,sass,scss,styl}]
+# LESS-Files
+[*.less]
+indent_style = tab
+indent_size = 4
+
+# JS-Files
+[*.js]
+indent_style = tab
+indent_size = 4
+
+# PHP-Files
+[*.php]
+indent_style = tab
+indent_size = 4
+
+# MD-Files
+[*.md]
+indent_style = tab
+indent_size = 4
+
+# ReST-Files
+[*.rst]
+indent_style = tab
+indent_size = 3
+
+# TypoScript
+[*.typoscript]
+indent_style = tab
+indent_size = 4
+
+# YML-Files
+[{*.yml,*.yaml}]
+indent_style = spaces
+indent_size = 4
+
+# package.json, composer.json or .travis.yml
+[{package.json,composer.json,.travis.yml}]
 indent_style = space
 indent_size = 2

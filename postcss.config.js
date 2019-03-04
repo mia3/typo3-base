@@ -3,7 +3,6 @@ module.exports = {
         "postcss-easy-import" :{},
         "postcss-css-variables": {},
         "cssnext": {},
-        "lost":{},
         "autoprefixer": {}
     }
 };

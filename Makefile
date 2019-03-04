@@ -20,11 +20,11 @@ build/watch: ## Build assets after changes.
 	./node_modules/.bin/encore dev --watch
 
 install: ## Install composer and yarn dependencies
-	yarn install && \
+	yarn install
 	composer install
 
 update-dependencies: ## Update composer and yarn dependencies
-	yarn upgrade && \
+	yarn upgrade
 	composer update
 
 migrate:  ## Apply any relevant database migration.

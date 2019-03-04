@@ -5,7 +5,7 @@
       "url": "https://composer.typo3.org/"
     }
   ],
-  "name": "typo3/cms-base-distribution",
+  "name": "mia3/typo3-base",
   "description": "TYPO3 CMS Base Distribution",
   "license": "GPL-2.0-or-later",
   "config": {

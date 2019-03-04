@@ -38,8 +38,8 @@ setup/database-connection: ## Creates a AdditionalConfiguration.php
 	read -p "Enter Database: " DB_NAME; \
 	read -p "Enter User: " DB_USER; \
 	read -p "Enter Password: " DB_PW; \
- 	cat web/typo3conf/AdditionalConfiguration.php.example \
-	| sed "s/{{host}}/$$DB_HOST/g" | sed "s/{{dbName}}/$$DB_NAME/g" | sed "s/{{user}}/$$DB_USER/g" | sed "s/{{password}}/$$DB_PW/g" > web/typo3conf/AdditionalConfiguration.php ;
+ 	cat public/typo3conf/AdditionalConfiguration.php.example \
+	| sed "s/{{host}}/$$DB_HOST/g" | sed "s/{{dbName}}/$$DB_NAME/g" | sed "s/{{user}}/$$DB_USER/g" | sed "s/{{password}}/$$DB_PW/g" > web/typo3conf/AdditionalConfiguration.php;
 
 setup/project: install build/development setup/database-connection ## Project installation.
 

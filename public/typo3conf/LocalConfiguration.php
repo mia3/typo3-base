@@ -12,26 +12,16 @@ return [
     ],
     'DB' => [
         'Connections' => [
-            'Default' => [
-                'charset' => 'utf8mb4',
-                'dbname' => 'typo3_base',
-                'driver' => 'mysqli',
-                'host' => '127.0.0.1',
-                'password' => 'root',
-                'port' => 3306,
-                'tableoptions' => [
-                    'charset' => 'utf8mb4',
-                    'collate' => 'utf8mb4_unicode_ci',
-                ],
-                'user' => 'root',
-            ],
+            'Default' => [],
         ],
     ],
     'EXT' => [
         'extConf' => [
-            'backend' => 'a:6:{s:9:"loginLogo";s:0:"";s:19:"loginHighlightColor";s:0:"";s:20:"loginBackgroundImage";s:0:"";s:13:"loginFootnote";s:0:"";s:11:"backendLogo";s:0:"";s:14:"backendFavicon";s:0:"";}',
+            'backend' => 'a:6:{s:14:"backendFavicon";s:0:"";s:11:"backendLogo";s:0:"";s:20:"loginBackgroundImage";s:0:"";s:13:"loginFootnote";s:0:"";s:19:"loginHighlightColor";s:0:"";s:9:"loginLogo";s:0:"";}',
             'extensionmanager' => 'a:2:{s:21:"automaticInstallation";s:1:"1";s:11:"offlineMode";s:1:"0";}',
+            'mask' => 'a:9:{s:4:"json";s:45:"EXT:template/Resources/Private/Mask/mask.json";s:18:"backendlayout_pids";s:3:"0,1";s:7:"content";s:54:"EXT:template/Resources/Private/Mask/Frontend/Templates";s:7:"layouts";s:52:"EXT:template/Resources/Private/Mask/Frontend/Layouts";s:8:"partials";s:53:"EXT:template/Resources/Private/Mask/Frontend/Partials";s:7:"backend";s:53:"EXT:template/Resources/Private/Mask/Backend/Templates";s:15:"layouts_backend";s:51:"EXT:template/Resources/Private/Mask/Backend/Layouts";s:16:"partials_backend";s:52:"EXT:template/Resources/Private/Mask/Backend/Partials";s:7:"preview";s:52:"EXT:template/Resources/Private/Mask/Backend/Previews";}',
             'scheduler' => 'a:2:{s:11:"maxLifetime";s:4:"1440";s:15:"showSampleTasks";s:1:"1";}',
+            'vhs' => 'a:1:{s:20:"disableAssetHandling";s:1:"0";}',
         ],
     ],
     'EXTENSIONS' => [
@@ -47,9 +37,23 @@ return [
             'automaticInstallation' => '1',
             'offlineMode' => '0',
         ],
+        'mask' => [
+            'backend' => 'EXT:template/Resources/Private/Mask/Backend/Templates',
+            'backendlayout_pids' => '0,1',
+            'content' => 'EXT:template/Resources/Private/Mask/Frontend/Templates',
+            'json' => 'EXT:template/Resources/Private/Mask/mask.json',
+            'layouts' => 'EXT:template/Resources/Private/Mask/Frontend/Layouts',
+            'layouts_backend' => 'EXT:template/Resources/Private/Mask/Backend/Layouts',
+            'partials' => 'EXT:template/Resources/Private/Mask/Frontend/Partials',
+            'partials_backend' => 'EXT:template/Resources/Private/Mask/Backend/Partials',
+            'preview' => 'EXT:template/Resources/Private/Mask/Backend/Previews',
+        ],
         'scheduler' => [
             'maxLifetime' => '1440',
             'showSampleTasks' => '1',
+        ],
+        'vhs' => [
+            'disableAssetHandling' => '0',
         ],
     ],
     'FE' => [
@@ -70,7 +74,7 @@ return [
     ],
     'SYS' => [
         'devIPmask' => '',
-        'displayErrors' => 0,
+        'displayErrors' => 1,
         'encryptionKey' => '506070055b32e8b0a9521b685eaf45f49db6bf15dcc0da442a1a3f478bc124c84253929181140ecdb5b8d2446d26ac62',
         'exceptionalErrors' => 4096,
         'features' => [

@@ -2,17 +2,17 @@ rootPageId: 1
 base: 'http://local.typo3-base/'
 languages:
   -
-    title: English
+    title: Deutsch
     enabled: true
     languageId: '0'
     base: /
-    typo3Language: default
-    locale: en_US.UTF-8
-    iso-639-1: en
-    navigationTitle: English
-    hreflang: en-us
+    typo3Language: de
+    locale: de_DE.UTF-8
+    iso-639-1: de
+    navigationTitle: Deutsch
+    hreflang: de-de
     direction: ltr
-    flag: us
+    flag: de
 errorHandling: {  }
 routes: {  }
 baseVariants: {  }

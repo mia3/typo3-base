@@ -1,7 +1,7 @@
 <?php
 return [
     'BE' => [
-        'debug' => false,
+        'debug' => true,
         'explicitADmode' => 'explicitAllow',
         'installToolPassword' => '$argon2i$v=19$m=16384,t=16,p=2$MmxkNy9vSlh4Z3ZkVU9Rcw$sF6CE+EapkwO5eI2/syaXMDY+OtKfx+u5U53NjTJ/8Q',
         'loginSecurityLevel' => 'normal',
@@ -12,7 +12,10 @@ return [
     ],
     'DB' => [
         'Connections' => [
-            'Default' => [],
+            'Default' => [
+                'charset' => 'utf8',
+                'driver' => 'mysqli',
+            ],
         ],
     ],
     'EXT' => [
@@ -57,12 +60,21 @@ return [
         ],
     ],
     'FE' => [
-        'debug' => false,
+        'debug' => true,
         'loginSecurityLevel' => 'normal',
         'passwordHashing' => [
             'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\Argon2iPasswordHash',
             'options' => [],
         ],
+    ],
+    'GFX' => [
+        'processor' => 'ImageMagick',
+        'processor_allowTemporaryMasksAsPng' => '',
+        'processor_colorspace' => 'RGB',
+        'processor_effects' => false,
+        'processor_enabled' => '1',
+        'processor_path' => '/usr/bin/',
+        'processor_path_lzw' => '/usr/bin/',
     ],
     'MAIL' => [
         'transport' => 'sendmail',
@@ -73,15 +85,15 @@ return [
         'transport_smtp_username' => '',
     ],
     'SYS' => [
-        'devIPmask' => '',
+        'devIPmask' => '*',
         'displayErrors' => 1,
         'encryptionKey' => '506070055b32e8b0a9521b685eaf45f49db6bf15dcc0da442a1a3f478bc124c84253929181140ecdb5b8d2446d26ac62',
-        'exceptionalErrors' => 4096,
+        'exceptionalErrors' => 12290,
         'features' => [
             'unifiedPageTranslationHandling' => true,
         ],
         'sitename' => 'TYPO3 Base',
-        'systemLogLevel' => 2,
+        'systemLogLevel' => 0,
         'systemMaintainers' => [
             1,
         ],

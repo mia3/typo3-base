@@ -12,7 +12,7 @@ nbproject
 !/public/typo3conf/AdditionalConfiguration.php.example
 !/public/typo3conf/ext/
 /node_modules
-/public/typo3conf/ext/template/Resource/Public/Build
+/public/typo3conf/ext/template/Resources/Public/Build
 /*.sql
 /public/typo3conf/ext/mask
 /public/typo3conf/ext/vhs

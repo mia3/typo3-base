@@ -1,61 +1,23 @@
-# EditorConfig is awesome: http://EditorConfig.org
+# This file is for unifying the coding style for different editors and IDEs
+# editorconfig.org
 
-# top-most EditorConfig file
+# MIA3 Coding Standards
+# https://symfony.com/doc/current/contributing/code/standards.html (PHP)
+# https://github.com/airbnb/javascript (JavaScript)
+
 root = true
 
-# Unix-style newlines with a newline ending every file
 [*]
 charset = utf-8
 end_of_line = lf
+indent_size = 2
+indent_style = space
 insert_final_newline = true
+tab_width = 4
 trim_trailing_whitespace = true
 
-# CSS-Files
-[*.css]
-indent_style = tab
+[*.{php, twig, tpl}]
 indent_size = 4
 
-# HTML-Files
-[*.html]
+[Makefile]
 indent_style = tab
-indent_size = 4
-
-# LESS-Files
-[*.less]
-indent_style = tab
-indent_size = 4
-
-# JS-Files
-[*.js]
-indent_style = tab
-indent_size = 4
-
-# PHP-Files
-[*.php]
-indent_style = tab
-indent_size = 4
-
-# MD-Files
-[*.md]
-indent_style = tab
-indent_size = 4
-
-# ReST-Files
-[*.rst]
-indent_style = tab
-indent_size = 3
-
-# TypoScript
-[*.typoscript]
-indent_style = tab
-indent_size = 4
-
-# YML-Files
-[{*.yml,*.yaml}]
-indent_style = spaces
-indent_size = 4
-
-# package.json, composer.json or .travis.yml
-[{package.json,composer.json,.travis.yml}]
-indent_style = space
-indent_size = 2

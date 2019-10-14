@@ -11,14 +11,14 @@ $EM_CONF[$_EXTKEY] = [
         'depends' => [
             'typo3' => '9.5.0-9.5.99',
             'fluid_styled_content' => '9.5.0-9.5.99',
-            'rte_ckeditor' => '9.5.0-9.5.99'
+            'rte_ckeditor' => '9.5.0-9.5.99',
         ],
         'conflicts' => [
         ],
     ],
     'autoload' => [
         'psr-4' => [
-            'Mia3\\Template\\' => 'Classes'
+            'Mia3\\Template\\' => 'Classes',
         ],
     ],
     'state' => 'stable',

@@ -2,10 +2,12 @@
 # TCEFORM
 #
 TCEFORM {
-    pages {
+  pages {
+    rowDescription.disabled = 1
+  }
 
-    }
-    tt_content {
-
-    }
+  tt_content {
+    frame_class.disabled = 1
+    rowDescription.disabled = 1
+  }
 }

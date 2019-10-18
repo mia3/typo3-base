@@ -1,0 +1,31 @@
+/* Typography */
+.maskBase p,
+.maskBase h1,
+.maskBase h2,
+.maskBase h3,
+.maskBase h4,
+.maskBase h5,
+.maskBase h6 {
+  margin: 0;
+  padding: 0;
+}
+
+/* Horizontal Line */
+.maskBase hr {
+  border-top: 1px solid #CACACA;
+}
+
+/* Basic CSS */
+.maskBase__label {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.maskBase__content {
+  margin-bottom: 15px;
+}
+
+.maskBase__flex {
+  display: flex;
+  flex-flow: wrap
+}

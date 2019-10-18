@@ -6,5 +6,5 @@ defined('TYPO3_MODE') || die();
 $GLOBALS['TBE_STYLES']['skins'][$_EXTKEY] = [];
 $GLOBALS['TBE_STYLES']['skins'][$_EXTKEY]['name'] = $_EXTKEY;
 $GLOBALS['TBE_STYLES']['skins'][$_EXTKEY]['stylesheetDirectories'] = [
-    'EXT:template/Resources/Public/Build/Backend/',
+    'EXT:template/Resources/Public/Styles/BackendComponents/',
 ];

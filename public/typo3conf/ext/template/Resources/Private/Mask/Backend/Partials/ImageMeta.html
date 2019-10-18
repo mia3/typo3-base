@@ -1,0 +1,53 @@
+<f:section name="ImageFull">
+  <div class="imageMeta__imageContainer">
+
+    <f:render section="Image" arguments="{image: image}" />
+    <f:render section="Alt" arguments="{image: image}" />
+    <f:render section="Title" arguments="{image: image}" />
+  </div>
+</f:section>
+
+<f:section name="ImageAlt">
+  <div class="imageMeta__imageContainer">
+
+    <f:render section="Image" arguments="{image: image}" />
+    <f:render section="Alt" arguments="{image: image}" />
+  </div>
+</f:section>
+
+<f:section name="Image">
+  <f:if condition="{image}">
+    <div class="imageMeta__image"
+         style=" background-image:url({f:uri.image(image: image, treatIdAsReference:1, width:'200c')});">
+
+    </div>
+  </f:if>
+</f:section>
+
+<f:section name="Alt">
+  <f:if condition="{image.alternative}">
+    <f:then>
+      <span style="font-weight: bold">Alt:</span> {image.alternative} <br />
+    </f:then>
+
+    <f:else>
+      <div class="maskBase__label">
+        Alt: <span style="color: red">Fehlt!</span> <br />
+      </div>
+    </f:else>
+  </f:if>
+</f:section>
+
+<f:section name="Title">
+  <f:if condition="{image.title}">
+    <f:then>
+      <span style="font-weight: bold">Title:</span> {image.title} <br />
+    </f:then>
+
+    <f:else>
+      <div class="maskBase__label">
+        Title: <span style="color: red">Fehlt!</span> <br />
+      </div>
+    </f:else>
+  </f:if>
+</f:section>

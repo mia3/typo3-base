@@ -6,6 +6,8 @@ Get going quickly with TYPO3 CMS.
 
 * PHP 7.2
 * [Composer](https://getcomposer.org/download/)
+* [ImageMagick](https://imagemagick.org/script/download.php)
+* [GraphicsMagick](http://www.graphicsmagick.org/download.html)
 
 ## Quickstart
 
@@ -62,25 +64,31 @@ Get going quickly with TYPO3 CMS.
 
 
 ## Structure of the template (public/typo3conf/ext/template/)
-
-```
-Resources/Public                // Contains all css, js, images, fonts, etc
-Media/*                         // Media files like images, etc
-Components/*                    // External Libraries and Components
-Styles/Components/*.less        // custom component styles
-Styles/Base.less                // General Styling mainly focused towards desktop
-Styles/Main.less                // ties all the other styles together
-Scripts/Main.js                 // Place to put custom JS code
-Configuration/TypoScript/Setup  // Contains all PHP code to modify WP behavior
-Bootstrap.ts                    // Page configuration and CSS/JS Header includes
-Language.ts                     // Configuration for Language
-Extensions.ts                   // Place to put TypoScipt for different Extensions
-Resources/Private               // Templates
-Templates/Page                  // Page Templates based on fluidpages
-Templates/Content               // Content Elements based on fluidcontent
-Layouts                         // HTML that's the same on various page templates
-Partials                        // Reusable Parts
-Extensions/[ExtName]/...        // Place to put altered extension templates
+```bash
+Classes/ViewHelpers/            # Custom ViewHelper
+Configuration/                  # TYPO3 configuration / setup
+Resources/Private/
+    Form/                       # Form configurations
+    Language/                   # Translations for different Languages
+    Layouts/                    # Page Layouts
+Mask/Backend/ 
+    Example/                    # Mask backend preview example templates
+    Layouts/                    # Mask backend preview layouts
+    Partials/                   # Mask backend preview partials
+    Templates/                  # Mask backend preview templates
+    Previews/                   # Mask preview-icons for contentelements
+Mask/Frontend/ 
+    Layouts/                    # Mask content fluid layouts
+    Partials/                   # Mask content fluid partials
+    Templates/                  # Mask content fluid templates
+Templates/ 
+    ContentElements/            # Standart content fluid templates
+    Page/                       # Page Templates
+Resources/Public/
+    Build/                      # Bundled webpack files
+    Media/                      # Icons, logos, unmaintainable images, etc. 
+    Scripts/                    # JavaScript files
+    Styles/                     # Frontend and backend preview CSS styles
 ```
 
 ## Makefile

@@ -1,0 +1,28 @@
+<div class="maskBase">
+  <f:if condition="{data.tx_mask_name}">
+    <div class="maskBase__label">
+      Name:
+    </div>
+    <div class="maskBase__content">
+      {data.tx_mask_name}
+    </div>
+  </f:if>
+
+  <f:if condition="{data.tx_mask_some_number}">
+    <div class="maskBase__label">
+      Some Number:
+    </div>
+    <div class="maskBase__content">
+      {data.tx_mask_some_number}
+    </div>
+  </f:if>
+
+  <f:if condition="{data.tx_mask_some_number}">
+    <div class="maskBase__label">
+      Some Richtext:
+    </div>
+    <div class="maskBase__content">
+      <f:format.html parseFuncTSPath="lib.parseFunc_RTE">{data.tx_mask_some_richtext}</f:format.html>
+    </div>
+  </f:if>
+</div>

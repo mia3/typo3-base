@@ -1,0 +1,15 @@
+/* CSS For The ImageMeta Partial */
+.imageMeta__imageContainer {
+  width: 150px;
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+
+.imageMeta__image {
+  height: 100px;
+  width: 150px;
+  margin-bottom: calc(30px / 2);
+  margin-right: calc(30px / 2);
+  background-size: cover;
+  background-position: 50% 50%;
+}

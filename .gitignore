@@ -6,6 +6,7 @@ nbproject
 /vendor
 /node_modules
 /*.sql
+/**/ENABLE_INSTALL_TOOL
 
 # Web Root
 /public/fileadmin

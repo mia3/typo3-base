@@ -12,7 +12,7 @@ help:
 
 setup: install-dependencies setup/database-connection migrate build clear-cache ## Setup the new project
 	./vendor/bin/typo3cms extension:setupactive
-	./vendor/bin/typo3cms backend:createadmin
+	./vendor/bin/typo3cms backend:createadmin admin
 
 build/watch: ## Build assets with sourcemaps and watch for changes
 	./node_modules/.bin/encore dev --watch

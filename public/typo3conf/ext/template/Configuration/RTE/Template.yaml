@@ -1,0 +1,68 @@
+# Load default processing options
+imports:
+  - { resource: "EXT:template/Configuration/RTE/Config/Processing.yaml" }
+  - { resource: "EXT:template/Configuration/RTE/Editor/Base.yaml" }
+  - { resource: "EXT:template/Configuration/RTE/Editor/Plugins.yaml" }
+
+# Add configuration for the editor
+# For complete documentation see http://docs.ckeditor.com/#!/api/CKEDITOR.config
+editor:
+  config:
+    format_tags: "h2;h3;h4;p"
+    enterMode: 3
+    entities: false
+    stylesSet:
+      # block level styles
+      - { name: "Default", element: ["h2", "h3", "h4"], attributes: { 'class': ' ' } }
+      - { name: "UpperCase", element: ["h2", "h3", "h4"], attributes: { 'class': 'text--uppercase' } }
+
+      - { name: "Paragraph", element: "p"}
+      - { name: "Bold", element: "p", attributes: { 'class': 'text--bold' } }
+      - { name: "Heading 2", element: "p", attributes: { 'class': 'headline-2' }}
+      - { name: "Heading 3", element: "p", attributes: { 'class': 'headline-3' }}
+      - { name: "Heading 4", element: "p", attributes: { 'class': 'headline-4' }}
+
+      # Links
+      - {name: "Link", element: 'a', attributes: {'class': ' '}}
+      - {name: "Button", element: 'a', attributes: {'class': 'button'}}
+      - {name: "Button (inversed)", element: 'a', attributes: {'class': 'button button--inversed'}}
+
+      # list styles
+      - { name: "List - Default", element: "ul", attributes: { 'class': ' ' } }
+      - { name: "List - Inline", element: "ul", attributes: { 'class': 'styled-list styled-list--inline' } }
+
+    toolbarGroups:
+      - { name: clipboard, groups: [clipboard, undo] }
+      - { name: links }
+      - { name: basicstyles, groups: [ basicstyles, align, cleanup ] }
+      - { name: paragraph,   groups: [ list, blocks, align ] }
+      - { name: insert }
+      - { name: document,  groups: [ mode ] }
+      - { name: styles }
+      - { name: others }
+    justifyClasses:
+      - text--left
+      - text--center
+      - text--right
+      - text--justify
+
+    forcePasteAsPlainText: true
+    extraPlugins:
+      - justify
+      - typo3link
+      - find
+      - bidi
+
+    removePlugins:
+      - image
+      - font
+
+    removeButtons:
+      - Anchor
+      - Strike
+      - HorizontalRule
+
+processing:
+  allowTags:
+    - s
+    - u

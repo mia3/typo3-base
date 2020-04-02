@@ -1,0 +1,82 @@
+/* Lists
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.styled-list{
+   list-style-type: none;
+   margin: 0;
+   padding-left: 0;
+}
+.styled-list--inline {
+  margin-bottom: 15px;
+}
+.styled-list li {
+  position: relative;
+  display: block;
+  padding-left: 5px;
+}
+
+.styled-list li + li{
+  margin-top: 5px;
+}
+.styled-list li:before{
+  content: '.';
+  position: absolute;
+  bottom: 0;
+  color: inherit;
+  left: -6.5px;
+  display: block;
+}
+.styled-list--inline li{
+  display: inline-block;
+  margin-bottom: 0;
+  margin-right: 5px;
+  padding-left: 0;
+}
+.styled-list--inline li:first-child:before{
+  display: none;
+}
+
+.styled-list--inline > li:last-child {
+  margin-right: 0;
+}
+.styled-list--inline li + li {
+  margin-left: 5px;
+  margin-top: 0;
+}
+
+@media screen and (--screen-sm){
+  .styled-list li:before        { left: -17.5px; }
+  .styled-list--inline li       { margin-right: 15px; }
+  .styled-list--inline li + li  { margin-left: 15px; }
+}
+@media screen and (--screen-tb){
+  .styled-list li:before        { left: -13.5px; }
+  .styled-list--inline li       { margin-right: 10px; }
+  .styled-list--inline li + li  { margin-left: 10px; }
+}
+
+/* Lists - RTE - CI
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+ul.styled-listCI {
+  list-style: none;
+  padding-left: 0;
+}
+
+.styled-listCI li {
+  padding-left: 0.5em;
+  position: relative;
+}
+
+.styled-listCI li:before {
+  display: inline-block;
+  content: ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.styled-listCI--gray li {
+  color: var(--gray);
+}
+
+/*
+–––––––––––––––––––––––––––––––––––––––––––––––––– */

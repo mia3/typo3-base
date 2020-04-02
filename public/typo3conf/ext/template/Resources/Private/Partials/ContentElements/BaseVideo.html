@@ -1,0 +1,7 @@
+<f:if condition="{data.tx_mask_media_video}">
+        <base-video controls aspect-ratio-class="{f:if(condition:data.tx_mask_media_format, then:'{data.tx_mask_media_format}', else: 'media--default')}">
+            <f:for each="{data.tx_mask_media_video}" as="file">
+                <source src="{f:uri.image(image:file)}" type="{file.originalFile.properties.mime_type}">
+            </f:for>
+        </base-video>
+</f:if>

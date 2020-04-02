@@ -1,0 +1,81 @@
+{namespace v=FluidTYPO3\Vhs\ViewHelpers}
+<f:section name="Main">
+        <f:for each="{files}" as="file">
+            <f:render section="Image" arguments="{image: file}" />
+        </f:for>
+</f:section>
+
+<f:section name="Image">
+    <f:if condition="{image}">
+      <figure class="image{f:if(condition: image.description, then:' image--hasCaption', else: '')}{f:if(condition: '{image.properties.stretch_across_content}', then:' image--fullWidth', else: '')}">
+            <f:if condition="{image.link}">
+                <f:then>
+                    <f:link.typolink parameter="{image.link}" title="{image.title}">
+                        <f:render section="Source" arguments="{image: image, imageClass: imageClass, width: width, height: height}" />
+                    </f:link.typolink>
+                </f:then>
+                <f:else>
+                    <f:render section="Source" arguments="{image: image, imageClass: imageClass, width: width, height: height}" />
+                </f:else>
+            </f:if>
+            <f:if condition="{image.description}">
+                <figcaption class="image-captionContainer">
+                    <span class="paragraph image-caption ">{image.description}</span>
+                </figcaption>
+            </f:if>
+        </figure>
+    </f:if>
+</f:section>
+
+<f:section name="ImageWithoutLink">
+    <f:if condition="{image}">
+      <figure class="image{f:if(condition: image.description, then:' image--hasCaption', else: '')}{f:if(condition: '{image.properties.stretch_across_content}', then:' image--fullWidth', else: '')}">
+            <f:render section="Source" arguments="{image: image, imageClass: imageClass, width: width, height: height}" />
+            <f:if condition="{image.description}">
+                <figcaption class="image-captionContainer">
+                    <span class="paragraph image-caption ">{image.description}</span>
+                </figcaption>
+            </f:if>
+        </figure>
+    </f:if>
+</f:section>
+
+<f:section name="Source">
+    <f:variable name="variants" value="{t:image.VariantsToArray(file: image)}" />
+    <f:variable name="config" value="{t:extension.Configuration(extension:'template')}"/>
+    <f:if condition="{variants -> f:count()} > 1">
+        <f:then>
+            <picture>
+                <f:for as="data" each="{variants}" key="variant">
+                    <f:alias map="{variantsConfig: 'config.variants.{variant}'}">
+                        <f:variable name="sourceSet" value="{v:variable.get(name: '{variantsConfig}')}"></f:variable>
+                        <f:if condition="{sourceSet}">
+                            <source srcset="{f:uri.image(image:image, cropVariant:variant, maxWidth: sourceSet.maxWidth,  width: width, height: height)}"
+                                    media="{sourceSet.media}"/>
+                        </f:if>
+                    </f:alias>
+                </f:for>
+                <f:render section="img" arguments="{image: image, variant: 'desktop', maxWidth: config.variants.desktop.maxWidth, width: width, height: height, imageClass: imageClass}" />
+            </picture>
+        </f:then>
+        <f:else>
+            <f:for as="data" each="{variants}" key="variant">
+                <f:render section="img" arguments="{
+                image: image,
+                variant: '{variant}',
+                maxWidth: 1920,
+                width: width,
+                height: height,
+                imageClass: imageClass
+                }" />
+            </f:for>
+        </f:else>
+    </f:if>
+</f:section>
+
+<f:section name="img">
+    <img src="{f:uri.image(image:image, cropVariant:variant, maxWidth:maxWidth,  width: width, height: height)}"
+         alt="{image.alternative}"
+         title="{image.title}"
+         class="{imageClass}">
+</f:section>

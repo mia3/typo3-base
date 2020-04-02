@@ -1,0 +1,37 @@
+<page-header class="page-header">
+    <div class="desktop-header" slot-scope="offCanvasNavigation">
+        <f:render section="DesktopHeader"></f:render>
+    </div>
+    <template slot="offCanvas" slot-scope="mobileNavigation">
+        <f:render section="OffCanvas"></f:render>
+    </template>
+</page-header>
+
+<f:section name="OffCanvas">
+    <div class="mobileHeader">
+        <f:render section="Logo"/>
+        <button-close @click="mobileNavigation.close" :active="mobileNavigation.isOpen" />
+    </div>
+    <div class="mobileContent">
+      <f:render section="Menu" partial="MainNavigation" />
+    </div>
+</f:section>
+
+<f:section name="DesktopHeader">
+    <div class="container">
+        <div class="logo-container">
+            <f:render section="Logo"/>
+        </div>
+        <div class="header-container">
+            <button-burger @click="offCanvasNavigation.open" :active="offCanvasNavigation.isOpen"></button-burger>
+            <f:render partial="MainNavigation"/>
+        </div>
+
+    </div>
+</f:section>
+
+<f:section name="Logo">
+    <a href="/" class="logo">
+        <img src="{f:uri.resource(path:'Media/Logo.svg', extensionName: 'template')}" alt="Logo" title="Zur Startseite"/>
+    </a>
+</f:section>

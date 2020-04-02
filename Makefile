@@ -33,7 +33,7 @@ build/production: ## Build minified assets
 	./node_modules/.bin/encore production
 
 migrate: ## Apply database migration
-	./vendor/bin/typo3cms database:updateschema '*.add, *.change'
+	./vendor/bin/typo3cms database:updateschema
 
 clear-cache: ## Clear TYPO3 cache
 	./vendor/bin/typo3cms cache:flush

@@ -1,17 +1,23 @@
 // webpack.config.js
 let Encore = require('@symfony/webpack-encore');
 
-const assetPath = './public/typo3conf/ext/template/Resources/Public/';
+const assetPath = './public/typo3conf/ext/template/Resources/Private/Assets/';
+const buildPath = './public/typo3conf/ext/template/Resources/Public/Build/';
 
 // directory where all compiled assets will be stored
-Encore.setOutputPath(assetPath + 'Build/')
-// what's the public path to this directory (relative to your project's document root dir)
+Encore.setOutputPath(buildPath)
+  // what's the public path to this directory (relative to your project's document root dir)
   .setPublicPath('/typo3conf/ext/template/Resources/Public/Build/')
   .enableSingleRuntimeChunk()
   // will output as web/build/app.js
-  .addEntry('Main', [
-    assetPath + 'Scripts/Main.js',
+  .addEntry('mia3_scripts', [
+    assetPath + 'Scripts/Main.js'
+  ])
+  .addStyleEntry("mia3_styles", [
     assetPath + 'Styles/Main.css',
+  ])
+  .addStyleEntry("RichTextEditor", [
+    assetPath + 'Styles/RichTextEditor.css',
   ])
   .enableVueLoader()
   .enablePostCssLoader()

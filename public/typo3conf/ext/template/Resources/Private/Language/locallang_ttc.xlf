@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0" xmlns:t3="http://typo3.org/schemas/xliff">
+	<file t3:id="1415814791" source-language="en" datatype="plaintext" original="EXT:template/Resources/Private/Language/locallang_ttc.xlf" date="2011-10-17T20:22:32Z" product-name="cms">
+		<header/>
+		<body>
+			<trans-unit id="stretch_across_content" resname="stretch_across_content">
+				<source>Stretch across whole content area</source>
+			</trans-unit>
+			<trans-unit id="stretch_across_content.desc" resname="stretch_across_content.desc">
+				<source>For the web optimized pictures are always uploaded as small as necessary. Therefore it can happen, if an image is selected, that it is too small for the content area. With this option the element can be stretched to the full width.</source>
+			</trans-unit>
+            <trans-unit id="header_semantic" resname="header_semantic">
+              <source>Header Semantic</source>
+            </trans-unit>
+            <trans-unit id="header_semantic.desc" resname="header_semantic.desc">
+              <source>A good headings hierarchy has among others influence on the SEO ranking. However, sometimes as an editor you may want to visually structure the content without having any influence on Seo Semantic. With this option the SEO relevance can be turned on and off.</source>
+            </trans-unit>
+          <trans-unit id="header_styles" resname="header_styles">
+              <source>Style</source>
+          </trans-unit>
+          <trans-unit id="header_styles.uppercase" resname="header_styles.uppercase">
+            <source>Uppercase</source>
+          </trans-unit>
+          <trans-unit id="header_styles.none" resname="header_styles.none">
+            <source>None</source>
+          </trans-unit>
+		</body>
+	</file>
+</xliff>

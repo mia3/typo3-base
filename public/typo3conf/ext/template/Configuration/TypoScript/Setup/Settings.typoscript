@@ -1,0 +1,22 @@
+plugin.tx_template.settings{
+    footerNavigationUid = 3
+    companyName = MIA3 GmbH & Co. KG
+    variants {
+        default {
+            media = (min-width: 0px)
+            maxWidth = 1920
+        }
+        desktop {
+            media =  (min-width: 992px)
+            maxWidth = 1920
+        }
+        tablet {
+            media = (min-width: 545px)
+            maxWidth = 768
+        }
+        mobile {
+            media = (max-width: 544px)
+            maxWidth = 544
+        }
+    }
+}

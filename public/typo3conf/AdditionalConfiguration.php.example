@@ -23,6 +23,10 @@ $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'] = [
 //     'transport_smtp_server' => 'mailcatcher.mia3.com:1025'
 // ];
 
+$GLOBALS['TYPO3_CONF_VARS']['GFX']['processor'] = 'GraphicsMagick';
+$GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_path'] = '/usr/local/bin/';
+$GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_path_lzw'] = '/usr/local/bin/';
+
 // $GLOBALS['TYPO3_CONF_VARS']['BE']['debug'] = true;
 // $GLOBALS['TYPO3_CONF_VARS']['FE']['debug'] = true;
 // $GLOBALS['TYPO3_CONF_VARS']['SYS']['displayErrors'] = 1;

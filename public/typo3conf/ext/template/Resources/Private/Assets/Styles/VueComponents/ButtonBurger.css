@@ -1,0 +1,39 @@
+.button-burger{
+    border: none;
+    background: var(--white);
+    padding: 7.5px 0.66666666em;
+    transition: padding .3s ease-in;
+    width: auto;
+    margin: 0;
+}
+.button-burger:hover,
+.button-burger:focus,
+.button-burger:active {
+    background: transparent;
+}
+
+
+.button-burger .bar{
+    height: var(--base);
+    background: var(--orange);
+    width: var(--base-6);
+    display: block;
+    border-radius: 2px;
+    transition: width cubic-bezier(.81,-0.23,0,1.35) .3s, transform .9s cubic-bezier(.81,-0.23,0,1.35);
+}
+.button-burger .bar + .bar {
+    margin-top: var(--base);
+}
+
+.button-burger.button-burger--active .bar {
+    width: 0px;
+}
+.button-burger.button-burger--active .bar:first-child{
+    transform: translateY(var(--base-2));
+    transition: transform .3s cubic-bezier(.81,-0.23,0,1.35), width cubic-bezier(.81,-0.23,0,1.35) .9s;
+}
+
+.button-burger.button-burger--active .bar:last-child{
+    transform: translateY(calc(var(--base-2) * -1));
+    transition: transform .3s cubic-bezier(.81,-0.23,0,1.35), width cubic-bezier(.81,-0.23,0,1.35) .9s;
+}

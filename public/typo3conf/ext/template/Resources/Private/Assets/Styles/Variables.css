@@ -1,0 +1,79 @@
+:root {
+  --white: #FFF;
+  --orange: orange;
+
+  --container-width: 1200px;
+
+  --base: 6px;
+  --base-2: calc(2*var(--base)); /* 12px */
+  --base-3: calc(3*var(--base)); /* 18px */
+  --base-4: calc(4*var(--base)); /* 24px */
+  --base-5: calc(5*var(--base)); /* 30px */
+  --base-6: calc(6*var(--base)); /* 36px */
+  --base-7: calc(7*var(--base)); /* 42px */
+  --base-8: calc(8*var(--base)); /* 48px */
+  --base-9: calc(9*var(--base)); /* 54px */
+  --base-10: calc(10*var(--base)); /* 60px */
+
+  --line-1: var(--base-3);
+  --line-2: calc(2 * var(--line-1));
+  --line-3: calc(3 * var(--line-1));
+  --line-4: calc(4 * var(--line-1));
+  --line-5: calc(5 * var(--line-1));
+  --line-6: calc(6 * var(--line-1));
+  --line-7: calc(7 * var(--line-1));
+  --line-8: calc(8 * var(--line-1));
+  --line-9: calc(9 * var(--line-1));
+  --line-10: calc(10 * var(--line-1));
+
+  /*
+    Base Line
+  */
+  --font-base: var(--line-1);
+  --font-base-lineHeight: 2rem;
+
+  --text-fontSize: 1rem;
+  --text-lineHeight: 2em;
+  --text-threshold: 11px;
+  --text-margin: 0px;
+
+  --h1-fontSize: 54px;
+  --h1-lineHeight: 2em;
+  --h1-threshold: 0px;
+  --h1-margin: 0px;
+
+  --h2-fontSize: 42px;
+  --h2-lineHeight: 72px;
+  --h2-threshold: 4px;
+  --h2-margin: var(--line-1);
+
+  --h3-fontSize: 36px;
+  --h3-lineHeight: 54px;
+  --h3-threshold: 15px;
+  --h3-margin: var(--line-2);
+
+  --h4-fontSize: var(--text-fontSize);
+  --h4-lineHeight: var(--text-lineHeight);
+  --h4-threshold: var(--text-threshold);
+  --h4-margin: var(--line-2);
+
+  --row-base: 2em;
+
+  --grid-gap: var(--base-3);
+
+  /* Media */
+  --ratio-1by1: calc(1 / 1);
+  --ratio-3by2: calc(3 / 2);
+  --ratio-4by3: calc(4 / 3);
+  --ratio-16by9: calc(16 / 9);
+
+  --media-base: 100%;
+  --media-1by1: calc(var(--media-base) / var(--ratio-1by1));
+  --media-3by2: calc(var(--media-base) / var(--ratio-3by2));
+  --media-4by3: calc(var(--media-base) / var(--ratio-4by3));
+  --media-16by9: calc(var(--media-base) / var(--ratio-16by9));
+}
+
+@media screen and (--screen-sm){
+  /* Your favorite Variables come here! */
+}

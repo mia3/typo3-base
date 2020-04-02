@@ -2,11 +2,22 @@
 defined('TYPO3_MODE') || die();
 
 /***************
- * Add default RTE configuration
- */
-$GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['template'] = 'EXT:template/Configuration/RTE/Default.yaml';
-
-/***************
  * PageTS
  */
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/TsConfig/Page/All.tsconfig">');
+
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['t'] = ['Mia3\\Template\\ViewHelpers'];
+$GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['default_core'] = $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['default'];
+$GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['default'] = 'EXT:template/Configuration/RTE/Template.yaml';
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Mia3.Template',
+    'contact',
+    [
+        'ContactForm' => 'submit'
+    ],
+    // non-cacheable actions
+    [
+        'ContactForm' => ''
+    ]
+);

@@ -13,5 +13,6 @@ module.exports = {
     },
     'cssnext': {},
     'autoprefixer': {},
+    'lost': {},
   },
 };

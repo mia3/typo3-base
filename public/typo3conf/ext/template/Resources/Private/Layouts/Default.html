@@ -1,0 +1,31 @@
+{namespace t=Mia3\Template\ViewHelpers}
+<html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers" xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+     xmlns:t="http://typo3.org/ns/Mia3/Template/ViewHelpers"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     xmlns="http://www.w3.org/1999/xhtml"
+     lang="en">
+    <div class="vue page-layout">
+        <f:for each="{v:page.rootline()}" as="page">
+            <f:if condition="{page.is_siteroot}">
+                <v:variable.set name="rootPage" value="{v:page.info(pageUid: page.uid)}" />
+                <f:if condition="{rootPage.doktype} == 4">
+                    <f:then>
+                        <v:variable.set name="frontPage" value="{v:page.info(pageUid: rootPage.shortcut)}" />
+                    </f:then>
+                    <f:else>
+                        <v:variable.set name="frontPage" value="{v:variable.get(name: 'rootPage')}" />
+                    </f:else>
+                </f:if>
+            </f:if>
+        </f:for>
+        <v:variable.set name="settings" value="{t:extension.configuration(extension: 'template')}" />
+        <f:render partial="Header" arguments="{_all}" />
+
+      <main class="page-mainContent">
+        <f:render section="Main"/>
+      </main>
+
+        <f:render partial="Footer" arguments="{_all}"/>
+    </div>
+</html>

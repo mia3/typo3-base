@@ -2,7 +2,8 @@
 #### RTE ####
 #############
 RTE {
-    default {
-        preset = template
-    }
+  default {
+    preset = default
+  }
+  config.tt_content.bodytext.preset = default
 }

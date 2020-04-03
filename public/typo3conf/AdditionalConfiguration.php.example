@@ -27,7 +27,7 @@ $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor'] = 'GraphicsMagick';
 $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_path'] = '/usr/local/bin/';
 $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_path_lzw'] = '/usr/local/bin/';
 
-$GLOBALS['TYPO3_CONF_VARS']['BE']['installToolPassword'] = '';
+//$GLOBALS['TYPO3_CONF_VARS']['BE']['installToolPassword'] = '';
 
 // $GLOBALS['TYPO3_CONF_VARS']['BE']['debug'] = true;
 // $GLOBALS['TYPO3_CONF_VARS']['FE']['debug'] = true;

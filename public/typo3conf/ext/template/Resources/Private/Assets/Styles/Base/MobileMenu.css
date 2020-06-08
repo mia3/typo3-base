@@ -1,25 +1,27 @@
-.responsive-menu-container{
+.responsiveMenuContainer {
   display: none;
 }
-.off-canvas-container .responsive-menu-container {
+
+.offCanvasContainer .responsiveMenuContainer {
   display: block;
   position: relative;
 }
 
-.off-canvas-container .button-close{
+.offCanvasContainer .button--close {
   z-index: 11;
 }
 
-.responsive-menu {
+.responsiveMenu {
   margin: 0 0 0 5px;
   color: white;
 }
-.responsive-menu a{
+
+.responsiveMenu a {
   color: white;
   text-decoration: none;
 }
 
-.page-logo--responsiveMenu {
+.page__logo--responsiveMenu {
   display: inline-block;
   height: var(--base-6);
   margin: var(--base-3) 0;
@@ -28,26 +30,26 @@
   text-align: center;
 }
 
-.page-logo--responsiveMenu img {
+.page__logo--responsiveMenu img {
   height: 100%;
   width: auto;
 }
 
 @media screen and (--screen-mb) {
-  .page-logo--responsiveMenu {
+  .page__logo--responsiveMenu {
     height: var(--base-7);
     margin: var(--base-4) 0;
   }
 }
 
 @media screen and (--screen-sm) {
-  .responsive-menu-container {
+  .responsiveMenuContainer {
     display: none;
   }
 }
 
 @media screen and (--screen-tb) {
-  .responsive-menu {
+  .responsiveMenu {
     margin: 0 0 0 10px;
   }
 }

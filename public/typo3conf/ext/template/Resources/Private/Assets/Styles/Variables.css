@@ -1,6 +1,7 @@
 :root {
   --white: #FFF;
   --orange: orange;
+  --gray: gray;
 
   --backgroundcolor-1: var(--white);
   --backgroundcolor-2: var(--white);

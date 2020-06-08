@@ -1,13 +1,15 @@
-.page-layout{
-     display: flex;
-     flex-direction: column;
-     min-height: 100vh;
- }
-.page-layout .page-mainContent{
-    flex: 1 0 auto;
+.page__layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-.scroll--sentinel{
-    min-height: 1px;
-    margin-top: -1px;
-    width: 100%;
+
+.page__layout .page__mainContent {
+  flex: 1 0 auto;
+}
+
+.scroll--sentinel {
+  min-height: 1px;
+  margin-top: -1px;
+  width: 100%;
 }

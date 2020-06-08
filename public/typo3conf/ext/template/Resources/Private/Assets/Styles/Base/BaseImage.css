@@ -2,30 +2,34 @@
 
 }
 
+.image--fullWidth {
+}
+
 .image--hasCaption {
-    position: relative;
+  position: relative;
 }
 
-.image-captionContainer {
-    position: absolute;
-    right: var(--base-2);
-    bottom: var(--base);
-    z-index: 1000;
+.image__captionContainer {
+  position: absolute;
+  right: var(--base-2);
+  bottom: var(--base);
+  z-index: 1000;
 }
 
-.image-captionContainer--left {
-    left: var(--base-2);
+.image__captionContainer--left {
+  left: var(--base-2);
 }
 
-.image-caption {
-    color: var(--white);
+.image__caption {
+  color: var(--white);
 }
+
 .image-caption:before {
-    content: "©";
-    display: inline-block;
-    margin-right: 0.25em;
+  content: "©";
+  display: inline-block;
+  margin-right: 0.25em;
 }
 
-figure.image{
-    margin: 0;
+figure.image {
+  margin: 0;
 }

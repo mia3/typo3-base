@@ -18,15 +18,16 @@ body {
   box-sizing: border-box;
 }
 
-strong, b{
+strong, b {
   font-weight: bold;
 }
 
-img{
+img {
   max-width: 100%;
-  height:auto;
+  height: auto;
 }
-.image-centered {
+
+.image--centered {
   position: absolute;
   top: 0;
   height: 100%;
@@ -36,9 +37,9 @@ img{
   overflow: hidden;
 }
 
-.image-centered img {
+.image--centered img {
   position: absolute;
-  top:50%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: auto;
@@ -49,18 +50,19 @@ img{
   background-size: cover;
 }
 
-.image-centered-small img {
+.image--centered--small img {
   width: 100%;
   min-height: 100%;
   object-fit: cover;
   /* object-position: 100% 0; */
 }
 
-.page-viewport{
+.pageViewport {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   height: 100vh;
 }
-.page-viewport .stage-intro{
+
+.pageViewport .stageIntro {
   flex: 1 1 100%;
 }

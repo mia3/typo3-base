@@ -2,9 +2,9 @@
     <div :class="{'header--fixed': isFixed, 'header--static': !isFixed, 'is--scrolling': isScrolling}" ref="pageHeader">
         <slot :open="open" :close="close" :isOpen="navOpen"></slot>
         <div class="scroll--sentinel" ref="sentinel"></div>
-        <div class="offCanvas-container" :class="{'offCanvas--shown': navOpen}">
+        <div class="offCanvas__container" :class="{'offCanvas--shown': navOpen}">
             <div class="backdrop" @click="close"></div>
-            <div class="offCanvas-content">
+            <div class="offCanvas__content">
                 <slot name="offCanvas" :open="open" :close="close" :isOpen="navOpen"></slot>
             </div>
         </div>

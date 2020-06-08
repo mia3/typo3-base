@@ -1,50 +1,58 @@
-<f:form class="contact-form" action="submit" noCache="1" object="{contact}" objectName="contactFormRequest" controller="ContactForm" method="POST" extensionName="template" pluginName="contact" >
-    <f:if condition="{settings.link}">
-        <f:form.hidden  name="redirect" value="{f:uri.typolink(parameter: settings.link)}" />
+<f:form class="contactForm" action="submit" noCache="1" object="{contact}" objectName="contactFormRequest"
+        controller="ContactForm" method="POST" extensionName="template" pluginName="contact">
+  <f:if condition="{settings.link}">
+    <f:form.hidden name="redirect" value="{f:uri.typolink(parameter: settings.link)}"/>
+  </f:if>
+
+  <f:form.validationResults>
+    <f:if condition="{validationResults.flattenedErrors}">
+      <div class="alert">
+        <p>
+          <f:translate key="error.headline"/>
+        </p>
+      </div>
     </f:if>
-
-    <f:form.validationResults>
-        <f:if condition="{validationResults.flattenedErrors}">
-            <div class="alert">
-                <p><f:translate key="error.headline" /></p>
-            </div>
-        </f:if>
+  </f:form.validationResults>
+  <div class="row baseField">
+    <f:form.validationResults for="contactFormRequest.name" as="validation">
+      <base-input :invalid="{validation.errors -> f:count()}" class="column-6"
+                  validation="{f:translate(key:'error.{validation.errors.0.code}', default: '{validation.errors.0.code}')}">
+        <f:form.textfield placeholder="Name:" property="name"/>
+      </base-input>
     </f:form.validationResults>
-    <div class="row baseField">
-        <f:form.validationResults for="contactFormRequest.name" as="validation">
-            <base-input :invalid="{validation.errors -> f:count()}" class="column-6" validation="{f:translate(key:'error.{validation.errors.0.code}', default: '{validation.errors.0.code}')}">
-                <f:form.textfield placeholder="Name:" property="name" />
-            </base-input>
-        </f:form.validationResults>
-        <f:form.validationResults for="contactFormRequest.email" as="validation">
-            <base-input :invalid="{validation.errors -> f:count()}" class="column-6" validation="{f:translate(key:'error.{validation.errors.0.code}', default: '{validation.errors.0.code}')}">
-                <f:form.textfield placeholder="E-Mail:" property="email" required="required" />
-            </base-input>
-        </f:form.validationResults>
-    </div>
-
-
-    <f:form.validationResults for="contactFormRequest.comment" as="validation">
-        <base-input element="textarea" :autosize="true" :invalid="{validation.errors -> f:count()}" validation="{f:translate(key:'error.{validation.errors.0.code}', default: '{validation.errors.0.code}')}">
-            <f:form.textarea placeholder="Ihre Nachricht:" property="comment" />
-        </base-input>
+    <f:form.validationResults for="contactFormRequest.email" as="validation">
+      <base-input :invalid="{validation.errors -> f:count()}" class="column-6"
+                  validation="{f:translate(key:'error.{validation.errors.0.code}', default: '{validation.errors.0.code}')}">
+        <f:form.textfield placeholder="E-Mail:" property="email" required="required"/>
+      </base-input>
     </f:form.validationResults>
-    <div class="veryImportantField">
-        <f:form.textfield property="additionalInformation" tabindex="-1"  />
-    </div>
-    <div class="baseField field--disclaimer">
-        <f:format.html>{settings.privacy}</f:format.html>
-    </div>
-    <div class="baseField {f:if(condition: settings.submit.alignment, then: 'text--{settings.submit.alignment}', else : 'text--right')}">
-        <button type="submit"  class="{f:if(condition: '{settings.submit.style} != -1', then: 'button {settings.submit.style}', else: 'button')}">
-            <f:if condition="{settings.submit.label}">
-                <f:then>
-                    {settings.submit.label}
-                </f:then>
-                <f:else>
-                    {f:translate(key:'form.contact.submit')}
-                </f:else>
-            </f:if>
-        </button>
-    </div>
+  </div>
+
+
+  <f:form.validationResults for="contactFormRequest.comment" as="validation">
+    <base-input element="textarea" :autosize="true" :invalid="{validation.errors -> f:count()}"
+                validation="{f:translate(key:'error.{validation.errors.0.code}', default: '{validation.errors.0.code}')}">
+      <f:form.textarea placeholder="Ihre Nachricht:" property="comment"/>
+    </base-input>
+  </f:form.validationResults>
+  <div class="veryImportantField">
+    <f:form.textfield property="additionalInformation" tabindex="-1"/>
+  </div>
+  <div class="baseField field--disclaimer">
+    <f:format.html>{settings.privacy}</f:format.html>
+  </div>
+  <div
+    class="baseField {f:if(condition: settings.submit.alignment, then: 'text--{settings.submit.alignment}', else : 'text--right')}">
+    <button type="submit"
+            class="{f:if(condition: '{settings.submit.style} != -1', then: 'button {settings.submit.style}', else: 'button')}">
+      <f:if condition="{settings.submit.label}">
+        <f:then>
+          {settings.submit.label}
+        </f:then>
+        <f:else>
+          {f:translate(key:'form.contact.submit')}
+        </f:else>
+      </f:if>
+    </button>
+  </div>
 </f:form>

@@ -4,7 +4,7 @@
 button,
 input[type="submit"],
 input[type="reset"],
-input[type="button"]{
+input[type="button"] {
   display: inline-block;
   border: 2px solid white;
   background: transparent;
@@ -14,7 +14,7 @@ input[type="button"]{
   line-height: var(--button-line-height);
   font-size: var(--button-font-size);
   text-decoration: none;
-  font-family: var(--bold) ;
+  font-family: var(--bold);
   transition: color .1s ease-out, background .2s ease-out;
 }
 
@@ -36,6 +36,7 @@ input[type="reset"]:active,
 input[type="button"]:active {
   outline: none;
 }
+
 button:hover,
 .button:hover,
 input[type="submit"]:hover,
@@ -45,7 +46,7 @@ input[type="button"]:hover,
 button:focus,
 input[type="submit"]:focus,
 input[type="reset"]:focus,
-input[type="button"]:focus{
+input[type="button"]:focus {
   background: white;
   color: black;
   cursor: pointer;
@@ -55,45 +56,46 @@ button[disabled],
 .button[disabled],
 input[type="submit"][disabled],
 input[type="reset"][disabled],
-input[type="button"][disabled]{
+input[type="button"][disabled] {
   opacity: .5;
   cursor: not-allowed;
 
 }
 
-.button-burger,
-.button-close{
+.button--burger,
+.button--close {
   border: none;
   padding: 0;
 }
-.button-burger:hover,
-.button-burger:focus,
-.button-burger:active,
-.button-close:hover,
-.button-close:active,
-.button-close:focus{
+
+.button--burger:hover,
+.button--burger:focus,
+.button--burger:active,
+.button--close:hover,
+.button--close:active,
+.button--close:focus {
   background: transparent;
 }
 
-.button-burger .bar {
+.button--burger .bar {
   height: 5px;
   width: 30px;
   background: white;
   display: block;
   border-radius: 2px;
-  transition: width cubic-bezier(.81,-0.23,0,1.35) .3s, transform .9s cubic-bezier(.81,-0.23,0,1.35);
+  transition: width cubic-bezier(.81, -0.23, 0, 1.35) .3s, transform .9s cubic-bezier(.81, -0.23, 0, 1.35);
 }
 
-.button-burger .bar + .bar {
+.button--burger .bar + .bar {
   margin-top: 6px;
 }
 
-.button-close {
+.button--close {
   width: 40px;
   height: 40px;
 }
 
-.button-close .bar {
+.button--close .bar {
   height: 5px;
   background: white;
   width: 0;
@@ -105,60 +107,60 @@ input[type="button"][disabled]{
   transition: transform .4s ease-out, width .3s ease-in-out;
 }
 
-.button-close--expanded .bar:first-child{
+.button--close--expanded .bar:first-child {
   transform: rotate(45deg);
 }
 
-.button-close--expanded .bar:last-child{
+.button--close--expanded .bar:last-child {
   transform: rotate(-45deg);
 }
 
-.button-burger.button-burger--animated .bar {
+.button--burger.button--burger--animated .bar {
   width: 0;
 }
 
-.button-close--expanded .bar:first-child,
-.button-close--expanded .bar:last-child{
+.button--close--expanded .bar:first-child,
+.button--close--expanded .bar:last-child {
   width: 35px;
 }
 
-.button-burger.button-burger--animated .bar:first-child{
+.button--burger.button--burger--animated .bar:first-child {
   transform: translateY(12px);
-  transition: transform .3s cubic-bezier(.81,-0.23,0,1.35), width cubic-bezier(.81,-0.23,0,1.35) .9s;
+  transition: transform .3s cubic-bezier(.81, -0.23, 0, 1.35), width cubic-bezier(.81, -0.23, 0, 1.35) .9s;
 }
 
-.button-burger.button-burger--animated .bar:last-child{
+.button--burger.button--burger--animated .bar:last-child {
   transform: translateY(-12px);
-  transition: transform .3s cubic-bezier(.81,-0.23,0,1.35), width cubic-bezier(.81,-0.23,0,1.35) .9s;
+  transition: transform .3s cubic-bezier(.81, -0.23, 0, 1.35), width cubic-bezier(.81, -0.23, 0, 1.35) .9s;
 }
 
-.button-fullWidth{
+.button--fullWidth {
   width: 100%;
 }
 
-.canvas-content .button-close{
+.canvas-content .button--close {
   position: absolute;
   right: 10px;
   top: 17px;
 }
 
-@media screen and (--screen-mb){
-  .button-burger .bar {
-    height:6px;
+@media screen and (--screen-mb) {
+  .button--burger .bar {
+    height: 6px;
     width: 35px
   }
 
-  .canvas-content .button-close{
+  .canvas--content .button--close {
     top: 25px;
   }
 }
 
-@media screen and (--screen-md){
+@media screen and (--screen-md) {
   .button,
   button,
   input[type="submit"],
   input[type="reset"],
-  input[type="button"]{
+  input[type="button"] {
     padding: var(--base-3) 70px;
   }
 }

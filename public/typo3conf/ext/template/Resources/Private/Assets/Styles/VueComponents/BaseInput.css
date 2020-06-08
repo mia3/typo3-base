@@ -1,3 +1,0 @@
-base-input:before {
-  content: attr(label);
-}

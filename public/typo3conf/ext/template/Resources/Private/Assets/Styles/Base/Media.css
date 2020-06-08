@@ -1,79 +1,83 @@
 .media {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
 }
+
 .media.media--desktop,
 .media.media--tablet {
-    display: none;
+  display: none;
 }
+
 .media:before {
-    content: '';
-    display: block;
+  content: '';
+  display: block;
 }
 
 .media.media--1by1:before {
-    padding-bottom: var(--media-1by1);
+  padding-bottom: var(--media-1by1);
 }
 
 .media.media--3by2:before {
-    padding-bottom: var(--media-3by2);
+  padding-bottom: var(--media-3by2);
 }
 
 .media.media--4by3:before {
-    padding-bottom: var(--media-4by3);
-}
-.media.media--2by1:before {
-    padding-bottom: var(--media-2by1);
+  padding-bottom: var(--media-4by3);
 }
 
+.media.media--2by1:before {
+  padding-bottom: var(--media-2by1);
+}
 
 .media.media--16by9:before,
 .media.media--default:before {
-    padding-bottom: var(--media-16by9);
+  padding-bottom: var(--media-16by9);
 }
 
 .media .ce-core-image,
 .media img,
-.media iframe{
-    position: absolute;
-    left: 50%;
-    right: 0;
-    bottom: 0;
-    top: 50%;
-    width: auto;
-    height: auto;
-    min-height: 100%;
-    min-width: 100%;
-    -webkit-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
+.media iframe {
+  position: absolute;
+  left: 50%;
+  right: 0;
+  bottom: 0;
+  top: 50%;
+  width: auto;
+  height: auto;
+  min-height: 100%;
+  min-width: 100%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
+
 .image {
-    lost-utility: clearfix;
+  lost-utility: clearfix;
 }
+
 .image picture,
-.image picture img{
-    float: left;
-    display: block;
+.image picture img {
+  float: left;
+  display: block;
 }
 
 @media screen and (--screen-tb) {
-    .media.media--tablet {
-        display: block;
-    }
+  .media.media--tablet {
+    display: block;
+  }
 
-    .media.media--mobile {
-        display: none
-    }
+  .media.media--mobile {
+    display: none
+  }
 }
+
 @media screen and (--screen-md) {
-    .media.media--desktop {
-        display: block;
-    }
+  .media.media--desktop {
+    display: block;
+  }
 
-    .media.media--mobile,
-    .media.media--tablet {
-        display: none
-    }
+  .media.media--mobile,
+  .media.media--tablet {
+    display: none
+  }
 }
-

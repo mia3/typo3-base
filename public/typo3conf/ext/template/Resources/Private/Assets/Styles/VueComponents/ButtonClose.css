@@ -1,41 +1,43 @@
-.button-close{
-    border: none;
-    padding: 0;
-    width: auto;
-    background: transparent;
-}
-.button-close:hover,
-.button-close:active,
-.button-close:focus{
-    background: transparent;
+.button--close {
+  border: none;
+  padding: 0;
+  width: auto;
+  background: transparent;
 }
 
-.button-close {
-    width: 40px;
-    height: 40px;
-    position: relative;
-}
-.button-close .bar {
-    height: 4px;
-    background: var(--orange);
-    width: 0;
-    position: absolute;
-    top: 10px;
-    left: 0;
-    display: block;
-    transform-origin: center;
-    transition: transform .4s ease-out, width .3s ease-in-out;
+.button--close:hover,
+.button--close:active,
+.button--close:focus {
+  background: transparent;
 }
 
-.button-close--active .bar:first-child{
-    transform: rotate(45deg);
+.button--close {
+  width: 40px;
+  height: 40px;
+  position: relative;
 }
 
-.button-close--active .bar:last-child{
-    transform: rotate(-45deg);
+.button--close .bar {
+  height: 4px;
+  background: var(--orange);
+  width: 0;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  display: block;
+  transform-origin: center;
+  transition: transform .4s ease-out, width .3s ease-in-out;
 }
 
-.button-close--active .bar:first-child,
-.button-close--active .bar:last-child{
-    width: 25px;
+.button--close--active .bar:first-child {
+  transform: rotate(45deg);
+}
+
+.button--close--active .bar:last-child {
+  transform: rotate(-45deg);
+}
+
+.button--close--active .bar:first-child,
+.button--close--active .bar:last-child {
+  width: 25px;
 }

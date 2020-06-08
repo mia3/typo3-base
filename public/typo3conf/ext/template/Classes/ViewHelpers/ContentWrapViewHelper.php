@@ -53,25 +53,46 @@ class ContentWrapViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractVie
     public function render()
     {
         $classes = array();
+        $classes[] = 'contentWrapper';
+
         $data = $this->arguments ["data"];
         switch ($data['layout']) {
-            case 0:
-                $classes[] = !!preg_match("/^mask.*$/",$data["CType"], $match) ? 'container-fluid' : 'container'; break;
             case 21:
-                $classes[] = "container-fluid";  break;
-            case 20:
-                $classes[] = "container"; break;
+                $classes[] = "contentWrapper--center";  break;
+            case 22:
+                $classes[] = "contentWrapper--fullWidth"; break;
             default:
                 break;
         }
 
         if($data["space_before_class"]){
-            $classes[] =  'lineSpace-before--'.$data["space_before_class"];
+            $classes[] = 'lineSpaceBefore--'.$data["space_before_class"];
         }
 
         if($data["space_after_class"]){
-            $classes[] =  'lineSpace-after--'.$data["space_after_class"];
+            $classes[] = 'lineSpaceAfter--'.$data["space_after_class"];
         }
+
+        if($data["content_padding_top"]){
+            $classes[] = 'linePaddingTop--'.$data["content_padding_top"];
+        }
+
+        if($data["content_padding_bottom"]){
+            $classes[] = 'linePaddingBottom--'.$data["content_padding_bottom"];
+        }
+
+        if($data["offset_left"] && $data['layout'] != 22){
+            $classes[] = 'offsetLeft--'.$data["offset_left"];
+        }
+
+        if($data["offset_right"] && $data['layout'] != 22){
+            $classes[] = 'offsetRight--'.$data["offset_right"];
+        }
+
+        if($data["content_background_color"]){
+            $classes[] = 'backgroundcolor--'.$data["content_background_color"];
+        }
+
         $tag = new TagBuilder('div');
         $tag->addAttribute('class', implode(' ', $classes));
         $tag->addAttribute('id', "c" . $data['uid']);

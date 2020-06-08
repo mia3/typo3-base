@@ -1,0 +1,72 @@
+/* Spacings - Appearance Tab */
+.lineSpaceBefore--1 {
+  margin-top: var(--line-1);
+}
+
+.lineSpaceBefore--2 {
+  margin-top: var(--line-2);
+}
+
+.lineSpaceBefore--3 {
+  margin-top: var(--line-3);
+}
+
+.lineSpaceBefore--4 {
+  margin-top: var(--line-4);
+}
+
+.lineSpaceBefore--5 {
+  margin-top: var(--line-5);
+}
+
+.lineSpaceBefore--6 {
+  margin-top: var(--line-6);
+}
+
+.lineSpaceBefore--7 {
+  margin-top: var(--line-7);
+}
+
+.lineSpaceBefore--8 {
+  margin-top: var(--line-8);
+}
+
+.lineSpaceBefore--9 {
+  margin-top: var(--line-9);
+}
+
+.lineSpaceAfter--1 {
+  margin-bottom: var(--line-1);
+}
+
+.lineSpaceAfter--2 {
+  margin-bottom: var(--line-2);
+}
+
+.lineSpaceAfter--3 {
+  margin-bottom: var(--line-3);
+}
+
+.lineSpaceAfter--4 {
+  margin-bottom: var(--line-4);
+}
+
+.lineSpaceAfter--5 {
+  margin-bottom: var(--line-5);
+}
+
+.lineSpaceAfter--6 {
+  margin-bottom: var(--line-6);
+}
+
+.lineSpaceAfter--7 {
+  margin-bottom: var(--line-7);
+}
+
+.lineSpaceAfter--8 {
+  margin-bottom: var(--line-8);
+}
+
+.lineSpaceAfter--9 {
+  margin-bottom: var(--line-9);
+}

@@ -2,7 +2,8 @@
   --white: #FFF;
   --orange: orange;
 
-  --container-width: 1200px;
+  --backgroundcolor-1: var(--white);
+  --backgroundcolor-2: var(--white);
 
   --base: 6px;
   --base-2: calc(2*var(--base)); /* 12px */
@@ -25,6 +26,13 @@
   --line-8: calc(8 * var(--line-1));
   --line-9: calc(9 * var(--line-1));
   --line-10: calc(10 * var(--line-1));
+
+  /*
+    Content wrapper
+   */
+  --canvas-width: 100vw;
+  --contentWrapper-width: 1200px;
+  --contentWrapper-outerSpacing: var(--base-3);
 
   /*
     Base Line

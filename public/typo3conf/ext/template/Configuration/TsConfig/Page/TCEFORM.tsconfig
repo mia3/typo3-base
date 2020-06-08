@@ -7,7 +7,7 @@ TCEFORM {
   }
 
   tt_content {
-    frame_class.disabled = 1
+    frame_class.disabled = 0
     rowDescription.disabled = 1
     CType.removeItems= textpic, textmedia, key, bullets, table, uploads, multimedia, media, mailform, search, login, form_framework, menu, shortcut, script, splash, div, menu_abstract, menu_categorized_content, menu_categorized_pages, menu_recently_updated, menu_related_pages, menu_section, menu_section_pages, menu_sitemap, menu_sitemap_pages, menu_subpages, menu_pages, html
     layout {

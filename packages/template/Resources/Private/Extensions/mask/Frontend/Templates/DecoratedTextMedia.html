@@ -1,0 +1,22 @@
+<div class="decorated-text-media">
+  <header class="decorated-text-media__header">
+    <f:if condition="{data.header}">
+      <h3 class="decorated-text-media__title">{data.header}</h3>
+    </f:if>
+  </header>
+
+  <div class="decorated-text-media__text">
+    <f:if condition="{data.bodytext}">
+      <f:format.html parseFuncTSPath="lib.parseFunc_RTE">{data.bodytext}</f:format.html>
+      <br/>
+    </f:if>
+  </div>
+
+  <div class="decorated-text-media__media">
+    <f:if condition="{data.media}">
+      <f:for each="{data.media}" as="file">
+        <f:image image="{file}" alt="{file.alternative}" title="{file.title}"/>
+      </f:for>
+    </f:if>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-base: 'http://local.mia3.template.de'
+base: 'http://local.playground.com'
 baseVariants: {  }
 errorHandling:
   -
@@ -28,3 +28,4 @@ routes:
     route: sitemap.xml
     type: uri
     source: 'http://local.mia3.template.de?type=1533906435'
+websiteTitle: ''

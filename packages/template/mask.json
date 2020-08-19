@@ -1,0 +1,257 @@
+{
+    "sys_file_reference": {
+        "sql": {
+            "tx_mask_content_backgound": {
+                "sys_file_reference": {
+                    "tx_mask_content_backgound": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            },
+            "tx_mask_content_background": {
+                "sys_file_reference": {
+                    "tx_mask_content_background": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            },
+            "tx_mask_icon": {
+                "sys_file_reference": {
+                    "tx_mask_icon": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            }
+        }
+    },
+    "tt_content": {
+        "elements": {
+            "decorated_text_media": {
+                "color": "#000000",
+                "columns": [
+                    "header",
+                    "bodytext",
+                    "media"
+                ],
+                "description": "",
+                "icon": "",
+                "key": "decorated_text_media",
+                "label": "Decorated Text with Media",
+                "labels": [
+                    "",
+                    "",
+                    ""
+                ],
+                "options": {
+                    "1": "rte"
+                },
+                "shortLabel": ""
+            },
+            "default_slider": {
+                "color": "#000000",
+                "description": "",
+                "icon": "",
+                "key": "default_slider",
+                "label": "Default Slider",
+                "shortLabel": ""
+            },
+            "navigation_slider": {
+                "color": "#000000",
+                "columns": [
+                    "tx_mask_slide"
+                ],
+                "description": "",
+                "icon": "",
+                "key": "navigation_slider",
+                "label": "Navigation Slider",
+                "labels": [
+                    "Slide"
+                ],
+                "options": {
+                    "4": "rte"
+                },
+                "shortLabel": ""
+            },
+            "project_list": {
+                "color": "#000000",
+                "description": "",
+                "icon": "",
+                "key": "project_list",
+                "label": "Project List",
+                "shortLabel": ""
+            },
+            "sociallink": {
+                "color": "#000000",
+                "description": "",
+                "icon": "",
+                "key": "sociallink",
+                "label": "Footer . Social-Media Verlinkung",
+                "shortLabel": ""
+            },
+            "stage_slider": {
+                "color": "#000000",
+                "description": "",
+                "icon": "",
+                "key": "stage_slider",
+                "label": "Stage Slider",
+                "shortLabel": ""
+            }
+        },
+        "sql": {
+            "tx_mask_slide": {
+                "tt_content": {
+                    "tx_mask_slide": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            }
+        },
+        "tca": {
+            "tx_mask_slide": {
+                "config": {
+                    "appearance": {
+                        "enabledControls": {
+                            "dragdrop": "1"
+                        },
+                        "levelLinksPosition": "top",
+                        "newRecordLinkTitle": ""
+                    },
+                    "foreign_field": "parentid",
+                    "foreign_sortby": "sorting",
+                    "foreign_table": "--inlinetable--",
+                    "foreign_table_field": "parenttable",
+                    "maxitems": "",
+                    "minitems": "",
+                    "type": "inline"
+                },
+                "exclude": "1",
+                "inlineIcon": "",
+                "inlineLabel": "",
+                "key": "slide",
+                "l10n_mode": ""
+            }
+        }
+    },
+    "tx_mask_slide": {
+        "sql": {
+            "tx_mask_content": {
+                "tx_mask_slide": {
+                    "tx_mask_content": "mediumtext"
+                }
+            },
+            "tx_mask_content_background": {
+                "tx_mask_slide": {
+                    "tx_mask_content_background": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            },
+            "tx_mask_icon": {
+                "tx_mask_slide": {
+                    "tx_mask_icon": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            },
+            "tx_mask_label": {
+                "tx_mask_slide": {
+                    "tx_mask_label": "tinytext"
+                }
+            },
+            "tx_mask_type": {
+                "tx_mask_slide": {
+                    "tx_mask_type": "int(11) DEFAULT '0' NOT NULL"
+                }
+            }
+        },
+        "tca": {
+            "tx_mask_content": {
+                "config": {
+                    "cols": "",
+                    "default": "",
+                    "enableRichtext": "1",
+                    "eval": "",
+                    "max": "",
+                    "placeholder": "",
+                    "richtextConfiguration": "default",
+                    "rows": "",
+                    "type": "text"
+                },
+                "exclude": "1",
+                "inlineParent": "tx_mask_slide",
+                "key": "content",
+                "l10n_mode": "",
+                "label": "Inhalt",
+                "order": 4,
+                "rte": "1"
+            },
+            "tx_mask_content_background": {
+                "config": {
+                    "filter": [
+                        {
+                            "parameters": {
+                                "allowedFileExtensions": ""
+                            }
+                        }
+                    ],
+                    "maxitems": "",
+                    "minitems": ""
+                },
+                "exclude": "1",
+                "inlineParent": "tx_mask_slide",
+                "key": "content_background",
+                "l10n_mode": "",
+                "label": "Hintergrundbild",
+                "options": "file",
+                "order": 5
+            },
+            "tx_mask_icon": {
+                "config": {
+                    "filter": [
+                        {
+                            "parameters": {
+                                "allowedFileExtensions": ""
+                            }
+                        }
+                    ],
+                    "maxitems": "",
+                    "minitems": ""
+                },
+                "exclude": "1",
+                "inlineParent": "tx_mask_slide",
+                "key": "icon",
+                "l10n_mode": "",
+                "label": "Icon",
+                "options": "file",
+                "order": 3
+            },
+            "tx_mask_label": {
+                "config": {
+                    "default": "",
+                    "eval": "",
+                    "is_in": "",
+                    "max": "",
+                    "placeholder": "",
+                    "size": "",
+                    "type": "input"
+                },
+                "exclude": "1",
+                "inlineParent": "tx_mask_slide",
+                "key": "label",
+                "l10n_mode": "",
+                "label": "Label",
+                "order": 2
+            },
+            "tx_mask_type": {
+                "config": {
+                    "default": "1",
+                    "items": [
+                        [
+                            "Blickpunkt",
+                            "1"
+                        ],
+                        [
+                            "Leistung",
+                            "2"
+                        ]
+                    ],
+                    "type": "radio"
+                },
+                "exclude": "1",
+                "inlineParent": "tx_mask_slide",
+                "key": "type",
+                "l10n_mode": "",
+                "label": "Typ",
+                "order": 1
+            }
+        }
+    }
+}

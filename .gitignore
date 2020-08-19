@@ -10,7 +10,8 @@ nbproject
 
 # Web Root
 /public/fileadmin
-/public/typo3
+/public/typo3/*
+/public/typo3conf/ext/*
 /public/index.php
 /public/typo3temp/
 /public/typo3conf/AdditionalConfiguration.php
@@ -22,8 +23,3 @@ nbproject
 /config/sites
 /fileadmin
 /uploads
-
-# Template Extension
-/public/typo3conf/ext/**/*
-!/public/typo3conf/ext/template/
-!/public/typo3conf/ext/template/**/*

@@ -1,0 +1,67 @@
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+body
+{
+  font-size : inherit;
+}
+
+p,
+.paragraph
+{
+  font-size   : var(--text-fontSize);
+  line-height : var(--text-lineHeight);
+  margin      : 0 0 var(--text-margin) 0;
+}
+
+ul, ol
+{
+  font-size   : 1em;
+  line-height : 2em;
+}
+
+blockquote
+{
+  position : relative;
+}
+
+
+h1,
+.headline-1
+{
+  font-size   : var(--h1-fontSize);
+  font-weight : bold;
+  line-height : var(--h1-lineHeight);
+  margin      : 0 0 calc(var(--h1-margin) - var(--h1-threshold)) 0;
+  padding-top : var(--h1-threshold);
+}
+
+h2,
+.headline-2
+{
+  font-size   : var(--h2-fontSize);
+  font-weight : bold;
+  line-height : var(--h2-lineHeight);
+  margin      : 0 0 calc(var(--h2-margin) - var(--h2-threshold)) 0;
+  padding-top : var(--h2-threshold);
+}
+
+h3,
+.headline-3
+{
+  font-size   : var(--h3-fontSize);
+  font-weight : bold;
+  line-height : var(--h3-lineHeight);
+  margin      : 0 0 calc(var(--h3-margin) - var(--h3-threshold)) 0;
+  padding-top : var(--h3-threshold);
+}
+
+h4,
+.headline-4
+{
+  font-size   : var(--h4-fontSize);
+  font-weight : bold;
+  line-height : var(--h4-lineHeight);
+  margin      : 0 0 calc(var(--h4-margin) - var(--h4-threshold)) 0;
+  padding-top : var(--h4-threshold);
+}

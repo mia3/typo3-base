@@ -1,0 +1,110 @@
+base-input:before
+{
+  content : attr(label);
+}
+
+base-input
+{
+  display : block;
+  float   : left;
+  width   : 100%;
+}
+
+/* This is the purpose of a honey-pot field. */
+.veryImportantField input,
+.veryImportantField textarea
+{
+  height   : 0;
+  left     : 0;
+  opacity  : 0;
+  position : absolute;
+  top      : 0;
+  width    : 0;
+  z-index  : -1;
+}
+
+.baseField + .baseField,
+base-input + .baseField,
+.baseField + base-input,
+base-input + base-input
+{
+  margin-top : var(--line-2);
+}
+
+.baseField .formField-control textarea
+{
+  display : flex;
+}
+
+.baseField .formField-control
+{
+  position : relative;
+}
+
+.baseField input ~ .border--effect:after,
+.baseField textarea ~ .border--effect:after
+{
+  background : #ccc;
+  bottom     : -3px;
+  content    : '';
+  height     : 3px;
+  left       : 50%;
+  position   : absolute;
+  transform  : translateX(-50%);
+  transition : 0.4s;
+  width      : 0;
+}
+
+.baseField .baseField--entered .border--effect:after
+{
+  background : linear-gradient(300deg, rgba(75, 17, 58, 1) 0%, rgba(26, 70, 136, 1) 100%); /* w3c */
+}
+
+.baseField input:focus ~ .border--effect:after,
+.baseField textarea:focus ~ .border--effect:after,
+.baseField .baseField--entered .border--effect:after
+{
+  transition : 0.4s;
+  width      : 100%;
+}
+
+
+.baseField .baseField-validation
+{
+  font-size     : 0.777777777777777em;
+  line-height   : 18px;
+  margin-bottom : -2px;
+  padding-top   : 2px;
+}
+
+.baseField.baseField--invalid input,
+.baseField.baseField--invalid textarea
+{
+  background-color : #ecd8d8;
+}
+
+.image--section .baseField .border--effect
+{
+  display : none;
+}
+
+.image--section .baseField input:focus,
+.image--section .baseField textarea:focus
+{
+  box-shadow : inset 0px 0px 10px 1px rgba(0, 0, 0, 0.75);
+}
+
+.image--section .baseField .baseField--entered input,
+.image--section .baseField .baseField--entered textarea
+{
+  box-shadow : inset 0px 0px 10px 0px rgba(0, 0, 0, 1);
+}
+
+@media screen and (--screen-sm)
+{
+  .baseField[class*='column-'],
+  base-input[class*='column-']
+  {
+    margin-top : 0;
+  }
+}

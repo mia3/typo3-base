@@ -1,0 +1,190 @@
+/* Buttons
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.button,
+button,
+input[type='submit'],
+input[type='reset'],
+input[type='button']
+{
+  background      : #f3f0ec;
+  border          : 0;
+  color           : #3b3b3a;
+  display         : inline-block;
+  font-size       : var(--base-3);
+  padding         : var(--base-2) var(--base-4);
+  text-decoration : none;
+  transition      : color 0.1s ease-out, background 0.2s ease-out;
+  vertical-align  : middle;
+}
+
+.button::after
+{
+  content   : '▲';
+  display   : inline-block;
+  transform : rotate(90deg);
+  margin    : 0 0 0 var(--base-2);
+  color     : var(--orange);
+}
+
+.button:hover::after
+{
+  color : #fff;
+}
+
+.button--small
+{
+  font-size   : 1em;
+  line-height : 1em;
+  padding     : var(--line-1) var(--line-1);
+}
+
+.button:focus,
+button:focus,
+input[type='submit']:focus,
+input[type='reset']:focus,
+input[type='button']:focus,
+.button:active,
+button:active,
+input[type='submit']:active,
+input[type='reset']:active,
+input[type='button']:active
+{
+  outline : none;
+}
+
+button:hover,
+.button:hover,
+input[type='submit']:hover,
+input[type='reset']:hover,
+input[type='button']:hover,
+.button:focus,
+button:focus,
+input[type='submit']:focus,
+input[type='reset']:focus,
+input[type='button']:focus
+{
+  background : var(--orange);
+  color      : #fff;
+  cursor     : pointer;
+}
+
+button[disabled],
+.button[disabled],
+input[type='submit'][disabled],
+input[type='reset'][disabled],
+input[type='button'][disabled]
+{
+  cursor  : not-allowed;
+  opacity : 0.5;
+
+}
+
+.button-burger,
+.button-close
+{
+  border  : none;
+  padding : 0;
+}
+
+.button-burger:hover,
+.button-burger:focus,
+.button-burger:active,
+.button-close:hover,
+.button-close:active,
+.button-close:focus
+{
+  background : transparent;
+}
+
+.button-burger .bar
+{
+  background    : white;
+  border-radius : 2px;
+  display       : block;
+  height        : 5px;
+  transition    : width cubic-bezier(.81, -0.23, 0, 1.35) 0.3s, transform 0.9s cubic-bezier(.81, -0.23, 0, 1.35);
+  width         : 30px;
+}
+
+.button-burger .bar + .bar
+{
+  margin-top : 6px;
+}
+
+.button-close
+{
+  height : 40px;
+  width  : 40px;
+}
+
+.button-close .bar
+{
+  background       : white;
+  display          : block;
+  height           : 5px;
+  left             : 3px;
+  position         : absolute;
+  top              : 17px;
+  transform-origin : center;
+  transition       : transform 0.4s ease-out, width 0.3s ease-in-out;
+  width            : 0;
+}
+
+.button-close--expanded .bar:first-child
+{
+  transform : rotate(45deg);
+}
+
+.button-close--expanded .bar:last-child
+{
+  transform : rotate(-45deg);
+}
+
+.button-burger.button-burger--animated .bar
+{
+  width : 0;
+}
+
+.button-close--expanded .bar:first-child,
+.button-close--expanded .bar:last-child
+{
+  width : 35px;
+}
+
+.button-burger.button-burger--animated .bar:first-child
+{
+  transform  : translateY(12px);
+  transition : transform 0.3s cubic-bezier(.81, -0.23, 0, 1.35), width cubic-bezier(.81, -0.23, 0, 1.35) 0.9s;
+}
+
+.button-burger.button-burger--animated .bar:last-child
+{
+  transform  : translateY(-12px);
+  transition : transform 0.3s cubic-bezier(.81, -0.23, 0, 1.35), width cubic-bezier(.81, -0.23, 0, 1.35) 0.9s;
+}
+
+.button-fullWidth
+{
+  width : 100%;
+}
+
+.canvas-content .button-close
+{
+  position : absolute;
+  right    : 10px;
+  top      : 17px;
+}
+
+@media screen and (--screen-mb)
+{
+  .button-burger .bar
+  {
+    height : 6px;
+    width  : 35px
+  }
+
+  .canvas-content .button-close
+  {
+    top : 25px;
+  }
+}

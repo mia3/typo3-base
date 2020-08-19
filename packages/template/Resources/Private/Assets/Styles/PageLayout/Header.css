@@ -1,0 +1,78 @@
+.page__header
+{
+  background-color: #eee;
+}
+
+.desktop-header
+{
+  align-items:     center;
+  display:         flex;
+  justify-content: space-between;
+  padding:         var(--line-2);
+}
+
+.page__header.is--scrolling .desktop-header
+{
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.48);
+}
+
+.desktop-header .button-burger
+{
+  right: 0;
+  top:   50%;
+}
+
+.desktop-header .page-search-form
+{
+  display: none;
+}
+
+.desktop-header__logo
+{
+  display:   block;
+  max-width: 303px;
+}
+
+.desktop-header .search-toggle
+{
+  float: right;
+}
+
+@media screen and (--screen-sm)
+{
+  .desktop-header .page-search-form
+  {
+    display:   block;
+    grid-area: searchForm;
+    margin:    calc(0.3333333333333em - 1px) 0;
+    position:  relative;
+  }
+
+  .desktop-header .page-search-form .baseField
+  {
+    margin: 0;
+  }
+
+  .desktop-header .page-search-form .baseField-input
+  {
+    padding-left: calc(var(--base-8) + 2px);
+  }
+
+  .desktop-header .page-search-form .search-toggle
+  {
+    background: transparent;
+    bottom:     0;
+    color:      var(--orange);
+    left:       0;
+    margin:     0 0 2px 0;
+    padding:    0 var(--base-2);
+    position:   absolute;
+    top:        0;
+  }
+
+  .desktop-header .search-toggle
+  {
+    margin-left: var(--base-5);
+    padding:     0.66666666666em 1em;
+  }
+}

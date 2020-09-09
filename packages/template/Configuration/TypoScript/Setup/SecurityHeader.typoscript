@@ -1,0 +1,9 @@
+config.additionalHeaders{
+  # Please only use the 'Content-Security-Policy' if you know what you are doing. This can break the web-page!
+  #10.header = Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline';script-src 'unsafe-eval' 'self' ;frame-src 'self' *.googleapis.com *.ggpht maps.gstatic.com *.google.com *.youtube.com;
+  20.header = strict-transport-security:max-age=31536000
+  30.header = X-Frame-Options:SAMEORIGIN
+  40.header = X-Xss-Protection: 1; mode=block
+  50.header = X-Content-Type-Options: nosniff
+  60.header = Referrer-Policy:strict-origin
+}

@@ -42,7 +42,7 @@ class ContactFormController extends ActionController
             ->setFrom($from)
             ->setTo($pluginSettings["email"]["to"])
             ->setSubject(array_key_exists("subject", $pluginSettings["email"]) ? $pluginSettings["email"]["subject"] : $settings["contactForm"]["subject"])
-            ->setBody($this->renderEMailView(["contact" => $contact]), 'text/html')
+            ->html($this->renderEMailView(["contact" => $contact]))
             ->send();
     }
 

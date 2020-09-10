@@ -4,6 +4,7 @@ config.additionalHeaders{
   20.header = strict-transport-security:max-age=31536000
   30.header = X-Frame-Options:SAMEORIGIN
   40.header = X-Xss-Protection: 1; mode=block
-  50.header = X-Content-Type-Options: nosniff
+  # Already set by the TYPO3 default htaccess
+  #50.header = X-Content-Type-Options: nosniff
   60.header = Referrer-Policy:strict-origin
 }

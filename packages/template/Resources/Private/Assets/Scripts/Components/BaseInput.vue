@@ -39,7 +39,7 @@
         default: 'input',
       },
     },
-    render (createElement, context) {
+    render(createElement, context) {
       let self = this;
       const { props, data, children, listeners } = context;
       const classes = {};
@@ -71,7 +71,7 @@
         },
         on: {
           ...listeners,
-          input (event) {
+          input(event) {
             const contentClass = props.baseClass + '--entered';
             if (!!event.target.value) {
               event.target.parentNode.classList.add(contentClass);
@@ -111,3 +111,10 @@
     },
   };
 </script>
+
+<style scoped>
+  base-input:before
+  {
+    content: attr(label);
+  }
+</style>

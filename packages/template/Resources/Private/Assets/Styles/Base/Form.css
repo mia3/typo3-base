@@ -150,7 +150,6 @@ input:focus::-webkit-input-placeholder
 /* Firefox < 19 */
 input:-moz-placeholder
 {
-
   color: var(--placeholder);
   position: relative;
   z-index: 1000;

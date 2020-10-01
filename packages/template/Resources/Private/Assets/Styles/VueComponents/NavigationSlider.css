@@ -72,7 +72,6 @@
 
 .navigation-slider__nav--type-2 li:hover .navigation-slider__nav-label
 {
-
   opacity: 1;
   transform: translateY(-50%) scale(1);
 }

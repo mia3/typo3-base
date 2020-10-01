@@ -27,7 +27,6 @@
 
 @media screen and (--screen-tb)
 {
-
   .column-1
   {
     lost-column: 1/12;
@@ -151,7 +150,6 @@
 
 @media screen and (--screen-sm)
 {
-
   .column-small-1
   {
     lost-column: 1/12;

@@ -18,5 +18,8 @@
   "browserslist": [
     "last 2 versions",
     "ios >= 8"
-  ]
+  ],
+  "dependencies": {
+    "hamburgers": "^1.1.3"
+  }
 }

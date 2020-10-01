@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import store from './Store'
 
 /**
  * Autoloading components from "Components"-directory
@@ -50,6 +51,7 @@ Vue.directive('modal-trigger', {
 
 new Vue({
   el: '.vue',
+  store,
   data () {
     return {
       state: {},

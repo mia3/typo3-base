@@ -50,14 +50,8 @@ config {
   # If set, then every “typolink” is checked whether it's linking to a page within the current rootline of the site.
   typolinkCheckRootline = 1
 
-  # This option enables to create links across domains using current domain's linking scheme.
-  typolinkEnableLinksAcrossDomains = 1
-
   # Spam protection
   spamProtectEmailAddresses = ascii
-
-  # Enable RealURL
-  tx_realurl_enable = 1
 
   # The <base> tag in the header of the document which is used by RealURL
   absRefPrefix = {$config.absRefPrefix}

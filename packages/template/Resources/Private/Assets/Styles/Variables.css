@@ -1,11 +1,10 @@
-:root
-{
+:root {
   --base: 6px;
-  --orange: #fa9e15;
-
+  --black: #000;
+  --font: 'Lato', sans-serif;
   --white: #fff;
-
   --line-1: var(--base-3);
+
   --base-10: calc(10 * var(--base)); /* 60px */
   --line-10: calc(10 * var(--line-1));
   --media-16by9: calc(var(--media-base) / var(--ratio-16by9));
@@ -15,8 +14,8 @@
   --base-2: calc(2 * var(--base)); /* 12px */
   --line-2: calc(2 * var(--line-1));
   --base-3: calc(3 * var(--base)); /* 18px */
-
   --line-3: calc(3 * var(--line-1));
+
   --media-3by2: calc(var(--media-base) / var(--ratio-3by2));
   --ratio-3by2: calc(3 / 2);
   --base-4: calc(4 * var(--base)); /* 24px */
@@ -26,56 +25,44 @@
   --base-5: calc(5 * var(--base)); /* 30px */
   --line-5: calc(5 * var(--line-1));
   --base-6: calc(6 * var(--base)); /* 36px */
+  --line-6: calc(6 * var(--line-1));
 
   /*
-    Base Line
-  */
-  --line-6: calc(6 * var(--line-1));
+   * Base Line
+   * --------- */
   --base-7: calc(7 * var(--base)); /* 42px */
-
   --line-7: calc(7 * var(--line-1));
+
   --base-8: calc(8 * var(--base)); /* 48px */
   --line-8: calc(8 * var(--line-1));
   --base-9: calc(9 * var(--base)); /* 54px */
-
   --line-9: calc(9 * var(--line-1));
+
+  --color-accent: #c1b5a2;
   --font-base: var(--line-1);
   --media-base: 100%;
   --row-base: 2em;
+  --font-base-line-height: 2rem;
 
-  --font-base-lineHeight: 2rem;
-  --h1-fontSize: 54px;
-  --h2-fontSize: 42px;
-  --h3-fontSize: 36px;
+  --h3-font-size: 36px;
+  --h4-font-size: var(--text-font-size);
 
-  --h4-fontSize: var(--text-fontSize);
-  --text-fontSize: 0.875em; /* 16px is the default em size */
+  --text-font-size: 0.875em; /* 16px is the default em size */
   --grid-gap: var(--base-3);
-  --h1-lineHeight: 2em;
+  --h1-line-height: 2em;
+  --h2-line-height: 72px;
 
-  --h2-lineHeight: 72px;
-  --h3-lineHeight: 54px;
-  --h4-lineHeight: var(--text-lineHeight);
-  --text-lineHeight: 1.5714285714285714em; /* = 22px/14px */
-
-  --h1-margin: 0px;
-
-  --h2-margin: var(--line-1);
+  --h3-line-height: 54px;
+  --h4-line-height: var(--text-line-height);
+  --text-line-height: 1.5714285714285714em; /* = 22px/14px */
+  --text-margin: 22px;
 
   /* Media */
-  --h3-margin: var(--line-2);
-  --h4-margin: var(--line-2);
-  --text-margin: 22px;
-  --h1-threshold: 0px;
+  --color-primary: #4b113a;
+  --color-secondary: #f3f0ec;
 
-  --h2-threshold: 4px;
-  --h3-threshold: 15px;
-  --h4-threshold: var(--text-threshold);
   --text-threshold: 11px;
-  --container-width: 1200px;
-}
-
-@media (--screen-tablet-landscape)
-{
-  /* Your favorite Variables come here! */
+  --container-width: 1048px;
+  --page-width: 1440px;
+  --container-width-wide: 1260px;
 }

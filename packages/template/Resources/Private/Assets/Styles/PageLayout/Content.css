@@ -8,3 +8,7 @@
 .page__main {
   background: #b2ad7f;
 }
+
+.page__body {
+  position: relative;
+}

@@ -1,29 +1,4 @@
-<page-header class="page__header">
-  <div class="desktop-header" slot-scope="offCanvasNavigation">
-    <f:render section="DesktopHeader"></f:render>
-  </div>
-  <template slot="offCanvas" slot-scope="mobileNavigation">
-    <f:render section="OffCanvas"></f:render>
-  </template>
-</page-header>
-
-<f:section name="OffCanvas">
-  <div class="mobileHeader">
-    <f:render section="Logo"/>
-    <button-close @click="mobileNavigation.close" :active="mobileNavigation.isOpen"></button-close>
-  </div>
-  <div class="mobileContent">
-    <f:render section="Menu" partial="MainNavigation"/>
-  </div>
-</f:section>
-
-<f:section name="DesktopHeader">
-  <f:render section="Logo"/>
-  <button-burger @click="offCanvasNavigation.open" :active="offCanvasNavigation.isOpen"></button-burger>
-</f:section>
-
-<f:section name="Logo">
-  <a href="/" title="Zur Startseite">
-    <img class="desktop-header__logo" src="{f:uri.resource(path:'Media/Logo.png', extensionName: 'Template')}" alt="Logo">
-  </a>
-</f:section>
+<a href="/" title="Home">
+  <img class="header__logo" src="{f:uri.resource(path:'Media/Logo.png', extensionName: 'Template')}" alt="Logo">
+</a>
+<mobile-menu-button></mobile-menu-button>

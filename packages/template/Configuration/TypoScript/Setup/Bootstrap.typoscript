@@ -36,34 +36,28 @@ page {
 
     templateRootPaths {
       0 = EXT:template/Resources/Private/Templates/Page/
-      1 = {$page.fluidtemplate.templateRootPath}
     }
 
     partialRootPaths {
-      0 = EXT:template/Resources/Private/Partials/
-      1 = {$page.fluidtemplate.partialRootPath}
-      2 = EXT:template/Resources/Private/Extensions/mask/Frontend/Partials
-      3 = EXT:template/Resources/Private/Partials/ContentElements/
-      4 = EXT:template/Resources/Private/Partials/Page/
+      0 = EXT:template/Resources/Private/Partials/Page/
     }
 
     layoutRootPaths {
-      0 = EXT:template/Resources/Private/Layouts/
-      1 = {$page.fluidtemplate.layoutRootPath}
+      0 = EXT:template/Resources/Private/Layouts/Page/
     }
   }
 
   includeCSS {
-    base = {$config.template_path}/Resources/Public/Build/mia3_styles.css
-    vue = {$config.template_path}/Resources/Public/Build/mia3_scripts.css
+    bundle = EXT:template/Resources/Public/Build/mia3_styles.css
+    vue = EXT:template/Resources/Public/Build/mia3_scripts.css
   }
 
   includeJSFooterlibs {
-    runtime = {$config.template_path}/Resources/Public/Build/runtime.js
+    runtime = EXT:template/Resources/Public/Build/runtime.js
   }
 
   includeJSFooter {
-    app = {$config.template_path}/Resources/Public/Build/mia3_scripts.js
+    bundle = EXT:template/Resources/Public/Build/mia3_scripts.js
   }
 }
 

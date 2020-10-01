@@ -1,11 +1,22 @@
 <html
   xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
-  xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
   data-namespace-typo3-fluid="true"
 >
-  <f:layout name="Page"/>
+  <div class="page vue">
+    <header class="page__header">
+      <f:render partial="Header" arguments="{_all}"/>
+    </header>
 
-  <f:section name="Main">
-    <v:content.render column="0"/>
-  </f:section>
+    <main class="page__main">
+      <v:content.render column="0"/>
+    </main>
+
+    <footer class="page__footer">
+      <f:render partial="Footer" arguments="{_all}"/>
+    </footer>
+
+    <mobile-menu-canvas>
+      <f:render partial="MainNavigation"/>
+    </mobile-menu-canvas>
+  </div>
 </html>

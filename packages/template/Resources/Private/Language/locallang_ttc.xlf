@@ -14,24 +14,6 @@
           the full width.
         </source>
       </trans-unit>
-      <trans-unit id="header_semantic" resname="header_semantic">
-        <source>Header Semantic</source>
-      </trans-unit>
-      <trans-unit id="header_semantic.desc" resname="header_semantic.desc">
-        <source>A good headings hierarchy has among others influence on the SEO ranking. However, sometimes as an editor
-          you may want to visually structure the content without having any influence on Seo Semantic. With this option
-          the SEO relevance can be turned on and off.
-        </source>
-      </trans-unit>
-      <trans-unit id="header_styles" resname="header_styles">
-        <source>Style</source>
-      </trans-unit>
-      <trans-unit id="header_styles.uppercase" resname="header_styles.uppercase">
-        <source>Uppercase</source>
-      </trans-unit>
-      <trans-unit id="header_styles.none" resname="header_styles.none">
-        <source>None</source>
-      </trans-unit>
     </body>
   </file>
 </xliff>

@@ -1,27 +1,26 @@
 lib {
   # EXT:fluid_styled_content
   contentElement {
-    layoutRootPaths.100 = EXT:template/Resources/Private/Extensions/fluid_styled_content/Layouts/
     partialRootPaths {
-      100 = EXT:template/Resources/Private/Extensions/fluid_styled_content/Partials/
-      101 = EXT:template/Resources/Private/Extensions/mask/Frontend/Partials/
+      100 = EXT:template/Resources/Private/ExtensionOverrides/fluid_styled_content/Partials/
+      101 = EXT:template/Resources/Private/ExtensionOverrides/mask/Frontend/Partials/
       102 = EXT:template/Resources/Private/Partials/ContentElements/
       103 = EXT:template/Resources/Private/Partials/Page/
     }
 
-    templateRootPaths.100 = EXT:template/Resources/Private/Extensions/fluid_styled_content/Templates/
+    templateRootPaths.100 = EXT:template/Resources/Private/ExtensionOverrides/fluid_styled_content/Templates/
   }
 
   # EXT:mask
   maskContentElement {
     partialRootPaths {
       200 = EXT:fluid_styled_content/Resources/Private/Partials/
-      210 = EXT:template/Resources/Private/Extensions/fluid_styled_content/Partials/
+      210 = EXT:template/Resources/Private/ExtensionOverrides/fluid_styled_content/Partials/
     }
 
     layoutRootPaths {
       200 = EXT:fluid_styled_content/Resources/Private/Layouts/
-      210 = EXT:template/Resources/Private/Extensions/fluid_styled_content/Layouts/
+      210 = EXT:template/Resources/Private/ExtensionOverrides/fluid_styled_content/Layouts/
     }
   }
 }
@@ -30,18 +29,15 @@ plugin {
   # EXT:template
   tx_template {
     view {
-      templateRootPaths >
       templateRootPaths {
         0 = EXT:template/Resources/Private/Templates/
       }
 
-      partialRootPaths >
       partialRootPaths {
-        0 = EXT:template/Resources/Private/Extensions/mask/Frontend/Partials/
+        0 = EXT:template/Resources/Private/ExtensionOverrides/mask/Frontend/Partials/
         1 = EXT:template/Resources/Private/Partials/Page/
       }
 
-      layoutRootPaths >
       layoutRootPaths {
         0 = EXT:template/Resources/Private/Layouts/
       }
@@ -50,24 +46,19 @@ plugin {
     # EXT:news
     tx_news {
       view {
-        partialRootPaths >
         partialRootPaths {
           10 = EXT:news/Resources/Private/Partials/
-          20 = EXT:template/Resources/Private/Extensions/news/Partials/
-          30 = EXT:template/Resources/Private/Extensions/mask/Frontend/Partials/
-          40 = EXT:template/Resources/Private/Partials/Page/
+          20 = EXT:template/Resources/Private/ExtensionOverrides/news/Partials/
         }
 
-        templateRootPaths >
         templateRootPaths {
           10 = EXT:news/Resources/Private/Templates/
-          20 = EXT:template/Resources/Private/Extensions/news/Templates/
+          20 = EXT:template/Resources/Private/ExtensionOverrides/news/Templates/
         }
 
-        layoutRootPaths >
         layoutRootPaths {
           10 = EXT:news/Resources/Private/Layouts/
-          20 = {$config.template_path}/Resources/Private/Extensions/news/Layouts/
+          20 = EXT:template/Resources/Private/ExtensionOverrides/news/Layouts/
         }
       }
 

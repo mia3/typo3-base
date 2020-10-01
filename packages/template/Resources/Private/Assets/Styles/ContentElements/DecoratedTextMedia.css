@@ -1,6 +1,6 @@
 .decorated-text-media
 {
-  display:               grid;
+  display: grid;
   grid-template-areas: 'header header' 'text image';
   grid-template-columns: 1fr 1fr;
 }
@@ -8,16 +8,16 @@
 .decorated-text-media__header
 {
   background-color: #eee;
-  grid-area:        header;
-  padding:          40px 0 0;
+  grid-area: header;
+  padding: 40px 0 0;
 }
 
 .decorated-text-media__title
 {
-  color:        #ca6318;
-  font-size:    4em;
-  font-weight:  400;
-  margin:       0;
+  color: #ca6318;
+  font-size: 4em;
+  font-weight: 400;
+  margin: 0;
   padding-left: 100px;
 }
 
@@ -29,30 +29,30 @@
 .decorated-text-media__text > div
 {
   grid-area: text;
-  padding:   32px 32px 10px;
-  position:  relative;
+  padding: 32px 32px 10px;
+  position: relative;
 }
 
 .decorated-text-media__text > div::before,
 .decorated-text-media__text > div::after
 {
   background-color: #ca6318;
-  bottom:           0;
-  content:          '';
-  left:             0;
-  position:         absolute;
+  bottom: 0;
+  content: '';
+  left: 0;
+  position: absolute;
 }
 
 .decorated-text-media__text > div::before
 {
   height: 250px;
-  width:  6px;
+  width: 6px;
 }
 
 .decorated-text-media__text > div::after
 {
   height: 6px;
-  width:  150px;
+  width: 150px;
 }
 
 .decorated-text-media__media

@@ -1,14 +1,14 @@
 .base-video .play-action
 {
-  cursor:     pointer;
-  left:       50%;
-  max-width:  210px;
-  opacity:    0.5;
-  position:   absolute;
-  top:        50%;
-  transform:  translate(-50%, -50%);
+  cursor: pointer;
+  left: 50%;
+  max-width: 210px;
+  opacity: 0.5;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
   transition: opacity ease 0.3s;
-  z-index:    2;
+  z-index: 2;
 }
 
 .base-video .play-action:hover
@@ -19,21 +19,21 @@
 .base-video .play-action svg
 {
   height: 100%;
-  width:  100%;
+  width: 100%;
 }
 
 .base-video .backdrop
 {
   background: black;
-  bottom:     0;
-  height:     100%;
-  left:       0;
-  position:   absolute;
-  right:      0;
-  top:        0;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
   transition: opacity ease 0.3s;
-  width:      100%;
-  z-index:    1;
+  width: 100%;
+  z-index: 1;
 }
 
 .base-video
@@ -44,7 +44,7 @@
 
 .base-video .player
 {
-  opacity:    0;
+  opacity: 0;
   transition: transform cubic-bezier(.19, -0.08, 0, 0.99) 0.4s, opacity ease 0.3s 0.4s;
 }
 
@@ -56,6 +56,6 @@
 .base-video.is--playing .backdrop,
 .base-video.is--playing .play-action
 {
-  opacity:        0;
+  opacity: 0;
   pointer-events: none;
 }

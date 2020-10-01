@@ -1,9 +1,9 @@
 .button-close
 {
   background: transparent;
-  border:     none;
-  padding:    0;
-  width:      auto;
+  border: none;
+  padding: 0;
+  width: auto;
 }
 
 .button-close:hover,
@@ -15,22 +15,22 @@
 
 .button-close
 {
-  height:   40px;
+  height: 40px;
   position: relative;
-  width:    40px;
+  width: 40px;
 }
 
 .button-close .bar
 {
-  background:       var(--orange);
-  display:          block;
-  height:           4px;
-  left:             0;
-  position:         absolute;
-  top:              10px;
+  background: var(--orange);
+  display: block;
+  height: 4px;
+  left: 0;
+  position: absolute;
+  top: 10px;
   transform-origin: center;
-  transition:       transform 0.4s ease-out, width 0.3s ease-in-out;
-  width:            0;
+  transition: transform 0.4s ease-out, width 0.3s ease-in-out;
+  width: 0;
 }
 
 .button-close--active .bar:first-child

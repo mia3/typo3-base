@@ -10,17 +10,17 @@ input[type='password'],
 textarea,
 select
 {
-  background     : var(--bleached-slik);
-  border         : none;
-  box-shadow     : none;
-  box-sizing     : border-box;
-  font-family    : var(--light);
-  font-size      : 1rem;
-  letter-spacing : 1px;
-  line-height    : 2em;
-  padding        : calc(0.5rem + 1px) 1rem 0.5rem 1rem;
-  transition     : background-color .6s ease, box-shadow 0.5s ease-in-out;
-  width          : 100%;
+  background: var(--bleached-slik);
+  border: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  font-family: var(--light);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  line-height: 2em;
+  padding: calc(0.5rem + 1px) 1rem 0.5rem 1rem;
+  transition: background-color .6s ease, box-shadow 0.5s ease-in-out;
+  width: 100%;
 }
 
 /* Removes awkward default styles on some inputs for iOS */
@@ -33,14 +33,14 @@ input[type='url'],
 input[type='password'],
 textarea
 {
-  -moz-appearance    : none;
-  -webkit-appearance : none;
-  appearance         : none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 textarea
 {
-  min-height : calc(var(--line-1) * 12);
+  min-height: calc(var(--line-1) * 12);
 }
 
 input[type='email']:focus,
@@ -53,7 +53,7 @@ input[type='password']:focus,
 textarea:focus,
 select:focus
 {
-  outline : 0;
+  outline: 0;
 }
 
 ::-webkit-input-placeholder,
@@ -61,130 +61,130 @@ select:focus
 :-moz-placeholder,
 :-ms-input-placeholder
 {
-  color    : var(--placeholder);
-  position : relative;
-  z-index  : 20;
+  color: var(--placeholder);
+  position: relative;
+  z-index: 20;
 }
 
 label,
 legend
 {
-  display       : block;
-  font-weight   : 600;
-  margin-bottom : 0.5rem;
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 fieldset
 {
-  border-width : 0;
-  padding      : 0;
+  border-width: 0;
+  padding: 0;
 }
 
 input[type='checkbox'],
 input[type='radio']
 {
-  -moz-appearance    : none;
-  -webkit-appearance : none;
-  appearance         : none;
-  background         : white;
-  border-radius      : 50%;
-  box-shadow         : 0px 5px 35px -5px rgba(0, 0, 0, 0.7);
-  display            : inline-block;
-  height             : 30px;
-  margin             : 0;
-  position           : relative;
-  width              : 30px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0px 5px 35px -5px rgba(0, 0, 0, 0.7);
+  display: inline-block;
+  height: 30px;
+  margin: 0;
+  position: relative;
+  width: 30px;
 }
 
 input[type='checkbox']:before,
 input[type='radio']:before
 {
-  background    : black;
-  border-radius : 50%;
-  content       : '';
-  display       : block;
-  height        : 0;
-  left          : 50%;
-  opacity       : 0;
-  position      : absolute;
-  top           : 50%;
-  transform     : translate(-50%, -50%);
-  transition    : opacity ease-out 0.4s, width cubic-bezier(.05, 1.06, 0.53, 1.14) 0.5s, height cubic-bezier(.05, 1.06, 0.53, 1.14) 0.5s;
-  width         : 0;
+  background: black;
+  border-radius: 50%;
+  content: '';
+  display: block;
+  height: 0;
+  left: 50%;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity ease-out 0.4s, width cubic-bezier(.05, 1.06, 0.53, 1.14) 0.5s, height cubic-bezier(.05, 1.06, 0.53, 1.14) 0.5s;
+  width: 0;
 }
 
 input[type='checkbox']:checked,
 input[type='radio']:checked
 {
-  outline : none;
+  outline: none;
 }
 
 input[type='checkbox']:checked:before,
 input[type='radio']:checked:before
 {
-  height  : 15px;
-  opacity : 1;
-  width   : 15px;
+  height: 15px;
+  opacity: 1;
+  width: 15px;
 }
 
 
 label > .label-body
 {
-  display     : inline-block;
-  font-weight : normal;
-  margin-left : 0.5rem;
+  display: inline-block;
+  font-weight: normal;
+  margin-left: 0.5rem;
 }
 
 input::-webkit-input-placeholder
 {
-  color    : var(--placeholder);
-  position : relative;
-  z-index  : 1000;
+  color: var(--placeholder);
+  position: relative;
+  z-index: 1000;
 }
 
 input:focus::-webkit-input-placeholder
 {
-  opacity : 0.4;
+  opacity: 0.4;
 }
 
 /* Firefox < 19 */
 input:-moz-placeholder
 {
 
-  color    : var(--placeholder);
-  position : relative;
-  z-index  : 1000;
+  color: var(--placeholder);
+  position: relative;
+  z-index: 1000;
 }
 
 input:focus:-moz-placeholder
 {
-  opacity : 0.4;
+  opacity: 0.4;
 }
 
 /* Firefox > 19 */
 input::-moz-placeholder
 {
 
-  color    : var(--placeholder);
-  position : relative;
-  z-index  : 1000;
+  color: var(--placeholder);
+  position: relative;
+  z-index: 1000;
 }
 
 input:focus::-moz-placeholder
 {
-  opacity : 0.4;
+  opacity: 0.4;
 }
 
 /* Internet Explorer 10 */
 input:-ms-input-placeholder
 {
 
-  color    : var(--placeholder);
-  position : relative;
-  z-index  : 1000;
+  color: var(--placeholder);
+  position: relative;
+  z-index: 1000;
 }
 
 input:focus:-ms-input-placeholder
 {
-  opacity : 0.4;
+  opacity: 0.4;
 }

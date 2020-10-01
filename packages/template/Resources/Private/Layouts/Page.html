@@ -1,0 +1,24 @@
+<html
+  xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+  data-namespace-typo3-fluid="true"
+>
+  <div class="page vue">
+    <f:render partial="Header" arguments="{_all}"/>
+
+    <div class="page__body">
+      <main class="page__main">
+        <f:render section="Main"/>
+      </main>
+
+      <footer class="page__footer">
+        <f:render partial="Footer" arguments="{_all}"/>
+      </footer>
+    </div>
+  </div>
+
+  <off-canvas-navigation>
+    <template slot="off-canvas" slot-scope="mobileNavigation">
+      <f:render section="Menu" partial="MainNavigation"/>
+    </template>
+  </off-canvas-navigation>
+</html>

@@ -5,7 +5,7 @@ editor:
     # the CSS file to be used inside the editor
     contentsCss:
       - "EXT:rte_ckeditor/Resources/Public/Css/contents.css"
-      - "EXT:template/Resources/Public/Build/RichTextEditor.css"
+      - "EXT:template/Resources/Public/Build/mia3_rte.css"
     # will be overridden by the record (if a language is set)
     defaultContentLanguage: "en"
     defaultLanguage: "en"

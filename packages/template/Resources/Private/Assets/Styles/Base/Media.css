@@ -61,11 +61,6 @@
   width: auto;
 }
 
-.image
-{
-  lost-utility: clearfix;
-}
-
 .image picture,
 .image picture img
 {
@@ -73,7 +68,7 @@
   float: left;
 }
 
-@media (--screen-tb)
+@media (--screen-tablet)
 {
   .media.media--tablet
   {
@@ -86,7 +81,7 @@
   }
 }
 
-@media (--screen-md)
+@media (--screen-desktop)
 {
   .media.media--desktop
   {
@@ -99,4 +94,3 @@
     display: none
   }
 }
-

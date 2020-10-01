@@ -10,7 +10,7 @@
 <f:section name="OffCanvas">
   <div class="mobileHeader">
     <f:render section="Logo"/>
-    <button-close @click="mobileNavigation.close" :active="mobileNavigation.isOpen"/>
+    <button-close @click="mobileNavigation.close" :active="mobileNavigation.isOpen"></button-close>
   </div>
   <div class="mobileContent">
     <f:render section="Menu" partial="MainNavigation"/>
@@ -24,10 +24,6 @@
 
 <f:section name="Logo">
   <a href="/" title="Zur Startseite">
-    <img
-      class="desktop-header__logo"
-      src="{f:uri.resource(path:'Media/imorde_Name_PANTONE_C.svg', extensionName: 'Template')}"
-      alt="Logo"
-    >
+    <img class="desktop-header__logo" src="{f:uri.resource(path:'Media/Logo.png', extensionName: 'Template')}" alt="Logo">
   </a>
 </f:section>

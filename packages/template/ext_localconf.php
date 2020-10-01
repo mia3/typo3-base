@@ -11,7 +11,7 @@ defined('TYPO3_MODE') || die();
 
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['fluid']['namespaces']['t'] = ['MIA3\\Template\\ViewHelpers'];
 $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['default_core'] = $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['default'];
-$GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['default'] = 'EXT:template/Configuration/RTE/Template.yaml';
+//$GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['default'] = 'EXT:template/Configuration/RTE/Template.yaml';
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
     'MIA3.Template',

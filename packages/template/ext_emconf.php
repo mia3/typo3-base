@@ -9,10 +9,10 @@ $EM_CONF[$_EXTKEY] = [
     'category' => 'templates',
     'constraints' => [
         'depends' => [
-            'typo3' => '10.4.0-10.4.99',
+            'typo3' => '10',
             'vhs' => '',
-            'news' => "",
-            'mask' => "",
+            'news' => '',
+            'mask' => '',
         ],
         'conflicts' => [
         ],
@@ -20,8 +20,8 @@ $EM_CONF[$_EXTKEY] = [
     'state' => 'stable',
     'uploadfolder' => 0,
     'clearCacheOnLoad' => 1,
-    'author' => 'Marc Neuhaus',
-    'author_email' => 'marc@mia3.com',
-    'author_company' => 'MIA3',
+    'author' => 'MIA3 GmbH',
+    'author_email' => 'typo3@mia3.com',
+    'author_company' => 'MIA3 GmbH',
     'version' => '1.0.0',
 ];

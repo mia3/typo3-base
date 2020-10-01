@@ -58,7 +58,7 @@
   margin-top: 0;
 }
 
-@media (--screen-sm)
+@media (--screen-tablet-landscape)
 {
   .styled-list li:before
   {
@@ -76,7 +76,7 @@
   }
 }
 
-@media (--screen-tb)
+@media (--screen-tablet)
 {
   .styled-list li:before
   {

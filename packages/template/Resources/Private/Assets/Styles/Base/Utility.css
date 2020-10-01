@@ -167,7 +167,7 @@
 }
 
 
-@media (--screen-sm)
+@media (--screen-tablet-landscape)
 {
   .visible-mobile
   {

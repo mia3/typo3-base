@@ -9,7 +9,25 @@
         }
     },
     "tt_content": {
-        "elements": [],
+        "elements": {
+            "placeholder": {
+                "color": "#000000",
+                "columns": [
+                    "bodytext"
+                ],
+                "description": "",
+                "icon": "",
+                "key": "placeholder",
+                "label": "Placeholder",
+                "labels": [
+                    "Bodytext"
+                ],
+                "options": [
+                    "rte"
+                ],
+                "shortLabel": ""
+            }
+        },
         "sql": [],
         "tca": []
     }

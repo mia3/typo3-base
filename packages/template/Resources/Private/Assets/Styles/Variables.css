@@ -75,7 +75,7 @@
   --container-width: 1200px;
 }
 
-@media (--screen-sm)
+@media (--screen-tablet-landscape)
 {
   /* Your favorite Variables come here! */
 }

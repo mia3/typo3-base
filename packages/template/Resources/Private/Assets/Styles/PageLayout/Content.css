@@ -1,0 +1,10 @@
+.scroll--sentinel
+{
+  margin-top: -1px;
+  min-height: 1px;
+  width: 100%;
+}
+
+.page__main {
+  background: #b2ad7f;
+}

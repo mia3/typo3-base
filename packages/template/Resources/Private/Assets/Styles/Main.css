@@ -1,8 +1,27 @@
-@import 'swiper/swiper-bundle.css';
-
 @import 'Variables.css';
 @import 'Font.css';
-@import 'Base/**/*.css';
-@import 'VueComponents/**/*.css';
-@import 'PageLayout/**/*.css';
-@import 'ContentElements/**/*.css';
+
+/* Base */
+@import 'Base/Base.css';
+@import 'Base/BaseImage.css';
+@import 'Base/BaseInput.css';
+@import 'Base/Buttons.css';
+@import 'Base/Form.css';
+@import 'Base/Links.css';
+@import 'Base/Lists.css';
+@import 'Base/Media.css';
+@import 'Base/MobileMenu.css';
+@import 'Base/OffCanvas.css';
+@import 'Base/Tables.css';
+@import 'Base/Typography.css';
+@import 'Base/Utility.css';
+
+/* PageLayout */
+@import 'PageLayout/Header.css';
+@import 'PageLayout/Content.css';
+@import 'PageLayout/Footer.css';
+
+/* ContentElements */
+/*
+@import 'ContentElements/...';
+*/

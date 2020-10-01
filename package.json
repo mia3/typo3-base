@@ -1,23 +1,19 @@
 {
-  "dependencies": {
-    "@babel/polyfill": "^7.4.3",
-    "@symfony/webpack-encore": "^0.27.0",
-    "axios": "^0.19.2",
-    "normalize.css": "^8.0.1",
-    "swiper": "^6.3.2",
-    "vue-awesome-swiper": "^4.1.1"
-  },
   "devDependencies": {
-    "autoprefixer": "^9.4.0",
-    "cssnext": "^1.8.4",
-    "lost": "^8.3.1",
-    "postcss-css-variables": "^0.12.0",
-    "postcss-custom-media": "^6.0.0",
-    "postcss-easy-import": "^3.0.0",
-    "postcss-loader": "^3.0.0",
-    "vue": "^2.6.8",
-    "vue-loader": "^15.7.0",
-    "vue-template-compiler": "^2.6.8"
+    "@babel/polyfill": "*",
+    "@symfony/webpack-encore": "*",
+    "axios": "*",
+    "cssnext": "*",
+    "normalize.css": "*",
+    "postcss-css-variables": "*",
+    "postcss-custom-media": "*",
+    "postcss-easy-import": "*",
+    "postcss-loader": "*",
+    "swiper": "*",
+    "vue": "^2.0",
+    "vue-loader": "*",
+    "vue-template-compiler": "*",
+    "vuex": "*"
   },
   "browserslist": [
     "last 2 versions",

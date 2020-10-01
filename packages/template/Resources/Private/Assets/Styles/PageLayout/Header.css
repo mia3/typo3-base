@@ -38,7 +38,7 @@
   float: right;
 }
 
-@media screen and (--screen-sm)
+@media (--screen-sm)
 {
   .desktop-header .page-search-form
   {

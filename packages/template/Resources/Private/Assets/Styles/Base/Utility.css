@@ -167,7 +167,7 @@
 }
 
 
-@media screen and (--screen-sm)
+@media (--screen-sm)
 {
   .visible-mobile
   {

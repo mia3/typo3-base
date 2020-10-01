@@ -1,10 +1,6 @@
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.button,
-button,
-input[type='submit'],
-input[type='reset'],
-input[type='button']
+.button
 {
   background: #f3f0ec;
   border: 0;
@@ -17,20 +13,6 @@ input[type='button']
   vertical-align: middle;
 }
 
-.button::after
-{
-  color: var(--orange);
-  content: '▲';
-  display: inline-block;
-  margin: 0 0 0 var(--base-2);
-  transform: rotate(90deg);
-}
-
-.button:hover::after
-{
-  color: #fff;
-}
-
 .button--small
 {
   font-size: 1em;
@@ -38,45 +20,24 @@ input[type='button']
   padding: var(--line-1) var(--line-1);
 }
 
-.button:focus,
-button:focus,
-input[type='submit']:focus,
-input[type='reset']:focus,
-input[type='button']:focus,
-.button:active,
-button:active,
-input[type='submit']:active,
-input[type='reset']:active,
-input[type='button']:active
-{
-  outline: none;
-}
-
-button:hover,
 .button:hover,
-input[type='submit']:hover,
-input[type='reset']:hover,
-input[type='button']:hover,
-.button:focus,
-button:focus,
-input[type='submit']:focus,
-input[type='reset']:focus,
-input[type='button']:focus
+.button:focus
 {
   background: var(--orange);
   color: #fff;
   cursor: pointer;
+  outline: none;
 }
 
-button[disabled],
-.button[disabled],
-input[type='submit'][disabled],
-input[type='reset'][disabled],
-input[type='button'][disabled]
+.button:active
+{
+  outline: none;
+}
+
+.button[disabled]
 {
   cursor: not-allowed;
   opacity: 0.5;
-
 }
 
 .button-burger,
@@ -175,7 +136,7 @@ input[type='button'][disabled]
   top: 17px;
 }
 
-@media screen and (--screen-mb)
+@media (--screen-mb)
 {
   .button-burger .bar
   {

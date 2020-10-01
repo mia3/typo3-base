@@ -58,7 +58,7 @@
   margin-top: 0;
 }
 
-@media screen and (--screen-sm)
+@media (--screen-sm)
 {
   .styled-list li:before
   {
@@ -76,7 +76,7 @@
   }
 }
 
-@media screen and (--screen-tb)
+@media (--screen-tb)
 {
   .styled-list li:before
   {

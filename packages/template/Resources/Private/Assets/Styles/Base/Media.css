@@ -73,7 +73,7 @@
   float: left;
 }
 
-@media screen and (--screen-tb)
+@media (--screen-tb)
 {
   .media.media--tablet
   {
@@ -86,7 +86,7 @@
   }
 }
 
-@media screen and (--screen-md)
+@media (--screen-md)
 {
   .media.media--desktop
   {

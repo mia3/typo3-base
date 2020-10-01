@@ -42,7 +42,7 @@
   width: auto;
 }
 
-@media screen and (--screen-mb)
+@media (--screen-mb)
 {
   .page-logo--responsiveMenu
   {
@@ -51,7 +51,7 @@
   }
 }
 
-@media screen and (--screen-sm)
+@media (--screen-sm)
 {
   .responsive-menu-container
   {
@@ -59,7 +59,7 @@
   }
 }
 
-@media screen and (--screen-tb)
+@media (--screen-tb)
 {
   .responsive-menu
   {

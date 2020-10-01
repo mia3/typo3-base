@@ -25,7 +25,7 @@
   lost-column: 12/12;
 }
 
-@media screen and (--screen-tb)
+@media (--screen-tb)
 {
   .column-1
   {
@@ -148,7 +148,7 @@
   }
 }
 
-@media screen and (--screen-sm)
+@media (--screen-sm)
 {
   .column-small-1
   {

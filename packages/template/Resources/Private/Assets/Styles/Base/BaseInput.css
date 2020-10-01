@@ -100,7 +100,7 @@ base-input + base-input
   box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 1);
 }
 
-@media screen and (--screen-sm)
+@media (--screen-sm)
 {
   .baseField[class*='column-'],
   base-input[class*='column-']

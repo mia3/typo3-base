@@ -75,7 +75,7 @@
   --container-width: 1200px;
 }
 
-@media screen and (--screen-sm)
+@media (--screen-sm)
 {
   /* Your favorite Variables come here! */
 }

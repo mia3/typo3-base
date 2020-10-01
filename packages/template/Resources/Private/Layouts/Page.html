@@ -3,16 +3,18 @@
   data-namespace-typo3-fluid="true"
 >
   <div class="page vue">
-    <f:render partial="Header" arguments="{_all}"/>
-
     <div class="page__body">
-      <main class="page__main">
-        <f:render section="Main"/>
-      </main>
+      <section class="page__header">
+        <f:render partial="Header" arguments="{_all}"/>
+      </section>
 
-      <footer class="page__footer">
+      <section class="page__main">
+        <f:render section="Main"/>
+      </section>
+
+      <section class="page__footer">
         <f:render partial="Footer" arguments="{_all}"/>
-      </footer>
+      </section>
     </div>
   </div>
 

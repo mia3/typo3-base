@@ -1,4 +1,4 @@
-.offCanvas-container
+.offCanvasContainer
 {
   bottom: 0;
   height: 100%;
@@ -11,7 +11,7 @@
   z-index: 1111;
 }
 
-.offCanvas-container .backdrop
+.offCanvasContainer .backdrop
 {
   background: rgba(0, 0, 0, 0.6);
   bottom: 0;
@@ -24,18 +24,18 @@
   z-index: -1;
 }
 
-.offCanvas-container.offCanvas--shown
+.offCanvasContainer.offCanvas--shown
 {
   pointer-events: all;
 }
 
-.offCanvas-container.offCanvas--shown .offCanvas-content
+.offCanvasContainer.offCanvas--shown .offCanvas-content
 {
   right: 0;
   transition: right 0.5s cubic-bezier(.59, 0, 0.56, 1);
 }
 
-.offCanvas-container.offCanvas--shown .backdrop
+.offCanvasContainer.offCanvas--shown .backdrop
 {
   opacity: 1;
 }

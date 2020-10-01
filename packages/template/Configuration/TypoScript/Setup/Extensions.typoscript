@@ -1,60 +1,80 @@
-plugin.tx_news {
-  view {
-    partialRootPaths >
+lib {
+  # EXT:fluid_styled_content
+  contentElement {
+    layoutRootPaths.100 = EXT:template/Resources/Private/Extensions/fluid_styled_content/Layouts/
     partialRootPaths {
-      10 = EXT:news/Resources/Private/Partials/
-      20 = EXT:template/Resources/Private/Extensions/news/Partials/
-      30 = EXT:template/Resources/Private/Extensions/mask/Frontend/Partials/
-      40 = EXT:template/Resources/Private/Partials/Page/
+      100 = EXT:template/Resources/Private/Extensions/fluid_styled_content/Partials/
+      101 = EXT:template/Resources/Private/Extensions/mask/Frontend/Partials/
+      102 = EXT:template/Resources/Private/Partials/ContentElements/
+      103 = EXT:template/Resources/Private/Partials/Page/
     }
 
-    templateRootPaths >
-    templateRootPaths {
-      10 = EXT:news/Resources/Private/Templates/
-      20 = EXT:template/Resources/Private/Extensions/news/Templates/
-    }
-
-    layoutRootPaths >
-    layoutRootPaths {
-      10 = EXT:news/Resources/Private/Layouts/
-      20 = {$config.template_path}/Resources/Private/Extensions/news/Layouts/
-    }
+    templateRootPaths.100 = EXT:template/Resources/Private/Extensions/fluid_styled_content/Templates/
   }
 
-  settings.itemscope {
-    itemscope = itemscope
-    itemtype = http://schema.org/Article
+  # EXT:mask
+  maskContentElement {
+    partialRootPaths {
+      200 = EXT:fluid_styled_content/Resources/Private/Partials/
+      210 = EXT:template/Resources/Private/Extensions/fluid_styled_content/Partials/
+    }
+
+    layoutRootPaths {
+      200 = EXT:fluid_styled_content/Resources/Private/Layouts/
+      210 = EXT:template/Resources/Private/Extensions/fluid_styled_content/Layouts/
+    }
   }
 }
 
-lib.contentElement {
-  layoutRootPaths.100 = EXT:template/Resources/Private/Extensions/fluid_styled_content/Layouts/
-  partialRootPaths {
-    100 = EXT:template/Resources/Private/Extensions/fluid_styled_content/Partials/
-    101 = EXT:template/Resources/Private/Extensions/mask/Frontend/Partials/
-    102 = EXT:template/Resources/Private/Partials/ContentElements/
-    103 = EXT:template/Resources/Private/Partials/Page/
-  }
+plugin {
+  # EXT:template
+  tx_template {
+    view {
+      templateRootPaths >
+      templateRootPaths {
+        0 = EXT:template/Resources/Private/Templates/
+      }
 
-  templateRootPaths.100 = EXT:template/Resources/Private/Extensions/fluid_styled_content/Templates/
-}
+      partialRootPaths >
+      partialRootPaths {
+        0 = EXT:template/Resources/Private/Extensions/mask/Frontend/Partials/
+        1 = EXT:template/Resources/Private/Partials/Page/
+      }
 
-plugin.tx_template {
-  view {
-    templateRootPaths >
-    templateRootPaths {
-      0 = EXT:template/Resources/Private/Templates/
+      layoutRootPaths >
+      layoutRootPaths {
+        0 = EXT:template/Resources/Private/Layouts/
+      }
     }
 
-    partialRootPaths >
-    partialRootPaths {
-      0 = EXT:template/Resources/Private/Extensions/mask/Frontend/Partials/
-      1 = EXT:template/Resources/Private/Partials/Page/
-    }
+    # EXT:news
+    tx_news {
+      view {
+        partialRootPaths >
+        partialRootPaths {
+          10 = EXT:news/Resources/Private/Partials/
+          20 = EXT:template/Resources/Private/Extensions/news/Partials/
+          30 = EXT:template/Resources/Private/Extensions/mask/Frontend/Partials/
+          40 = EXT:template/Resources/Private/Partials/Page/
+        }
 
-    layoutRootPaths >
-    layoutRootPaths {
-      0 = EXT:template/Resources/Private/Layouts/
+        templateRootPaths >
+        templateRootPaths {
+          10 = EXT:news/Resources/Private/Templates/
+          20 = EXT:template/Resources/Private/Extensions/news/Templates/
+        }
+
+        layoutRootPaths >
+        layoutRootPaths {
+          10 = EXT:news/Resources/Private/Layouts/
+          20 = {$config.template_path}/Resources/Private/Extensions/news/Layouts/
+        }
+      }
+
+      settings.itemscope {
+        itemscope = itemscope
+        itemtype = http://schema.org/Article
+      }
     }
   }
 }

@@ -5,12 +5,12 @@
       <div v-for="parent in data.categories">
         <h3>{{ parent.title }}</h3>
         <ul class="project-list__category-list">
-          <li class="project-list__category-list-item" v-for="child in parent.children">{{ child.title }}</li>
+          <li v-for="child in parent.children" class="project-list__category-list-item">{{ child.title }}</li>
         </ul>
       </div>
 
       <ul class="project-list__result-list">
-        <li :class="resultListItemClass(i)" class="project-list__result-list-item" v-for="(project, i) in data.projects">
+        <li v-for="(project, i) in data.projects" :class="resultListItemClass(i)" class="project-list__result-list-item">
           {{ i }} {{ resultListItemClass(i) }}
         </li>
       </ul>
@@ -24,76 +24,76 @@
     props: ['data'],
     components: {},
     data () {
-      return {}
+      return {};
     },
     computed: {},
     methods: {
       resultListItemClass (i) {
         switch (i) {
           case 0:
-            return 'project-list__result-list-item--a'
+            return 'project-list__result-list-item--a';
 
           case 1:
-            return 'project-list__result-list-item--b'
+            return 'project-list__result-list-item--b';
 
           case 2:
-            return 'project-list__result-list-item--c'
+            return 'project-list__result-list-item--c';
 
           case 3:
-            return 'project-list__result-list-item--c'
+            return 'project-list__result-list-item--c';
 
           case 4:
-            return 'project-list__result-list-item--e'
+            return 'project-list__result-list-item--e';
 
           case 5:
-            return 'project-list__result-list-item--f'
+            return 'project-list__result-list-item--f';
 
           case 6:
-            return 'project-list__result-list-item--g'
+            return 'project-list__result-list-item--g';
 
           default:
-            return ''
+            return '';
         }
       },
       placeholder (i) {
         switch (i) {
           case 0:
-            return '/typo3conf/ext/template/Resources/Public/Placeholder/a.png'
+            return '/typo3conf/ext/template/Resources/Public/Placeholder/a.png';
 
           case 1:
-            return '/typo3conf/ext/template/Resources/Public/Placeholder/b.png'
+            return '/typo3conf/ext/template/Resources/Public/Placeholder/b.png';
 
           case 2:
-            return '/typo3conf/ext/template/Resources/Public/Placeholder/c.png'
+            return '/typo3conf/ext/template/Resources/Public/Placeholder/c.png';
 
           case 3:
-            return '/typo3conf/ext/template/Resources/Public/Placeholder/d.png'
+            return '/typo3conf/ext/template/Resources/Public/Placeholder/d.png';
 
           case 4:
-            return '/typo3conf/ext/template/Resources/Public/Placeholder/e.png'
+            return '/typo3conf/ext/template/Resources/Public/Placeholder/e.png';
 
           case 5:
-            return '/typo3conf/ext/template/Resources/Public/Placeholder/d.png'
+            return '/typo3conf/ext/template/Resources/Public/Placeholder/d.png';
 
           case 6:
-            return '/typo3conf/ext/template/Resources/Public/Placeholder/d.png'
+            return '/typo3conf/ext/template/Resources/Public/Placeholder/d.png';
 
           case 7:
-            return '/typo3conf/ext/template/Resources/Public/Placeholder/d.png'
+            return '/typo3conf/ext/template/Resources/Public/Placeholder/d.png';
 
           case 8:
-            return '/typo3conf/ext/template/Resources/Public/Placeholder/e.png'
+            return '/typo3conf/ext/template/Resources/Public/Placeholder/e.png';
 
           case 9:
-            return '/typo3conf/ext/template/Resources/Public/Placeholder/f.png'
+            return '/typo3conf/ext/template/Resources/Public/Placeholder/f.png';
 
           case 10:
-            return '/typo3conf/ext/template/Resources/Public/Placeholder/g.png'
+            return '/typo3conf/ext/template/Resources/Public/Placeholder/g.png';
 
           default:
-            return '/typo3conf/ext/template/Resources/Public/Placeholder/a.png'
+            return '/typo3conf/ext/template/Resources/Public/Placeholder/a.png';
         }
       }
     }
-  }
+  };
 </script>

@@ -23,7 +23,7 @@
           createElement('span', { class: 'bar' }),
           createElement('span', { class: 'bar center' }),
           createElement('span', { class: 'bar' })
-        ])
+        ]);
     }
-  }
+  };
 </script>

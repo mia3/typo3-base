@@ -1,6 +1,6 @@
 <template>
   <div class="side-widget-container">
-    <div @click="toggleWidget" class="side-widget__backdrop" v-if="isOpen"></div>
+    <div v-if="isOpen" class="side-widget__backdrop" @click="toggleWidget"></div>
     <slot :isOpen="isOpen" :toggleWidget="toggleWidget"></slot>
   </div>
 </template>
@@ -10,17 +10,17 @@
     data () {
       return {
         open: false
-      }
+      };
     },
     methods: {
       toggleWidget () {
-        this.open = !this.open
+        this.open = !this.open;
       }
     },
     computed: {
       isOpen () {
-        return this.open
+        return this.open;
       }
     }
-  }
+  };
 </script>

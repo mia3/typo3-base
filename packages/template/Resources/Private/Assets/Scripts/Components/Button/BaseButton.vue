@@ -17,11 +17,11 @@
       }
     },
     render (createElement, { props, listeners, attrs, children }) {
-      const classes = {}
-      classes[props.baseClass] = true
-      classes[props.baseClass + '-' + props.type] = true
-      classes[props.baseClass + '-' + props.type] = true
-      classes[props.baseClass + '-' + props.type + '--active'] = props.active
+      const classes = {};
+      classes[props.baseClass] = true;
+      classes[props.baseClass + '-' + props.type] = true;
+      classes[props.baseClass + '-' + props.type] = true;
+      classes[props.baseClass + '-' + props.type + '--active'] = props.active;
       return createElement('button', {
           attrs: attrs,
           on: {
@@ -30,7 +30,7 @@
           class: classes
         },
         children
-      )
+      );
     }
-  }
+  };
 </script>

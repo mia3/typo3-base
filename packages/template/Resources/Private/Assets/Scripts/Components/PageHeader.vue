@@ -1,9 +1,9 @@
 <template>
-  <header :class="{'header--fixed': isFixed, 'header--static': !isFixed, 'is--scrolling': isScrolling}" ref="pageHeader">
+  <header ref="pageHeader" :class="{'header--fixed': isFixed, 'header--static': !isFixed, 'is--scrolling': isScrolling}">
     <slot :close="close" :isOpen="navOpen" :open="open"></slot>
-    <div class="scroll--sentinel" ref="sentinel"></div>
+    <div ref="sentinel" class="scroll--sentinel"></div>
     <div :class="{'offCanvas--shown': navOpen}" class="offCanvas-container">
-      <div @click="close" class="backdrop"></div>
+      <div class="backdrop" @click="close"></div>
       <div class="offCanvas-content">
         <slot :close="close" :isOpen="navOpen" :open="open" name="offCanvas"></slot>
       </div>
@@ -24,29 +24,29 @@
       return {
         navOpen: false,
         isScrolling: false
-      }
+      };
     },
     mounted () {
       if (this.isFixed) {
-        this.initObserver()
+        this.initObserver();
       }
     },
     methods: {
       initObserver () {
         const headerObserver = new IntersectionObserver((entries, observer) => {
           entries.forEach(entry => {
-            this.isScrolling = !entry.isIntersecting
-          })
-        })
+            this.isScrolling = !entry.isIntersecting;
+          });
+        });
 
-        headerObserver.observe(this.$refs.sentinel)
+        headerObserver.observe(this.$refs.sentinel);
       },
       open () {
-        this.navOpen = true
+        this.navOpen = true;
       },
       close () {
-        this.navOpen = false
+        this.navOpen = false;
       }
     }
-  }
+  };
 </script>

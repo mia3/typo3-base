@@ -10,7 +10,7 @@
     <!-- Nav line II -->
     <ul class="navigation-slider__nav navigation-slider__nav--type-2">
       <li v-for="slide in type2" @click="slideTo(slide)">
-        <img class="navigation-slider__nav-icon" v-if="slide.icon" :src="slide.icon">
+        <img v-if="slide.icon" :src="slide.icon" class="navigation-slider__nav-icon">
         <span class="navigation-slider__nav-label">{{ slide.label }}</span>
       </li>
     </ul>
@@ -18,7 +18,7 @@
     <!-- Slides -->
     <swiper ref="mySwiper" :options="swiperOptions">
       <swiper-slide v-for="(slide, i) in allTypes" :key="i">
-        <div class="navigation-slider__content-wrapper" :style="contentStyle(slide)">
+        <div :style="contentStyle(slide)" class="navigation-slider__content-wrapper">
           <div class="navigation-slider__content" v-html="slide.content"></div>
         </div>
       </swiper-slide>
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-  import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+  import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 
   export default {
     name: 'navigation-slider',
@@ -39,35 +39,35 @@
     data () {
       return {
         swiperOptions: {}
-      }
+      };
     },
     computed: {
       allTypes () {
-        return Object.values(this.slides)
+        return Object.values(this.slides);
       },
       type1 () {
-        return this.allTypes.filter(s => s.type === 1)
+        return this.allTypes.filter(s => s.type === 1);
       },
       type2 () {
-        return this.allTypes.filter(s => s.type === 2)
+        return this.allTypes.filter(s => s.type === 2);
       },
       swiper () {
-        return this.$refs.mySwiper.$swiper
+        return this.$refs.mySwiper.$swiper;
       }
     },
     methods: {
       slideTo (slide) {
-        this.swiper.slideTo(this.allTypes.findIndex(s => s === slide), 1000, false)
+        this.swiper.slideTo(this.allTypes.findIndex(s => s === slide), 1000, false);
       },
       contentStyle (slide) {
         if (!slide.background) {
-          return {}
+          return {};
         }
 
         return {
           background: `url('${slide.background}')`
-        }
+        };
       }
     }
-  }
+  };
 </script>

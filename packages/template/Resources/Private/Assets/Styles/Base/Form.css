@@ -164,7 +164,6 @@ input:focus:-moz-placeholder
 /* Firefox > 19 */
 input::-moz-placeholder
 {
-
   color: var(--placeholder);
   position: relative;
   z-index: 1000;
@@ -178,7 +177,6 @@ input:focus::-moz-placeholder
 /* Internet Explorer 10 */
 input:-ms-input-placeholder
 {
-
   color: var(--placeholder);
   position: relative;
   z-index: 1000;

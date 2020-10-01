@@ -9,18 +9,18 @@
     name: 'side-widget',
     data () {
       return {
-        open: false
+        open: false,
       };
     },
     methods: {
       toggleWidget () {
         this.open = !this.open;
-      }
+      },
     },
     computed: {
       isOpen () {
         return this.open;
-      }
-    }
+      },
+    },
   };
 </script>

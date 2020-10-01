@@ -6,38 +6,38 @@
       value: {},
       label: {
         type: String,
-        required: false
+        required: false,
       },
       baseClass: {
         type: String,
-        default: 'baseField'
+        default: 'baseField',
       },
       containerClass: {
         type: String,
-        default: ''
+        default: '',
       },
       invalid: {
         type: Boolean | Number,
-        default: false
+        default: false,
       },
       type: {
         type: String,
-        default: 'text'
+        default: 'text',
       },
       autosize: {
         type: Boolean,
-        default: false
+        default: false,
       },
       help: {
-        type: String
+        type: String,
       },
       validation: {
-        type: String
+        type: String,
       },
       element: {
         type: String,
-        default: 'input'
-      }
+        default: 'input',
+      },
     },
     render (createElement, context) {
       let self = this;
@@ -64,10 +64,10 @@
         class: props.baseClass + '-input ' + 'field--' + type,
         attrs: {
           ...attrs,
-          type: type
+          type: type,
         },
         domProps: {
-          value: value
+          value: value,
         },
         on: {
           ...listeners,
@@ -83,8 +83,8 @@
                 data.on.input(event.target.value);
               }
             }
-          }
-        }
+          },
+        },
 
       });
 
@@ -108,6 +108,6 @@
       }
 
       return createElement('div', { class: classes }, content);
-    }
+    },
   };
 </script>

@@ -34,11 +34,11 @@
     props: ['slides'],
     components: {
       Swiper,
-      SwiperSlide
+      SwiperSlide,
     },
     data () {
       return {
-        swiperOptions: {}
+        swiperOptions: {},
       };
     },
     computed: {
@@ -53,7 +53,7 @@
       },
       swiper () {
         return this.$refs.mySwiper.$swiper;
-      }
+      },
     },
     methods: {
       slideTo (slide) {
@@ -65,9 +65,9 @@
         }
 
         return {
-          background: `url('${slide.background}')`
+          background: `url('${slide.background}')`,
         };
-      }
-    }
+      },
+    },
   };
 </script>

@@ -3,7 +3,7 @@
     name: 'resizeable',
     data () {
       return {
-        initialHeight: 0
+        initialHeight: 0,
       };
     },
     methods: {
@@ -14,7 +14,7 @@
         } else {
           event.target.style.height = '';
         }
-      }
+      },
     },
     mounted () {
       this.initialHeight = this.$el.scrollHeight;
@@ -26,6 +26,6 @@
     },
     render () {
       return this.$slots.default[0];
-    }
+    },
   };
 </script>

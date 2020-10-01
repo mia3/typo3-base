@@ -26,17 +26,17 @@
     data () {
       return {
         isOpen: false,
-        action: ''
+        action: '',
       };
     },
     props: {
       id: {
-        required: false
+        required: false,
       },
       open: {
         type: Boolean,
-        default: false
-      }
+        default: false,
+      },
     },
     mounted () {
       this.isOpen = this.open;
@@ -65,7 +65,7 @@
       cancelModal () {
         this.isOpen = false;
         this.action = 'cancelled';
-      }
+      },
 
     },
     watch: {
@@ -78,7 +78,7 @@
       },
       action (action) {
         this.$emit('input', action);
-      }
-    }
+      },
+    },
   };
 </script>

@@ -17,13 +17,13 @@
     props: {
       isFixed: {
         type: Boolean,
-        default: true
-      }
+        default: true,
+      },
     },
     data () {
       return {
         navOpen: false,
-        isScrolling: false
+        isScrolling: false,
       };
     },
     mounted () {
@@ -46,7 +46,7 @@
       },
       close () {
         this.navOpen = false;
-      }
-    }
+      },
+    },
   };
 </script>

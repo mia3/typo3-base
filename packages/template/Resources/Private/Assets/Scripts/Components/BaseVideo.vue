@@ -28,14 +28,14 @@
     data () {
       return {
         isPlaying: false,
-        videoReady: false
+        videoReady: false,
       };
     },
     props: {
       aspectRatioClass: {
         type: String,
-        default: 'media--default'
-      }
+        default: 'media--default',
+      },
     },
     methods: {
       logEvt (evt) {
@@ -48,14 +48,14 @@
       pause () {
         this.$refs.video.pause();
         this.isPlaying = false;
-      }
+      },
     },
     computed: {
       attributes () {
         return {
-          ...this.$attrs
+          ...this.$attrs,
         };
-      }
-    }
+      },
+    },
   };
 </script>

@@ -28,7 +28,7 @@ Vue.directive('click-outside', {
   },
   unbind: function (el) {
     document.body.removeEventListener('click', el.event);
-  }
+  },
 });
 
 Vue.directive('modal-trigger', {
@@ -45,14 +45,14 @@ Vue.directive('modal-trigger', {
       }
       modal.toggleModal();
     });
-  }
+  },
 });
 
 new Vue({
   el: '.vue',
   data () {
     return {
-      state: {}
+      state: {},
     };
   },
   methods: {
@@ -61,6 +61,6 @@ new Vue({
     },
     goBack (evt) {
       window.history.back();
-    }
-  }
+    },
+  },
 });

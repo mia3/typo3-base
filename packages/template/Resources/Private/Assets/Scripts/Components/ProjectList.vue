@@ -93,7 +93,7 @@
           default:
             return '/typo3conf/ext/template/Resources/Public/Placeholder/a.png';
         }
-      }
-    }
+      },
+    },
   };
 </script>

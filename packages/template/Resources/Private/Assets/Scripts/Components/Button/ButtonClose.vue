@@ -5,24 +5,24 @@
     props: {
       active: {
         type: Boolean,
-        default: false
-      }
+        default: false,
+      },
     },
     render (createElement, { props, listeners, attrs }) {
       return createElement('base-button', {
           attrs: attrs,
           props: {
             ...props,
-            type: 'close'
+            type: 'close',
           },
           on: {
-            ...listeners
-          }
+            ...listeners,
+          },
         },
         [
           createElement('span', { class: 'bar' }),
-          createElement('span', { class: 'bar' })
+          createElement('span', { class: 'bar' }),
         ]);
-    }
+    },
   };
 </script>

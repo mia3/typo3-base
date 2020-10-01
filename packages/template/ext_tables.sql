@@ -1,9 +1,10 @@
-# TT Content Adjustments
-CREATE TABLE tt_content (
-    header_styles varchar(255) DEFAULT '' NOT NULL,
-    header_semantic tinyint(4) unsigned DEFAULT '1' NOT NULL,
+create table tt_content
+(
+    header_styles   varchar(255)        default ''  not null,
+    header_semantic tinyint(4) unsigned default '1' not null
 );
 
-CREATE TABLE sys_file_reference (
-	stretch_across_content tinyint(4) unsigned DEFAULT '0' NOT NULL,
+create table sys_file_reference
+(
+    stretch_across_content tinyint(4) unsigned default '0' not null
 );

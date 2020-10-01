@@ -1,4 +1,5 @@
 <?php
+
 namespace MIA3\Template\ViewHelpers;
 
 /*
@@ -66,12 +67,16 @@ class Nl2brViewHelper extends AbstractViewHelper
      * @param \TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface $renderingContext
      * @return string
      */
-    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext)
-    {
+    public static function renderStatic(
+        array $arguments,
+        \Closure $renderChildrenClosure,
+        RenderingContextInterface $renderingContext
+    ) {
         $string = $renderChildrenClosure();
-        if(preg_match("/\s/",$string[0])){
+        if (preg_match("/\s/", $string[0])) {
             $string = substr($renderChildrenClosure(), 1);
         }
+
         return nl2br($string);
     }
 }

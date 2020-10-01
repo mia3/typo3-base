@@ -1,169 +1,167 @@
 <T3DataStructure>
-	<sheets>
-		<!--
-			################################
-			  SHEET General Settings
-			################################
-		-->
-		<sDEF>
-			<ROOT>
-				<TCEforms>
-					<sheetTitle>General</sheetTitle>
-				</TCEforms>
-				<type>array</type>
-				<el>
-					<settings.link>
-						<TCEforms>
-							<label>Weiterleitung nach erfolgreichem Abschicken</label>
-							<exclude>0</exclude>
-							<config>
-								<type>input</type>
-								<renderType>inputLink</renderType>
-								<eval>required</eval>
-							</config>
-						</TCEforms>
-					</settings.link>
-					<settings.privacy>
-						<TCEforms>
-							<label>Datenschutz-Disclaimer</label>
-							<exclude>0</exclude>
-							<config>
-								<eval>required</eval>
-								<type>text</type>
-								<cols>30</cols>
-								<rows>2</rows>
-								<enableRichtext>1</enableRichtext>
-							</config>
-						</TCEforms>
-					</settings.privacy>
+  <sheets>
+    <!--
+        ################################
+          SHEET General Settings
+        ################################
+    -->
+    <sDEF>
+      <ROOT>
+        <TCEforms>
+          <sheetTitle>General</sheetTitle>
+        </TCEforms>
+        <type>array</type>
+        <el>
+          <settings.link>
+            <TCEforms>
+              <label>Weiterleitung nach erfolgreichem Abschicken</label>
+              <exclude>0</exclude>
+              <config>
+                <type>input</type>
+                <renderType>inputLink</renderType>
+                <eval>required</eval>
+              </config>
+            </TCEforms>
+          </settings.link>
+          <settings.privacy>
+            <TCEforms>
+              <label>Datenschutz-Disclaimer</label>
+              <exclude>0</exclude>
+              <config>
+                <eval>required</eval>
+                <type>text</type>
+                <cols>30</cols>
+                <rows>2</rows>
+                <enableRichtext>1</enableRichtext>
+              </config>
+            </TCEforms>
+          </settings.privacy>
+        </el>
+      </ROOT>
+    </sDEF>
 
-
-				</el>
-			</ROOT>
-		</sDEF>
-
-		<!--
-			################################
-			  SHEET Template
-			################################
-		-->
-		<emailFrom>
-			<ROOT>
-				<TCEforms>
-					<sheetTitle>E-Mail Versand</sheetTitle>
-					<sheetShortDescr>Einstellungen für den Versand der E-Mail</sheetShortDescr>
-					<sheetDescription>
-						Versand von: Ist die Addresse die für den E-Mail Versand genutzt wird.
-						Von Alias: Wenn ein Alias gesetzt ist, wird dieser in E-Mail Programmen (Microsoft Outlook etc.) anstelle der abgeschickten Adresse verwendet.
-						-----
-						Betreff: Der Betreff der Kontaktanfrage.
-						Versand an: An diese Addresse werden die Daten vom dem Kontaktformular verschickt.
-
-					</sheetDescription>
-				</TCEforms>
-				<type>array</type>
-				<el>
-					<settings.email.from>
-						<TCEforms>
-							<label>Versand von</label>
-							<config>
-								<type>input</type>
-								<eval>required,trim,email</eval>
-							</config>
-						</TCEforms>
-					</settings.email.from>
-					<settings.email.fromAlias>
-						<TCEforms>
-							<label>Von Alias</label>
-							<config>
-								<type>input</type>
-								<size>5</size>
-								<eval>trim</eval>
-							</config>
-						</TCEforms>
-					</settings.email.fromAlias>
-					<settings.email.subject>
-						<TCEforms>
-							<label>Betreff</label>
-							<config>
-								<type>input</type>
-								<eval>trim</eval>
-							</config>
-						</TCEforms>
-					</settings.email.subject>
-					<settings.email.to>
-						<TCEforms>
-							<label>Versand An:</label>
-							<config>
-								<type>input</type>
-								<eval>required,trim,email</eval>
-							</config>
-						</TCEforms>
-					</settings.email.to>
-				</el>
-			</ROOT>
-		</emailFrom>
-		<submitButton>
-			<ROOT>
-				<TCEforms>
-					<sheetTitle>Absende Button</sheetTitle>
-					<sheetShortDescr>Anpassungen am Absende Button</sheetShortDescr>
-				</TCEforms>
-				<type>array</type>
-				<el>
-					<settings.submit.label>
-						<TCEforms>
-							<label>Label</label>
-							<config>
-								<type>input</type>
-								<eval>trim</eval>
-							</config>
-						</TCEforms>
-					</settings.submit.label>
-					<settings.submit.style>
-						<TCEforms>
-							<label>Styling</label>
-							<config>
-								<type>select</type>
-								<renderType>selectSingle</renderType>
-								<items>
-									<numIndex index="0">
-										<numIndex index="0">Default</numIndex>
-										<numIndex index="1">-1</numIndex>
-									</numIndex>
-									<numIndex index="1">
-										<numIndex index="0">Blue Gradient</numIndex>
-										<numIndex index="1">button-gradient</numIndex>
-									</numIndex>
-								</items>
-							</config>
-						</TCEforms>
-					</settings.submit.style>
-					<settings.submit.alignment>
-						<TCEforms>
-							<label>Ausrichtung</label>
-							<config>
-								<type>select</type>
-								<renderType>selectSingle</renderType>
-								<items>
-									<numIndex index="0">
-										<numIndex index="0">Links</numIndex>
-										<numIndex index="1">left</numIndex>
-									</numIndex>
-									<numIndex index="1">
-										<numIndex index="0">Rechts</numIndex>
-										<numIndex index="1">right</numIndex>
-									</numIndex>
-									<numIndex index="2">
-										<numIndex index="0">Zentriert</numIndex>
-										<numIndex index="1">center</numIndex>
-									</numIndex>
-								</items>
-							</config>
-						</TCEforms>
-					</settings.submit.alignment>
-				</el>
-			</ROOT>
-		</submitButton>
-	</sheets>
+    <!--
+        ################################
+          SHEET Template
+        ################################
+    -->
+    <emailFrom>
+      <ROOT>
+        <TCEforms>
+          <sheetTitle>E-Mail Versand</sheetTitle>
+          <sheetShortDescr>Einstellungen für den Versand der E-Mail</sheetShortDescr>
+          <sheetDescription>
+            Versand von: Ist die Addresse die für den E-Mail Versand genutzt wird.
+            Von Alias: Wenn ein Alias gesetzt ist, wird dieser in E-Mail Programmen (Microsoft Outlook etc.) anstelle
+            der abgeschickten Adresse verwendet.
+            -----
+            Betreff: Der Betreff der Kontaktanfrage.
+            Versand an: An diese Addresse werden die Daten vom dem Kontaktformular verschickt.
+          </sheetDescription>
+        </TCEforms>
+        <type>array</type>
+        <el>
+          <settings.email.from>
+            <TCEforms>
+              <label>Versand von</label>
+              <config>
+                <type>input</type>
+                <eval>required,trim,email</eval>
+              </config>
+            </TCEforms>
+          </settings.email.from>
+          <settings.email.fromAlias>
+            <TCEforms>
+              <label>Von Alias</label>
+              <config>
+                <type>input</type>
+                <size>5</size>
+                <eval>trim</eval>
+              </config>
+            </TCEforms>
+          </settings.email.fromAlias>
+          <settings.email.subject>
+            <TCEforms>
+              <label>Betreff</label>
+              <config>
+                <type>input</type>
+                <eval>trim</eval>
+              </config>
+            </TCEforms>
+          </settings.email.subject>
+          <settings.email.to>
+            <TCEforms>
+              <label>Versand An:</label>
+              <config>
+                <type>input</type>
+                <eval>required,trim,email</eval>
+              </config>
+            </TCEforms>
+          </settings.email.to>
+        </el>
+      </ROOT>
+    </emailFrom>
+    <submitButton>
+      <ROOT>
+        <TCEforms>
+          <sheetTitle>Absende Button</sheetTitle>
+          <sheetShortDescr>Anpassungen am Absende Button</sheetShortDescr>
+        </TCEforms>
+        <type>array</type>
+        <el>
+          <settings.submit.label>
+            <TCEforms>
+              <label>Label</label>
+              <config>
+                <type>input</type>
+                <eval>trim</eval>
+              </config>
+            </TCEforms>
+          </settings.submit.label>
+          <settings.submit.style>
+            <TCEforms>
+              <label>Styling</label>
+              <config>
+                <type>select</type>
+                <renderType>selectSingle</renderType>
+                <items>
+                  <numIndex index="0">
+                    <numIndex index="0">Default</numIndex>
+                    <numIndex index="1">-1</numIndex>
+                  </numIndex>
+                  <numIndex index="1">
+                    <numIndex index="0">Blue Gradient</numIndex>
+                    <numIndex index="1">button-gradient</numIndex>
+                  </numIndex>
+                </items>
+              </config>
+            </TCEforms>
+          </settings.submit.style>
+          <settings.submit.alignment>
+            <TCEforms>
+              <label>Ausrichtung</label>
+              <config>
+                <type>select</type>
+                <renderType>selectSingle</renderType>
+                <items>
+                  <numIndex index="0">
+                    <numIndex index="0">Links</numIndex>
+                    <numIndex index="1">left</numIndex>
+                  </numIndex>
+                  <numIndex index="1">
+                    <numIndex index="0">Rechts</numIndex>
+                    <numIndex index="1">right</numIndex>
+                  </numIndex>
+                  <numIndex index="2">
+                    <numIndex index="0">Zentriert</numIndex>
+                    <numIndex index="1">center</numIndex>
+                  </numIndex>
+                </items>
+              </config>
+            </TCEforms>
+          </settings.submit.alignment>
+        </el>
+      </ROOT>
+    </submitButton>
+  </sheets>
 </T3DataStructure>

@@ -1,8 +1,6 @@
 <?php
-namespace MIA3\Template\Domain\Model;
 
-
-use TYPO3\CMS\Extbase\Annotation\Validate;
+namespace Mia3\Template\Domain\Model;
 
 class ContactFormRequest
 {
@@ -28,8 +26,7 @@ class ContactFormRequest
     /**
      * @var string
      */
-    private $additionalInformation='';
-
+    private $additionalInformation = '';
 
     /**
      * @return string
@@ -95,10 +92,8 @@ class ContactFormRequest
         $this->additionalInformation = $additionalInformation;
     }
 
-
-    public function isHoneyPotHit(){
+    public function isHoneyPotHit(): bool
+    {
         return $this->getAdditionalInformation() !== '';
     }
-
-
 }

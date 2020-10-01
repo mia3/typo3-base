@@ -1,4 +1,5 @@
 <?php
+
 namespace MIA3\Template\ViewHelpers;
 
 /*
@@ -14,9 +15,10 @@ namespace MIA3\Template\ViewHelpers;
  * The TYPO3 project - inspiring people to share!
  */
 
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
-use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use Closure;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
+use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface as RCI;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithContentArgumentAndRenderStatic;
 
 /**
@@ -63,14 +65,18 @@ class TextToArrayViewHelper extends AbstractViewHelper
      * Applies nl2br() on the specified value.
      *
      * @param array $arguments
-     * @param \Closure $renderChildrenClosure
-     * @param \TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface $renderingContext
+     * @param Closure $renderChildrenClosure
+     * @param RCI $renderingContext
      * @return string
      */
-    public static function renderStatic(array $arguments, \Closure $renderChildrenClosure, RenderingContextInterface $renderingContext)
-    {
+    public static function renderStatic(
+        array $arguments,
+        Closure $renderChildrenClosure,
+        RenderingContextInterface $renderingContext
+    ) {
         $string = $renderChildrenClosure();
-        preg_match("\[(.*)\]",$string,$extractedField ) ;
+        preg_match("\[(.*)\]", $string, $extractedField);
+
         return '';
     }
 }

@@ -1,9 +1,9 @@
 <?php
+
 namespace MIA3\Template\ViewHelpers\Image;
 
 
 use TYPO3\CMS\Core\Resource\FileReference;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class CropMetaViewHelper extends AbstractViewHelper
@@ -25,25 +25,27 @@ class CropMetaViewHelper extends AbstractViewHelper
     /**
      * @return mixed|null
      */
-    public function render(){
+    public function render()
+    {
         $property = $this->arguments['property'];
         $file = $this->arguments['image'];
-        if(!$property){
-            return NULL;
+        if (!$property) {
+            return null;
         }
-        $pathArray = explode( ".", $property);
+        $pathArray = explode(".", $property);
         $array = json_decode($file->getProperty("crop"), true);
         $string = null;
-        foreach ($pathArray as $path){
-            if(!$string){
+        foreach ($pathArray as $path) {
+            if (!$string) {
                 $string = $array;
             }
-            if(!array_key_exists($path, $string)){
+            if (!array_key_exists($path, $string)) {
                 $string = false;
                 continue;
             }
             $string = $string[$path];
         }
+
         return $string;
     }
 }

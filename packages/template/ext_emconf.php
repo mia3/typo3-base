@@ -12,7 +12,7 @@ $EM_CONF[$_EXTKEY] = [
             'typo3' => '10.4.0-10.4.99',
             'vhs' => '',
             'news' => "",
-            'mask' => ""
+            'mask' => "",
         ],
         'conflicts' => [
         ],

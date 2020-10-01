@@ -19,6 +19,8 @@ TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Conf
 );
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['template_contact'] = 'recursive,select_key,pages';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['template_contact'] = 'pi_flexform';
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('template_contact',
-    'FILE:EXT:template/Configuration/FlexForms/flexform_contact.xml');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+    'template_contact',
+    'FILE:EXT:template/Configuration/FlexForms/flexform_contact.xml'
+);
 

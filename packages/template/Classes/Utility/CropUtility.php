@@ -12,7 +12,9 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 
 class CropUtility
 {
-    /** @var ImageService  */
+    /**
+     * @var ImageService
+     */
     private $imageService;
 
     public function __construct(ImageService $imageService)
@@ -20,23 +22,29 @@ class CropUtility
         $this->imageService = $imageService;
     }
 
-    public function getCropImageUrl(FileReference $fileReference, $cropVariant = "default", $absolute = true, $maxWidth = 0, $maxHeight = 0)
-    {
+    public function getCropImageUrl(
+        FileReference $fileReference,
+        $cropVariant = 'default',
+        $absolute = true,
+        $maxWidth = 0,
+        $maxHeight = 0
+    ) {
         try {
             $crop = $fileReference->getProperty("crop");
             $cropVariantCollection = CropVariantCollection::create((string)$crop);
             $cropArea = $cropVariantCollection->getCropArea($cropVariant);
 
             $config = [
-                'crop' => $cropArea->isEmpty() ? null : $cropArea->makeAbsoluteBasedOnFile($fileReference)
+                'crop' => $cropArea->isEmpty() ? null : $cropArea->makeAbsoluteBasedOnFile($fileReference),
             ];
-            if($maxWidth > 0){
-                $config["width"] = $maxWidth;
+            if ($maxWidth > 0) {
+                $config['width'] = $maxWidth;
             }
-            if($maxHeight > 0){
-                $config["height"] = $maxWidth;
+            if ($maxHeight > 0) {
+                $config['height'] = $maxWidth;
             }
-            $processedImage = $this->imageService->applyProcessingInstructions($fileReference,$config );
+            $processedImage = $this->imageService->applyProcessingInstructions($fileReference, $config);
+
             return $this->imageService->getImageUri($processedImage, $absolute);
 
         } catch (ResourceDoesNotExistException $e) {
@@ -54,9 +62,10 @@ class CropUtility
         }
     }
 
-    public function getAbsoluteUrl(FileReference $fileReference){
-        $processedImage = $this->imageService->applyProcessingInstructions($fileReference,[] );
+    public function getAbsoluteUrl(FileReference $fileReference)
+    {
+        $processedImage = $this->imageService->applyProcessingInstructions($fileReference, []);
+
         return $this->imageService->getImageUri($processedImage, true);
     }
-
 }

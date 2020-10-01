@@ -1,69 +1,69 @@
 # Load default processing options
 imports:
-    - { resource: "EXT:template/Configuration/RTE/Config/Processing.yaml" }
-    - { resource: "EXT:template/Configuration/RTE/Editor/Base.yaml" }
-    - { resource: "EXT:template/Configuration/RTE/Editor/Plugins.yaml" }
+  - { resource: "EXT:template/Configuration/RTE/Config/Processing.yaml" }
+  - { resource: "EXT:template/Configuration/RTE/Editor/Base.yaml" }
+  - { resource: "EXT:template/Configuration/RTE/Editor/Plugins.yaml" }
 
 # Add configuration for the editor
 # For complete documentation see http://docs.ckeditor.com/#!/api/CKEDITOR.config
 editor:
-    config:
-        format_tags: "h2;h3;h4;p"
-        enterMode: 3
-        entities: false
-        stylesSet:
-            # Headlines
-            - { name: "UpperCase", element: ["h2", "h3", "h4"], attributes: { 'class': 'text--uppercase' } }
-            - { name: "Orange", element: ["h2", "h3", "h4"], attributes: { 'class': 'headline--orange' } }
-            - { name: "Orange + UpperCase", element: ["h2", "h3", "h4"], attributes: { 'class': 'headline--orange text--uppercase' } }
+  config:
+    format_tags: "h2;h3;h4;p"
+    enterMode: 3
+    entities: false
+    stylesSet:
+      # Headlines
+      - { name: "UpperCase", element: [ "h2", "h3", "h4" ], attributes: { 'class': 'text--uppercase' } }
+      - { name: "Orange", element: [ "h2", "h3", "h4" ], attributes: { 'class': 'headline--orange' } }
+      - { name: "Orange + UpperCase", element: [ "h2", "h3", "h4" ], attributes: { 'class': 'headline--orange text--uppercase' } }
 
-            # Paragraphs
-            - { name: "Paragraph", element: "p"}
-            - { name: "Bold", element: "p", attributes: { 'class': 'text--bold' } }
+      # Paragraphs
+      - { name: "Paragraph", element: "p" }
+      - { name: "Bold", element: "p", attributes: { 'class': 'text--bold' } }
 
-            # Links
-            - {name: "Link", element: 'a', attributes: {'class': ' '}}
-            - {name: "Button", element: 'a', attributes: {'class': 'button'}}
-            - {name: "Button (invertiert)", element: 'a', attributes: {'class': 'button button--inversed'}}
+      # Links
+      - { name: "Link", element: 'a', attributes: { 'class': ' ' } }
+      - { name: "Button", element: 'a', attributes: { 'class': 'button' } }
+      - { name: "Button (invertiert)", element: 'a', attributes: { 'class': 'button button--inversed' } }
 
-            # list styles
-            - { name: "List - Default", element: "ul", attributes: { 'class': ' ' } }
-            - { name: "List - CI", element: "ul", attributes: { 'class': 'styled-listCI' } }
-            - { name: "List - CI - gray", element: "ul", attributes: { 'class': 'styled-listCI styled-listCI--gray' } }
+      # list styles
+      - { name: "List - Default", element: "ul", attributes: { 'class': ' ' } }
+      - { name: "List - CI", element: "ul", attributes: { 'class': 'styled-listCI' } }
+      - { name: "List - CI - gray", element: "ul", attributes: { 'class': 'styled-listCI styled-listCI--gray' } }
 
-        toolbarGroups:
-            - { name: clipboard, groups: [clipboard, undo] }
-            - { name: links }
-            - { name: basicstyles, groups: [ align, cleanup ] }
-            - { name: paragraph,   groups: [ list, blocks, align ] }
-            - { name: basicstyles }
-            - { name: insert }
-            - { name: document,  groups: [ mode ] }
-            - { name: styles }
-        justifyClasses:
-            - text--left
-            - text--center
-            - text--right
-            - text--justify
+    toolbarGroups:
+      - { name: clipboard, groups: [ clipboard, undo ] }
+      - { name: links }
+      - { name: basicstyles, groups: [ align, cleanup ] }
+      - { name: paragraph,   groups: [ list, blocks, align ] }
+      - { name: basicstyles }
+      - { name: insert }
+      - { name: document,  groups: [ mode ] }
+      - { name: styles }
+    justifyClasses:
+      - text--left
+      - text--center
+      - text--right
+      - text--justify
 
-        forcePasteAsPlainText: true
-        extraPlugins:
-            - justify
-            - typo3link
-            - find
-            - bidi
+    forcePasteAsPlainText: true
+    extraPlugins:
+      - justify
+      - typo3link
+      - find
+      - bidi
 
-        removePlugins:
-            - image
-            - font
+    removePlugins:
+      - image
+      - font
 
-        removeButtons:
-            - Anchor
-            - Underline
-            - Strike
-            - HorizontalRule
+    removeButtons:
+      - Anchor
+      - Underline
+      - Strike
+      - HorizontalRule
 
 processing:
-    allowTags:
-        - s
-        - u
+  allowTags:
+    - s
+    - u

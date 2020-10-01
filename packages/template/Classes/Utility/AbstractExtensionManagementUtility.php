@@ -1,6 +1,9 @@
 <?php
+
 namespace MIA3\Template\Utility;
 
+use ReflectionClass;
+use ReflectionException;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\PathUtility;
 
@@ -14,8 +17,8 @@ use TYPO3\CMS\Core\Utility\PathUtility;
  */
 abstract class AbstractExtensionManagementUtility
 {
-    const PUBLIC_PATH = "Resources/Public";
-    const PRIVATE_PATH = "Resources/Private";
+    const PUBLIC_PATH = 'Resources/Public';
+    const PRIVATE_PATH = 'Resources/Private';
 
     /**
      * returns a string that contains key and language file to load.
@@ -23,9 +26,10 @@ abstract class AbstractExtensionManagementUtility
      *
      * @param $key
      * @param string $localLang
+     *
      * @return string
      */
-    public static function getKeyAndXLF($key, $localLang="locallang_db")
+    public static function getKeyAndXLF($key, $localLang = 'locallang_db')
     {
         return 'LLL:'.static::getExtension().'/'.static::PRIVATE_PATH."/Language/${localLang}.xlf:${key}";
     }
@@ -36,18 +40,20 @@ abstract class AbstractExtensionManagementUtility
      * This is obviously not core behaviour, because the TYPO3 Core doesnt locate them automatically, and will always try to lookup in 'locallang.xlf'
      * You can customize this to your needs if you dont like the current folder Structure or need it more granule.
      *
+     * @param $key
+     * @param $modelClassName
+     *
+     * @return string
+     *
+     * @throws ReflectionException
      * @example
      *      Having a Class named \Vendor\Package\Domain\Model\Product in an extension called 'cart'
      *      This will enforce that your translation files will be located in
      *          EXT:cart/Private/Language/Model/locallang_tx_cart_domain_model_product.xlf:followed.by.your_key
-     *
-     * @param $key
-     * @param $modelClassName
-     * @return string
      */
     public static function getTranslationForModel($key, $modelClassName)
     {
-        return static::getKeyAndXLF($key, 'Model/locallang_'.static::getTableName($modelClassName) );
+        return static::getKeyAndXLF($key, 'Model/locallang_'.static::getTableName($modelClassName));
     }
 
     public static function getIconPath($fileName)
@@ -61,19 +67,22 @@ abstract class AbstractExtensionManagementUtility
      */
     public static function getExtension()
     {
-        return "EXT:". static::getExtensionKey();
+        return 'EXT:'.static::getExtensionKey();
     }
 
     /**
      * returns the model name which is required for the ext_tables.php
      *
      * @param $className
+     *
      * @return string
-     * @throws \ReflectionException
+     *
+     * @throws ReflectionException
      */
     public static function getModelName($className)
     {
         $classMeta = static::getReflection($className);
+
         return strtolower($classMeta->getShortName());
     }
 
@@ -81,30 +90,37 @@ abstract class AbstractExtensionManagementUtility
      * returns the table name of a domain model from an extension.
      *
      * @param $className
+     *
      * @return string
+     *
+     * @throws ReflectionException
      */
     public static function getTableName($className)
     {
         $ext = static::trimExtKey();
-        return "tx_${ext}_domain_model_".static::getModelName($className);
+
+        return 'tx_${ext}_domain_model_'.static::getModelName($className);
     }
 
     public static function trimExtKey($delimiter = "_", $extensionKey = null)
     {
-        if(!$extensionKey){
+        if (!$extensionKey) {
             $extensionKey = static::getExtensionKey();
         }
-        return implode( '', explode($delimiter,$extensionKey));
+
+        return implode('', explode($delimiter, $extensionKey));
     }
 
     /**
      * @param $pathToFile
      * @param bool $absolute
+     *
      * @return string
      */
     public static function getResource($pathToFile, $absolute = true)
     {
-        $uri = 'EXT:' . GeneralUtility::camelCaseToLowerCaseUnderscored(static::getExtensionKey()) . '/'.static::PUBLIC_PATH.'/' . $pathToFile;
+        $uri = 'EXT:'.GeneralUtility::camelCaseToLowerCaseUnderscored(static::getExtensionKey())
+            .'/'.static::PUBLIC_PATH.'/'.$pathToFile;
         $uri = GeneralUtility::getFileAbsFileName($uri);
         if ($absolute === false && $uri !== false) {
             $uri = PathUtility::getAbsoluteWebPath($uri);
@@ -112,16 +128,20 @@ abstract class AbstractExtensionManagementUtility
         if ($absolute === true) {
             $uri = PathUtility::stripPathSitePrefix($uri);
         }
+
         return $uri;
     }
 
     /**
      * @param $className
-     * @return \ReflectionClass
-     * @throws \ReflectionException
+     *
+     * @return ReflectionClass
+     *
+     * @throws ReflectionException
      */
-    public static function getReflection($className){
-        return new \ReflectionClass($className);
+    public static function getReflection($className)
+    {
+        return new ReflectionClass($className);
     }
 
     abstract static function getExtensionKey();

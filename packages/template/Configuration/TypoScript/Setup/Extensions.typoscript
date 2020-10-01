@@ -7,11 +7,13 @@ plugin.tx_news {
       30 = EXT:template/Resources/Private/Extensions/mask/Frontend/Partials/
       40 = EXT:template/Resources/Private/Partials/Page/
     }
+
     templateRootPaths >
     templateRootPaths {
       10 = EXT:news/Resources/Private/Templates/
       20 = EXT:template/Resources/Private/Extensions/news/Templates/
     }
+
     layoutRootPaths >
     layoutRootPaths {
       10 = EXT:news/Resources/Private/Layouts/
@@ -24,6 +26,7 @@ plugin.tx_news {
     itemtype = http://schema.org/Article
   }
 }
+
 lib.contentElement {
   layoutRootPaths.100 = EXT:template/Resources/Private/Extensions/fluid_styled_content/Layouts/
   partialRootPaths {
@@ -32,19 +35,23 @@ lib.contentElement {
     102 = EXT:template/Resources/Private/Partials/ContentElements/
     103 = EXT:template/Resources/Private/Partials/Page/
   }
+
   templateRootPaths.100 = EXT:template/Resources/Private/Extensions/fluid_styled_content/Templates/
 }
-plugin.tx_template{
-  view{
+
+plugin.tx_template {
+  view {
     templateRootPaths >
     templateRootPaths {
       0 = EXT:template/Resources/Private/Templates/
     }
+
     partialRootPaths >
     partialRootPaths {
       0 = EXT:template/Resources/Private/Extensions/mask/Frontend/Partials/
       1 = EXT:template/Resources/Private/Partials/Page/
     }
+
     layoutRootPaths >
     layoutRootPaths {
       0 = EXT:template/Resources/Private/Layouts/

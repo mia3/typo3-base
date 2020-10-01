@@ -1,12 +1,13 @@
 <?php
+
 defined('TYPO3_MODE') || die();
 
 $condFce = [
     "OR" => [
         'FIELD:CType:=:header',
         'FIELD:CType:=:text',
-        'FIELD:CType:=:mask_decorated_text_media'
-    ]
+        'FIELD:CType:=:mask_decorated_text_media',
+    ],
 ];
 $GLOBALS['TCA']['tt_content']['columns']['header_link']['displayCond'] = $condFce;
 $GLOBALS['TCA']['tt_content']['columns']['header']['displayCond'] = $condFce;
@@ -26,10 +27,10 @@ $headerColumns = [
                 [
                     0 => '',
                     1 => '',
-                ]
+                ],
             ],
-            "default" => 1
-        ]
+            "default" => 1,
+        ],
     ],
     "header_styles" => [
         'exclude' => true,
@@ -41,16 +42,16 @@ $headerColumns = [
             'items' => [
                 [
                     'LLL:EXT:template/Resources/Private/Language/locallang_ttc.xlf:header_styles.none',
-                    '0'
+                    '0',
                 ],
                 [
                     'LLL:EXT:template/Resources/Private/Language/locallang_ttc.xlf:header_styles.uppercase',
-                    'text--uppercase'
+                    'text--uppercase',
                 ],
             ],
-            'default' => 0
-        ]
-    ]
+            'default' => 0,
+        ],
+    ],
 ];
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns("tt_content", $headerColumns);
 

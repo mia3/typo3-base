@@ -1,12 +1,11 @@
 <?php
 
-
 namespace MIA3\Template\ViewHelpers\Image;
-
 
 use TYPO3\CMS\Core\Resource\FileRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 
 
 /**
@@ -15,9 +14,8 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
  * Class GetFileReferenceViewHelper
  * @package MIA3\Template\ViewHelpers\Image
  */
-class GetFileReferenceViewHelper extends AbstractViewHelper {
-
-
+class GetFileReferenceViewHelper extends AbstractViewHelper
+{
     /**
      * @var bool
      */
@@ -26,9 +24,10 @@ class GetFileReferenceViewHelper extends AbstractViewHelper {
     /**
      * Initialize arguments.
      *
-     * @throws \TYPO3Fluid\Fluid\Core\ViewHelper\Exception
+     * @throws Exception
      */
-     public function initializeArguments() {
+    public function initializeArguments()
+    {
         parent::initializeArguments();
         $this->registerArgument('uid_local', 'integer', 'uid_local for sys_file_reference', true);
 
@@ -36,14 +35,15 @@ class GetFileReferenceViewHelper extends AbstractViewHelper {
 
     /**
      * @return mixed
-     * @throws \TYPO3\CMS\Extbase\Configuration\Exception\InvalidConfigurationTypeException
      */
-    public function render(){
+    public function render()
+    {
 
         $uid = $this->arguments['uid_local'];
 
         $fileRepository = GeneralUtility::makeInstance(FileRepository::class);
         $fileObject = $fileRepository->findByUid($uid);
+
         return $fileObject;
 
     }

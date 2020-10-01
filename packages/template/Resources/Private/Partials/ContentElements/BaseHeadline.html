@@ -1,4 +1,4 @@
-<f:render section="Main" arguments="{_all}" />
+<f:render section="Main" arguments="{_all}"/>
 
 <f:section name="Main">
   <f:switch expression="{data.header_layout}">
@@ -22,10 +22,12 @@
     </f:defaultCase>
   </f:switch>
 </f:section>
+
 <f:section name="Headline">
   <f:if condition="{isSemantic}">
     <f:then>
-      <h{headline} class="headline{f:if(condition: styles, then:' {styles} ', else: '')}{f:if(condition: positionClass, then:' text--{positionClass}', else: '')}">
+      <h
+      {headline} class="headline{f:if(condition: styles, then:' {styles} ', else: '')}{f:if(condition: positionClass, then:' text--{positionClass}', else: '')}">
       <f:if condition="{link}">
         <f:then>
           <f:link.typolink parameter="{link}">{header}</f:link.typolink>
@@ -49,5 +51,4 @@
       </div>
     </f:else>
   </f:if>
-
 </f:section>

@@ -13,26 +13,26 @@ editor:
     entities: false
     stylesSet:
       # block level styles
-      - { name: "Default", element: ["h2", "h3", "h4"], attributes: { 'class': ' ' } }
-      - { name: "UpperCase", element: ["h2", "h3", "h4"], attributes: { 'class': 'text--uppercase' } }
+      - { name: "Default", element: [ "h2", "h3", "h4" ], attributes: { 'class': ' ' } }
+      - { name: "UpperCase", element: [ "h2", "h3", "h4" ], attributes: { 'class': 'text--uppercase' } }
 
-      - { name: "Paragraph", element: "p"}
+      - { name: "Paragraph", element: "p" }
       - { name: "Bold", element: "p", attributes: { 'class': 'text--bold' } }
-      - { name: "Heading 2", element: "p", attributes: { 'class': 'headline-2' }}
-      - { name: "Heading 3", element: "p", attributes: { 'class': 'headline-3' }}
-      - { name: "Heading 4", element: "p", attributes: { 'class': 'headline-4' }}
+      - { name: "Heading 2", element: "p", attributes: { 'class': 'headline-2' } }
+      - { name: "Heading 3", element: "p", attributes: { 'class': 'headline-3' } }
+      - { name: "Heading 4", element: "p", attributes: { 'class': 'headline-4' } }
 
       # Links
-      - {name: "Link", element: 'a', attributes: {'class': ' '}}
-      - {name: "Button", element: 'a', attributes: {'class': 'button'}}
-      - {name: "Button (inversed)", element: 'a', attributes: {'class': 'button button--inversed'}}
+      - { name: "Link", element: 'a', attributes: { 'class': ' ' } }
+      - { name: "Button", element: 'a', attributes: { 'class': 'button' } }
+      - { name: "Button (inversed)", element: 'a', attributes: { 'class': 'button button--inversed' } }
 
       # list styles
       - { name: "List - Default", element: "ul", attributes: { 'class': ' ' } }
       - { name: "List - Inline", element: "ul", attributes: { 'class': 'styled-list styled-list--inline' } }
 
     toolbarGroups:
-      - { name: clipboard, groups: [clipboard, undo] }
+      - { name: clipboard, groups: [ clipboard, undo ] }
       - { name: links }
       - { name: basicstyles, groups: [ basicstyles, align, cleanup ] }
       - { name: paragraph,   groups: [ list, blocks, align ] }

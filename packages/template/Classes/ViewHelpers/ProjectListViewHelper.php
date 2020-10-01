@@ -6,11 +6,11 @@ use Closure;
 use GeorgRinger\News\Domain\Model\Category;
 use GeorgRinger\News\Domain\Repository\CategoryRepository;
 use MIA3\Template\Service\SerializerService;
+use TYPO3\CMS\Core\Domain\Repository\PageRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
-use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3\CMS\Core\Domain\Repository\PageRepository;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3Fluid\Fluid\Core\ViewHelper\Traits\CompileWithContentArgumentAndRenderStatic;
 
 class ProjectListViewHelper extends AbstractViewHelper
@@ -53,7 +53,6 @@ class ProjectListViewHelper extends AbstractViewHelper
                 'title' => $page['title'],
             ];
         }
-
 
         foreach ($tree as $branch) {
             /** @var Category $category */

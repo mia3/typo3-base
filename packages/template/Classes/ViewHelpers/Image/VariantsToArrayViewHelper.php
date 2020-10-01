@@ -1,14 +1,13 @@
 <?php
+
 namespace MIA3\Template\ViewHelpers\Image;
 
 
 use TYPO3\CMS\Core\Resource\FileReference;
-use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class VariantsToArrayViewHelper extends AbstractViewHelper
 {
-
     /**
      * Initialize arguments.
      *
@@ -17,25 +16,22 @@ class VariantsToArrayViewHelper extends AbstractViewHelper
     public function initializeArguments()
     {
         parent::initializeArguments();
-        $this->registerArgument('file', 'mixed' , 'propety Of image');
+        $this->registerArgument('file', 'mixed', 'propety Of image');
     }
 
-
     /**
-
      * @return mixed|null
      */
-    public function render(){
+    public function render()
+    {
         $file = $this->arguments['file'];
         $fileReferenceClass = get_class($file);
-        if($fileReferenceClass == FileReference::class){
+        if ($fileReferenceClass == FileReference::class) {
             /** @var FileReference $file */
             return json_decode($file->getProperty("crop"), true);
-        }elseif($fileReferenceClass == \GeorgRinger\News\Domain\Model\FileReference::class){
+        } elseif ($fileReferenceClass == \GeorgRinger\News\Domain\Model\FileReference::class) {
             /** @var \GeorgRinger\News\Domain\Model\FileReference $file */
             return json_decode($file->getOriginalResource()->getProperty('crop'), true);
         }
-
-
     }
 }

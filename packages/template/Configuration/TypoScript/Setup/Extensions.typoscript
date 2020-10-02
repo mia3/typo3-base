@@ -9,6 +9,7 @@ lib {
     }
 
     templateRootPaths.100 = EXT:template/Resources/Private/ExtensionOverrides/fluid_styled_content/Templates/
+    layoutRootPaths.100 = EXT:template/Resources/Private/ExtensionOverrides/fluid_styled_content/Layouts/
   }
 
   # EXT:mask

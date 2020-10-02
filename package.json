@@ -13,7 +13,8 @@
     "vue": "^2.0",
     "vue-loader": "*",
     "vue-template-compiler": "*",
-    "vuex": "*"
+    "vuex": "*",
+    "table": "*"
   },
   "browserslist": [
     "last 2 versions",

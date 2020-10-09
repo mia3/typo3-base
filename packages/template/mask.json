@@ -26,6 +26,14 @@
                     "rte"
                 ],
                 "shortLabel": ""
+            },
+            "tab_carousel": {
+                "color": "#000000",
+                "description": "",
+                "icon": "",
+                "key": "tab_carousel",
+                "label": "Tab Carousel",
+                "shortLabel": ""
             }
         },
         "sql": [],

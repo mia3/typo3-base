@@ -3,7 +3,7 @@ lib {
   contentElement {
     partialRootPaths {
       100 = EXT:template/Resources/Private/ExtensionOverrides/fluid_styled_content/Partials/
-      101 = EXT:template/Resources/Private/ExtensionOverrides/mask/Frontend/Partials/
+      101 = EXT:template/Resources/Private/Mask/Frontend/Partials/
       102 = EXT:template/Resources/Private/Partials/ContentElements/
       103 = EXT:template/Resources/Private/Partials/Page/
     }
@@ -35,7 +35,7 @@ plugin {
       }
 
       partialRootPaths {
-        0 = EXT:template/Resources/Private/ExtensionOverrides/mask/Frontend/Partials/
+        0 = EXT:template/Resources/Private/Mask/Frontend/Partials/
         1 = EXT:template/Resources/Private/Partials/Page/
       }
 

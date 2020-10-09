@@ -48,5 +48,4 @@ class ConfigurationViewHelper extends AbstractViewHelper
 
         return $extbaseFrameworkConfiguration['settings'];
     }
-
 }

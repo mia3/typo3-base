@@ -21,7 +21,6 @@ class CropMetaViewHelper extends AbstractViewHelper
         $this->registerArgument('image', FileReference::class, 'propety Of image');
     }
 
-
     /**
      * @return mixed|null
      */

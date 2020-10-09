@@ -1,17 +1,17 @@
-/* Typography
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*
+ * Typography
+ * –––––––––– */
 
-body
+p
 {
-  font-size: inherit;
+  font-size: var(--text-font-size);
+  line-height: var(--text-line-height);
+  margin: 0 0 var(--line);
 }
 
-p,
-.paragraph
+p:last-child
 {
-  font-size: var(--text-fontSize);
-  line-height: var(--text-lineHeight);
-  margin: 0 0 var(--text-margin) 0;
+  margin-bottom: 0;
 }
 
 ul, ol
@@ -20,48 +20,64 @@ ul, ol
   line-height: 2em;
 }
 
-blockquote
+h1, .h1
 {
-  position: relative;
+  color: #2ecc40;
+  font-size: calc(var(--base) * 6);
+  font-weight: normal;
+  hyphens: auto;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
 }
 
-
-h1,
-.headline-1
+h2, .h2
 {
-  font-size: var(--h1-fontSize);
-  font-weight: bold;
-  line-height: var(--h1-lineHeight);
-  margin: 0 0 calc(var(--h1-margin) - var(--h1-threshold)) 0;
-  padding-top: var(--h1-threshold);
+  color: #3d9970;
+  font-size: calc(var(--base) * 5);
+  font-weight: normal;
+  hyphens: auto;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
 }
 
-h2,
-.headline-2
+h3, .h3
 {
-  font-size: var(--h2-fontSize);
-  font-weight: bold;
-  line-height: var(--h2-lineHeight);
-  margin: 0 0 calc(var(--h2-margin) - var(--h2-threshold)) 0;
-  padding-top: var(--h2-threshold);
+  color: #7fdbff;
+  font-size: calc(var(--base) * 4);
+  font-weight: normal;
+  hyphens: auto;
+  line-height: 36px;
+  margin: 0;
+  padding: 0;
+  word-break: break-word;
 }
 
-h3,
-.headline-3
+h4, .h4
 {
-  font-size: var(--h3-fontSize);
-  font-weight: bold;
-  line-height: var(--h3-lineHeight);
-  margin: 0 0 calc(var(--h3-margin) - var(--h3-threshold)) 0;
-  padding-top: var(--h3-threshold);
+  color: #39cccc;
+  font-size: calc(var(--base) * 3);
+  font-weight: normal;
+  hyphens: auto;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
 }
 
-h4,
-.headline-4
+.ce__header
 {
-  font-size: var(--h4-fontSize);
-  font-weight: bold;
-  line-height: var(--h4-lineHeight);
-  margin: 0 0 calc(var(--h4-margin) - var(--h4-threshold)) 0;
-  padding-top: var(--h4-threshold);
+  margin: 0 0 var(--line-2);
+}
+
+.ce__header--color-1 .ce__title
+{
+  color: var(--color-primary);
+}
+
+.ce__subtitle
+{
+  color: red;
+  font-size: 26px;
+  margin: 0;
 }

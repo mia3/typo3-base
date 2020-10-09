@@ -5,10 +5,12 @@
   width: 100%;
 }
 
-.page__main {
-  background: #b2ad7f;
+.page__main
+{
+  border: 10px solid #0074d9;
 }
 
-.page__body {
+.page__body
+{
   position: relative;
 }

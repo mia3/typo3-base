@@ -1,4 +1,9 @@
-<a href="/" title="Home">
-  <img class="header__logo" src="{f:uri.resource(path:'Media/Logo.png', extensionName: 'Template')}" alt="Logo">
+<a class="header__logo" href="/" title="Home">
+  <img src="{f:uri.resource(path:'Media/Logo.png', extensionName: 'Template')}" alt="Logo">
 </a>
-<mobile-menu-button></mobile-menu-button>
+
+<nav class="header__main-menu">
+  <f:render partial="MainNavigation" arguments="{_all}"/>
+</nav>
+
+<mobile-menu-button class="header__mobile-menu-button"></mobile-menu-button>

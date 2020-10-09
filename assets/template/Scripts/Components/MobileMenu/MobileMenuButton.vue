@@ -27,4 +27,11 @@
 <style scoped>
   @import '~hamburgers/dist/hamburgers.min.css';
   @import '../../../Styles/Variables.css';
+
+  .hamburger-inner,
+  .hamburger-inner::after,
+  .hamburger-inner::before
+  {
+    background-color: var(--color-primary);
+  }
 </style>

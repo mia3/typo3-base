@@ -1,68 +1,35 @@
-:root {
-  --base: 6px;
-  --black: #000;
-  --font: 'Lato', sans-serif;
-  --white: #fff;
-  --line-1: var(--base-3);
-
-  --base-10: calc(10 * var(--base)); /* 60px */
-  --line-10: calc(10 * var(--line-1));
-  --media-16by9: calc(var(--media-base) / var(--ratio-16by9));
-  --ratio-16by9: calc(16 / 9);
-  --media-1by1: calc(var(--media-base) / var(--ratio-1by1));
-  --ratio-1by1: calc(1 / 1);
-  --base-2: calc(2 * var(--base)); /* 12px */
-  --line-2: calc(2 * var(--line-1));
-  --base-3: calc(3 * var(--base)); /* 18px */
-  --line-3: calc(3 * var(--line-1));
-
-  --media-3by2: calc(var(--media-base) / var(--ratio-3by2));
-  --ratio-3by2: calc(3 / 2);
-  --base-4: calc(4 * var(--base)); /* 24px */
-  --line-4: calc(4 * var(--line-1));
-  --media-4by3: calc(var(--media-base) / var(--ratio-4by3));
-  --ratio-4by3: calc(4 / 3);
-  --base-5: calc(5 * var(--base)); /* 30px */
-  --line-5: calc(5 * var(--line-1));
-  --base-6: calc(6 * var(--base)); /* 36px */
-  --line-6: calc(6 * var(--line-1));
-
-  /*
-   * Base Line
-   * --------- */
-  --base-7: calc(7 * var(--base)); /* 42px */
-  --line-7: calc(7 * var(--line-1));
-
-  --base-8: calc(8 * var(--base)); /* 48px */
-  --line-8: calc(8 * var(--line-1));
-  --base-9: calc(9 * var(--base)); /* 54px */
-  --line-9: calc(9 * var(--line-1));
-
-  --color-accent: #c1b5a2;
-  --font-base: var(--line-1);
-  --media-base: 100%;
-  --row-base: 2em;
-  --font-base-line-height: 2rem;
-
-  --h3-font-size: 36px;
-  --h4-font-size: var(--text-font-size);
-
+:root
+{
   --text-font-size: 0.875em; /* 16px is the default em size */
-  --grid-gap: var(--base-3);
-  --h1-line-height: 2em;
-  --h2-line-height: 72px;
+  --text-line-height: 22px; /* = 22px/14px */
 
-  --h3-line-height: 54px;
-  --h4-line-height: var(--text-line-height);
-  --text-line-height: 1.5714285714285714em; /* = 22px/14px */
-  --text-margin: 22px;
+  --base: 6px;
+
+  --line: calc(3 * var(--base)); /* 18px */
+
+  --line-2: calc(2 * var(--line));
+  --line-3: calc(3 * var(--line));
+  --line-4: calc(4 * var(--line));
+  --line-5: calc(5 * var(--line));
+  --line-6: calc(6 * var(--line));
+  --line-10: calc(10 * var(--line));
+
+  --media-1by1: calc(100% / var(--ratio-1by1));
+  --media-3by2: calc(100% / var(--ratio-3by2));
+  --media-4by3: calc(100% / var(--ratio-4by3));
+  --media-16by9: calc(100% / var(--ratio-16by9));
+
+  --ratio-16by9: calc(16 / 9);
+  --ratio-1by1: calc(1 / 1);
+  --ratio-3by2: calc(3 / 2);
+  --ratio-4by3: calc(4 / 3);
 
   /* Media */
   --color-primary: #4b113a;
   --color-secondary: #f3f0ec;
+  --color-accent: #c1b5a2;
 
-  --text-threshold: 11px;
-  --container-width: 1048px;
   --page-width: 1440px;
+  --container-width: 1048px;
   --container-width-wide: 1260px;
 }

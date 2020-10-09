@@ -18,7 +18,7 @@
 
 .image-caption
 {
-  color: var(--white);
+  color: white;
 }
 
 .image-caption:before

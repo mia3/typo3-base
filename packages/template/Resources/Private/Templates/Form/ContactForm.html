@@ -1,62 +1,19 @@
-<f:form class="contact-form" object="{contactFormRequest}" objectName="formData" method="post">
+<t:form class="contact-form" object="{contactFormRequest}" objectName="formData" method="post">
   <f:if condition="{settings.link}">
     <f:form.hidden name="redirect" value="{f:uri.typolink(parameter: settings.link)}"/>
   </f:if>
 
-  <!-- Form validation results -->
-  <f:form.validationResults>
-    <f:if condition="{validationResults.flattenedErrors}">
-      <div class="alert">
-        <p>
-          <f:translate key="error.headline"/>
-        </p>
-      </div>
-    </f:if>
-  </f:form.validationResults>
+  <!-- Field "name" -->
+  <t:form.textfield property="name" placeholder="Name" required="required"/>
 
-  <div class="form__main">
-    <!-- Field "name" -->
-    <f:form.validationResults for="contactFormRequest.name" as="validation">
-      <base-input
-        :invalid="{validation.errors -> f:count()}"
-        validation="{f:translate(key:'error.{validation.errors.0.code}', default: '{validation.errors.0.code}')}"
-      >
-        <f:form.textfield class="input" placeholder="Name:" property="name"/>
-      </base-input>
-    </f:form.validationResults>
+  <!-- Field "email" -->
+  <t:form.textfield property="email" placeholder="Email" required="required" type="email"/>
 
-    <!-- Field "email" -->
-    <f:form.validationResults for="contactFormRequest.email" as="validation">
-      <base-input
-        :invalid="{validation.errors -> f:count()}"
-        validation="{f:translate(key:'error.{validation.errors.0.code}', default: '{validation.errors.0.code}')}"
-      >
-        <f:form.textfield class="input" placeholder="Email:" property="email" required="required"/>
-      </base-input>
-    </f:form.validationResults>
+  <!-- Field "subject" -->
+  <t:form.textfield property="subject" placeholder="Subject" required="required"/>
 
-    <!-- Field "subject" -->
-    <f:form.validationResults for="contactFormRequest.subject" as="validation">
-      <base-input
-        :invalid="{validation.errors -> f:count()}"
-        validation="{f:translate(key:'error.{validation.errors.0.code}', default: '{validation.errors.0.code}')}"
-      >
-        <f:form.textfield class="input" placeholder="Subject:" property="subject" required="required"/>
-      </base-input>
-    </f:form.validationResults>
-
-    <!-- Field "message" -->
-    <f:form.validationResults for="contactFormRequest.message" as="validation">
-      <base-input
-        element="textarea"
-        :autosize="true"
-        :invalid="{validation.errors -> f:count()}"
-        validation="{f:translate(key:'error.{validation.errors.0.code}', default: '{validation.errors.0.code}')}"
-      >
-        <f:form.textarea class="textarea" placeholder="Your message for us..." property="message"/>
-      </base-input>
-    </f:form.validationResults>
-  </div>
+  <!-- Field "message" -->
+  <t:form.textarea class="textarea" property="message" placeholder="Your message for us..."/>
 
   <div class="veryImportantField">
     <f:form.textfield property="additionalInformation" tabindex="-1"/>
@@ -75,4 +32,4 @@
       </f:if>
     </button>
   </div>
-</f:form>
+</t:form>

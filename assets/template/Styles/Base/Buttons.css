@@ -11,6 +11,8 @@
   transition: color 0.1s ease-out, background 0.2s ease-out;
   vertical-align: middle;
   cursor: pointer;
+  font-size: 1rem;
+  text-transform: uppercase;
 }
 
 .button:hover,

@@ -21,6 +21,12 @@ class ContactFormRequest
 
     /**
      * @var string
+     * @Validate("NotEmpty")
+     */
+    private $subject;
+
+    /**
+     * @var string
      * @Validate("Text")
      */
     private $message;
@@ -60,6 +66,26 @@ class ContactFormRequest
     public function setEmail(string $email): void
     {
         $this->email = $email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSubject(): string
+    {
+        return $this->subject;
+    }
+
+    /**
+     * @param string $subject
+     *
+     * @return ContactFormRequest
+     */
+    public function setSubject(string $subject): ContactFormRequest
+    {
+        $this->subject = $subject;
+
+        return $this;
     }
 
     /**

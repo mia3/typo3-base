@@ -1,5 +1,6 @@
 :root
 {
+  --font-family: Arial, Helvetica, sans-serif;
   --text-font-size: 0.875em; /* 16px is the default em size */
   --text-line-height: 22px; /* = 22px/14px */
 
@@ -31,5 +32,4 @@
 
   --page-width: 1440px;
   --container-width: 1048px;
-  --container-width-wide: 1260px;
 }

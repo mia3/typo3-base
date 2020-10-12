@@ -3,96 +3,56 @@
 namespace MIA3\Template\Controller;
 
 use MIA3\Template\Domain\Model\ContactFormRequest;
-use TYPO3\CMS\Core\Mail\MailMessage;
-use TYPO3\CMS\Core\Service\FlexFormService;
+use Symfony\Component\Mime\Address;
+use TYPO3\CMS\Core\Mail\FluidEmail;
+use TYPO3\CMS\Core\Mail\Mailer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException;
-use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
-use TYPO3\CMS\Fluid\View\StandaloneView;
 
 class FormController extends ActionController
 {
     /**
-     * @param ContactFormRequest|null $formData
-     * @throws NoSuchArgumentException
-     * @throws StopActionException
+     * @param string $view
+     *
+     * @return string
      */
-    public function contactFormAction(ContactFormRequest $formData = null)
+    public function thankYouAction(string $view): string
+    {
+        return $view;
+    }
+
+    public function contactFormAction(ContactFormRequest $formData = null): void
     {
         if ($formData) {
-            /** @var FlexFormService $flexFormService */
-            $flexFormService = GeneralUtility::makeInstance(FlexFormService::class);
-            $settings = $flexFormService->convertFlexFormContentToArray(
-                $this->configurationManager->getContentObject()->data['pi_flexform']
-            );
-            $this->sendEmail($formData, $settings['settings']);
-            if ($this->request->getArgument('redirect')) {
-                $this->redirectToUri($this->request->getArgument('redirect'));
-            }
+            // Send mail
+            $email = $this->getEmail($formData, 'ContactForm');
+            GeneralUtility::makeInstance(Mailer::class)->send($email);
 
-        }
-        $this->view->assign('contact', $formData ? $formData : new ContactFormRequest());
-    }
-
-    protected function sendEmail(ContactFormRequest $contact, array $pluginSettings)
-    {
-        if ($contact->isHoneyPotHit()) {
-            return;
+            // Redirect so the form cannot be submitted twice.
+            $this->redirect('thankYou', null, null, ['view' => $email->getHtmlBody()]);
         }
 
-        $settings = $this->getExtensionSettings('template');
-        $from = !!$pluginSettings['email']['fromAlias']
-            ? [$pluginSettings['email']['from'] => $pluginSettings['email']['fromAlias']]
-            : $pluginSettings['email']['from'];
-
-        /** @var MailMessage $mail */
-        $mail = GeneralUtility::makeInstance(MailMessage::class);
-        $mail
-            ->setFrom($from)
-            ->setTo($pluginSettings['email']['to'])
-            ->setSubject(
-                array_key_exists(
-                    'subject',
-                    $pluginSettings['email']
-                ) ? $pluginSettings['email']['subject'] : $settings['contactForm']['subject']
-            )
-            ->html($this->renderEMailView(['contact' => $contact]))
-            ->send();
+        $this->view->assign('contactFormRequest', new ContactFormRequest);
     }
 
-
-    private function renderEMailView($variables)
+    protected function getEmail(ContactFormRequest $formData, string $templateName): FluidEmail
     {
-        /** @var StandaloneView $emailView */
-        $emailView = $this->objectManager->get(StandaloneView::class);
-        $extbaseFrameworkConfiguration = $this->configurationManager->getConfiguration(
-            ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK,
-            'template'
-        );
-        $layoutRootPath = GeneralUtility::getFileAbsFileName(
-            $extbaseFrameworkConfiguration['view']['layoutRootPaths'][0]
-        );
-        $partialRootPath = GeneralUtility::getFileAbsFileName(
-            $extbaseFrameworkConfiguration['view']['partialRootPaths'][0]
-        );
-        $templateRootPath = GeneralUtility::getFileAbsFileName(
-            $extbaseFrameworkConfiguration['view']['templateRootPaths'][0]
-        );
-        $emailView->setLayoutRootPaths([$layoutRootPath]);
-        $emailView->setPartialRootPaths([$partialRootPath]);
-        $emailView->setTemplatePathAndFilename($templateRootPath.'Form/ContactFormEmail.html');
-        $emailView->assignMultiple($variables);
+        $to = $this->settings['email']['to'];
+        $from = !empty($this->settings['email']['fromAlias'])
+            ? new Address($this->settings['email']['from'], $this->settings['email']['fromAlias'])
+            : new Address($this->settings['email']['from']);
+        $subject = $this->settings['email']['subject'];
 
-        return $emailView->render();
-    }
+        /** @var FluidEmail $email */
+        $email = GeneralUtility::makeInstance(FluidEmail::class);
+        $email
+            ->to($to)
+            ->from($from)
+            ->subject($subject)
+            ->format('html') // only HTML mail
+            ->setTemplate($templateName)
+            ->assign('formData', $formData);
 
-    private function getExtensionSettings($extensionName = '')
-    {
-        return $this->configurationManager->getConfiguration(
-            ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS,
-            $extensionName
-        );
+        return $email;
     }
 }

@@ -40,8 +40,7 @@
       },
     },
     render(createElement, context) {
-      let self = this;
-      const {props, data, children, listeners} = context;
+      const { props, data, children, listeners } = context;
       const classes = {};
       const content = [];
       const field = [];
@@ -60,7 +59,7 @@
       attrs.placeholder = props.label ? props.label : attrs.placeholder;
 
       const formInput = createElement(element, {
-        class: props.baseClass + '-input ' + 'field--' + type,
+        class: `${props.baseClass}__input field--${type} ${element}`,
         attrs: {
           ...attrs,
           type: type,
@@ -91,50 +90,49 @@
       } else {
         field.push(formInput);
       }
-      field.push(createElement('div', {class: 'border--effect'}));
+      field.push(createElement('div', { class: 'border--effect' }));
 
       classes[props.baseClass + ' ' + props.containerClass + (data.staticClass ? ' ' + data.staticClass : '')] = true;
       classes[props.baseClass + '--invalid'] = invalid();
       classes[props.baseClass + '--disabled'] = isDisabled;
 
       if (props.help) {
-        content.push(createElement('div', {class: props.baseClass + '-help'}, props.help));
+        content.push(createElement('div', { class: props.baseClass + '-help' }, props.help));
       }
-      content.push(createElement('div', {class: 'formField-control'}, field));
+      content.push(createElement('div', { class: 'formField-control' }, field));
       if (invalid()) {
-        content.push(createElement('div', {class: props.baseClass + '-validation'}, props.validation));
+        content.push(createElement('div', { class: props.baseClass + '-validation' }, props.validation));
       }
 
-      return createElement('div', {class: classes}, content);
+      return createElement('div', { class: classes }, content);
     },
   };
 </script>
 
 <style scoped>
-  base-input:before
+  .base-input::before
   {
     content: attr(label);
   }
 
-  base-input:before
+  .base-input::before
   {
     content: attr(label);
   }
 
-  base-input
+  .base-input
   {
     display: block;
     float: left;
     width: 100%;
   }
 
-  .baseField .formField-control
+  .formField-control
   {
     position: relative;
   }
 
-  .baseField input ~ .border--effect:after,
-  .baseField textarea ~ .border--effect:after
+  .border--effect::after
   {
     background: #ccc;
     bottom: -3px;
@@ -147,14 +145,14 @@
     width: 0;
   }
 
-  .baseField .baseField--entered .border--effect:after
+  .baseField--entered .border--effect::after
   {
     background: linear-gradient(300deg, rgba(75, 17, 58, 1) 0%, rgba(26, 70, 136, 1) 100%); /* w3c */
   }
 
-  .baseField input:focus ~ .border--effect:after,
-  .baseField textarea:focus ~ .border--effect:after,
-  .baseField .baseField--entered .border--effect:after
+  .baseField input:focus ~ .border--effect::after,
+  .baseField textarea:focus ~ .border--effect::after,
+  .baseField .baseField--entered .border--effect::after
   {
     transition: 0.4s;
     width: 100%;
@@ -163,7 +161,6 @@
 
   .baseField .baseField-validation
   {
-    font-size: 0.777777777777777em;
     line-height: 18px;
     margin-bottom: -2px;
     padding-top: 2px;

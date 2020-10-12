@@ -100,6 +100,12 @@ return [
         ],
     ],
     'MAIL' => [
+        'layoutRootPaths' => [
+            700 => 'EXT:template/Resources/Private/Layouts',
+        ],
+        'templateRootPaths' => [
+            700 => 'EXT:template/Resources/Private/Templates/Email',
+        ],
         'transport' => 'sendmail',
         'transport_sendmail_command' => '/usr/sbin/sendmail -t -i ',
         'transport_smtp_encrypt' => '',

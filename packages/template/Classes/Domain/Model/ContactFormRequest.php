@@ -23,7 +23,7 @@ class ContactFormRequest
      * @var string
      * @Validate("Text")
      */
-    private $comment;
+    private $message;
 
     /**
      * @var string
@@ -65,17 +65,17 @@ class ContactFormRequest
     /**
      * @return string
      */
-    public function getComment(): ?string
+    public function getMessage(): ?string
     {
-        return $this->comment;
+        return $this->message;
     }
 
     /**
-     * @param string $comment
+     * @param string $message
      */
-    public function setComment(string $comment): void
+    public function setMessage(string $message): void
     {
-        $this->comment = $comment;
+        $this->message = $message;
     }
 
     /**

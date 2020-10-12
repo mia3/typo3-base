@@ -1,6 +1,8 @@
 <?php
 
-namespace Mia3\Template\Domain\Model;
+namespace MIA3\Template\Domain\Model;
+
+use TYPO3\CMS\Extbase\Annotation\Validate;
 
 class ContactFormRequest
 {

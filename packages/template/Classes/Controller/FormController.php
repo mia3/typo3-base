@@ -12,28 +12,28 @@ use TYPO3\CMS\Extbase\Mvc\Exception\NoSuchArgumentException;
 use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
 use TYPO3\CMS\Fluid\View\StandaloneView;
 
-class ContactFormController extends ActionController
+class FormController extends ActionController
 {
     /**
-     * @param ContactFormRequest|null $contactFormRequest
+     * @param ContactFormRequest|null $formData
      * @throws NoSuchArgumentException
      * @throws StopActionException
      */
-    public function submitAction(ContactFormRequest $contactFormRequest = null)
+    public function contactFormAction(ContactFormRequest $formData = null)
     {
-        if ($contactFormRequest) {
+        if ($formData) {
             /** @var FlexFormService $flexFormService */
             $flexFormService = GeneralUtility::makeInstance(FlexFormService::class);
             $settings = $flexFormService->convertFlexFormContentToArray(
                 $this->configurationManager->getContentObject()->data['pi_flexform']
             );
-            $this->sendEmail($contactFormRequest, $settings['settings']);
+            $this->sendEmail($formData, $settings['settings']);
             if ($this->request->getArgument('redirect')) {
                 $this->redirectToUri($this->request->getArgument('redirect'));
             }
 
         }
-        $this->view->assign('contact', $contactFormRequest ? $contactFormRequest : new ContactFormRequest());
+        $this->view->assign('contact', $formData ? $formData : new ContactFormRequest());
     }
 
     protected function sendEmail(ContactFormRequest $contact, array $pluginSettings)
@@ -41,6 +41,7 @@ class ContactFormController extends ActionController
         if ($contact->isHoneyPotHit()) {
             return;
         }
+
         $settings = $this->getExtensionSettings('template');
         $from = !!$pluginSettings['email']['fromAlias']
             ? [$pluginSettings['email']['from'] => $pluginSettings['email']['fromAlias']]
@@ -81,7 +82,7 @@ class ContactFormController extends ActionController
         );
         $emailView->setLayoutRootPaths([$layoutRootPath]);
         $emailView->setPartialRootPaths([$partialRootPath]);
-        $emailView->setTemplatePathAndFilename($templateRootPath.'ContactForm/Submission.html');
+        $emailView->setTemplatePathAndFilename($templateRootPath.'Form/ContactFormEmail.html');
         $emailView->assignMultiple($variables);
 
         return $emailView->render();

@@ -21,6 +21,16 @@ body
   box-sizing: border-box;
 }
 
+a
+{
+  color: #1eaedb;
+}
+
+a:hover
+{
+  color: #0fa0ce;
+}
+
 strong, b
 {
   font-weight: bold;
@@ -63,18 +73,6 @@ img
   object-fit: cover;
   width: 100%;
   /* object-position: 100% 0; */
-}
-
-.page-viewport
-{
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
-.page-viewport .stage-intro
-{
-  flex: 1 1 100%;
 }
 
 .container

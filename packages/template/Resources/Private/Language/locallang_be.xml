@@ -6,27 +6,22 @@
   </meta>
   <data type="array">
     <languageKey index="default" type="array">
+
       <!-- Content element: Header Layout -->
-      <label index="tt_content.header_layout.1"><![CDATA[H1]]></label>
-      <label index="tt_content.header_layout.2"><![CDATA[H2]]></label>
-      <label index="tt_content.header_layout.3"><![CDATA[H3]]></label>
-      <label index="tt_content.header_layout.4"><![CDATA[H4]]></label>
-      <label index="tt_content.header_layout.5"><![CDATA[H5]]></label>
-      <label index="tt_content.header_layout.6"><![CDATA[H6]]></label>
+      <label index="tt_content.header_layout.1">&lt;h1&gt;</label>
+      <label index="tt_content.header_layout.2">&lt;h2&gt;</label>
+      <label index="tt_content.header_layout.3">&lt;h3&gt;</label>
+      <label index="tt_content.header_layout.4">&lt;h4&gt;</label>
+      <label index="tt_content.header_layout.5">&lt;h5&gt;</label>
+      <label index="tt_content.header_layout.6">&lt;h6&gt;</label>
+
       <!-- Content element: Space before -->
-      <label index="tt_content.space.line_1">1 line</label>
-      <label index="tt_content.space.line_2">2 lines</label>
-      <label index="tt_content.space.line_3">3 lines</label>
-      <label index="tt_content.space.line_4">4 lines</label>
-      <label index="tt_content.space.line_5">5 lines</label>
-      <label index="tt_content.space.line_6">6 lines</label>
-      <label index="tt_content.space.line_7">7 lines</label>
-      <label index="tt_content.space.line_8">8 lines</label>
-      <label index="tt_content.space.line_9">9 lines</label>
+      <label index="tt_content.space.none">None</label>
+
       <!-- Content element: Layout -->
-      <label index="tt_content.layout.normal">Normal</label>
-      <label index="tt_content.layout.center">Zentrierte Seitenbreite</label>
-      <label index="tt_content.layout.full">Volle Seitenbreite</label>
+      <label index="tt_content.layout.0">Normal</label>
+      <label index="tt_content.layout.1">White</label>
+      <label index="tt_content.layout.2">White without padding</label>
       <label index="tt_content.layout.casestudy_bulletpoints">Case Study Bullet Points</label>
       <label index="backend_layout.column.normal">Page Content</label>
       <label index="backend_layout.column.form">Inheritable Content</label>

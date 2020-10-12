@@ -59,20 +59,10 @@ page {
   includeJSFooter {
     bundle = EXT:template/Resources/Public/Build/mia3_scripts.js
   }
+
+  // Add page UID to the body tag.
+  bodyTag >
+  bodyTagCObject = TEXT
+  bodyTagCObject.field = uid
+  bodyTagCObject.wrap = <body id="page-|">
 }
-
-# General site config
-config {
-  # Add L and print values to all links in TYPO3.
-  linkVars = L, print
-
-  # Spam protection
-  spamProtectEmailAddresses = 9
-  spamProtectEmailAddresses_atSubst = @
-}
-
-// Add an id with the page-uid to the body tag
-page.bodyTag >
-page.bodyTagCObject = TEXT
-page.bodyTagCObject.field = uid
-page.bodyTagCObject.wrap = <body id="page-|">

@@ -1,4 +1,5 @@
 {namespace v=FluidTYPO3\Vhs\ViewHelpers}
+
 <f:section name="Main">
   <f:for each="{files}" as="file">
     <f:render section="Image" arguments="{image: file}"/>
@@ -13,7 +14,7 @@
         <f:then>
           <f:link.typolink parameter="{image.link}" title="{image.title}">
             <f:render section="Source"
-                      arguments="{image: image, imageClass: imageClass, width: width, height: height}"/>
+              arguments="{image: image, imageClass: imageClass, width: width, height: height}"/>
           </f:link.typolink>
         </f:then>
         <f:else>
@@ -41,18 +42,23 @@
             <f:if condition="{sourceSet}">
               <source
                 srcset="{f:uri.image(image:image, cropVariant:variant, maxWidth: sourceSet.maxWidth,  width: width, height: height)}"
-                media="{sourceSet.media}"/>
+                media="{sourceSet.media}"
+              />
             </f:if>
           </f:alias>
         </f:for>
-        <f:render section="img"
-                  arguments="{image: image, variant: 'desktop', maxWidth: config.variants.desktop.maxWidth, width: width, height: height, imageClass: imageClass}"/>
+        <f:render
+          section="img"
+          arguments="{image: image, variant: 'desktop', maxWidth: config.variants.desktop.maxWidth, width: width, height: height, imageClass: imageClass}"
+        />
       </picture>
     </f:then>
     <f:else>
       <f:for as="data" each="{variants}" key="variant">
-        <f:render section="img"
-                  arguments="{image: image, variant: '{variant}', maxWidth: 1920, width: width, height: height, imageClass: imageClass}"/>
+        <f:render
+          section="img"
+          arguments="{image: image, variant: '{variant}', maxWidth: 1920, width: width, height: height, imageClass: imageClass}"
+        />
       </f:for>
     </f:else>
   </f:if>

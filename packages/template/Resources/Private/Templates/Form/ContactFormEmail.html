@@ -1,0 +1,17 @@
+Sehr geehrte Damen und Herren,
+<br>
+Über das Kontaktformular auf Ihrer Website wurden folgende Informationen übermittelt:
+<br>
+<br>
+Absender: {f:if(condition: contact.name, then:'{contact.name}', else: '')}
+<br>
+<f:if condition="{contact.email}">
+  E-Mail: {contact.email}
+  <br>
+</f:if>
+<f:if condition="{contact.comment}">
+  <b>Nachricht</b>
+  <br>
+  <f:format.nl2br>{contact.comment}</f:format.nl2br>
+</f:if>
+<br>

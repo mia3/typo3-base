@@ -1,15 +1,14 @@
 config {
   ### Language and localization
 
-  # this must be set to the language of the site
+  # This must be set to the language of the site.
   language = de
-  metaCharset = utf-8
 
-  # make sure to set this to the language your site is in
+  # Make sure to set this to the language your site is in
   locale_all = de_DE
   htmlTag_langKey = de
 
-  # Sets the default system language
+  # Set the default system language.
   sys_language_uid = 0
 
   # How to handle locallization
@@ -17,9 +16,6 @@ config {
 
   # Records that are not locallized till be hidden
   sys_language_overlay = hideNonTranslated
-
-  # Setting up the language variable "L" to be passed along with links
-  config.linkVars = L
 }
 
 [globalVar = GP:L=1]

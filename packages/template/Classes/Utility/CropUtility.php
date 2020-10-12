@@ -1,8 +1,6 @@
 <?php
 
-
 namespace MIA3\Template\Utility;
-
 
 use TYPO3\CMS\Core\Imaging\ImageManipulation\CropVariantCollection;
 use TYPO3\CMS\Core\Resource\Exception\ResourceDoesNotExistException;

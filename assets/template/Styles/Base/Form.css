@@ -1,14 +1,10 @@
-/* Forms
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-input[type='email'],
-input[type='number'],
-input[type='search'],
-input[type='text'],
-input[type='tel'],
-input[type='url'],
-input[type='password'],
-textarea,
-select
+/*
+ * Forms
+ * ––––– */
+
+.input,
+.textarea,
+.select
 {
   background: var(--bleached-slik);
   border: none;
@@ -21,37 +17,17 @@ select
   padding: calc(0.5rem + 1px) 1rem 0.5rem 1rem;
   transition: background-color .6s ease, box-shadow 0.5s ease-in-out;
   width: 100%;
-}
-
-/* Removes awkward default styles on some inputs for iOS */
-input[type='email'],
-input[type='number'],
-input[type='search'],
-input[type='text'],
-input[type='tel'],
-input[type='url'],
-input[type='password'],
-textarea
-{
-  -moz-appearance: none;
-  -webkit-appearance: none;
   appearance: none;
 }
 
-textarea
+.textarea
 {
-  min-height: calc(var(--line-1) * 12);
+  min-height: calc(var(--line) * 12);
 }
 
-input[type='email']:focus,
-input[type='number']:focus,
-input[type='search']:focus,
-input[type='text']:focus,
-input[type='tel']:focus,
-input[type='url']:focus,
-input[type='password']:focus,
-textarea:focus,
-select:focus
+.input:focus,
+.textarea:focus,
+.select:focus
 {
   outline: 0;
 }
@@ -61,20 +37,19 @@ select:focus
 :-moz-placeholder,
 :-ms-input-placeholder
 {
-  color: var(--placeholder);
   position: relative;
   z-index: 20;
 }
 
-label,
-legend
+.label,
+.legend
 {
   display: block;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
-fieldset
+.fieldset
 {
   border-width: 0;
   padding: 0;
@@ -127,61 +102,9 @@ input[type='radio']:checked:before
   width: 15px;
 }
 
-
 label > .label-body
 {
   display: inline-block;
   font-weight: normal;
   margin-left: 0.5rem;
-}
-
-input::-webkit-input-placeholder
-{
-  color: var(--placeholder);
-  position: relative;
-  z-index: 1000;
-}
-
-input:focus::-webkit-input-placeholder
-{
-  opacity: 0.4;
-}
-
-/* Firefox < 19 */
-input:-moz-placeholder
-{
-  color: var(--placeholder);
-  position: relative;
-  z-index: 1000;
-}
-
-input:focus:-moz-placeholder
-{
-  opacity: 0.4;
-}
-
-/* Firefox > 19 */
-input::-moz-placeholder
-{
-  color: var(--placeholder);
-  position: relative;
-  z-index: 1000;
-}
-
-input:focus::-moz-placeholder
-{
-  opacity: 0.4;
-}
-
-/* Internet Explorer 10 */
-input:-ms-input-placeholder
-{
-  color: var(--placeholder);
-  position: relative;
-  z-index: 1000;
-}
-
-input:focus:-ms-input-placeholder
-{
-  opacity: 0.4;
 }

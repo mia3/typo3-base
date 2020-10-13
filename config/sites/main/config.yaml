@@ -1,5 +1,10 @@
-rootPageId: 1
-base: 'http://local.typo3-base/'
+base: 'http://local.typo3.org'
+baseVariants: {  }
+errorHandling:
+  -
+    errorCode: '404'
+    errorHandler: Page
+    errorContentSource: 't3://page?uid=6'
 languages:
   -
     title: Deutsch
@@ -13,6 +18,14 @@ languages:
     hreflang: de-de
     direction: ltr
     flag: de
-errorHandling: {  }
-routes: {  }
-baseVariants: {  }
+rootPageId: 1
+routes:
+  -
+    route: robots.txt
+    type: staticText
+    content: "User-agent: *\r\nSitemap: http://local.mia3.template.de/sitemap.xml\r\nDisallow: /typo3/\r\nDisallow: /typo3_src/\r\nAllow: /typo3/sysext/frontend/Resources/Public/*\r\n"
+  -
+    route: sitemap.xml
+    type: uri
+    source: 'http://local.typo3.org?type=1533906435'
+websiteTitle: ''

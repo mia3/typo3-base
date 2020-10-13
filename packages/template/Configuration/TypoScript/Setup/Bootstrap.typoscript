@@ -1,0 +1,68 @@
+page = PAGE
+page {
+  typeNum = 0
+  shortcutIcon = EXT:template/Resources/Public/Media/Icons/favicon.png
+
+  10 = FLUIDTEMPLATE
+  10 {
+    # Template names will be generated automaticly by converting the applied
+    # backend_layout, there is no explicit mapping nessesary anymore.
+    #
+    # BackendLayout Key
+    # subnavigation_right_2_columns -> SubnavigationRight2Columns.html
+    #
+    # Backend Record
+    # uid: 1 -> 1.html
+    #
+    # Database Entry
+    # value: -1 -> None.html
+    # value: pagets__subnavigation_right_2_columns -> SubnavigationRight2Columns.html
+    templateName = TEXT
+    templateName {
+      cObject = TEXT
+      cObject {
+        data = pagelayout
+        required = 1
+        case = uppercamelcase
+        split {
+          token = pagets__
+          cObjNum = 1
+          1.current = 1
+        }
+      }
+
+      ifEmpty = Default
+    }
+
+    templateRootPaths {
+      0 = EXT:template/Resources/Private/Templates/Page/
+    }
+
+    partialRootPaths {
+      0 = EXT:template/Resources/Private/Partials/Page/
+    }
+
+    layoutRootPaths {
+      0 = EXT:template/Resources/Private/Layouts/Page/
+    }
+  }
+
+  includeCSS {
+    bundle = EXT:template/Resources/Public/Build/mia3_styles.css
+    vue = EXT:template/Resources/Public/Build/mia3_scripts.css
+  }
+
+  includeJSFooterlibs {
+    runtime = EXT:template/Resources/Public/Build/runtime.js
+  }
+
+  includeJSFooter {
+    bundle = EXT:template/Resources/Public/Build/mia3_scripts.js
+  }
+
+  // Add page UID to the body tag.
+  bodyTag >
+  bodyTagCObject = TEXT
+  bodyTagCObject.field = uid
+  bodyTagCObject.wrap = <body id="page-|">
+}

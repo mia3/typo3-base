@@ -1,0 +1,8 @@
+#----------------------------------------------------------
+#    Set some useful defaults for new content elements
+#----------------------------------------------------------
+TCAdefaults {
+  tt_content {
+    header_layout = 3
+  }
+}

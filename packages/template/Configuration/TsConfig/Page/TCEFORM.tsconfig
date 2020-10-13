@@ -1,0 +1,78 @@
+#
+# TCEFORM
+#
+TCEFORM {
+  pages {
+    rowDescription.disabled = 1
+  }
+
+  tt_content {
+    rowDescription.disabled = 1
+    frame_class.disabled = 1
+
+    CType.removeItems (
+      textpic,
+      textmedia,
+      key,
+      bullets,
+      table,
+      uploads,
+      multimedia,
+      media,
+      mailform,
+      search,
+      login,
+      form_framework,
+      menu,
+      shortcut,
+      script,
+      splash,
+      div,
+      menu_abstract,
+      menu_categorized_content,
+      menu_categorized_pages,
+      menu_recently_updated,
+      menu_related_pages,
+      menu_section,
+      menu_section_pages,
+      menu_sitemap,
+      menu_sitemap_pages,
+      html,
+      header
+    )
+
+    layout {
+      altLabels {
+        1 = LLL:EXT:template/Resources/Private/Language/locallang_be.xml:tt_content.layout.1
+        2 = LLL:EXT:template/Resources/Private/Language/locallang_be.xml:tt_content.layout.2
+      }
+
+      removeItems = 3
+    }
+
+    header_layout {
+      altLabels {
+        1 = LLL:EXT:template/Resources/Private/Language/locallang_be.xlf:tt_content.header_layout.1
+        2 = LLL:EXT:template/Resources/Private/Language/locallang_be.xlf:tt_content.header_layout.2
+        3 = LLL:EXT:template/Resources/Private/Language/locallang_be.xlf:tt_content.header_layout.3
+        4 = LLL:EXT:template/Resources/Private/Language/locallang_be.xlf:tt_content.header_layout.4
+      }
+
+      removeItems = 5
+    }
+
+    space_before_class {
+      removeItems = extra-small, medium, large, extra-large
+      addItems {
+        none = LLL:EXT:template/Resources/Private/Language/locallang_be.xlf:tt_content.space.none
+      }
+    }
+
+    space_after_class {
+      removeItems = extra-small, medium, large, extra-large
+      addItems {
+        none = LLL:EXT:template/Resources/Private/Language/locallang_be.xlf:tt_content.space.none
+      }
+    }
+  }
+}

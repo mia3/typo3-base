@@ -1,0 +1,42 @@
+{
+    "sys_file_reference": {
+        "sql": {
+            "tx_mask_content_backgound": {
+                "sys_file_reference": {
+                    "tx_mask_content_backgound": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            }
+        }
+    },
+    "tt_content": {
+        "elements": {
+            "placeholder": {
+                "color": "#000000",
+                "columns": [
+                    "bodytext"
+                ],
+                "description": "",
+                "icon": "",
+                "key": "placeholder",
+                "label": "Placeholder",
+                "labels": [
+                    "Bodytext"
+                ],
+                "options": [
+                    "rte"
+                ],
+                "shortLabel": ""
+            },
+            "tab_carousel": {
+                "color": "#000000",
+                "description": "",
+                "icon": "",
+                "key": "tab_carousel",
+                "label": "Tab Carousel",
+                "shortLabel": ""
+            }
+        },
+        "sql": [],
+        "tca": []
+    }
+}

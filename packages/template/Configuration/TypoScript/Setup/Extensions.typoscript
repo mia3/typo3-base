@@ -1,0 +1,72 @@
+lib {
+  # EXT:fluid_styled_content
+  contentElement {
+    partialRootPaths {
+      100 = EXT:template/Resources/Private/ExtensionOverrides/fluid_styled_content/Partials/
+      101 = EXT:template/Resources/Private/Mask/Frontend/Partials/
+      102 = EXT:template/Resources/Private/Partials/ContentElements/
+      103 = EXT:template/Resources/Private/Partials/Page/
+    }
+
+    templateRootPaths.100 = EXT:template/Resources/Private/ExtensionOverrides/fluid_styled_content/Templates/
+    layoutRootPaths.100 = EXT:template/Resources/Private/ExtensionOverrides/fluid_styled_content/Layouts/
+  }
+
+  # EXT:mask
+  maskContentElement {
+    partialRootPaths {
+      200 = EXT:fluid_styled_content/Resources/Private/Partials/
+      210 = EXT:template/Resources/Private/ExtensionOverrides/fluid_styled_content/Partials/
+    }
+
+    layoutRootPaths {
+      200 = EXT:fluid_styled_content/Resources/Private/Layouts/
+      210 = EXT:template/Resources/Private/ExtensionOverrides/fluid_styled_content/Layouts/
+    }
+  }
+}
+
+plugin {
+  # EXT:template
+  tx_template {
+    view {
+      templateRootPaths {
+        0 = EXT:template/Resources/Private/Templates/
+      }
+
+      partialRootPaths {
+        0 = EXT:template/Resources/Private/Mask/Frontend/Partials/
+        1 = EXT:template/Resources/Private/Partials/Page/
+      }
+
+      layoutRootPaths {
+        0 = EXT:template/Resources/Private/Layouts/
+      }
+    }
+
+    # EXT:news
+    tx_news {
+      view {
+        partialRootPaths {
+          10 = EXT:news/Resources/Private/Partials/
+          20 = EXT:template/Resources/Private/ExtensionOverrides/news/Partials/
+        }
+
+        templateRootPaths {
+          10 = EXT:news/Resources/Private/Templates/
+          20 = EXT:template/Resources/Private/ExtensionOverrides/news/Templates/
+        }
+
+        layoutRootPaths {
+          10 = EXT:news/Resources/Private/Layouts/
+          20 = EXT:template/Resources/Private/ExtensionOverrides/news/Layouts/
+        }
+      }
+
+      settings.itemscope {
+        itemscope = itemscope
+        itemtype = http://schema.org/Article
+      }
+    }
+  }
+}

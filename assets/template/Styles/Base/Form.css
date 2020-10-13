@@ -1,0 +1,23 @@
+/*
+ * Forms
+ * ––––– */
+.form
+{
+  display: grid;
+  grid-gap: var(--line);
+}
+
+.formFeedback {
+  border: 2px solid #ddd;
+  padding: 15px;
+}
+
+.formFeedback--success
+{
+  border-color: #2ecc40;
+}
+
+.formFeedback__title
+{
+  margin-bottom: var(--line);
+}

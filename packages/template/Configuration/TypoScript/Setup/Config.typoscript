@@ -1,0 +1,14 @@
+# General site config
+config {
+  # Disable Cache.
+  no_cache = 1
+
+  # Add L and print values to all links in TYPO3.
+  linkVars = L, print
+
+  # Spam protection
+  spamProtectEmailAddresses = ascii
+
+  # The <base> tag in the header of the document which is used by RealURL.
+  absRefPrefix = {$config.absRefPrefix}
+}

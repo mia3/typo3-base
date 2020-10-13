@@ -1,0 +1,11 @@
+config.additionalHeaders {
+  # Please only use the 'Content-Security-Policy' if you know what you are doing. This can break the web-page!
+  # 10.header = Content-Security-Policy: script-src 'self'
+  20.header = Strict-Transport-Security: max-age=31536000
+  30.header = X-Frame-Options: sameorigin
+  40.header = X-XSS-Protection: 1; mode=block
+
+  # Already set by the TYPO3 default htaccess
+  # 50.header = X-Content-Type-Options: nosniff
+  60.header = Referrer-Policy: strict-origin
+}

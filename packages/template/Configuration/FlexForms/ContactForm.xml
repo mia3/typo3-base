@@ -1,0 +1,132 @@
+<T3DataStructure>
+  <sheets>
+    <!--
+        ################################
+          SHEET General Settings
+        ################################
+    -->
+    <sDEF>
+      <ROOT>
+        <TCEforms>
+          <sheetTitle>General</sheetTitle>
+        </TCEforms>
+        <type>array</type>
+        <el>
+          <settings.privacy>
+            <TCEforms>
+              <label>Privacy disclaimer</label>
+              <exclude>0</exclude>
+              <config>
+                <eval>required</eval>
+                <type>text</type>
+                <cols>30</cols>
+                <rows>2</rows>
+                <enableRichtext>1</enableRichtext>
+              </config>
+            </TCEforms>
+          </settings.privacy>
+        </el>
+      </ROOT>
+    </sDEF>
+
+    <!--
+        ################################
+          SHEET Template
+        ################################
+    -->
+    <emailFrom>
+      <ROOT>
+        <TCEforms>
+          <sheetTitle>Email</sheetTitle>
+        </TCEforms>
+        <type>array</type>
+        <el>
+          <settings.email.subject>
+            <TCEforms>
+              <label>Email subject</label>
+              <config>
+                <type>input</type>
+                <eval>trim</eval>
+                <placeholder>Contact form request</placeholder>
+                <default>Contact form request</default>
+              </config>
+            </TCEforms>
+          </settings.email.subject>
+          <settings.email.to>
+            <TCEforms>
+              <label>Recipient email</label>
+              <config>
+                <type>input</type>
+                <eval>required, trim, email</eval>
+                <placeholder>support@acme.com</placeholder>
+              </config>
+            </TCEforms>
+          </settings.email.to>
+          <settings.email.toAlias>
+            <TCEforms>
+              <label>Recipient name</label>
+              <config>
+                <type>input</type>
+                <eval>trim, required</eval>
+                <placeholder>Acme Support</placeholder>
+              </config>
+            </TCEforms>
+          </settings.email.toAlias>
+        </el>
+      </ROOT>
+    </emailFrom>
+    <submitButton>
+      <ROOT>
+        <TCEforms>
+          <sheetTitle>Submit button</sheetTitle>
+          <sheetShortDescr>Configuration for the submit button.</sheetShortDescr>
+        </TCEforms>
+        <type>array</type>
+        <el>
+          <settings.submit.style>
+            <TCEforms>
+              <label>Style</label>
+              <config>
+                <type>select</type>
+                <renderType>selectSingle</renderType>
+                <items>
+                  <numIndex index="0">
+                    <numIndex index="0">Default</numIndex>
+                    <numIndex index="1">-1</numIndex>
+                  </numIndex>
+                  <numIndex index="1">
+                    <numIndex index="0">Blue gradient</numIndex>
+                    <numIndex index="1">button-gradient</numIndex>
+                  </numIndex>
+                </items>
+              </config>
+            </TCEforms>
+          </settings.submit.style>
+          <settings.submit.alignment>
+            <TCEforms>
+              <label>Alignment</label>
+              <config>
+                <type>select</type>
+                <renderType>selectSingle</renderType>
+                <items>
+                  <numIndex index="0">
+                    <numIndex index="0">Left</numIndex>
+                    <numIndex index="1">left</numIndex>
+                  </numIndex>
+                  <numIndex index="1">
+                    <numIndex index="0">Right</numIndex>
+                    <numIndex index="1">right</numIndex>
+                  </numIndex>
+                  <numIndex index="2">
+                    <numIndex index="0">Center</numIndex>
+                    <numIndex index="1">center</numIndex>
+                  </numIndex>
+                </items>
+              </config>
+            </TCEforms>
+          </settings.submit.alignment>
+        </el>
+      </ROOT>
+    </submitButton>
+  </sheets>
+</T3DataStructure>

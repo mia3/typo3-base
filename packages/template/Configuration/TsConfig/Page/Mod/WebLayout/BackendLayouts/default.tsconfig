@@ -1,0 +1,48 @@
+#
+# BACKENDLAYOUT: DEFAULT
+#
+mod {
+  web_layout {
+    BackendLayouts {
+      default {
+        title = LLL:EXT:template/Resources/Private/Language/locallang_be.xml:backend_layout.default
+        config {
+          backend_layout {
+            colCount = 3
+            rowCount = 2
+            rows {
+              1 {
+                columns {
+                  1 {
+                    name = Main
+                    colspan = 3
+                    colPos = 0
+                  }
+                }
+              }
+
+              2 {
+                columns {
+                  1 {
+                    name = Footer I
+                    colPos = 20
+                  }
+
+                  2 {
+                    name = Footer II
+                    colPos = 21
+                  }
+
+                  3 {
+                    name = Footer III
+                    colPos = 22
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

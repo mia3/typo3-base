@@ -1,0 +1,10 @@
+#############
+#### RTE ####
+#############
+RTE {
+  default {
+    preset = default
+  }
+
+  config.tt_content.bodytext.preset = default
+}

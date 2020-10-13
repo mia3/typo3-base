@@ -21,7 +21,12 @@ class FormController extends ActionController
 
             // Send mail
             if (!$formData->isHoneypotHit()) {
+                try {
                 GeneralUtility::makeInstance(Mailer::class)->send($email);
+                }
+                catch (\Exception $exception) {
+                    dd($exception);
+                }
             }
 
             // Output feedback to user

@@ -11,25 +11,18 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 class FormController extends ActionController
 {
-    /**
-     * @param string $view
-     *
-     * @return string
-     */
-    public function thankYouAction(string $view): string
-    {
-        return $view;
-    }
-
-    public function contactFormAction(ContactFormRequest $formData = null): void
+    public function contactFormAction(ContactFormRequest $formData = null)
     {
         if ($formData) {
             // Send mail
             $email = $this->getEmail($formData, 'ContactForm');
-            GeneralUtility::makeInstance(Mailer::class)->send($email);
+//            GeneralUtility::makeInstance(Mailer::class)->send($email);
 
-            // Redirect so the form cannot be submitted twice.
-            $this->redirect('thankYou', null, null, ['view' => $email->getHtmlBody()]);
+            // Form submitted by ajax
+            $emailBody = trim(quoted_printable_decode($email->getBody()->bodyToString()));
+            header('Content-Type: application/json');
+            echo json_encode(['email' => $emailBody]);
+            exit(0);
         }
 
         $this->view->assign('contactFormRequest', new ContactFormRequest);

@@ -1,7 +1,7 @@
 <template>
-  <div class="baseInput">
-    <textarea class="baseInput__field" v-model="value" :placeholder="placeholder"></textarea>
-    <div class="baseInput__border"></div>
+  <div class="baseTextarea">
+    <textarea class="baseTextarea__field" v-model="value" :placeholder="placeholder"></textarea>
+    <div class="baseTextarea__border"></div>
   </div>
 </template>
 
@@ -21,12 +21,12 @@
 </script>
 
 <style scoped>
-  .baseInput
+  .baseTextarea
   {
     position: relative;
   }
 
-  .baseInput__field
+  .baseTextarea__field
   {
     background: rgba(0, 0, 0, 0.05);
     border: none;
@@ -41,12 +41,12 @@
     font-family: var(--font-family);
   }
 
-  .baseInput__field:focus
+  .baseTextarea__field:focus
   {
     outline: 0;
   }
 
-  .baseInput__border::after
+  .baseTextarea__border::after
   {
     background: transparent;
     bottom: 0;
@@ -59,7 +59,7 @@
     width: 0;
   }
 
-  .baseInput__field:focus + .baseInput__border::after
+  .baseTextarea__field:focus + .baseTextarea__border::after
   {
     background: linear-gradient(300deg, rgba(75, 17, 58, 1) 0%, rgba(26, 70, 136, 1) 100%); /* w3c */
     transition: 0.4s;

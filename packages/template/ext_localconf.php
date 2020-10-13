@@ -16,10 +16,10 @@ $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['default_core'] = $GLOBALS['TYPO3_
     'MIA3.Template',
     'ContactForm',
     [
-        \MIA3\Template\Controller\FormController::class => 'contactForm, thankYou',
+        \MIA3\Template\Controller\FormController::class => 'contactForm',
     ],
     [
         // Disable cache to prevent form data from being executed twice.
-        \MIA3\Template\Controller\FormController::class => 'contactForm, thankYou',
+        \MIA3\Template\Controller\FormController::class => 'contactForm',
     ]
 );

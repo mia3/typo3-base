@@ -3,18 +3,13 @@
     <f:form.hidden name="redirect" value="{f:uri.typolink(parameter: settings.link)}"/>
   </f:if>
 
-  <!-- Field "name" -->
+  <!-- Main form fields -->
   <t:form.textfield property="name" placeholder="Name" required="required"/>
-
-  <!-- Field "email" -->
   <t:form.textfield property="email" placeholder="Email" required="required" type="email"/>
-
-  <!-- Field "subject" -->
   <t:form.textfield property="subject" placeholder="Subject" required="required"/>
-
-  <!-- Field "message" -->
   <t:form.textarea class="textarea" property="message" placeholder="Your message for us..."/>
 
+  <!-- Honeypot -->
   <div class="veryImportantField">
     <f:form.textfield property="additionalInformation" tabindex="-1"/>
   </div>

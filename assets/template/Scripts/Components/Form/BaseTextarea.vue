@@ -1,6 +1,6 @@
 <template>
   <div class="baseTextarea">
-    <textarea class="baseTextarea__field" v-model="value" :placeholder="placeholder"></textarea>
+    <textarea class="baseTextarea__field" v-model="value" :placeholder="placeholder" :required="required" :name="name"></textarea>
     <div class="baseTextarea__border"></div>
   </div>
 </template>
@@ -8,15 +8,15 @@
 <script>
   export default {
     name: 'base-textarea',
-    props: ['placeholder'],
+    props: ['placeholder', 'name', 'required'],
     data: function () {
       return {
-        value: '',
+        value: ''
       };
     },
     mounted() {
 
-    },
+    }
   };
 </script>
 

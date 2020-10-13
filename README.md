@@ -2,12 +2,14 @@
 
 Get going quickly with TYPO3 CMS.
 
+
 ## Prerequisites
 
 * PHP 7.2
 * [Composer](https://getcomposer.org/download/)
 * [ImageMagick](https://imagemagick.org/script/download.php)
 * [GraphicsMagick](http://www.graphicsmagick.org/download.html)
+
 
 ## Quickstart
 
@@ -19,33 +21,21 @@ Get going quickly with TYPO3 CMS.
 * `make setup`
 
 
-# TYPO3 . local.typo3-base
-
-## Table of Cotents
-* Prerequisites
-* Setup / Installation
-* Structure of the template (public/typo3conf/ext/template/)
-
-## Prerequisites
-
-* PHP 7.2
-* [Composer](https://getcomposer.org/download/)
-
 ## Setup / Installation
 
 1. To start with your project, clone this repository running:
     ```bash
-    git clone ssh://git@gitlab.mia3.com:30001/mia3/mecondo.de.git
+    git clone ssh://git@gitlab.mia3.com:2222/mia3/typo3.git
     ```
 2. Then run the following command, to change into your project folder:
     ```bash
-    cd mecondo.de
+    cd acme.com
     ```
-3. After using this command, you should be able to run the following command to install TYPO3 and all necessary dependencies:  
+3. After using this command, you should be able to run the following command to install TYPO3 and all necessary dependencies:
     ```bash
     make install
     ```
-4. Set up a local server environment(e.g: MAMP) and create a new database for this project. To avoid errors with the "Application Context", use `local.mecondo.de` as domain for this environment.
+4. Set up a local server environment(e.g: MAMP) and create a new database for this project. To avoid errors with the "Application Context", use `local.acme.com` as domain for this environment.
 5. Now you can run the following command, to set up your local database connection.
     ```bash
     make setup/env
@@ -54,42 +44,13 @@ Get going quickly with TYPO3 CMS.
     ```bash
     make pull-backup
     ```
-    This will download the images und database-dump from the last Backup. 
+    This will download the images und database-dump from the last Backup.
     If everything has been set up correctly, the database dump will be automatically imported into the created database.
 7. Finally, you should execute the following command to bundle all CSS and Javascript files.
     ```bash
     make build/watch
     ```
-8. Make it awesome!
 
-
-## Structure of the template (public/typo3conf/ext/template/)
-```bash
-Classes/ViewHelpers/            # Custom ViewHelper
-Configuration/                  # TYPO3 configuration / setup
-Resources/Private/
-    Form/                       # Form configurations
-    Language/                   # Translations for different Languages
-    Layouts/                    # Page Layouts
-Mask/Backend/ 
-    Example/                    # Mask backend preview example templates
-    Layouts/                    # Mask backend preview layouts
-    Partials/                   # Mask backend preview partials
-    Templates/                  # Mask backend preview templates
-    Previews/                   # Mask preview-icons for contentelements
-Mask/Frontend/ 
-    Layouts/                    # Mask content fluid layouts
-    Partials/                   # Mask content fluid partials
-    Templates/                  # Mask content fluid templates
-Templates/ 
-    ContentElements/            # Standart content fluid templates
-    Page/                       # Page Templates
-Resources/Public/
-    Build/                      # Bundled webpack files
-    Media/                      # Icons, logos, unmaintainable images, etc. 
-    Scripts/                    # JavaScript files
-    Styles/                     # Frontend and backend preview CSS styles
-```
 
 ## Makefile
 
@@ -113,6 +74,7 @@ make clear-cache                # Clear TYPO3 cache
 make pull-backup                # Download latest files and import database dump from operations.mia3.com
 ```
 
+
 ### Staging environment
 
 ```bash
@@ -121,18 +83,38 @@ make staging/clear-cache     Flush staging caches.
 make staging/push-backup:    Deploys local database to staging from your machine.
 ```
 
+
 ### Production environment
 
 ```bash
 make production/deploy # Try not to use this command. Always deploy from GitLab to the production environment.
 ```
 
+
+## CSS and JavaScript
+
+CSS and JavaScript files are located in the `assets` directory.
+
+
+## Forms
+
+Each form has its own plugin. To add another form:
+
+0. Create domain model -> `Classes/Domain/Model/MyFormRequest.php`
+0. Register a new plugin -> `Configuration/TCA/Overrides/tt_content.php`
+0. Configure the new plugin -> `ext_localconf.php`
+0. Create flexform -> `Configuration/FlexForm/MyForm.xml`
+
+
 # To Do
 
 * Update README.md
   * Where to add CSS
-  * Where to add JS 
+  * Where to add JS
 * page.meta.description empty default?
 * How to use CSS variables (postcss-config.js)
-* Composer install process via Makefile
-* Site URL config (Local, Staging?, Dev, Integration?, Production)
+* Site URL config:
+  * `Development/Local`
+  * -> `Development/Integration`
+  * -> `Production/Staging`
+  * -> `Production`

@@ -12,15 +12,15 @@
     computed: {
       activeClass() {
         return {
-          'is-active': this.$store.getters.isNavOpen,
+          'is-active': this.$store.getters.isNavOpen
         };
-      },
+      }
     },
     methods: {
       toggleMenu() {
         this.$store.commit('toggleMenu');
-      },
-    },
+      }
+    }
   };
 </script>
 

@@ -17,8 +17,8 @@
       },
       close() {
         this.$store.commit('closeMenu');
-      },
-    },
+      }
+    }
   };
 </script>
 

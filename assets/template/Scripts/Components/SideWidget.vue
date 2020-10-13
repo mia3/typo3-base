@@ -7,20 +7,20 @@
 <script>
   export default {
     name: 'side-widget',
-    data () {
+    data() {
       return {
-        open: false,
+        open: false
       };
     },
     methods: {
-      toggleWidget () {
+      toggleWidget() {
         this.open = !this.open;
-      },
+      }
     },
     computed: {
-      isOpen () {
+      isOpen() {
         return this.open;
-      },
-    },
+      }
+    }
   };
 </script>

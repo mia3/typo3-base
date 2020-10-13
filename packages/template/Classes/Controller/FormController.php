@@ -4,24 +4,28 @@ namespace MIA3\Template\Controller;
 
 use MIA3\Template\Domain\Model\ContactFormRequest;
 use Symfony\Component\Mime\Address;
+use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Mail\FluidEmail;
 use TYPO3\CMS\Core\Mail\Mailer;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Fluid\View\StandaloneView;
+use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 
 class FormController extends ActionController
 {
-    public function contactFormAction(ContactFormRequest $formData = null)
+    public function contactFormAction(ContactFormRequest $formData = null): void
     {
         if ($formData) {
-            // Send mail
             $email = $this->getEmail($formData, 'ContactForm');
-//            GeneralUtility::makeInstance(Mailer::class)->send($email);
 
-            // Form submitted by ajax
-            $emailBody = trim(quoted_printable_decode($email->getBody()->bodyToString()));
+            // Send mail
+            GeneralUtility::makeInstance(Mailer::class)->send($email);
+
+            // Output feedback to user
+            $feedbackView = $this->getFeedback($formData, 'ContactFormFeedback');
             header('Content-Type: application/json');
-            echo json_encode(['email' => $emailBody]);
+            echo json_encode(['html' => $feedbackView->render()]);
             exit(0);
         }
 
@@ -30,22 +34,56 @@ class FormController extends ActionController
 
     protected function getEmail(ContactFormRequest $formData, string $templateName): FluidEmail
     {
-        $to = $this->settings['email']['to'];
-        $from = !empty($this->settings['email']['fromAlias'])
-            ? new Address($this->settings['email']['from'], $this->settings['email']['fromAlias'])
-            : new Address($this->settings['email']['from']);
-        $subject = $this->settings['email']['subject'];
+        $context = Environment::getContext();
+        $subjectPrefix = $context->isProduction() ? '' : "[$context]";
+        $subjectSuffix = '('.$this->getPageTitle().')';
+        $subject = $subjectPrefix.' '.$this->settings['email']['subject'].' '.$subjectSuffix;
 
-        /** @var FluidEmail $email */
-        $email = GeneralUtility::makeInstance(FluidEmail::class);
+        $email = new FluidEmail;
         $email
-            ->to($to)
-            ->from($from)
-            ->subject($subject)
+            ->to($this->getTo())
+            ->from($this->getFrom())
             ->format('html') // only HTML mail
             ->setTemplate($templateName)
-            ->assign('formData', $formData);
+            ->assignMultiple(
+                [
+                    'formData' => $formData,
+                    'subject' => $subject,
+                ]
+            );
 
         return $email;
+    }
+
+    protected function getFeedback(ContactFormRequest $formData, string $templateName): StandaloneView
+    {
+        $view = new StandaloneView;
+        $view->setControllerContext($this->getControllerContext());
+        $view->setTemplate($templateName);
+        $view->assign('formData', $formData);
+
+        return $view;
+    }
+
+    protected function getFrom(): Address
+    {
+        /** @var TypoScriptFrontendController $frontendController */
+        $frontendController = $GLOBALS['TSFE'];
+        $host = $frontendController->getSite()->getBase()->getHost();
+
+        return new Address("typo3@$host", $this->getPageTitle());
+    }
+
+    protected function getTo(): Address
+    {
+        return new Address($this->settings['email']['to'], $this->settings['email']['toAlias']);
+    }
+
+    protected function getPageTitle()
+    {
+        /** @var TypoScriptFrontendController $frontendController */
+        $frontendController = $GLOBALS['TSFE'];
+
+        return $frontendController->generatePageTitle();
     }
 }

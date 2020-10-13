@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    isNavOpen: false,
+    isNavOpen: false
   },
   mutations: {
     openMenu(state) {
@@ -16,13 +16,13 @@ const store = new Vuex.Store({
     },
     toggleMenu(state) {
       state.isNavOpen = !state.isNavOpen;
-    },
+    }
   },
   getters: {
     isNavOpen: state => {
       return state.isNavOpen;
-    },
-  },
+    }
+  }
 });
 
 export default store;

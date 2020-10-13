@@ -1,4 +1,4 @@
-<t:form class="contact-form" object="{contactFormRequest}" objectName="formData" method="post">
+<t:form class="form" object="{contactFormRequest}" objectName="formData" method="post">
   <f:if condition="{settings.link}">
     <f:form.hidden name="redirect" value="{f:uri.typolink(parameter: settings.link)}"/>
   </f:if>
@@ -7,12 +7,7 @@
   <t:form.textfield property="name" placeholder="Name" required="required"/>
   <t:form.textfield property="email" placeholder="Email" required="required" type="email"/>
   <t:form.textfield property="subject" placeholder="Subject" required="required"/>
-  <t:form.textarea class="textarea" property="message" placeholder="Your message for us..."/>
-
-  <!-- Honeypot -->
-  <div class="veryImportantField">
-    <f:form.textfield property="additionalInformation" tabindex="-1"/>
-  </div>
+  <t:form.textarea property="message" placeholder="Your message for us..." required="required"/>
 
   <!-- Privacy disclaimer -->
   <div class="baseField field--disclaimer">

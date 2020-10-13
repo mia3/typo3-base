@@ -5,18 +5,18 @@
     props: {
       active: {
         type: Boolean,
-        default: false,
+        default: false
       },
       baseClass: {
         type: String,
-        default: 'button',
+        default: 'button'
       },
       type: {
         type: String,
-        required: true,
-      },
+        required: true
+      }
     },
-    render (createElement, { props, listeners, attrs, children }) {
+    render(createElement, { props, listeners, attrs, children }) {
       const classes = {};
       classes[props.baseClass] = true;
       classes[props.baseClass + '-' + props.type] = true;
@@ -25,12 +25,12 @@
       return createElement('button', {
           attrs: attrs,
           on: {
-            ...listeners,
+            ...listeners
           },
-          class: classes,
+          class: classes
         },
-        children,
+        children
       );
-    },
+    }
   };
 </script>

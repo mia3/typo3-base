@@ -10,26 +10,26 @@ class ContactFormRequest
      * @var string
      * @Validate("Text")
      */
-    private $name;
+    private $name = '';
 
     /**
      * @var string
      * @Validate("EmailAddress")
      * @Validate("NotEmpty")
      */
-    private $email;
+    private $email = '';
 
     /**
      * @var string
      * @Validate("NotEmpty")
      */
-    private $subject;
+    private $subject = '';
 
     /**
      * @var string
      * @Validate("Text")
      */
-    private $message;
+    private $message = '';
 
     /**
      * @var string
@@ -39,7 +39,7 @@ class ContactFormRequest
     /**
      * @return string
      */
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -78,20 +78,16 @@ class ContactFormRequest
 
     /**
      * @param string $subject
-     *
-     * @return ContactFormRequest
      */
-    public function setSubject(string $subject): ContactFormRequest
+    public function setSubject(string $subject): void
     {
         $this->subject = $subject;
-
-        return $this;
     }
 
     /**
      * @return string
      */
-    public function getMessage(): ?string
+    public function getMessage(): string
     {
         return $this->message;
     }
@@ -120,8 +116,11 @@ class ContactFormRequest
         $this->additionalInformation = $additionalInformation;
     }
 
-    public function isHoneyPotHit(): bool
+    /**
+     * @return bool
+     */
+    public function isHoneypotHit(): bool
     {
-        return $this->getAdditionalInformation() !== '';
+        return $this->additionalInformation !== '';
     }
 }

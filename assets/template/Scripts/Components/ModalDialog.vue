@@ -23,26 +23,26 @@
 <script>
   export default {
     name: 'modal-dialog',
-    data () {
+    data() {
       return {
         isOpen: false,
-        action: '',
+        action: ''
       };
     },
     props: {
       id: {
-        required: false,
+        required: false
       },
       open: {
         type: Boolean,
-        default: false,
-      },
+        default: false
+      }
     },
-    mounted () {
+    mounted() {
       this.isOpen = this.open;
     },
     methods: {
-      toggleModal () {
+      toggleModal() {
         this.isOpen = !this.isOpen;
         if (this.isOpen) {
           this.action = 'open';
@@ -50,35 +50,35 @@
           this.action = 'closed';
         }
       },
-      closeModal () {
+      closeModal() {
         this.isOpen = false;
         this.action = 'closed';
       },
-      openModal () {
+      openModal() {
         this.isOpen = true;
         this.action = 'opened';
       },
-      confirmModal () {
+      confirmModal() {
         this.isOpen = false;
         this.action = 'confirmed';
       },
-      cancelModal () {
+      cancelModal() {
         this.isOpen = false;
         this.action = 'cancelled';
-      },
+      }
 
     },
     watch: {
-      isOpen (open) {
+      isOpen(open) {
         if (open) {
           this.$nextTick(() => {
             this.$refs.dialog.focus();
           });
         }
       },
-      action (action) {
+      action(action) {
         this.$emit('input', action);
-      },
-    },
+      }
+    }
   };
 </script>

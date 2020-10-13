@@ -1,20 +1,18 @@
 import Vue from 'vue';
-import store from './Store'
+import store from './Store';
 
 /**
  * Autoloading components from "Components"-directory
  */
-require.context('./Components/', true, /\.vue$/).
-  keys().
-  forEach(function (elementPath) {
-    let component = require('./Components/' +
-      elementPath.replace('./', '')).default;
-    if (typeof (component.name) == 'undefined') {
-      console.warn('Component is missing name!', component);
-      return;
-    }
-    Vue.component(component.name, component);
-  });
+require.context('./Components/', true, /\.vue$/).keys().forEach(function (elementPath) {
+  let component = require('./Components/' +
+    elementPath.replace('./', '')).default;
+  if (typeof (component.name) == 'undefined') {
+    console.warn('Component is missing name!', component);
+    return;
+  }
+  Vue.component(component.name, component);
+});
 
 Vue.directive('click-outside', {
   bind: function (el, binding, vnode) {
@@ -29,7 +27,7 @@ Vue.directive('click-outside', {
   },
   unbind: function (el) {
     document.body.removeEventListener('click', el.event);
-  },
+  }
 });
 
 Vue.directive('modal-trigger', {
@@ -46,23 +44,23 @@ Vue.directive('modal-trigger', {
       }
       modal.toggleModal();
     });
-  },
+  }
 });
 
 new Vue({
   el: '.vue',
   store,
-  data () {
+  data() {
     return {
-      state: {},
+      state: {}
     };
   },
   methods: {
-    hasState (id, value) {
+    hasState(id, value) {
       return this.state[id] == value;
     },
-    goBack (evt) {
+    goBack(evt) {
       window.history.back();
-    },
-  },
+    }
+  }
 });

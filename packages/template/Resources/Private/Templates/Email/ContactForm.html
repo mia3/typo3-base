@@ -1,16 +1,28 @@
-Sehr geehrte Damen und Herren,
-<br>
-Über das Kontaktformular auf Ihrer Website wurden folgende Informationen übermittelt:
-<br>
-<br>
-Absender: {f:if(condition: formData.name, then:'{formData.name}', else: '')}
-<br>
-<f:if condition="{formData.email}">
-  E-Mail: {formData.email}
-  <br>
-</f:if>
-<f:if condition="{formData.comment}">
-  <b>Nachricht</b>
-  <br>
-  <f:format.nl2br>{formData.comment}</f:format.nl2br>
-</f:if>
+<f:section name="Subject">{subject}</f:section>
+
+<style>
+  *
+  {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+</style>
+
+<h1>Form request</h1>
+
+{typo3 -> f:debug()}
+
+<p>Someone filled out the form on your site "{typo3.sitename}". The following data was submitted:</p>
+<ul>
+  <li>
+    <strong>Sender:</strong>
+    {formData.name}
+  </li>
+  <li>
+    <strong>Email:</strong>
+    <a href="mailto:{formData.email}">{formData.email}</a>
+  </li>
+  <li>
+    <strong>Message:</strong>
+    {formData.message}
+  </li>
+</ul>

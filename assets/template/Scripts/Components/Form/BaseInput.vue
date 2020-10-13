@@ -15,20 +15,15 @@
 <script>
   export default {
     name: 'base-input',
-    props: [
-      'placeholder',
-      'name',
-      'type',
-      'required',
-    ],
+    props: ['placeholder', 'name', 'type', 'required'],
     data: function () {
       return {
-        value: '',
+        value: ''
       };
     },
     mounted() {
 
-    },
+    }
   };
 </script>
 

@@ -1,18 +1,23 @@
 /*
  * Forms
  * ––––– */
-.contact-form
+.form
 {
   display: grid;
   grid-gap: var(--line);
-  position: relative;
 }
 
-/* Honeypot */
-.veryImportantField
+.formFeedback {
+  border: 2px solid #ddd;
+  padding: 15px;
+}
+
+.formFeedback--success
 {
-  height: 0;
-  opacity: 0;
-  z-index: -1;
-  position: absolute;
+  border-color: #2ecc40;
+}
+
+.formFeedback__title
+{
+  margin-bottom: var(--line);
 }

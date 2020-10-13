@@ -11,8 +11,7 @@
     "georgringer/news": "^8.3",
     "mask/mask": "^5.1",
     "mia3/template": "@dev",
-    "ext-json": "*",
-    "php": "7.2.*"
+    "ext-json": "*"
   },
   "config": {
     "secure-http": false

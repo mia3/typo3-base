@@ -1,25 +1,25 @@
-# Project Root
+# Project root
 .DS_Store
-.idea
-nbproject
+.idea/*
+/*.sql
+/config/sites
+/node_modules
 /var
 /vendor
-/node_modules
-/*.sql
-/**/ENABLE_INSTALL_TOOL
+nbproject
 
-# Web Root
+# Web root (public)
+/public/*.sql
 /public/fileadmin
-/public/typo3/*
-/public/typo3conf/ext/*
 /public/index.php
-/public/typo3temp/
+/public/typo3
 /public/typo3conf/AdditionalConfiguration.php
 /public/typo3conf/PackageStates.php
+/public/typo3conf/ext
 /public/typo3conf/l10n
-/public/fileadmin/
-/public/uploads/
-/public/*.sql
-/config/sites
-/fileadmin
-/uploads
+/public/typo3temp
+/public/uploads
+public/typo3conf/ENABLE_INSTALL_TOOL
+
+# Exceptions
+!.idea/codeStyles

@@ -1,13 +1,13 @@
 <t:form class="form" object="{contactFormRequest}" objectName="formData" method="post">
-  <f:if condition="{settings.link}">
-    <f:form.hidden name="redirect" value="{f:uri.typolink(parameter: settings.link)}"/>
-  </f:if>
 
   <!-- Main form fields -->
   <t:form.textfield property="name" placeholder="Name" required="required"/>
   <t:form.textfield property="email" placeholder="Email" required="required" type="email"/>
   <t:form.textfield property="subject" placeholder="Subject" required="required"/>
   <t:form.textarea property="message" placeholder="Your message for us..." required="required"/>
+
+  <!-- Honeypot -->
+  <t:form.textfield property="additionalInformation" style="position: absolute; margin: 0 0 0 -999em;"/>
 
   <!-- Privacy disclaimer -->
   <div class="baseField field--disclaimer">

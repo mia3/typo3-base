@@ -20,7 +20,9 @@ class FormController extends ActionController
             $email = $this->getEmail($formData, 'ContactForm');
 
             // Send mail
-            GeneralUtility::makeInstance(Mailer::class)->send($email);
+            if (!$formData->isHoneypotHit()) {
+                GeneralUtility::makeInstance(Mailer::class)->send($email);
+            }
 
             // Output feedback to user
             $feedbackView = $this->getFeedback($formData, 'ContactFormFeedback');

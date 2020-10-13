@@ -6,7 +6,6 @@
 </template>
 
 <script>
-  import axios from 'axios';
   import $ from 'jquery';
 
   export default {
@@ -19,9 +18,8 @@
     },
     methods: {
       onSubmit() {
-        axios({
-          method: this.method,
-          url: this.action,
+        $.ajax(this.action, {
+          type: this.method,
           data: $(this.$el).serialize()
         }).then(res => {
           this.htmlResponse = res.data.html;

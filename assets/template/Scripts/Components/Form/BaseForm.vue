@@ -24,7 +24,10 @@
           url: this.action,
           data: $(this.$el).serialize()
         }).then(res => {
-          this.htmlResponse = res.data.html;
+          this.htmlResponse = res.data;
+        }).catch(error => {
+          console.log(error)
+          this.htmlResponse = 'Server error. Please try again.';
         });
       }
     }

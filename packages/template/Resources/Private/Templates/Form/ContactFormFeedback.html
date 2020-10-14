@@ -1,19 +1,39 @@
-<div class="formFeedback formFeedback--success">
-  <h2 class="formFeedback__title">Thank you.</h2>
+<f:switch expression="{status.code}">
+  <f:case value="EMAIL_SENT">
+    <div class="formFeedback formFeedback--success">
+      <h2 class="formFeedback__title">Thank you.</h2>
 
-  <p>The following data was submitted:</p>
-  <ul>
-    <li>
-      <strong>Sender:</strong>
-      {formData.name}
-    </li>
-    <li>
-      <strong>Email:</strong>
-      <a href="mailto:{formData.email}">{formData.email}</a>
-    </li>
-    <li>
-      <strong>Message:</strong>
-      {formData.message}
-    </li>
-  </ul>
-</div>
+      <p>The following data was submitted:</p>
+      <ul>
+        <li>
+          <strong>Sender:</strong>
+          {formData.name}
+        </li>
+        <li>
+          <strong>Email:</strong>
+          <a href="mailto:{formData.email}">{formData.email}</a>
+        </li>
+        <li>
+          <strong>Message:</strong>
+          {formData.message}
+        </li>
+      </ul>
+    </div>
+  </f:case>
+
+  <f:case value="EMAIL_NOT_SENT">
+    <div class="formFeedback formFeedback--error">
+      <h2 class="formFeedback__title">{status.code}.</h2>
+      <p>{status.message}</p>
+    </div>
+  </f:case>
+
+  <f:case value="HONEYPOT_TEST_FAIL">
+    <div class="formFeedback formFeedback--error">
+      <h2 class="formFeedback__title">{status.code}.</h2>
+      <p>{status.message}</p>
+    </div>
+  </f:case>
+
+  <f:defaultCase>Unknown status code: {status.code}</f:defaultCase>
+</f:switch>

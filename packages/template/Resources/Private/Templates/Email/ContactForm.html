@@ -1,28 +1,33 @@
 <f:section name="Subject">{subject}</f:section>
 
-<style>
-  *
-  {
-    font-family: Arial, Helvetica, sans-serif;
-  }
-</style>
-
-<h1>Form request</h1>
-
-{typo3 -> f:debug()}
-
-<p>Someone filled out the form on your site "{typo3.sitename}". The following data was submitted:</p>
-<ul>
-  <li>
-    <strong>Sender:</strong>
-    {formData.name}
-  </li>
-  <li>
-    <strong>Email:</strong>
-    <a href="mailto:{formData.email}">{formData.email}</a>
-  </li>
-  <li>
-    <strong>Message:</strong>
-    {formData.message}
-  </li>
-</ul>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{subject}</title>
+    <style>
+      *
+      {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Form request</h1>
+    <p>Someone filled out the form on your site "{typo3.sitename}". The following data was submitted:</p>
+    <ul>
+      <li>
+        <strong>Sender:</strong>
+        {formData.name}
+      </li>
+      <li>
+        <strong>Email:</strong>
+        <a href="mailto:{formData.email}">{formData.email}</a>
+      </li>
+      <li>
+        <strong>Message:</strong>
+        {formData.message}
+      </li>
+    </ul>
+  </body>
+</html>

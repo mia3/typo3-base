@@ -4,6 +4,7 @@ namespace MIA3\Template\Controller;
 
 use MIA3\Template\Domain\Model\ContactFormRequest;
 use Symfony\Component\Mime\Address;
+use Throwable;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Mail\FluidEmail;
 use TYPO3\CMS\Core\Mail\Mailer;
@@ -18,21 +19,43 @@ class FormController extends ActionController
     {
         if ($formData) {
             $email = $this->getEmail($formData, 'ContactForm');
+            $feedback = $this->getFeedback($formData, 'ContactFormFeedback');
+            $status = [
+                'code' => '',
+                'message' => '',
+            ];
 
             // Send mail
-            if (!$formData->isHoneypotHit()) {
+            if ($formData->isHoneypotHit()) {
+                // Form was probably submitted by a bot.
+                $status = [
+                    'code' => 'HONEYPOT_TEST_FAIL',
+                    'message' => 'Form was probably submitted by a bot.',
+                ];
+            } else {
+                // Form was probably submitted by a user. Try to send email.
                 try {
-                GeneralUtility::makeInstance(Mailer::class)->send($email);
-                }
-                catch (\Exception $exception) {
-                    dd($exception);
+                    GeneralUtility::makeInstance(Mailer::class)->send($email);
+
+                    // Email (probably) sent successfully.
+                    $status = [
+                        'code' => 'EMAIL_SENT',
+                        'message' => 'Form was probably submitted by a bot.',
+                    ];
+                } catch (Throwable $t) {
+                    // Sending email caused an exception. Send error status.
+                    $status = [
+                        'code' => 'EMAIL_NOT_SENT',
+                        'message' => $t->getMessage(),
+                    ];
                 }
             }
 
+            // Status variable for the response template
+            $feedback->assign('status', $status);
+
             // Output feedback to user
-            $feedbackView = $this->getFeedback($formData, 'ContactFormFeedback');
-            header('Content-Type: application/json');
-            echo json_encode(['html' => $feedbackView->render()]);
+            echo $feedback->render();
             exit(0);
         }
 

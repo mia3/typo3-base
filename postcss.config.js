@@ -1,7 +1,11 @@
 module.exports = {
   plugins: {
     'postcss-easy-import': {},
-    'postcss-css-variables': {},
+    'postcss-css-variables': {
+      options:{
+        preserve: true
+      }
+    },
     'postcss-custom-media': {
       extensions: {
         '--screen-mobile': '(min-width: 480px)',
@@ -12,6 +16,5 @@ module.exports = {
     },
     'cssnext': {},
     'autoprefixer': {},
-    'lost': {},
   },
 };

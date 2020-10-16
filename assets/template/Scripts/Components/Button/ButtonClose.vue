@@ -52,7 +52,7 @@
 
   .button-close .bar
   {
-    background: var(--orange);
+    background: var(--color-primary);
     display: block;
     height: 4px;
     left: 0;

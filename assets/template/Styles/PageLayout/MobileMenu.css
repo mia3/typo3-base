@@ -29,8 +29,8 @@
 .page-logo--responsiveMenu
 {
   display: inline-block;
-  height: var(--base-6);
-  margin: var(--base-3) 0;
+  height: calc(6 * var(--base));
+  margin: calc(3 * var(--base)) 0;
   padding: 0;
   text-align: center;
   width: 100%;
@@ -46,8 +46,8 @@
 {
   .page-logo--responsiveMenu
   {
-    height: var(--base-7);
-    margin: var(--base-4) 0;
+    height: calc(7 * var(--base));
+    margin: calc(4 * var(--base)) 0;
   }
 }
 

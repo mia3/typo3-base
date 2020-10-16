@@ -32,12 +32,6 @@
   padding-bottom: var(--media-4by3);
 }
 
-.media.media--2by1:before
-{
-  padding-bottom: var(--media-2by1);
-}
-
-
 .media.media--16by9:before,
 .media.media--default:before
 {

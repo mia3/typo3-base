@@ -15,20 +15,33 @@
   --line-6: calc(6 * var(--line));
   --line-10: calc(10 * var(--line));
 
-  --media-1by1: calc(100% / var(--ratio-1by1));
-  --media-3by2: calc(100% / var(--ratio-3by2));
-  --media-4by3: calc(100% / var(--ratio-4by3));
-  --media-16by9: calc(100% / var(--ratio-16by9));
+  /* Media */
 
   --ratio-16by9: calc(16 / 9);
   --ratio-1by1: calc(1 / 1);
   --ratio-3by2: calc(3 / 2);
   --ratio-4by3: calc(4 / 3);
 
-  /* Media */
+  --media-1by1: calc(100% / var(--ratio-1by1));
+  --media-3by2: calc(100% / var(--ratio-3by2));
+  --media-4by3: calc(100% / var(--ratio-4by3));
+  --media-16by9: calc(100% / var(--ratio-16by9));
+
+
+  /* Colors */
+
   --color-primary: #4b113a;
   --color-secondary: #f3f0ec;
   --color-accent: #c1b5a2;
+
+  --bright-cerulean: #1eaedb;
+  --structural-blue: #0fa0ce;
+  --isabelline: #f3f0ec;
+  --dead-pixel: #3b3b3a;
+  --steam: #ddd;
+  --poisonouse-pesticide: #2ecc40;
+
+  /* General Width */
 
   --page-width: 1440px;
   --container-width: 1048px;

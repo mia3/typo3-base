@@ -8,13 +8,13 @@
 }
 
 .formFeedback {
-  border: 2px solid #ddd;
+  border: 2px solid var(--steam);
   padding: 15px;
 }
 
 .formFeedback--success
 {
-  border-color: #2ecc40;
+  border-color: var(--poisonouse-pesticide);
 }
 
 .formFeedback__title

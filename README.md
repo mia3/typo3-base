@@ -51,6 +51,92 @@ Get going quickly with TYPO3 CMS.
     make build/watch
     ```
 
+## Directory Structure
+
+```
+assets/
+├── template/
+│   ├── Scripts/
+│       ├── Components/
+│           ├── Button/
+│           ├── Form/
+│           ├── MobileMenu/
+│       ├── Utility/
+│   ├── Styles/
+│       ├── Base/
+│       ├── ContentElements/
+│       ├── Extensions/
+│       ├── PageLayout/
+│       ├── Utility/
+config/
+packages/
+├── template/
+│   ├── Classes/
+│       ├── Controller/
+│       ├── Domain/
+│       ├── Service/
+│       ├── TcaUserFunctions/
+│       ├── Utility/
+│       ├── ViewHelpers/
+│   ├── Configuraton/
+│       ├── FlexForms/
+│       ├── RTE/
+│       ├── TCA/
+│           ├── Overrides/
+│               ├── Mask/
+│                   ├── Columns/
+│                   ├── Pages/
+│                   ├── Types/
+│               ├── tt_content/
+│       ├── TsConfig/
+│       ├── TypoScript/
+│   ├── Initialisation/
+│   ├── Resources/
+│       ├── Private/
+│           ├── ExtensionOverrides/
+│           ├── Language/
+│           ├── Mask/
+│           ├── Partials/
+│           ├── Templates/
+│       ├── Pulblic/
+public/
+webpack/
+```
+### Directories explained
+
+- `assets/` . All assets for the template extension
+  - `Scripts/` . All Vue-Components and JavaScript-Files
+  - `Styles/` . All Styles
+    - `Base/` . Simple and general stylings (Typography, Forms, Buttons ...)
+    - `ContentElements/` . Stylings for all Content-Elements in the template extension
+    - `Extensions/` . Override stylings in 3rd-Party extensions
+    - `PageLayout/` . Styling for page layout componets like header, footer etc.
+    - `Utility/` . Styling which can be useful in many situations and which is highly reusable
+- `config/` . TYPO3 Site-Configuration
+- `packages/` . Locale composer repository to load custom extensions for this page
+  - `template/` . The custom template extension for this web site
+    - `Classes/`
+      - `Controller/` . Controller for this extension
+      - `Domain/` . Domain-Models for this extension
+      - `Service/` . Services for this extension
+      - `TcaUserFunctions/` . Classes which should support and extend TCA functionallity
+      - `Utility/` . Utility-Classes, only to make YOUR life easier
+      - `ViewHelpers/` . Custom-ViewHelpers for every situation
+  - `Configuration/`
+    - `TCA/Overrides/` . TCA Overrides
+      - `Mask/` . TCA Overrides for Mask-Elements
+        - `Columns/` . Override Mask-Columns
+        - `Pages/` . Override TCA by Page-Type / Backend-Layout
+        - `Types/` . Override Mask-Fields by Type
+      - `tt_content/` . Override TYPO3-Native fields
+  - `Resources/`
+    - `Private/`
+      - `ExtensionOverrides/` . Override template files for 3rd-Party extensions
+      - `Language/` . Language files
+      - `Mask/` . Mask template files (Backend + Frontend)
+      - `Partials/` . General Partials
+      - `Templates/` . Genral Tempaltes
+- `webpack/` . Splitted webpack configuration files, can be used to combine multiple build-procecces into one
 
 ## Makefile
 

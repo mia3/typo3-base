@@ -7,13 +7,13 @@
 {
   bottom: var(--base);
   position: absolute;
-  right: var(--base-2);
+  right: calc(2 * var(--base));
   z-index: 1000;
 }
 
 .image-captionContainer--left
 {
-  left: var(--base-2);
+  left: calc(2 * var(--base));
 }
 
 .image-caption

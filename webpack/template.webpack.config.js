@@ -15,6 +15,7 @@ Encore.setOutputPath(buildPath)
   .addStyleEntry('mia3_styles', [assetPath + 'Styles/Main.css'])
   .addStyleEntry('mia3_rte', [assetPath + 'Styles/RichTextEditor.css'])
   .enableVueLoader()
+  .enablePostCssLoader()
   .enableSourceMaps(!Encore.isProduction());
 
 // export the final configuration

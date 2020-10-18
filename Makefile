@@ -1,15 +1,16 @@
 .PHONY: help install test run build deploy/staging
 .DEFAULT_GOAL := help
-assets_path = public/typo3conf/ext/template/Resources/Public
+
+# Upload *untracked* generated assets on deployment
+assets_path = packages/template/Resources/Public/Build
 
 help:
 	@grep -E '^[a-zA-Z\/_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 
-# ----------------------------------------------------------------------#
+# --------------------------------------------------------------------- #
 # Local environment                                                     #
-# ----------------------------------------------------------------------#
-
+# --------------------------------------------------------------------- #
 setup: install-dependencies setup/database-connection migrate build clear-cache ## Setup the new project
 	./vendor/bin/typo3cms extension:setupactive
 	./vendor/bin/typo3cms backend:createadmin admin
@@ -18,11 +19,11 @@ build/watch: ## Build assets with sourcemaps and watch for changes
 	./node_modules/.bin/encore dev --watch
 
 
-install-dependencies: ## Install composer and yarn dependencies
+install: ## Install composer and yarn dependencies
 	composer install
 	yarn install
 
-update-dependencies: ## Update composer and yarn dependencies
+update: ## Update composer and yarn dependencies
 	composer update
 	yarn upgrade
 
@@ -47,48 +48,63 @@ setup/database-connection: ## Create an AdditionalConfiguration.php
 	| sed "s/{{host}}/$$DB_HOST/g" | sed "s/{{dbName}}/$$DB_NAME/g" | sed "s/{{user}}/$$DB_USER/g" | sed "s/{{password}}/$$DB_PW/g" > public/typo3conf/AdditionalConfiguration.php;
 
 
-# ----------------------------------------------------------------------#
-# Backup environment                                                    #
-# ----------------------------------------------------------------------#
+# --------------------------------------------------------------------- #
+# Integration environment                                               #
+# Branch: dev                                                           #
+# --------------------------------------------------------------------- #
+integration/srv = user@host
+integration/path =
+integration/port = 22
+integration/php = php # Sometimes php_cli or php7.3-cli
 
+integration/deploy:
+	@bash sh/deploy.sh \
+		--srv=$(integration/srv) \
+		--path=$(integration/path) \
+		--port=$(integration/port) \
+		--php=$(integration/php) \
+		--assets=$(assets_path)
+
+
+# --------------------------------------------------------------------- #
+# Staging environment                                                   #
+# Branch: master                                                        #
+# --------------------------------------------------------------------- #
+staging/srv =
+staging/path =
+staging/port =
+staging/php =
+
+staging/deploy:
+	@bash sh/deploy.sh \
+		--srv=$(staging/srv) \
+		--path=$(staging/path) \
+		--port=$(staging/port) \
+ 		--php=$(staging/php) \
+		--assets=$(assets_path)
+
+
+# --------------------------------------------------------------------- #
+# Production environment                                                #
+# Branch: master (manual)                                               #
+# --------------------------------------------------------------------- #
+production/srv =
+production/path =
+production/port =
+production/php =
+
+production/deploy:
+	@bash sh/deploy.sh \
+		--srv=$(production/srv) \
+		--path=$(production/path) \
+		--port=$(production/port) \
+		--php=$(production/php) \
+		--assets=$(assets_path) \
+		--env="production"
+
+
+# --------------------------------------------------------------------- #
+# Backup                                                                #
+# --------------------------------------------------------------------- #
 pull-backup: ## Download latest files and import database dump from operations.mia3.com
 	@echo "\033[1;31mNo backup available:\033[0m add this project to \033[1;32moperations.mia3.com\033[0m and replace this command with the backup code."
-
-
-# ----------------------------------------------------------------------#
-# Production environment                                                #
-# ----------------------------------------------------------------------#
-
-production/host = typo3.template.mia3.com
-production/user = p284571
-production/port = 22
-production/path = /home/www/p284571/html
-
-define production/shell
-	ssh $(production/user)@$(production/host) -p$(production/port) 'cd $(production/path) &&$1'
-endef
-
-production/deploy: build/production  ## Deploys to production from your local machine. Updates database schema and clears caches
-	git -C ./ ls-files --exclude-standard -oi --directory > /tmp/excludes;
-	rsync --recursive --compress \
-		--progress \
-		--exclude=".git" \
-		--exclude="public/typo3conf/AdditionalConfiguration.php" \
-		--exclude-from="/tmp/excludes" \
-		-e 'ssh -p$(production/port)' \
-		'./' \
-		'$(production/user)@$(production/host):$(production/path)'
-	rsync -rz \
-		--progress \
-		-e 'ssh -p$(production/port)' \
-		'./$(assets_path)/Build/' \
-		'$(production/user)@$(production/host):$(production/path)/$(assets_path)/Build/'
-	$(call production/shell, composer install)
-	$(call production/shell, php_cli ./vendor/bin/typo3cms database:updateschema)
-	$(call production/shell, php_cli ./vendor/bin/typo3cms cache:flush)
-
-production/clear-cache: ## Clears production caches
-	$(call production/shell, php_cli ./vendor/bin/typo3cms cache:flush)
-
-production/connection-test: ## Tests connection to your project
-	$(call production/shell, cd $(production/path) && ls -la)

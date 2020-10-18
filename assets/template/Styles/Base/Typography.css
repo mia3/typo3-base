@@ -64,20 +64,3 @@ h4, .h4
   margin: 0;
   padding: 0;
 }
-
-.ce__header
-{
-  margin: 0 0 var(--line-2);
-}
-
-.ce__header--color-1 .ce__title
-{
-  color: var(--color-primary);
-}
-
-.ce__subtitle
-{
-  color: red;
-  font-size: 26px;
-  margin: 0;
-}

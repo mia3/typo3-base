@@ -53,7 +53,7 @@ setup/database-connection: ## Create an AdditionalConfiguration.php
 # Branch: dev                                                           #
 # --------------------------------------------------------------------- #
 integration/srv = user@host
-integration/path =
+integration/path = /html/acme.integration.mia3.com
 integration/port = 22
 integration/php = php # Sometimes php_cli or php7.3-cli
 

@@ -9,33 +9,7 @@
         }
     },
     "tt_content": {
-        "elements": {
-            "placeholder": {
-                "color": "#000000",
-                "columns": [
-                    "bodytext"
-                ],
-                "description": "",
-                "icon": "",
-                "key": "placeholder",
-                "label": "Placeholder",
-                "labels": [
-                    "Bodytext"
-                ],
-                "options": [
-                    "rte"
-                ],
-                "shortLabel": ""
-            },
-            "tab_carousel": {
-                "color": "#000000",
-                "description": "",
-                "icon": "",
-                "key": "tab_carousel",
-                "label": "Tab Carousel",
-                "shortLabel": ""
-            }
-        },
+        "elements": [],
         "sql": [],
         "tca": []
     }

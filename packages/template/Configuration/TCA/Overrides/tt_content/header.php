@@ -5,9 +5,25 @@ defined('TYPO3_MODE') || die();
 call_user_func(
     function () {
         $temporaryColumns = [
+            "header_semantic" => [
+                'exclude' => true,
+                'label' => 'LLL:EXT:template/Resources/Private/Language/locallang_ttc.xlf:header_semantic',
+                'description' => 'LLL:EXT:template/Resources/Private/Language/locallang_ttc.xlf:header_semantic.desc',
+                'config' => [
+                    'type' => 'check',
+                    'renderType' => 'checkboxToggle',
+                    'items' => [
+                        [
+                            0 => '',
+                            1 => '',
+                        ]
+                    ],
+                    "default" => 1
+                ]
+            ],
             'header_style' => [
                 'exclude' => true,
-                'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.type',
+                'label' => 'LLL:EXT:template/Resources/Private/Language/locallang_ttc.xlf:header_style',
                 'config' => [
                     'type' => 'select',
                     'renderType' => 'selectSingle',
@@ -63,20 +79,13 @@ call_user_func(
                     'default' => 0,
                 ],
             ],
-            'subheader_above' => [
-                'exclude' => true,
-                'label' => 'Subheader above',
-                'config' => [
-                    'type' => 'check',
-                ],
-            ],
         ];
 
         TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $temporaryColumns);
         TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
             'tt_content',
             'headers',
-            'header_style,header_color,subheader_above',
+            'header_style,header_color',
             'after:header_layout'
         );
 
@@ -89,3 +98,15 @@ call_user_func(
         );
     }
 );
+
+$GLOBALS['TCA']['tt_content']['palettes']['headers']["showitem"] = '
+    header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_formlabel,
+    header_layout;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout_formlabel,
+    header_semantic,
+    --linebreak--,
+    header_link;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_link_formlabel,
+    header_position;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_position_formlabel,
+    header_style,
+    --linebreak--,
+    header_color
+';

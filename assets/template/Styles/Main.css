@@ -1,6 +1,9 @@
 @import './Variables.css';
 @import './Font.css';
 
+/* Modules */
+@import '~glightbox/dist/css/glightbox.min.css';
+
 /* Base */
 @import './Base/**/*.css';
 

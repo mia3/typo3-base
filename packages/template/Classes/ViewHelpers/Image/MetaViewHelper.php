@@ -1,6 +1,6 @@
 <?php
 
-namespace MIA3\Template\ViewHelpers;
+namespace MIA3\Template\ViewHelpers\Image;
 
 
 use TYPO3\CMS\Core\Resource\FileReference;

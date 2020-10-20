@@ -47,60 +47,124 @@ setup/database-connection: ## Create an AdditionalConfiguration.php
  	cat public/typo3conf/AdditionalConfiguration.php.example \
 	| sed "s/{{host}}/$$DB_HOST/g" | sed "s/{{dbName}}/$$DB_NAME/g" | sed "s/{{user}}/$$DB_USER/g" | sed "s/{{password}}/$$DB_PW/g" > public/typo3conf/AdditionalConfiguration.php;
 
+emails/generate:
+	./node_modules/.bin/mjml ./packages/template/Resources/Private/Email/*.mjml --output ./packages/template/Resources/Private/Templates/Email;
 
 # --------------------------------------------------------------------- #
 # Integration environment                                               #
 # Branch: dev                                                           #
 # --------------------------------------------------------------------- #
-integration/srv = user@host
-integration/path = /html/acme.integration.mia3.com
+integration/host =
+integration/user =
 integration/port = 22
-integration/php = php # Sometimes php_cli or php7.3-cli
+integration/path =
 
-integration/deploy:
-	@bash sh/deploy.sh \
-		--srv=$(integration/srv) \
-		--path=$(integration/path) \
-		--port=$(integration/port) \
-		--php=$(integration/php) \
-		--assets=$(assets_path)
+define integration/shell
+	ssh $(integration/user)@$(integration/host) -p$(integration/port) 'cd $(integration/path) &&$1'
+endef
+
+integration/deploy: build emails/generate  ## Deploys to integration from your local machine. Updates database schema and clears caches
+	git -C ./ ls-files --exclude-standard -oi --directory > /tmp/excludes;
+	rsync --recursive --compress \
+		--progress \
+		--exclude=".git" \
+		--exclude="public/typo3conf/AdditionalConfiguration.php" \
+		--exclude-from="/tmp/excludes" \
+		-e 'ssh -p$(integration/port)' \
+		'./' \
+		'$(integration/user)@$(integration/host):$(integration/path)'
+	rsync -rz \
+		--progress \
+		-e 'ssh -p$(integration/port)' \
+		'./$(assets_path)/Build/' \
+		'$(integration/user)@$(integration/host):$(integration/path)/$(assets_path)/Build/'
+	$(call integration/shell, composer install)
+	$(call integration/shell, php_cli ./vendor/bin/typo3cms database:updateschema)
+	$(call integration/shell, php_cli ./vendor/bin/typo3cms cache:flush)
+
+integration/clear-cache: ## Clears integration caches
+	$(call integration/shell, php_cli ./vendor/bin/typo3cms cache:flush)
+
+integration/connection-test: ## Tests connection to your project
+	$(call integration/shell, cd $(production/path) && ls -la)
 
 
 # --------------------------------------------------------------------- #
 # Staging environment                                                   #
 # Branch: master                                                        #
 # --------------------------------------------------------------------- #
-staging/srv =
+staging/host =
+staging/user =
+staging/port = 22
 staging/path =
-staging/port =
-staging/php =
 
-staging/deploy:
-	@bash sh/deploy.sh \
-		--srv=$(staging/srv) \
-		--path=$(staging/path) \
-		--port=$(staging/port) \
- 		--php=$(staging/php) \
-		--assets=$(assets_path)
+define staging/shell
+	ssh $(staging/user)@$(staging/host) -p$(staging/port) 'cd $(staging/path) &&$1'
+endef
+
+staging/deploy: build/production emails/generate  ## Deploys to staging from your local machine. Updates database schema and clears caches
+	git -C ./ ls-files --exclude-standard -oi --directory > /tmp/excludes;
+	rsync --recursive --compress \
+		--progress \
+		--exclude=".git" \
+		--exclude="public/typo3conf/AdditionalConfiguration.php" \
+		--exclude-from="/tmp/excludes" \
+		-e 'ssh -p$(staging/port)' \
+		'./' \
+		'$(staging/user)@$(staging/host):$(staging/path)'
+	rsync -rz \
+		--progress \
+		-e 'ssh -p$(staging/port)' \
+		'./$(assets_path)/Build/' \
+		'$(staging/user)@$(staging/host):$(staging/path)/$(assets_path)/Build/'
+	$(call staging/shell, composer install)
+	$(call staging/shell, php_cli ./vendor/bin/typo3cms database:updateschema)
+	$(call staging/shell, php_cli ./vendor/bin/typo3cms cache:flush)
+
+staging/clear-cache: ## Clears staging caches
+	$(call staging/shell, php_cli ./vendor/bin/typo3cms cache:flush)
+
+staging/connection-test: ## Tests connection to your project
+	$(call staging/shell, cd $(staging/path) && ls -la)
 
 
 # --------------------------------------------------------------------- #
 # Production environment                                                #
 # Branch: master (manual)                                               #
 # --------------------------------------------------------------------- #
-production/srv =
+production/host =
+production/user =
+production/port = 22
 production/path =
-production/port =
-production/php =
 
-production/deploy:
-	@bash sh/deploy.sh \
-		--srv=$(production/srv) \
-		--path=$(production/path) \
-		--port=$(production/port) \
-		--php=$(production/php) \
-		--assets=$(assets_path) \
-		--env="production"
+define production/shell
+	ssh $(production/user)@$(production/host) -p$(production/port) 'cd $(production/path) &&$1'
+endef
+
+production/deploy: build/production emails/generate  ## Deploys to production from your local machine. Updates database schema and clears caches
+	git -C ./ ls-files --exclude-standard -oi --directory > /tmp/excludes;
+	rsync --recursive --compress \
+		--progress \
+		--exclude=".git" \
+		--exclude="public/typo3conf/AdditionalConfiguration.php" \
+		--exclude-from="/tmp/excludes" \
+		-e 'ssh -p$(production/port)' \
+		'./' \
+		'$(production/user)@$(production/host):$(production/path)'
+	rsync -rz \
+		--progress \
+		-e 'ssh -p$(production/port)' \
+		'./$(assets_path)/Build/' \
+		'$(production/user)@$(production/host):$(production/path)/$(assets_path)/Build/'
+	$(call production/shell, composer install)
+	$(call production/shell, php_cli ./vendor/bin/typo3cms database:updateschema)
+	$(call production/shell, php_cli ./vendor/bin/typo3cms cache:flush)
+
+production/clear-cache: ## Clears production caches
+	$(call production/shell, php_cli ./vendor/bin/typo3cms cache:flush)
+
+production/connection-test: ## Tests connection to your project
+	$(call production/shell, cd $(production/path) && ls -la)
 
 
 # --------------------------------------------------------------------- #

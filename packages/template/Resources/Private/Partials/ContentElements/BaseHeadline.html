@@ -1,0 +1,61 @@
+<f:render section="Main" arguments="{_all}" />
+
+<f:section name="Main">
+  <f:switch expression="{data.header_layout}">
+    <f:case value="1">
+      <f:render section="Headline" arguments="{headline: '1', header: data.header, positionClass: data.header_position, link: data.header_link, isSemantic: data.header_semantic, styles: data.header_styles }"/>
+    </f:case>
+    <f:case value="2">
+      <f:render section="Headline" arguments="{headline: '2', header: data.header, positionClass: data.header_position, link: data.header_link, isSemantic: data.header_semantic, styles: data.header_styles }"/>
+    </f:case>
+    <f:case value="3">
+      <f:render section="Headline" arguments="{headline: '3', header: data.header, positionClass: data.header_position, link: data.header_link, isSemantic: data.header_semantic, styles: data.header_styles }"/>
+    </f:case>
+    <f:case value="4">
+      <f:render section="Headline" arguments="{headline: '4', header: data.header, positionClass: data.header_position, link: data.header_link, isSemantic: data.header_semantic, styles: data.header_styles }"/>
+    </f:case>
+    <f:case value="5">
+      <f:render section="Headline" arguments="{headline: '5', header: data.header, positionClass: data.header_position, link: data.header_link, isSemantic: data.header_semantic, styles: data.header_styles }"/>
+    </f:case>
+    <f:defaultCase>
+      <f:render section="Headline" arguments="{headline: '3', header: data.header, positionClass: data.header_position, link: data.header_link, isSemantic: data.header_semantic, styles: data.header_styles }"/>
+    </f:defaultCase>
+  </f:switch>
+</f:section>
+<f:section name="Headline">
+  <f:if condition="{isSemantic}">
+    <f:then>
+      <h{headline} class="
+      headline{f:if(condition: styles, then:' {styles} ', else: '')}
+      {f:if(condition: positionClass, then:' text--{positionClass}', else: '')}
+      ">
+      <f:if condition="{link}">
+        <f:then>
+          <f:link.typolink parameter="{link}">{header}</f:link.typolink>
+        </f:then>
+        <f:else>
+          {header}
+        </f:else>
+      </f:if>
+      </h{headline}>
+    </f:then>
+    <f:else>
+      <div class="
+                  h{headline}
+                  {f:if(condition: styles, then:' {styles} ', else: '')}
+                  {f:if(condition: positionClass, then:' text--{positionClass}', else: '')}
+                  {f:if(condition: decoration, then:' headline--decorated', else: '')}
+        ">
+        <f:if condition="{link}">
+          <f:then>
+            <f:link.typolink parameter="{link}">{header}</f:link.typolink>
+          </f:then>
+          <f:else>
+            {header}
+          </f:else>
+        </f:if>
+      </div>
+    </f:else>
+  </f:if>
+
+</f:section>

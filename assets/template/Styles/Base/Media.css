@@ -60,7 +60,16 @@
 {
   display: block;
   float: left;
+  position: relative;
 }
+
+figure.image:after
+{
+  display: table;
+  content: "";
+  clear: both;
+}
+
 
 @media (--screen-tablet)
 {

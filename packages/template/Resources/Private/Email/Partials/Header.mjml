@@ -1,0 +1,13 @@
+<mj-section background-color="#CECECE" css-class="box-shadow-header" padding="0" >
+  <mj-column vertical-align="middle" padding="0 0" >
+    <mj-raw><f:variable name="src" value="{f:uri.image(src:'EXT:template/Resources/Public/Media/Logo.png', absolute: 1)}"></f:variable></mj-raw>
+    <mj-image  width="135px" height="66px" align="left" src="{src}" />
+  </mj-column>
+  <mj-column vertical-align="middle" padding-top="0">
+    <mj-text>
+      <h1>
+        Template
+      </h1>
+    </mj-text>
+  </mj-column>
+</mj-section>

@@ -7,7 +7,6 @@
 
 <script>
   import axios from 'axios';
-  import $ from 'jquery';
 
   export default {
     name: 'base-form',
@@ -19,10 +18,11 @@
     },
     methods: {
       onSubmit() {
+        const formData = new FormData(this.$el);
         axios({
           method: this.method,
           url: this.action,
-          data: $(this.$el).serialize()
+          data: formData
         }).then(res => {
           this.htmlResponse = res.data;
         }).catch(error => {

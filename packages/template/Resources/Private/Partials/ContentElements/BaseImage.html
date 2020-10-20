@@ -2,7 +2,7 @@
 
 <f:section name="Main">
   <f:for each="{files}" as="file">
-    <f:render section="Image" arguments="{image: file}"/>
+    <f:render section="Image" arguments="{image: file, zoom: zoom, uid: uid}"/>
   </f:for>
 </f:section>
 
@@ -18,13 +18,8 @@
           </f:link.typolink>
         </f:then>
         <f:else>
-          <f:render section="Source" arguments="{image: image, imageClass: imageClass, width: width, height: height}"/>
+          <f:render section="Source" arguments="{image: image, imageClass: imageClass, width: width, height: height, zoom: zoom, uid: uid}"/>
         </f:else>
-      </f:if>
-      <f:if condition="{image.description}">
-        <figcaption class="image-captionContainer">
-          <span class="paragraph image-caption ">{image.description}</span>
-        </figcaption>
       </f:if>
     </figure>
   </f:if>
@@ -49,26 +44,55 @@
         </f:for>
         <f:render
           section="img"
-          arguments="{image: image, variant: 'desktop', maxWidth: config.variants.desktop.maxWidth, width: width, height: height, imageClass: imageClass}"
+          arguments="{image: image, variant: 'desktop', maxWidth: config.variants.desktop.maxWidth, width: width, height: height, imageClass: imageClass, zoom: zoom, uid: uid}"
         />
+        <f:if condition="{image.description}">
+          <figcaption class="image-captionContainer">
+            <span class="paragraph image-caption ">{image.description}</span>
+          </figcaption>
+        </f:if>
       </picture>
     </f:then>
     <f:else>
-      <f:for as="data" each="{variants}" key="variant">
-        <f:render
-          section="img"
-          arguments="{image: image, variant: '{variant}', maxWidth: 1920, width: width, height: height, imageClass: imageClass}"
-        />
+        <f:for as="data" each="{variants}" key="variant">
+          <f:render
+            section="img"
+            arguments="{image: image, variant: '{variant}', maxWidth: 1920, width: width, height: height, imageClass: imageClass, zoom: zoom, uid:uid}"
+          />
       </f:for>
+      <f:if condition="{image.description}">
+        <figcaption class="image-captionContainer">
+          <span class="paragraph image-caption ">{image.description}</span>
+        </figcaption>
+      </f:if>
     </f:else>
   </f:if>
 </f:section>
 
 <f:section name="img">
-  <img
-    src="{f:uri.image(image:image, cropVariant:variant, maxWidth:maxWidth,  width: width, height: height)}"
-    alt="{image.alternative}"
-    title="{image.title}"
-    class="{imageClass}"
-  >
+  <f:if condition="{zoom}">
+    <f:then>
+      <a
+        href="{f:uri.image(image:image, cropVariant:variant, maxWidth:maxWidth,  width: width, height: height)}"
+        class="glightbox"
+        data-gallery="gallery-{uid}"
+        {f:if(condition: image.description, then: 'data-description="{image.description}"', else: '')}
+      >
+        <img
+          src="{f:uri.image(image:image, cropVariant:variant, maxWidth:maxWidth,  width: width, height: height)}"
+          alt="{image.alternative}"
+          title="{image.title}"
+          class="{imageClass}"
+        >
+      </a>
+    </f:then>
+    <f:else>
+      <img
+        src="{f:uri.image(image:image, cropVariant:variant, maxWidth:maxWidth,  width: width, height: height)}"
+        alt="{image.alternative}"
+        title="{image.title}"
+        class="{imageClass}"
+      >
+    </f:else>
+  </f:if>
 </f:section>

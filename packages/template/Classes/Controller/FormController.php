@@ -69,10 +69,12 @@ class FormController extends ActionController
         $subjectSuffix = '('.$this->getPageTitle().')';
         $subject = $subjectPrefix.' '.$this->settings['email']['subject'].' '.$subjectSuffix;
 
-        $email = new FluidEmail;
+        /** @var FluidEmail $email */
+        $email = GeneralUtility::makeInstance(FluidEmail::class);
         $email
             ->to($this->getTo())
             ->from($this->getFrom())
+            ->subject($subject)
             ->format('html') // only HTML mail
             ->setTemplate($templateName)
             ->assignMultiple(

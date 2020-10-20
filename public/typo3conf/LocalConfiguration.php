@@ -64,6 +64,10 @@ return [
             'storageUidImporter' => '1',
             'tagPid' => '1',
         ],
+        'scheduler' => [
+            'maxLifetime' => '1440',
+            'showSampleTasks' => '1',
+        ],
         'vhs' => [
             'disableAssetHandling' => '0',
         ],
@@ -102,7 +106,7 @@ return [
     ],
     'MAIL' => [
         'templateRootPaths' => [
-            700 => 'EXT:template/Resources/Private/Templates/Email'
+            700 => 'EXT:template/Resources/Private/Templates/Email',
         ],
         'transport' => 'sendmail',
         'transport_sendmail_command' => '/usr/sbin/sendmail -t -i ',
@@ -136,6 +140,13 @@ return [
         'encryptionKey' => '506070055b32e8b0a9521b685eaf45f49db6bf15dcc0da442a1a3f478bc124c84253929181140ecdb5b8d2446d26ac62',
         'exceptionalErrors' => 12290,
         'features' => [
+            'felogin.extbase' => false,
+            'fluidBasedPageModule' => true,
+            'form.legacyUploadMimeTypes' => true,
+            'rearrangedRedirectMiddlewares' => false,
+            'redirects.hitCount' => false,
+            'security.backend.enforceReferrer' => true,
+            'security.frontend.keepSessionDataOnLogout' => false,
             'unifiedPageTranslationHandling' => true,
         ],
         'sitename' => 'TYPO3 Base',

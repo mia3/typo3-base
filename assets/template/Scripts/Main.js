@@ -3,6 +3,7 @@ import store from './Store';
 import 'swiper/swiper-bundle.min.css'
 import {Swiper as SwiperClass, Pagination, Navigation, Autoplay} from 'swiper/swiper.esm.js'
 import VueAwesomeSwiper from "vue-awesome-swiper";
+import GLightbox from 'glightbox';
 
 
 // Swiper modules
@@ -13,6 +14,13 @@ SwiperClass.use([Pagination, Navigation, Autoplay])
  */
 window.onload = function (){
   document.body.classList.add("document--loaded")
+
+  /**
+   * GLightbox Configuration
+   */
+  const lightbox = GLightbox({
+    touchNavigation: true
+  })
 }
 
 /**

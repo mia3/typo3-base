@@ -1,0 +1,19 @@
+<mj-wrapper padding="0">
+  <mj-section padding="14px 0">
+    <mj-column width="450px" vertical-align="middle" >
+      <mj-text padding="0" align="center" color="#000000" line-height="14px" font-size="13px" letter-spacing="0.06px">
+        Name <br/>
+        Adresse <br/>
+        PLZ Stadt
+      </mj-text>
+      <mj-text padding-top="10px" align="center" color="#000000" line-height="14px" font-size="13px" letter-spacing="0.06px">
+        <a href="mailto:MAIL" target="_blank" style="line-height: 14px; color: black; margin-right: 10px;">
+          &gt; test@test.de
+        </a>
+        <a href="{v:site.url()}" target="_blank" style="line-height: 14px; color: black;">
+          &gt; Diese Seite
+        </a>
+      </mj-text>
+    </mj-column>
+  </mj-section>
+</mj-wrapper>

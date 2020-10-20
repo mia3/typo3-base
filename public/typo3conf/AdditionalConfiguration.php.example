@@ -16,12 +16,14 @@ $GLOBALS['TYPO3_CONF_VARS']['DB']['Connections'] = [
     ],
 ];
 
-$GLOBALS['TYPO3_CONF_VARS']['MAIL'] = [
+ $mailConfig = [
     'defaultMailFromAddress' => '',
     'defaultMailFromName' => '',
     'transport' => 'smtp',
     'transport_smtp_server' => 'mailcatcher.mia3.com:1025',
 ];
+
+$GLOBALS['TYPO3_CONF_VARS']['MAIL'] = array_merge($GLOBALS['TYPO3_CONF_VARS']['MAIL'], $mailConfig);
 
 $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor'] = 'GraphicsMagick';
 $GLOBALS['TYPO3_CONF_VARS']['GFX']['processor_path'] = '/usr/local/bin/';

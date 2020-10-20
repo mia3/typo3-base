@@ -1,0 +1,54 @@
+<mjml>
+  <mj-head>
+    <mj-title>{subject}</mj-title>
+  </mj-head>
+  <mj-body background-color="#DEDEDE" width="992px">
+    <mj-include path="./Partials/Header.mjml"></mj-include>
+    <mj-raw>{namespace g = MIA3\Template\ViewHelpers}</mj-raw>
+    <mj-wrapper background-color="#ffffff" padding="0">
+      <mj-section padding="0 12px 12px 12px">
+        <mj-column>
+          <mj-text>
+            <h2>Form request</h2>
+            <p>Someone filled out the form on your site "{typo3.sitename}". The following data was submitted:</p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section padding="0 12px 12px 12px">
+        <mj-column>
+          <mj-text>
+            <strong>Subject:</strong>
+            {subject}
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section padding="0 12px 12px 12px">
+        <mj-column>
+          <mj-text>
+            <strong>Sender:</strong>
+            {formData.name}
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section padding="0 12px 12px 12px">
+        <mj-column>
+          <mj-text>
+            <strong>Email:</strong>
+            <a href="mailto:{formData.email}">{formData.email}</a>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section padding="0 12px 12px 12px">
+        <mj-column>
+          <mj-text>
+            <strong>Message:</strong>
+            <br/>
+            <br/>
+            {formData.message}
+          </mj-text>
+        </mj-column>
+      </mj-section>
+    </mj-wrapper>
+    <mj-include path="./Partials/Footer.mjml"></mj-include>
+  </mj-body>
+</mjml>

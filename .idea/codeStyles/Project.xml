@@ -4,6 +4,8 @@
       <option name="HEX_COLOR_LOWER_CASE" value="true" />
       <option name="HEX_COLOR_SHORT_FORMAT" value="true" />
       <option name="BRACE_PLACEMENT" value="1" />
+      <option name="USE_DOUBLE_QUOTES" value="false" />
+      <option name="ENFORCE_QUOTES_ON_FORMAT" value="true" />
     </CssCodeStyleSettings>
     <HTMLCodeStyleSettings>
       <option name="HTML_ATTRIBUTE_WRAP" value="0" />

@@ -50,6 +50,7 @@ setup/database-connection: ## Create an AdditionalConfiguration.php
 emails/generate:
 	./node_modules/.bin/mjml ./packages/template/Resources/Private/Email/*.mjml --output ./packages/template/Resources/Private/Templates/Email;
 
+
 # --------------------------------------------------------------------- #
 # Integration environment                                               #
 # Branch: dev                                                           #
@@ -63,21 +64,15 @@ define integration/shell
 	ssh $(integration/user)@$(integration/host) -p$(integration/port) 'cd $(integration/path) &&$1'
 endef
 
-integration/deploy: build emails/generate  ## Deploys to integration from your local machine. Updates database schema and clears caches
+integration/deploy: install build emails/generate  ## Deploys to integration from your local machine. Updates database schema and clears caches
 	git -C ./ ls-files --exclude-standard -oi --directory > /tmp/excludes;
-	rsync --recursive --compress \
-		--progress \
+	rsync -rzh -e 'ssh -p$(integration/port)' \
+		'./' '$(integration/user)@$(integration/host):$(integration/path)' \
 		--exclude=".git" \
 		--exclude="public/typo3conf/AdditionalConfiguration.php" \
-		--exclude-from="/tmp/excludes" \
-		-e 'ssh -p$(integration/port)' \
-		'./' \
-		'$(integration/user)@$(integration/host):$(integration/path)'
-	rsync -rz \
-		--progress \
-		-e 'ssh -p$(integration/port)' \
-		'./$(assets_path)/Build/' \
-		'$(integration/user)@$(integration/host):$(integration/path)/$(assets_path)/Build/'
+		--exclude-from="/tmp/excludes"
+	rsync -rzh -e 'ssh -p$(integration/port)' \
+		'./$(assets_path)/' '$(integration/user)@$(integration/host):$(integration/path)/$(assets_path)'
 	$(call integration/shell, composer install)
 	$(call integration/shell, php_cli ./vendor/bin/typo3cms database:updateschema)
 	$(call integration/shell, php_cli ./vendor/bin/typo3cms cache:flush)
@@ -86,7 +81,7 @@ integration/clear-cache: ## Clears integration caches
 	$(call integration/shell, php_cli ./vendor/bin/typo3cms cache:flush)
 
 integration/connection-test: ## Tests connection to your project
-	$(call integration/shell, cd $(production/path) && ls -la)
+	$(call integration/shell, cd $(integration/path) && ls -la)
 
 
 # --------------------------------------------------------------------- #
@@ -102,21 +97,15 @@ define staging/shell
 	ssh $(staging/user)@$(staging/host) -p$(staging/port) 'cd $(staging/path) &&$1'
 endef
 
-staging/deploy: build/production emails/generate  ## Deploys to staging from your local machine. Updates database schema and clears caches
+staging/deploy: install build emails/generate  ## Deploys to staging from your local machine. Updates database schema and clears caches
 	git -C ./ ls-files --exclude-standard -oi --directory > /tmp/excludes;
-	rsync --recursive --compress \
-		--progress \
+	rsync -rzh -e 'ssh -p$(staging/port)' \
+		'./' '$(staging/user)@$(staging/host):$(staging/path)' \
 		--exclude=".git" \
 		--exclude="public/typo3conf/AdditionalConfiguration.php" \
-		--exclude-from="/tmp/excludes" \
-		-e 'ssh -p$(staging/port)' \
-		'./' \
-		'$(staging/user)@$(staging/host):$(staging/path)'
-	rsync -rz \
-		--progress \
-		-e 'ssh -p$(staging/port)' \
-		'./$(assets_path)/Build/' \
-		'$(staging/user)@$(staging/host):$(staging/path)/$(assets_path)/Build/'
+		--exclude-from="/tmp/excludes"
+	rsync -rzh -e 'ssh -p$(staging/port)' \
+		'./$(assets_path)/' '$(staging/user)@$(staging/host):$(staging/path)/$(assets_path)'
 	$(call staging/shell, composer install)
 	$(call staging/shell, php_cli ./vendor/bin/typo3cms database:updateschema)
 	$(call staging/shell, php_cli ./vendor/bin/typo3cms cache:flush)
@@ -141,21 +130,15 @@ define production/shell
 	ssh $(production/user)@$(production/host) -p$(production/port) 'cd $(production/path) &&$1'
 endef
 
-production/deploy: build/production emails/generate  ## Deploys to production from your local machine. Updates database schema and clears caches
+production/deploy: install build emails/generate  ## Deploys to production from your local machine. Updates database schema and clears caches
 	git -C ./ ls-files --exclude-standard -oi --directory > /tmp/excludes;
-	rsync --recursive --compress \
-		--progress \
+	rsync -rzh -e 'ssh -p$(production/port)' \
+		'./' '$(production/user)@$(production/host):$(production/path)' \
 		--exclude=".git" \
 		--exclude="public/typo3conf/AdditionalConfiguration.php" \
-		--exclude-from="/tmp/excludes" \
-		-e 'ssh -p$(production/port)' \
-		'./' \
-		'$(production/user)@$(production/host):$(production/path)'
-	rsync -rz \
-		--progress \
-		-e 'ssh -p$(production/port)' \
-		'./$(assets_path)/Build/' \
-		'$(production/user)@$(production/host):$(production/path)/$(assets_path)/Build/'
+		--exclude-from="/tmp/excludes"
+	rsync -rzh -e 'ssh -p$(production/port)' \
+		'./$(assets_path)/' '$(production/user)@$(production/host):$(production/path)/$(assets_path)'
 	$(call production/shell, composer install)
 	$(call production/shell, php_cli ./vendor/bin/typo3cms database:updateschema)
 	$(call production/shell, php_cli ./vendor/bin/typo3cms cache:flush)

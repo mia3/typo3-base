@@ -2,7 +2,7 @@ module.exports = {
   plugins: {
     'postcss-easy-import': {},
     'postcss-css-variables': {
-      options:{
+      options: {
         preserve: true
       }
     },
@@ -11,10 +11,10 @@ module.exports = {
         '--screen-mobile': '(min-width: 480px)',
         '--screen-tablet': '(min-width: 768px)',
         '--screen-tablet-landscape': '(min-width: 992px)',
-        '--screen-desktop': '(min-width: 1200px)',
-      },
+        '--screen-desktop': '(min-width: 1200px)'
+      }
     },
     'cssnext': {},
-    'autoprefixer': {},
-  },
+    'autoprefixer': {}
+  }
 };

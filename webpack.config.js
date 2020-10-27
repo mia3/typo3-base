@@ -1,22 +1,20 @@
 // webpack.config.js
 let Encore = require('@symfony/webpack-encore');
 const path = require('path');
-const {table} = require('table');
+const { table } = require('table');
 process.env.NODE_ENV = Encore.isProduction() ? 'production' : 'development';
 
 // Represents a package in the "packages"-directory where a CSS and JS Assets need to be compiled.
-const packages = [
-  "template",
-];
+const packages = ['template'];
 const data = [
-  ["Package", "Public-Path", "Src-Folder", "Aliases", "Build-Context"],
+  ['Package', 'Public-Path', 'Src-Folder', 'Aliases', 'Build-Context']
 ];
-const alias = {}
+const alias = {};
 
-const envs = packages.map(function(packageName){
+const envs = packages.map(function (packageName) {
   const extension = require(`./webpack/${packageName}.webpack.config.js`);
   extension.name = packageName;
-  extension.alias = "@"+packageName;
+  extension.alias = '@' + packageName;
   extension.relRoot = extension.root;
   extension.root = path.resolve(__dirname, extension.root);
 
@@ -31,7 +29,7 @@ const envs = packages.map(function(packageName){
   return extension;
 });
 
-module.exports = envs.map(function(env, index){
+module.exports = envs.map(function (env, index) {
   // if other aliases exists, we still want to keep them.
   const existingAliases = env.webpack.resolve.alias;
   // This will set an global alias in webpack to your asset root path
@@ -43,18 +41,18 @@ module.exports = envs.map(function(env, index){
   env.webpack.resolve.alias = {
     ...existingAliases,
     ...alias
-  }
+  };
 
   env.webpack.name = env.name;
   data.push([
     env.name,
     env.webpack.output.publicPath,
     env.relRoot,
-    Object.keys(env.webpack.resolve.alias).reduce((acc, key)=> acc + `${key} => ${env.webpack.resolve.alias[key]}\n`  ,''),
-    Encore.isProduction() ? '\x1b[32mProduction\x1b[0m' : '\x1b[33mDevelopment\x1b[0m',
-  ])
-  if((index + 1 ) === packages.length){
-    console.log(table(data))
+    Object.keys(env.webpack.resolve.alias).reduce((acc, key) => acc + `${key} => ${env.webpack.resolve.alias[key]}\n`, ''),
+    Encore.isProduction() ? '\x1b[32mProduction\x1b[0m' : '\x1b[33mDevelopment\x1b[0m'
+  ]);
+  if ((index + 1) === packages.length) {
+    console.log(table(data));
   }
   return env.webpack;
 });

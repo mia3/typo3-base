@@ -1,9 +1,9 @@
-@import './Variables.css';
-@import './Font.css';
+/* Third Party (node_modules) */
+@import 'glightbox/dist/css/glightbox.min.css';
+@import 'hamburgers/dist/hamburgers.min.css';
+@import 'swiper/css/swiper.min.css';
 
-/* Modules */
-@import '~glightbox/dist/css/glightbox.min.css';
-@import '~swiper/swiper-bundle.min.css';
+@import './Variables.css';
 
 /* Base */
 @import './Base/**/*.css';

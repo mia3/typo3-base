@@ -1,27 +1,24 @@
 import Vue from 'vue';
 import store from './Store';
-import 'swiper/swiper-bundle.min.css'
-import {Swiper as SwiperClass, Pagination, Navigation, Autoplay} from 'swiper/swiper.esm.js'
-import VueAwesomeSwiper from "vue-awesome-swiper";
+import { Swiper as SwiperClass, Pagination, Navigation, Autoplay } from 'swiper/js/swiper.esm.js';
 import GLightbox from 'glightbox';
 
-
 // Swiper modules
-SwiperClass.use([Pagination, Navigation, Autoplay])
+SwiperClass.use([Pagination, Navigation, Autoplay]);
 
 /**
  * document ready class
  */
-window.onload = function (){
-  document.body.classList.add("document--loaded")
+window.onload = function () {
+  document.body.classList.add('document--loaded');
 
   /**
    * GLightbox Configuration
    */
   const lightbox = GLightbox({
     touchNavigation: true
-  })
-}
+  });
+};
 
 /**
  * Autoloading components from "Components"-directory
@@ -40,7 +37,7 @@ Vue.directive('click-outside', {
   bind: function (el, binding, vnode) {
     el.event = function (event) {
       // here I check that click was outside the el and his children
-      if (!(el == event.target || el.contains(event.target))) {
+      if (!(el === event.target || el.contains(event.target))) {
         // and if it did, call method provided in attribute value
         vnode.context[binding.expression](event);
       }
@@ -79,7 +76,7 @@ new Vue({
   },
   methods: {
     hasState(id, value) {
-      return this.state[id] == value;
+      return this.state[id] === value;
     },
     goBack(evt) {
       window.history.back();

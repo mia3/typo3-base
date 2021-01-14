@@ -26,7 +26,7 @@
         }).then(res => {
           this.htmlResponse = res.data;
         }).catch(error => {
-          console.log(error)
+          console.log(error);
           this.htmlResponse = 'Server error. Please try again.';
         });
       }

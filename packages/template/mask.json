@@ -5,12 +5,57 @@
                 "sys_file_reference": {
                     "tx_mask_content_backgound": "int(11) unsigned DEFAULT '0' NOT NULL"
                 }
+            },
+            "tx_mask_slider_images": {
+                "sys_file_reference": {
+                    "tx_mask_slider_images": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
             }
         }
     },
     "tt_content": {
-        "elements": [],
-        "sql": [],
-        "tca": []
+        "elements": {
+            "default_slider": {
+                "color": "#000000",
+                "columns": [
+                    "tx_mask_slider_images"
+                ],
+                "description": "",
+                "icon": "",
+                "key": "default_slider",
+                "label": "Default Slider",
+                "labels": [
+                    "Slider Images"
+                ],
+                "shortLabel": ""
+            }
+        },
+        "sql": {
+            "tx_mask_slider_images": {
+                "tt_content": {
+                    "tx_mask_slider_images": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            }
+        },
+        "tca": {
+            "tx_mask_slider_images": {
+                "config": {
+                    "filter": [
+                        {
+                            "parameters": {
+                                "allowedFileExtensions": ""
+                            }
+                        }
+                    ],
+                    "maxitems": "",
+                    "minitems": ""
+                },
+                "description": "",
+                "exclude": "1",
+                "key": "slider_images",
+                "l10n_mode": "",
+                "options": "file"
+            }
+        }
     }
 }

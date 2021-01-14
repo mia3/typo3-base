@@ -1,23 +1,28 @@
-.PHONY: help install test run build deploy/staging
+.PHONY: help install test run build
 .DEFAULT_GOAL := help
 
-# Upload *untracked* generated assets on deployment
-assets_path = packages/template/Resources/Public/Build
+define env/shell
+	ssh $($1/user)@$($1/host) -p $($1/port) 'cd $($1/path) && $2'
+endef
+
+define env/upload
+	rsync -rzPh -e 'ssh -p $($1/port)' --files-from="rsync_deploy.txt" \
+		'./' '$($1/user)@$($1/host):$($1/path)'
+endef
 
 help:
 	@grep -E '^[a-zA-Z\/_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-
 # --------------------------------------------------------------------- #
 # Local environment                                                     #
 # --------------------------------------------------------------------- #
-setup: install-dependencies setup/database-connection migrate build clear-cache ## Setup the new project
+
+setup: install setup/database-connection migrate build clear-cache ## Setup the new project
 	./vendor/bin/typo3cms extension:setupactive
 	./vendor/bin/typo3cms backend:createadmin admin
 
 build/watch: ## Build assets with sourcemaps and watch for changes
 	./node_modules/.bin/encore dev --watch
-
 
 install: ## Install composer and yarn dependencies
 	composer install
@@ -28,9 +33,11 @@ update: ## Update composer and yarn dependencies
 	yarn upgrade
 
 build: ## Build assets with sourcemaps
+	yarn
 	./node_modules/.bin/encore dev
 
 build/production: ## Build minified assets
+	yarn
 	./node_modules/.bin/encore production
 
 migrate: ## Apply database migration
@@ -50,6 +57,7 @@ setup/database-connection: ## Create an AdditionalConfiguration.php
 emails/generate:
 	./node_modules/.bin/mjml ./packages/template/Resources/Private/Email/*.mjml --output ./packages/template/Resources/Private/Templates/Email;
 
+
 # --------------------------------------------------------------------- #
 # Integration environment                                               #
 # Branch: dev                                                           #
@@ -59,34 +67,25 @@ integration/user =
 integration/port = 22
 integration/path =
 
-define integration/shell
-	ssh $(integration/user)@$(integration/host) -p$(integration/port) 'cd $(integration/path) &&$1'
-endef
+integration/deploy:
+	yarn
+	make build
 
-integration/deploy: build emails/generate  ## Deploys to integration from your local machine. Updates database schema and clears caches
-	git -C ./ ls-files --exclude-standard -oi --directory > /tmp/excludes;
-	rsync --recursive --compress \
-		--progress \
-		--exclude=".git" \
-		--exclude="public/typo3conf/AdditionalConfiguration.php" \
-		--exclude-from="/tmp/excludes" \
-		-e 'ssh -p$(integration/port)' \
-		'./' \
-		'$(integration/user)@$(integration/host):$(integration/path)'
-	rsync -rz \
-		--progress \
-		-e 'ssh -p$(integration/port)' \
-		'./$(assets_path)/Build/' \
-		'$(integration/user)@$(integration/host):$(integration/path)/$(assets_path)/Build/'
-	$(call integration/shell, composer install)
-	$(call integration/shell, php_cli ./vendor/bin/typo3cms database:updateschema)
-	$(call integration/shell, php_cli ./vendor/bin/typo3cms cache:flush)
+	# Upload
+	$(call env/upload,integration)
 
-integration/clear-cache: ## Clears integration caches
-	$(call integration/shell, php_cli ./vendor/bin/typo3cms cache:flush)
+	# Composer
+	$(call env/shell,integration, COMPOSER_DISCARD_CHANGES=true composer install --no-dev --optimize-autoloader --ignore-platform-reqs)
+
+	# TYPO3
+	$(call env/shell,integration, php_cli ./vendor/bin/typo3cms database:updateschema)
+	$(call env/shell,integration, php_cli ./vendor/bin/typo3cms cache:flush)
+
+integration/clear-cache: ## Clears integration cache
+	$(call env/shell,integration, php_cli ./vendor/bin/typo3cms cache:flush)
 
 integration/connection-test: ## Tests connection to your project
-	$(call integration/shell, cd $(production/path) && ls -la)
+	$(call env/shell,integration, ls -la)
 
 
 # --------------------------------------------------------------------- #
@@ -98,34 +97,25 @@ staging/user =
 staging/port = 22
 staging/path =
 
-define staging/shell
-	ssh $(staging/user)@$(staging/host) -p$(staging/port) 'cd $(staging/path) &&$1'
-endef
+staging/deploy:
+	yarn
+	make build
 
-staging/deploy: build/production emails/generate  ## Deploys to staging from your local machine. Updates database schema and clears caches
-	git -C ./ ls-files --exclude-standard -oi --directory > /tmp/excludes;
-	rsync --recursive --compress \
-		--progress \
-		--exclude=".git" \
-		--exclude="public/typo3conf/AdditionalConfiguration.php" \
-		--exclude-from="/tmp/excludes" \
-		-e 'ssh -p$(staging/port)' \
-		'./' \
-		'$(staging/user)@$(staging/host):$(staging/path)'
-	rsync -rz \
-		--progress \
-		-e 'ssh -p$(staging/port)' \
-		'./$(assets_path)/Build/' \
-		'$(staging/user)@$(staging/host):$(staging/path)/$(assets_path)/Build/'
-	$(call staging/shell, composer install)
-	$(call staging/shell, php_cli ./vendor/bin/typo3cms database:updateschema)
-	$(call staging/shell, php_cli ./vendor/bin/typo3cms cache:flush)
+	# Upload
+	$(call env/upload,staging)
 
-staging/clear-cache: ## Clears staging caches
-	$(call staging/shell, php_cli ./vendor/bin/typo3cms cache:flush)
+	# Composer
+	$(call env/shell,staging, COMPOSER_DISCARD_CHANGES=true composer install --no-dev --optimize-autoloader --ignore-platform-reqs)
+
+	# TYPO3
+	$(call env/shell,staging, php_cli ./vendor/bin/typo3cms database:updateschema)
+	$(call env/shell,staging, php_cli ./vendor/bin/typo3cms cache:flush)
+
+staging/clear-cache: ## Clears staging cache
+	$(call env/shell,staging, php_cli ./vendor/bin/typo3cms cache:flush)
 
 staging/connection-test: ## Tests connection to your project
-	$(call staging/shell, cd $(staging/path) && ls -la)
+	$(call env/shell,staging, ls -la)
 
 
 # --------------------------------------------------------------------- #
@@ -137,34 +127,25 @@ production/user =
 production/port = 22
 production/path =
 
-define production/shell
-	ssh $(production/user)@$(production/host) -p$(production/port) 'cd $(production/path) &&$1'
-endef
+production/deploy:
+	yarn
+	make build
 
-production/deploy: build/production emails/generate  ## Deploys to production from your local machine. Updates database schema and clears caches
-	git -C ./ ls-files --exclude-standard -oi --directory > /tmp/excludes;
-	rsync --recursive --compress \
-		--progress \
-		--exclude=".git" \
-		--exclude="public/typo3conf/AdditionalConfiguration.php" \
-		--exclude-from="/tmp/excludes" \
-		-e 'ssh -p$(production/port)' \
-		'./' \
-		'$(production/user)@$(production/host):$(production/path)'
-	rsync -rz \
-		--progress \
-		-e 'ssh -p$(production/port)' \
-		'./$(assets_path)/Build/' \
-		'$(production/user)@$(production/host):$(production/path)/$(assets_path)/Build/'
-	$(call production/shell, composer install)
-	$(call production/shell, php_cli ./vendor/bin/typo3cms database:updateschema)
-	$(call production/shell, php_cli ./vendor/bin/typo3cms cache:flush)
+	# Upload
+	$(call env/upload,production)
 
-production/clear-cache: ## Clears production caches
-	$(call production/shell, php_cli ./vendor/bin/typo3cms cache:flush)
+	# Composer
+	$(call env/shell,production, COMPOSER_DISCARD_CHANGES=true composer install --no-dev --optimize-autoloader --ignore-platform-reqs)
+
+	# TYPO3
+	$(call env/shell,production, php_cli ./vendor/bin/typo3cms database:updateschema)
+	$(call env/shell,production, php_cli ./vendor/bin/typo3cms cache:flush)
+
+production/clear-cache: ## Clears production cache
+	$(call env/shell,production, php_cli ./vendor/bin/typo3cms cache:flush)
 
 production/connection-test: ## Tests connection to your project
-	$(call production/shell, cd $(production/path) && ls -la)
+	$(call env/shell,production, ls -la)
 
 
 # --------------------------------------------------------------------- #

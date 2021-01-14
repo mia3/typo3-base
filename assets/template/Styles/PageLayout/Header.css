@@ -26,7 +26,8 @@
   margin: 0;
 }
 
-.page__header .mainMenu__link {
+.page__header .mainMenu__link
+{
   display: inline-block;
   padding: 10px 20px;
   font-size: calc(var(--base) * 4);

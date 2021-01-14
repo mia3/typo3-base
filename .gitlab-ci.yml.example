@@ -1,7 +1,6 @@
 image: mia3/gitlab-ci:7.3
 
 stages:
-  - build
   - deploy
 
 before_script:
@@ -13,32 +12,6 @@ before_script:
   - rm private_key
   - ssh-keyscan -p 2222 'gitlab.mia3.com' >> ~/.ssh/known_hosts # gitlab server
   - ssh-keyscan -p 22 'mia3.com' >> ~/.ssh/known_hosts          # deployment target server
-
-# Cache libraries in between jobs
-cache:
-  paths:
-    - node_modules/
-    - public/
-    - vendor/
-    - packages/
-
-# Development build - with sourcemaps
-build:
-  stage: build
-  script:
-    - make install
-    - make build
-  only:
-    - dev
-
-# Production build - minified
-build_prod:
-  stage: build
-  script:
-    - make install
-    - make build/production
-  only:
-    - master
 
 deploy_int:
   stage: deploy

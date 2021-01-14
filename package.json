@@ -1,20 +1,19 @@
 {
-  "devDependencies": {
+  "dependencies": {
     "@babel/polyfill": "*",
     "@symfony/webpack-encore": "*",
     "autoprefixer": "^9",
     "axios": "*",
     "cssnext": "*",
+    "glightbox": "*",
+    "hamburgers": "*",
     "mjml": "^4.7.1",
-    "normalize.css": "*",
-    "postcss-css-variables": "*",
-    "postcss-custom-media": "*",
     "postcss-easy-import": "*",
     "postcss-loader": "^3",
-    "swiper": "*",
+    "swiper": "^5",
     "table": "*",
-    "vue": "^2.0",
-    "vue-awesome-swiper": "^4.1.1",
+    "vue": "^2",
+    "vue-awesome-swiper": "*",
     "vue-loader": "*",
     "vue-template-compiler": "*",
     "vuex": "*"
@@ -22,9 +21,5 @@
   "browserslist": [
     "last 2 versions",
     "ios >= 8"
-  ],
-  "dependencies": {
-    "glightbox": "^3.0.5",
-    "hamburgers": "^1.1.3"
-  }
+  ]
 }

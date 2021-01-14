@@ -28,14 +28,16 @@
   margin-right: 0.25em;
 }
 
-.gslide-desc:before{
+.gslide-desc:before
+{
   content: '©';
   display: inline-block;
   margin-right: 0.25em;
 }
 
 .glightbox-clean .gdesc-inner,
-.glightbox-modern .gdesc-inner{
+.glightbox-modern .gdesc-inner
+{
   padding: calc(2 * var(--base)) calc(2 * var(--base))
 }
 

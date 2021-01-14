@@ -28,7 +28,8 @@
 </script>
 
 <style scoped>
-  @import "../../../Styles/Variables.css";
+  @import '../../../Styles/Variables.css';
+
   .button-close
   {
     background: transparent;

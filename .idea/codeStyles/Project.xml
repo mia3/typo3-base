@@ -30,11 +30,13 @@
       <option name="USE_DOUBLE_QUOTES" value="false" />
       <option name="ENFORCE_QUOTES_ON_FORMAT" value="true" />
     </LessCodeStyleSettings>
-    <MySQLCodeStyleSettings version="2">
-      <option name="ALIAS_CASE" value="1" />
+    <MySQLCodeStyleSettings version="5">
+      <option name="USE_GENERAL_STYLE" value="false" />
       <option name="KEYWORD_CASE" value="1" />
-      <option name="TYPE_CASE" value="1" />
       <option name="IDENTIFIER_CASE" value="1" />
+      <option name="TYPE_CASE" value="1" />
+      <option name="CUSTOM_TYPE_CASE" value="1" />
+      <option name="ALIAS_CASE" value="1" />
       <option name="QUOTED_IDENTIFIER_CASE" value="1" />
       <option name="QUOTE_IDENTIFIER" value="1" />
     </MySQLCodeStyleSettings>

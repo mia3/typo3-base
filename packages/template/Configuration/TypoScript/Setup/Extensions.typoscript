@@ -17,6 +17,7 @@ lib {
     partialRootPaths {
       200 = EXT:fluid_styled_content/Resources/Private/Partials/
       210 = EXT:template/Resources/Private/ExtensionOverrides/fluid_styled_content/Partials/
+      220 = EXT:template/Resources/Private/Partials/ContentElements/
     }
 
     layoutRootPaths {

@@ -1,18 +1,25 @@
 /* Third Party (node_modules) */
-@import 'glightbox/dist/css/glightbox.min.css';
-@import 'hamburgers/dist/hamburgers.min.css';
-@import 'swiper/css/swiper.min.css';
+@import '~glightbox/dist/css/glightbox.min.css';
+@import '~hamburgers/dist/hamburgers.min.css';
+@import '~swiper/swiper.min.css';
 
+@import './Font.css';
 @import './Variables.css';
 
 /* Base */
-@import './Base/**/*.css';
+@import './Base/Base.css';
+@import './Base/Button.css';
+@import './Base/Form.css';
+@import './Base/Image.css';
+@import './Base/Media.css';
 
 /* PageLayout */
-@import './PageLayout/**/*.css';
+@import './PageLayout/Content.css';
+@import './PageLayout/Footer.css';
+@import './PageLayout/Header.css';
+@import './PageLayout/MobileMenu.css';
 
 /* Utility */
-@import './Utility/**/*.css';
+@import './Utility/Utility.css';
 
 /* ContentElements */
-@import './ContentElements/**/*.css';

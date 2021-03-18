@@ -5,7 +5,8 @@ const assetPath = './assets/template/';
 const buildPath = './packages/template/Resources/Public/Build/';
 
 // directory where all compiled assets will be stored
-Encore.setOutputPath(buildPath)
+Encore
+  .setOutputPath(buildPath)
   // what's the public path to this directory (relative to your project's document root dir)
   .setPublicPath('/typo3conf/ext/template/Resources/Public/Build/')
   .enableSingleRuntimeChunk()

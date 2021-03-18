@@ -9,7 +9,7 @@
     "helhum/typo3-console": "^6.3",
     "fluidtypo3/vhs": "^6.0",
     "georgringer/news": "^8.3",
-    "mask/mask": "^5.1",
+    "mask/mask": "^6.6.0",
     "mia3/template": "@dev",
     "ext-json": "*"
   },

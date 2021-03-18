@@ -1,4 +1,7 @@
-@import './Font.css';
+@custom-media --screen-mobile (min-width: 480px);
+@custom-media --screen-tablet (min-width: 768px);
+@custom-media --screen-tablet-landscape (min-width: 992px);
+@custom-media --screen-desktop (min-width: 1200px);
 
 :root
 {

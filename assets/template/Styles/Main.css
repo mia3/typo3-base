@@ -23,3 +23,5 @@
 @import './Utility/Utility.css';
 
 /* ContentElements */
+@import './ContentElements/TwoColumn.css';
+@import './ContentElements/ThreeColumn.css';

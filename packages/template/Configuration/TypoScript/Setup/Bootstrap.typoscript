@@ -3,6 +3,7 @@ page {
   typeNum = 0
   shortcutIcon = EXT:template/Resources/Public/Media/Icons/favicon.png
 
+  5 >
   10 = FLUIDTEMPLATE
   10 {
     # Template names will be generated automaticly by converting the applied

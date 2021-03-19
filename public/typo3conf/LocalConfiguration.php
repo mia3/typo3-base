@@ -32,6 +32,15 @@ return [
             'automaticInstallation' => '1',
             'offlineMode' => '0',
         ],
+        'flux' => [
+            'autoload' => '1',
+            'debugMode' => '0',
+            'doktypes' => '0,1,4',
+            'handleErrors' => '0',
+            'pagesLanguageConfigurationOverlay' => '0',
+            'plugAndPlay' => '0',
+            'plugAndPlayDirectory' => 'design',
+        ],
         'mask' => [
             'backend' => 'EXT:template/Resources/Private/Mask/Backend/Templates/',
             'backendlayout_pids' => '0,1',

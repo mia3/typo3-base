@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec56b852a284c47fe173c88be1a9ab2a",
+    "content-hash": "60f8a98b34256c2a5d3fd82add14af9f",
     "packages": [
         {
             "name": "cogpowered/finediff",
@@ -578,6 +578,60 @@
                 }
             ],
             "time": "2020-12-29T14:50:06+00:00"
+        },
+        {
+            "name": "fluidtypo3/flux",
+            "version": "9.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FluidTYPO3/flux.git",
+                "reference": "6afa4899df6a16ff270736b52cd340b0229246c7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FluidTYPO3/flux/zipball/6afa4899df6a16ff270736b52cd340b0229246c7",
+                "reference": "6afa4899df6a16ff270736b52cd340b0229246c7",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.0",
+                "typo3/cms-backend": "^8.7 || ^9 || ^10 || dev-master",
+                "typo3/cms-core": "^8.7 || ^9 || ^10 || dev-master",
+                "typo3/cms-fluid": "^8.7 || ^9 || ^10 || dev-master",
+                "typo3/cms-frontend": "^8.7 || ^9 || ^10 || dev-master",
+                "typo3/cms-recordlist": "^8.7 || ^9 || ^10 || dev-master"
+            },
+            "replace": {
+                "typo3-ter/flux": "self.version"
+            },
+            "require-dev": {
+                "fluidtypo3/development": "^4"
+            },
+            "suggest": {
+                "fluidtypo3/vhs": "ViewHelper library for Fluid templates."
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "flux"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FluidTYPO3\\Flux\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "The flux package from FluidTYPO3",
+            "homepage": "http://fluidtypo3.org",
+            "support": {
+                "issues": "https://github.com/FluidTYPO3/flux/issues",
+                "source": "https://github.com/FluidTYPO3/flux/tree/9.4.2"
+            },
+            "time": "2020-09-24T10:40:44+00:00"
         },
         {
             "name": "fluidtypo3/vhs",
@@ -6235,5 +6289,5 @@
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }

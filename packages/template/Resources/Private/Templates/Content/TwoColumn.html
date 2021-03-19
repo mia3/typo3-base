@@ -1,0 +1,75 @@
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+  xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers"
+  xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
+  xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+  xmlns:t="http://typo3.org/ns/Mia3/Template/ViewHelpers">
+
+  <f:layout name="Content" />
+
+  <f:section name="Configuration">
+    <flux:form id="twoColumn" label="Two Column" description="Inhalte können mit diesem Element in zwei Spalten dargestellt werden." options="{groups: 'Structure'}">
+      <flux:form.sheet name="column" label="Einstellungen">
+        <flux:field.select exclude="false" name="proportion" default="50-50" label="Aufteilung" items="{
+                      1:{0:'4 Spalten - 8 Spalten',1:'33-66'},
+                      2:{0:'8 Spalten - 4 Spalten',1:'66-33'},
+                      3:{0:'6 Spalten - 6 Spalten',1:'50-50'},
+                      4:{0:'9 Spalten - 3 Spalten',1:'75-25'},
+                      5:{0:'3 Spalten - 9 Spalten',1:'25-75'}
+                  }"
+        />
+        <flux:field.select exclude="false" name="responsive" default="lo-ru" label="Responsives Verhalten der Spalten" items="{
+                      1:{0:'Links Oben - Rechts Unten',1:'lo-ru'},
+                      2:{0:'Links Unten - Rechts Oben',1:'lu-ro'}
+                  }"
+        />
+      </flux:form.sheet>
+    </flux:form>
+    <f:switch expression="{proportion}">
+      <f:case value="33-66">
+        <v:variable.set value="33%" name="left" />
+        <v:variable.set value="66%" name="right" />
+      </f:case>
+      <f:case value="66-33">
+        <v:variable.set value="66%" name="left" />
+        <v:variable.set value="33%" name="right" />
+      </f:case>
+      <f:case value="50-50">
+        <v:variable.set value="50%" name="left" />
+        <v:variable.set value="50%" name="right" />
+      </f:case>
+      <f:case value="75-25">
+        <v:variable.set value="75%" name="left" />
+        <v:variable.set value="25%" name="right" />
+      </f:case>
+      <f:case value="25-75">
+        <v:variable.set value="25%" name="left" />
+        <v:variable.set value="75%" name="right" />
+      </f:case>
+      <f:defaultCase>
+        <v:variable.set value="50%" name="left" />
+        <v:variable.set value="50%" name="right" />
+      </f:defaultCase>
+    </f:switch>
+    <flux:grid>
+      <flux:grid.row>
+        <flux:grid.column colPos="99" colspan="{left}" name="columnLeft" label="Left Column" />
+        <flux:grid.column colPos="98" colspan="{right}" name="columnRight" label="Right Column" />
+      </flux:grid.row>
+    </flux:grid>
+  </f:section>
+
+  <f:section name="Preview">
+    <strong>Two Columns:</strong> <br>
+  </f:section>
+
+  <f:section name="Main">
+    <div class="twoColumn twoColumn--{proportion} twoColumn--{responsive}">
+      <div class="twoColumn__left">
+        <flux:content.render area="columnLeft" />
+      </div>
+      <div class="twoColumn__right">
+        <flux:content.render area="columnRight" />
+      </div>
+    </div>
+  </f:section>
+</div>

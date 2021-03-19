@@ -42,6 +42,7 @@ plugin {
 
       layoutRootPaths {
         0 = EXT:template/Resources/Private/Layouts/
+        1 = EXT:template/Resources/Private/ExtensionOverrides/fluid_styled_content/Layouts/
       }
     }
 

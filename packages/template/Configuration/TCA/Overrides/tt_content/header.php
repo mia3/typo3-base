@@ -4,57 +4,35 @@ defined('TYPO3_MODE') || die();
 
 call_user_func(
     function () {
+        $ll = 'LLL:EXT:template/Resources/Private/Language/locallang_ttc.xlf:';
+
         $temporaryColumns = [
-            "header_semantic" => [
-                'exclude' => true,
-                'label' => 'LLL:EXT:template/Resources/Private/Language/locallang_ttc.xlf:header_semantic',
-                'description' => 'LLL:EXT:template/Resources/Private/Language/locallang_ttc.xlf:header_semantic.desc',
-                'config' => [
-                    'type' => 'check',
-                    'renderType' => 'checkboxToggle',
-                    'items' => [
-                        [
-                            0 => '',
-                            1 => '',
-                        ]
-                    ],
-                    "default" => 1
-                ]
-            ],
             'header_style' => [
                 'exclude' => true,
-                'label' => 'LLL:EXT:template/Resources/Private/Language/locallang_ttc.xlf:header_style',
+                'label' => $ll . 'header_style',
                 'config' => [
                     'type' => 'select',
                     'renderType' => 'selectSingle',
                     'items' => [
                         [
-                            'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.default_value',
+                            $ll . 'header_style.default',
                             '0',
                         ],
                         [
-                            'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.1',
+                            $ll . 'header_style.h1',
                             '1',
                         ],
                         [
-                            'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.2',
+                            $ll . 'header_style.h2',
                             '2',
                         ],
                         [
-                            'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.3',
+                            $ll . 'header_style.h3',
                             '3',
                         ],
                         [
-                            'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.4',
+                            $ll . 'header_style.h4',
                             '4',
-                        ],
-                        [
-                            'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.5',
-                            '5',
-                        ],
-                        [
-                            'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout.I.6',
-                            '100',
                         ],
                     ],
                     'default' => 0,
@@ -62,17 +40,17 @@ call_user_func(
             ],
             'header_color' => [
                 'exclude' => true,
-                'label' => 'LLL:EXT:template/Resources/Private/Language/locallang_ttc.xlf:header_color',
+                'label' => $ll . 'header_color',
                 'config' => [
                     'type' => 'select',
                     'renderType' => 'selectSingle',
                     'items' => [
                         [
-                            'LLL:EXT:template/Resources/Private/Language/locallang_ttc.xlf:header_color.none',
+                            $ll . 'header_color.none',
                             '0',
                         ],
                         [
-                            'LLL:EXT:template/Resources/Private/Language/locallang_ttc.xlf:header_color.orange',
+                            $ll . 'header_color.orange',
                             '1',
                         ],
                     ],
@@ -99,14 +77,20 @@ call_user_func(
     }
 );
 
-$GLOBALS['TCA']['tt_content']['palettes']['headers']["showitem"] = '
+$GLOBALS['TCA']['tt_content']['palettes']['headers']['showitem'] = '
     header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_formlabel,
     header_layout;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout_formlabel,
-    header_semantic,
+    header_style,
     --linebreak--,
     header_link;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_link_formlabel,
     header_position;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_position_formlabel,
-    header_style,
+    header_color,
     --linebreak--,
-    header_color
 ';
+
+$GLOBALS['TCA']['tt_content']['columns']['header']['config'] = [
+    'type' => 'text',
+    'max' => 255,
+    'cols' => 50,
+    'rows' => 2,
+];

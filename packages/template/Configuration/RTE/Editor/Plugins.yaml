@@ -6,4 +6,3 @@ editor:
     # This is a plugin, found here: https://github.com/ufdada/quicktable
     quicktable: { resource: "EXT:rte_ckeditor/Resources/Public/JavaScript/Plugins/quicktable/plugin.js" }
     autolinking: { resource: "EXT:rte_ckeditor/Resources/Public/JavaScript/Plugins/autolinking.js" }
-    columns: { resource: "EXT:template/Resources/Public/CK_Editor/Plugins/grid/plugin.js" }

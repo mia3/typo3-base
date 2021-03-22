@@ -23,6 +23,21 @@
       <trans-unit id="header_style" resname="header_style">
         <source>Header Style</source>
       </trans-unit>
+      <trans-unit id="header_style.default" resname="header_style.default">
+        <source>default</source>
+      </trans-unit>
+      <trans-unit id="header_style.h1" resname="header_style.h1">
+        <source>h1</source>
+      </trans-unit>
+      <trans-unit id="header_style.h2" resname="header_style.h2">
+        <source>h2</source>
+      </trans-unit>
+      <trans-unit id="header_style.h3" resname="header_style.h3">
+        <source>h3</source>
+      </trans-unit>
+      <trans-unit id="header_style.h4" resname="header_style.h4">
+        <source>h4</source>
+      </trans-unit>
       <trans-unit id="header_color" resname="header_color">
         <source>Header Color</source>
       </trans-unit>
@@ -31,6 +46,15 @@
       </trans-unit>
       <trans-unit id="header_color.orange" resname="header_color.orange">
         <source>Orange</source>
+      </trans-unit>
+      <trans-unit id="text_columns" resname="text_columns">
+        <source>Text columns</source>
+      </trans-unit>
+      <trans-unit id="text_columns.one_column" resname="text_columns.one_column">
+        <source>1 column</source>
+      </trans-unit>
+      <trans-unit id="text_columns.two_columns" resname="text_columns.two_columns">
+        <source>2 columns</source>
       </trans-unit>
     </body>
   </file>

@@ -52,6 +52,7 @@ TCEFORM {
 
     header_layout {
       altLabels {
+        0 = LLL:EXT:template/Resources/Private/Language/locallang_be.xlf:tt_content.header_layout.0
         1 = LLL:EXT:template/Resources/Private/Language/locallang_be.xlf:tt_content.header_layout.1
         2 = LLL:EXT:template/Resources/Private/Language/locallang_be.xlf:tt_content.header_layout.2
         3 = LLL:EXT:template/Resources/Private/Language/locallang_be.xlf:tt_content.header_layout.3

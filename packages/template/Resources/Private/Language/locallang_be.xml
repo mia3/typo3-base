@@ -8,6 +8,7 @@
     <languageKey index="default" type="array">
 
       <!-- Content element: Header Layout -->
+      <label index="tt_content.header_layout.0">&lt;div&gt;</label>
       <label index="tt_content.header_layout.1">&lt;h1&gt;</label>
       <label index="tt_content.header_layout.2">&lt;h2&gt;</label>
       <label index="tt_content.header_layout.3">&lt;h3&gt;</label>

@@ -5,6 +5,7 @@ defined('TYPO3_MODE') || die();
 require_once 'tt_content/image.php';
 require_once 'tt_content/header.php';
 require_once 'tt_content/plugin_contactform.php';
+require_once 'tt_content/text.php';
 
 call_user_func(
     function () {

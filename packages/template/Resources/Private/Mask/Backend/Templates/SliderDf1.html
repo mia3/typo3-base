@@ -1,0 +1,17 @@
+<div class="maskBase">
+  <f:if condition="{data.tx_mask_slider_df1_repeat -> f:count()} > 0">
+    <div class="maskBase__label">
+      Erster Slide:
+    </div>
+    <div class="maskBase__content">
+      <f:for each="{data.tx_mask_slider_df1_repeat}" as="slide" iteration="slideIterator">
+        <f:if condition="0 == {slideIterator.index}">
+          {data_item.tx_mask_slider_df1_repeat_title -> f:format.nl2br()}<br />
+          <f:render partial="ImageMeta" section="Image" arguments="{image: slide.tx_mask_slider_df1_repeat_img.0}" />
+          <br />
+          {data_item.tx_mask_slider_df1_repeat_text -> f:format.nl2br()}<br />
+        </f:if>
+      </f:for>
+    </div>
+  </f:if>
+</div>

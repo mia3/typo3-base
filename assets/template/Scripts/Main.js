@@ -1,10 +1,12 @@
 import Vue from 'vue';
 import store from './Store';
 import { Swiper as SwiperClass, Pagination, Navigation, Autoplay } from 'swiper/swiper.esm.js';
+import VueAwesomeSwiper from 'vue-awesome-swiper';
 import GLightbox from 'glightbox';
 
 // Swiper modules
 SwiperClass.use([Pagination, Navigation, Autoplay]);
+Vue.use(VueAwesomeSwiper);
 
 /**
  * document ready class

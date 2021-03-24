@@ -1,0 +1,56 @@
+<f:layout name="Default" />
+<f:section name="Main">
+  <f:if condition="{data.tx_mask_slider_df1_repeat}">
+    <slider
+      :slides-per-view="{data.tx_mask_slider_df1_slidesperview}"
+      :pagination="true"
+      :auto-loop="{data.tx_mask_slider_df1_autoplay}"
+      :navigation="!{data.tx_mask_slider_df1_autoplay}"
+      :loop="{data.tx_mask_slider_df1_loop}"
+      :swipe-count="{data.tx_mask_slider_df1_repeat -> f:count()}"
+      class="slider"
+    >
+      <template v-slot:items>
+        <f:for each="{data.tx_mask_slider_df1_repeat}" as="data_item">
+          <swiper-slide class="slider__slide">
+            <div class="slider__contentWrapper">
+              <f:if condition="{data_item.tx_mask_slider_df1_repeat_img}">
+                <f:render partial="BaseImage" section="Main" arguments="{files: data_item.tx_mask_slider_df1_repeat_img}"/>
+              </f:if>
+
+              <div class="slider__overlay slider__overlay--{data_item.tx_mask_slider_df1_repeat_overlay}"></div>
+
+              <f:if condition="{data_item.tx_mask_slider_df1_repeat_link}">
+                <f:then>
+                  <f:link.typolink class="slider__link" parameter="{data_item.tx_mask_slider_df1_repeat_link}">
+                    <span class="slider__titleWrapper">
+                      <f:if condition="{data_item.tx_mask_slider_df1_repeat_title}">
+                        <span class="slider__title">
+                          {data_item.tx_mask_slider_df1_repeat_title -> f:format.nl2br()}
+                        </span>
+                      </f:if>
+                    </span>
+                  </f:link.typolink>
+                </f:then>
+                <f:else>
+                  <span class="slider__titleWrapper">
+                    <f:if condition="{data_item.tx_mask_slider_df1_repeat_title}">
+                      <span class="slider__title">
+                        {data_item.tx_mask_slider_df1_repeat_title -> f:format.nl2br()}
+                      </span>
+                    </f:if>
+                  </span>
+                </f:else>
+              </f:if>
+            </div>
+            <div class="slider__contentWrapper">
+              <f:if condition="{data_item.tx_mask_slider_df1_repeat_text}">
+                {data_item.tx_mask_slider_df1_repeat_text -> f:format.nl2br()}
+              </f:if>
+            </div>
+          </swiper-slide>
+        </f:for>
+      </template>
+    </slider>
+  </f:if>
+</f:section>

@@ -1,0 +1,110 @@
+.slider
+{
+  position: relative;
+}
+
+.slider__contentWrapper
+{
+  position: relative;
+}
+
+.slider__contentWrapper > .image
+{
+  line-height: 0;
+}
+
+.slider__overlay
+{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: .5;
+}
+
+.slider__overlay--0
+{
+  display: none;
+}
+
+.slider__overlay--1
+{
+  background-color: var(--color-primary);
+}
+
+.slider__overlay--2
+{
+  background-color: var(--color-accent);
+}
+
+.slider__titleWrapper
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/* Slider vue component */
+slider
+{
+  display: none;
+}
+
+.slider__navigation
+{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  font-size: 24px;
+  line-height: 26px;
+  text-align: center;
+  color: #eee;
+  background-color: rgba(0, 0, 0, .3);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.slider__navigation--prev
+{
+  left: 0;
+}
+
+.slider__navigation--next
+{
+  right: 0;
+}
+
+.slider__pagination
+{
+  display: flex;
+  justify-content: center;
+}
+
+.slider__pagination > .swiper-pagination-bullet
+{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-left: var(--base);
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, .3);
+  cursor: pointer;
+}
+
+.slider__pagination > .swiper-pagination-bullet.swiper-pagination-bullet-active
+{
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.slider__pagination > .swiper-pagination-bullet:first-child
+{
+  margin-left: 0;
+}

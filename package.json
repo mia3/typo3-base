@@ -3,6 +3,7 @@
     "@babel/polyfill": "*",
     "@symfony/webpack-encore": "*",
     "axios": "*",
+    "freezeframe": "^5.0.2",
     "glightbox": "*",
     "hamburgers": "*",
     "mjml": "^4.7.1",

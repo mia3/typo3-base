@@ -10,6 +10,11 @@
                 "sys_file_reference": {
                     "tx_mask_slider_df1_repeat_img": "int(11) unsigned DEFAULT '0' NOT NULL"
                 }
+            },
+            "tx_mask_teaser_df1_repeat_img": {
+                "sys_file_reference": {
+                    "tx_mask_teaser_df1_repeat_img": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
             }
         }
     },
@@ -28,6 +33,23 @@
                     "Einstellungen"
                 ],
                 "shortLabel": ""
+            },
+            "teaser_df1": {
+                "color": "#000000",
+                "columns": [
+                    "tx_mask_teaser_df1_palette"
+                ],
+                "description": "",
+                "icon": "",
+                "key": "teaser_df1",
+                "label": "Mitarbeiterdarstellung",
+                "labels": [
+                    ""
+                ],
+                "options": {
+                    "11": "rte"
+                },
+                "shortLabel": ""
             }
         },
         "palettes": {
@@ -39,6 +61,14 @@
                     "tx_mask_slider_df1_slidesperview",
                     "tx_mask_linebreak-kgxidmx06",
                     "tx_mask_slider_df1_repeat"
+                ]
+            },
+            "tx_mask_teaser_df1_palette": {
+                "label": "",
+                "showitem": [
+                    "tx_mask_teaser_df1_columns",
+                    "tx_mask_linebreak-9o4jhecby",
+                    "tx_mask_teaser_df1_repeat"
                 ]
             }
         },
@@ -62,9 +92,36 @@
                 "tt_content": {
                     "tx_mask_slider_df1_slidesperview": "tinytext"
                 }
+            },
+            "tx_mask_teaser_df1_columns": {
+                "tt_content": {
+                    "tx_mask_teaser_df1_columns": "tinytext"
+                }
+            },
+            "tx_mask_teaser_df1_repeat": {
+                "tt_content": {
+                    "tx_mask_teaser_df1_repeat": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
             }
         },
         "tca": {
+            "tx_mask_linebreak-9o4jhecby": {
+                "config": {
+                    "type": "linebreak"
+                },
+                "description": "",
+                "inPalette": "1",
+                "inlineParent": {
+                    "teaser_df1": "tx_mask_teaser_df1_palette"
+                },
+                "key": "linebreak-9o4jhecby",
+                "label": {
+                    "teaser_df1": ""
+                },
+                "order": {
+                    "teaser_df1": 2
+                }
+            },
             "tx_mask_linebreak-kgxidmx06": {
                 "config": {
                     "type": "linebreak"
@@ -240,6 +297,102 @@
                 },
                 "order": {
                     "slider_df1": 3
+                }
+            },
+            "tx_mask_teaser_df1_columns": {
+                "config": {
+                    "autoSizeMax": "",
+                    "behaviour": {
+                        "allowLanguageSynchronization": "0"
+                    },
+                    "fileFolder": "",
+                    "fileFolder_extList": "",
+                    "fileFolder_recursions": "",
+                    "foreign_table": "",
+                    "foreign_table_where": "",
+                    "items": [
+                        [
+                            "2 Spalten",
+                            "2"
+                        ],
+                        [
+                            "3 Spalten",
+                            "3"
+                        ],
+                        [
+                            "4 Spalten",
+                            "4"
+                        ]
+                    ],
+                    "maxitems": "",
+                    "renderType": "selectSingle",
+                    "size": "",
+                    "type": "select"
+                },
+                "description": "",
+                "exclude": "1",
+                "inPalette": "1",
+                "inlineParent": {
+                    "teaser_df1": "tx_mask_teaser_df1_palette"
+                },
+                "key": "teaser_df1_columns",
+                "l10n_mode": "",
+                "label": {
+                    "teaser_df1": "Spaltenanzahl"
+                },
+                "order": {
+                    "teaser_df1": 1
+                }
+            },
+            "tx_mask_teaser_df1_palette": {
+                "config": {
+                    "type": "palette"
+                },
+                "description": "",
+                "key": "teaser_df1_palette"
+            },
+            "tx_mask_teaser_df1_repeat": {
+                "config": {
+                    "appearance": {
+                        "collapseAll": "0",
+                        "enabledControls": {
+                            "dragdrop": "1"
+                        },
+                        "expandSingle": "0",
+                        "levelLinksPosition": "top",
+                        "newRecordLinkTitle": "",
+                        "showAllLocalizationLink": "1",
+                        "showPossibleLocalizationRecords": "1",
+                        "showRemovedLocalizationRecords": "1",
+                        "showSynchronizationLink": "1",
+                        "useSortable": "1"
+                    },
+                    "behaviour": {
+                        "allowLanguageSynchronization": "1"
+                    },
+                    "foreign_field": "parentid",
+                    "foreign_sortby": "sorting",
+                    "foreign_table": "--inlinetable--",
+                    "foreign_table_field": "parenttable",
+                    "maxitems": "",
+                    "minitems": "",
+                    "type": "inline"
+                },
+                "description": "",
+                "exclude": "1",
+                "inPalette": "1",
+                "inlineIcon": "",
+                "inlineLabel": "",
+                "inlineParent": {
+                    "teaser_df1": "tx_mask_teaser_df1_palette"
+                },
+                "key": "teaser_df1_repeat",
+                "l10n_mode": "",
+                "label": {
+                    "teaser_df1": "Teaserelemente"
+                },
+                "order": {
+                    "teaser_df1": 3
                 }
             }
         }
@@ -518,6 +671,254 @@
                 "l10n_mode": "",
                 "label": "Titel",
                 "order": 8
+            }
+        }
+    },
+    "tx_mask_teaser_df1_repeat": {
+        "palettes": {
+            "tx_mask_teaser_df1_repeat_palette": {
+                "label": "",
+                "showitem": [
+                    "tx_mask_teaser_df1_repeat_link",
+                    "tx_mask_teaser_df1_repeat_overlay",
+                    "tx_mask_linebreak-6jxdf9qxg",
+                    "tx_mask_teaser_df1_repeat_img"
+                ]
+            }
+        },
+        "sql": {
+            "tx_mask_teaser_df1_repeat_betitle": {
+                "tx_mask_teaser_df1_repeat": {
+                    "tx_mask_teaser_df1_repeat_betitle": "tinytext"
+                }
+            },
+            "tx_mask_teaser_df1_repeat_img": {
+                "tx_mask_teaser_df1_repeat": {
+                    "tx_mask_teaser_df1_repeat_img": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            },
+            "tx_mask_teaser_df1_repeat_link": {
+                "tx_mask_teaser_df1_repeat": {
+                    "tx_mask_teaser_df1_repeat_link": "tinytext"
+                }
+            },
+            "tx_mask_teaser_df1_repeat_overlay": {
+                "tx_mask_teaser_df1_repeat": {
+                    "tx_mask_teaser_df1_repeat_overlay": "tinytext"
+                }
+            },
+            "tx_mask_teaser_df1_repeat_text": {
+                "tx_mask_teaser_df1_repeat": {
+                    "tx_mask_teaser_df1_repeat_text": "mediumtext"
+                }
+            },
+            "tx_mask_teaser_df1_repeat_title": {
+                "tx_mask_teaser_df1_repeat": {
+                    "tx_mask_teaser_df1_repeat_title": "mediumtext"
+                }
+            }
+        },
+        "tca": {
+            "tx_mask_linebreak-6jxdf9qxg": {
+                "config": {
+                    "type": "linebreak"
+                },
+                "description": "",
+                "inPalette": "1",
+                "inlineParent": "tx_mask_teaser_df1_repeat_palette",
+                "key": "linebreak-6jxdf9qxg",
+                "label": "",
+                "order": 9
+            },
+            "tx_mask_teaser_df1_repeat_betitle": {
+                "config": {
+                    "autocomplete": "0",
+                    "behaviour": {
+                        "allowLanguageSynchronization": "0"
+                    },
+                    "default": "",
+                    "eval": "",
+                    "is_in": "",
+                    "max": "",
+                    "mode": "",
+                    "placeholder": "",
+                    "size": "",
+                    "type": "input"
+                },
+                "description": "",
+                "exclude": "1",
+                "inlineParent": "tx_mask_teaser_df1_repeat",
+                "key": "teaser_df1_repeat_betitle",
+                "l10n_mode": "",
+                "label": "BE Titel",
+                "order": 4
+            },
+            "tx_mask_teaser_df1_repeat_img": {
+                "config": {
+                    "appearance": {
+                        "collapseAll": "0",
+                        "expandSingle": "0",
+                        "fileUploadAllowed": "1",
+                        "showAllLocalizationLink": "1",
+                        "showPossibleLocalizationRecords": "1",
+                        "showRemovedLocalizationRecords": "1",
+                        "showSynchronizationLink": "1",
+                        "useSortable": "0"
+                    },
+                    "behaviour": {
+                        "allowLanguageSynchronization": "1"
+                    },
+                    "filter": [
+                        {
+                            "parameters": {
+                                "allowedFileExtensions": ""
+                            }
+                        }
+                    ],
+                    "maxitems": "1",
+                    "minitems": ""
+                },
+                "description": "",
+                "exclude": "1",
+                "imageoverlayPalette": "1",
+                "inPalette": "1",
+                "inlineParent": "tx_mask_teaser_df1_repeat_palette",
+                "key": "teaser_df1_repeat_img",
+                "l10n_mode": "",
+                "label": "Bild",
+                "options": "file",
+                "order": 10
+            },
+            "tx_mask_teaser_df1_repeat_link": {
+                "config": {
+                    "autocomplete": "0",
+                    "behaviour": {
+                        "allowLanguageSynchronization": "0"
+                    },
+                    "default": "",
+                    "eval": "",
+                    "fieldControl": {
+                        "linkPopup": {
+                            "options": {
+                                "allowedExtensions": "",
+                                "blindLinkOptions": "",
+                                "title": "Link"
+                            }
+                        }
+                    },
+                    "mode": "",
+                    "placeholder": "",
+                    "renderType": "inputLink",
+                    "size": "",
+                    "softref": "typolink",
+                    "type": "input"
+                },
+                "description": "",
+                "exclude": "1",
+                "inPalette": "1",
+                "inlineParent": "tx_mask_teaser_df1_repeat_palette",
+                "key": "teaser_df1_repeat_link",
+                "l10n_mode": "",
+                "label": "Bild Link",
+                "order": 7
+            },
+            "tx_mask_teaser_df1_repeat_overlay": {
+                "config": {
+                    "autoSizeMax": "",
+                    "behaviour": {
+                        "allowLanguageSynchronization": "0"
+                    },
+                    "fileFolder": "",
+                    "fileFolder_extList": "",
+                    "fileFolder_recursions": "",
+                    "foreign_table": "",
+                    "foreign_table_where": "",
+                    "items": [
+                        [
+                            "kein Overlay",
+                            "0"
+                        ],
+                        [
+                            "Overlay 1",
+                            "1"
+                        ],
+                        [
+                            "Overlay 2",
+                            "2"
+                        ]
+                    ],
+                    "maxitems": "",
+                    "renderType": "selectSingle",
+                    "size": "",
+                    "type": "select"
+                },
+                "description": "",
+                "exclude": "1",
+                "inPalette": "1",
+                "inlineParent": "tx_mask_teaser_df1_repeat_palette",
+                "key": "teaser_df1_repeat_overlay",
+                "l10n_mode": "",
+                "label": "Overlay",
+                "order": 8
+            },
+            "tx_mask_teaser_df1_repeat_palette": {
+                "config": {
+                    "type": "palette"
+                },
+                "description": "",
+                "inlineParent": "tx_mask_teaser_df1_repeat",
+                "key": "teaser_df1_repeat_palette",
+                "label": "",
+                "order": 6
+            },
+            "tx_mask_teaser_df1_repeat_text": {
+                "config": {
+                    "behaviour": {
+                        "allowLanguageSynchronization": "0"
+                    },
+                    "cols": "",
+                    "default": "",
+                    "enableRichtext": "1",
+                    "eval": "",
+                    "max": "",
+                    "mode": "",
+                    "placeholder": "",
+                    "rows": "",
+                    "type": "text",
+                    "wrap": "off"
+                },
+                "description": "",
+                "exclude": "1",
+                "inlineParent": "tx_mask_teaser_df1_repeat",
+                "key": "teaser_df1_repeat_text",
+                "l10n_mode": "",
+                "label": "Text",
+                "order": 11,
+                "rte": "1"
+            },
+            "tx_mask_teaser_df1_repeat_title": {
+                "config": {
+                    "behaviour": {
+                        "allowLanguageSynchronization": "0"
+                    },
+                    "cols": "",
+                    "default": "",
+                    "eval": "",
+                    "format": "",
+                    "max": "",
+                    "mode": "",
+                    "placeholder": "",
+                    "rows": "2",
+                    "type": "text",
+                    "wrap": "off"
+                },
+                "description": "",
+                "exclude": "1",
+                "inlineParent": "tx_mask_teaser_df1_repeat",
+                "key": "teaser_df1_repeat_title",
+                "l10n_mode": "",
+                "label": "Title",
+                "order": 5
             }
         }
     }

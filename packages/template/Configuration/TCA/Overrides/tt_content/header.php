@@ -71,7 +71,7 @@ call_user_func(
         TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
             'tt_content',
             '--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers',
-            'mask_placeholder',
+            'mask_placeholder,mask_dividervideo_df1',
             'after:CType'
         );
     }

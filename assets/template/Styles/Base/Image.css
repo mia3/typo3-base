@@ -1,3 +1,8 @@
+.image--fullWidth > img
+{
+  width: 100%;
+}
+
 .image--hasCaption
 {
   position: relative;

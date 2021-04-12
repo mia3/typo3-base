@@ -20,6 +20,16 @@
                 "sys_file_reference": {
                     "tx_mask_teaser_df1_repeat_img": "int(11) unsigned DEFAULT '0' NOT NULL"
                 }
+            },
+            "tx_mask_tiles_df1_repeat_bgimg": {
+                "sys_file_reference": {
+                    "tx_mask_tiles_df1_repeat_bgimg": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            },
+            "tx_mask_tiles_df1_repeat_icon": {
+                "sys_file_reference": {
+                    "tx_mask_tiles_df1_repeat_icon": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
             }
         }
     },
@@ -68,6 +78,20 @@
                 "options": {
                     "11": "rte"
                 },
+                "shortLabel": ""
+            },
+            "tiles_df1": {
+                "color": "#000000",
+                "columns": [
+                    "tx_mask_tiles_df1_repeat"
+                ],
+                "description": "2-4 tiles that can have a background image, an icon and a headline, be a link or have a button.",
+                "icon": "",
+                "key": "tiles_df1",
+                "label": "Tile Teaser",
+                "labels": [
+                    "Tiles"
+                ],
                 "shortLabel": ""
             }
         },
@@ -144,6 +168,11 @@
             "tx_mask_teaser_df1_repeat": {
                 "tt_content": {
                     "tx_mask_teaser_df1_repeat": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            },
+            "tx_mask_tiles_df1_repeat": {
+                "tt_content": {
+                    "tx_mask_tiles_df1_repeat": "int(11) unsigned DEFAULT '0' NOT NULL"
                 }
             }
         },
@@ -578,6 +607,40 @@
                 "order": {
                     "teaser_df1": 3
                 }
+            },
+            "tx_mask_tiles_df1_repeat": {
+                "config": {
+                    "appearance": {
+                        "collapseAll": "0",
+                        "enabledControls": {
+                            "dragdrop": "1"
+                        },
+                        "expandSingle": "0",
+                        "levelLinksPosition": "top",
+                        "newRecordLinkTitle": "",
+                        "showAllLocalizationLink": "1",
+                        "showPossibleLocalizationRecords": "1",
+                        "showRemovedLocalizationRecords": "1",
+                        "showSynchronizationLink": "0",
+                        "useSortable": "0"
+                    },
+                    "behaviour": {
+                        "allowLanguageSynchronization": "0"
+                    },
+                    "foreign_field": "parentid",
+                    "foreign_sortby": "sorting",
+                    "foreign_table": "--inlinetable--",
+                    "foreign_table_field": "parenttable",
+                    "maxitems": "4",
+                    "minitems": "2",
+                    "type": "inline"
+                },
+                "description": "",
+                "exclude": "1",
+                "inlineIcon": "",
+                "inlineLabel": "",
+                "key": "tiles_df1_repeat",
+                "l10n_mode": ""
             }
         }
     },
@@ -1103,6 +1166,309 @@
                 "l10n_mode": "",
                 "label": "Title",
                 "order": 5
+            }
+        }
+    },
+    "tx_mask_tiles_df1_repeat": {
+        "palettes": {
+            "tx_mask_tiles_df1_repeat_palette": {
+                "label": "",
+                "showitem": [
+                    "tx_mask_tiles_df1_repeat_betitle",
+                    "tx_mask_linebreak-1uhdk3hdn",
+                    "tx_mask_tiles_df1_repeat_headline",
+                    "tx_mask_tiles_df1_repeat_overlay",
+                    "tx_mask_linebreak-5gtj82bcc",
+                    "tx_mask_tiles_df1_repeat_link",
+                    "tx_mask_tiles_df1_repeat_button_label",
+                    "tx_mask_linebreak-soz2goo3t",
+                    "tx_mask_tiles_df1_repeat_icon",
+                    "tx_mask_tiles_df1_repeat_bgimg"
+                ]
+            }
+        },
+        "sql": {
+            "tx_mask_tiles_df1_repeat_betitle": {
+                "tx_mask_tiles_df1_repeat": {
+                    "tx_mask_tiles_df1_repeat_betitle": "tinytext"
+                }
+            },
+            "tx_mask_tiles_df1_repeat_bgimg": {
+                "tx_mask_tiles_df1_repeat": {
+                    "tx_mask_tiles_df1_repeat_bgimg": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            },
+            "tx_mask_tiles_df1_repeat_button_label": {
+                "tx_mask_tiles_df1_repeat": {
+                    "tx_mask_tiles_df1_repeat_button_label": "tinytext"
+                }
+            },
+            "tx_mask_tiles_df1_repeat_headline": {
+                "tx_mask_tiles_df1_repeat": {
+                    "tx_mask_tiles_df1_repeat_headline": "mediumtext"
+                }
+            },
+            "tx_mask_tiles_df1_repeat_icon": {
+                "tx_mask_tiles_df1_repeat": {
+                    "tx_mask_tiles_df1_repeat_icon": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            },
+            "tx_mask_tiles_df1_repeat_link": {
+                "tx_mask_tiles_df1_repeat": {
+                    "tx_mask_tiles_df1_repeat_link": "tinytext"
+                }
+            },
+            "tx_mask_tiles_df1_repeat_overlay": {
+                "tx_mask_tiles_df1_repeat": {
+                    "tx_mask_tiles_df1_repeat_overlay": "int(11) DEFAULT '0' NOT NULL"
+                }
+            }
+        },
+        "tca": {
+            "tx_mask_linebreak-1uhdk3hdn": {
+                "config": {
+                    "type": "linebreak"
+                },
+                "description": "",
+                "inPalette": "1",
+                "inlineParent": "tx_mask_tiles_df1_repeat_palette",
+                "key": "linebreak-1uhdk3hdn",
+                "label": "",
+                "order": 3
+            },
+            "tx_mask_linebreak-5gtj82bcc": {
+                "config": {
+                    "type": "linebreak"
+                },
+                "description": "",
+                "inPalette": "1",
+                "inlineParent": "tx_mask_tiles_df1_repeat_palette",
+                "key": "linebreak-5gtj82bcc",
+                "label": "undefined",
+                "order": 6
+            },
+            "tx_mask_linebreak-soz2goo3t": {
+                "config": {
+                    "type": "linebreak"
+                },
+                "description": "",
+                "inPalette": "1",
+                "inlineParent": "tx_mask_tiles_df1_repeat_palette",
+                "key": "linebreak-soz2goo3t",
+                "label": "undefined",
+                "order": 9
+            },
+            "tx_mask_tiles_df1_repeat_betitle": {
+                "config": {
+                    "autocomplete": "0",
+                    "behaviour": {
+                        "allowLanguageSynchronization": "0"
+                    },
+                    "default": "",
+                    "eval": "",
+                    "is_in": "",
+                    "max": "",
+                    "mode": "",
+                    "placeholder": "",
+                    "size": "",
+                    "type": "input"
+                },
+                "description": "A short, descriptive label for this tile, only shown in backend",
+                "exclude": "1",
+                "inPalette": "1",
+                "inlineParent": "tx_mask_tiles_df1_repeat_palette",
+                "key": "tiles_df1_repeat_betitle",
+                "l10n_mode": "",
+                "label": "BE-Title",
+                "order": 2
+            },
+            "tx_mask_tiles_df1_repeat_bgimg": {
+                "config": {
+                    "appearance": {
+                        "collapseAll": "0",
+                        "expandSingle": "0",
+                        "fileUploadAllowed": "1",
+                        "showAllLocalizationLink": "1",
+                        "showPossibleLocalizationRecords": "1",
+                        "showRemovedLocalizationRecords": "1",
+                        "showSynchronizationLink": "0",
+                        "useSortable": "0"
+                    },
+                    "behaviour": {
+                        "allowLanguageSynchronization": "0"
+                    },
+                    "filter": [
+                        {
+                            "parameters": {
+                                "allowedFileExtensions": ""
+                            }
+                        }
+                    ],
+                    "maxitems": "1",
+                    "minitems": ""
+                },
+                "description": "",
+                "exclude": "1",
+                "imageoverlayPalette": "1",
+                "inPalette": "1",
+                "inlineParent": "tx_mask_tiles_df1_repeat_palette",
+                "key": "tiles_df1_repeat_bgimg",
+                "l10n_mode": "",
+                "label": "Background Image",
+                "options": "file",
+                "order": 11
+            },
+            "tx_mask_tiles_df1_repeat_button_label": {
+                "config": {
+                    "autocomplete": "0",
+                    "behaviour": {
+                        "allowLanguageSynchronization": "0"
+                    },
+                    "default": "",
+                    "eval": "trim",
+                    "is_in": "",
+                    "max": "",
+                    "mode": "",
+                    "placeholder": "",
+                    "size": "",
+                    "type": "input"
+                },
+                "description": "If the label is given, the Link is a button, otherwise the entire tile is clickable",
+                "exclude": "1",
+                "inPalette": "1",
+                "inlineParent": "tx_mask_tiles_df1_repeat_palette",
+                "key": "tiles_df1_repeat_button_label",
+                "l10n_mode": "",
+                "label": "Button Label",
+                "order": 8
+            },
+            "tx_mask_tiles_df1_repeat_headline": {
+                "config": {
+                    "behaviour": {
+                        "allowLanguageSynchronization": "0"
+                    },
+                    "cols": "",
+                    "default": "",
+                    "eval": "trim",
+                    "format": "",
+                    "max": "",
+                    "mode": "",
+                    "placeholder": "",
+                    "rows": "2",
+                    "type": "text",
+                    "wrap": "off"
+                },
+                "description": "",
+                "exclude": "1",
+                "inPalette": "1",
+                "inlineParent": "tx_mask_tiles_df1_repeat_palette",
+                "key": "tiles_df1_repeat_headline",
+                "l10n_mode": "",
+                "label": "Headline",
+                "order": 4
+            },
+            "tx_mask_tiles_df1_repeat_icon": {
+                "config": {
+                    "appearance": {
+                        "collapseAll": "0",
+                        "expandSingle": "0",
+                        "fileUploadAllowed": "1",
+                        "showAllLocalizationLink": "1",
+                        "showPossibleLocalizationRecords": "1",
+                        "showRemovedLocalizationRecords": "1",
+                        "showSynchronizationLink": "0",
+                        "useSortable": "0"
+                    },
+                    "behaviour": {
+                        "allowLanguageSynchronization": "0"
+                    },
+                    "filter": [
+                        {
+                            "parameters": {
+                                "allowedFileExtensions": ""
+                            }
+                        }
+                    ],
+                    "maxitems": "1",
+                    "minitems": ""
+                },
+                "description": "",
+                "exclude": "1",
+                "imageoverlayPalette": "1",
+                "inPalette": "1",
+                "inlineParent": "tx_mask_tiles_df1_repeat_palette",
+                "key": "tiles_df1_repeat_icon",
+                "l10n_mode": "",
+                "label": "Icon",
+                "options": "file",
+                "order": 10
+            },
+            "tx_mask_tiles_df1_repeat_link": {
+                "config": {
+                    "autocomplete": "0",
+                    "behaviour": {
+                        "allowLanguageSynchronization": "0"
+                    },
+                    "default": "",
+                    "eval": "",
+                    "fieldControl": {
+                        "linkPopup": {
+                            "options": {
+                                "allowedExtensions": "",
+                                "blindLinkOptions": "",
+                                "title": "Link"
+                            }
+                        }
+                    },
+                    "mode": "",
+                    "placeholder": "",
+                    "renderType": "inputLink",
+                    "size": "",
+                    "softref": "typolink",
+                    "type": "input"
+                },
+                "description": "Makes the entire tile clickable or adds a button when the button label is also set",
+                "exclude": "1",
+                "inPalette": "1",
+                "inlineParent": "tx_mask_tiles_df1_repeat_palette",
+                "key": "tiles_df1_repeat_link",
+                "l10n_mode": "",
+                "label": "Link",
+                "order": 7
+            },
+            "tx_mask_tiles_df1_repeat_overlay": {
+                "config": {
+                    "behaviour": {
+                        "allowLanguageSynchronization": "0"
+                    },
+                    "cols": "",
+                    "default": "",
+                    "items": [
+                        [
+                            ""
+                        ]
+                    ],
+                    "renderType": "",
+                    "type": "check"
+                },
+                "description": "This will make the tile background fade when hovering with the cursor",
+                "exclude": "1",
+                "inPalette": "1",
+                "inlineParent": "tx_mask_tiles_df1_repeat_palette",
+                "key": "tiles_df1_repeat_overlay",
+                "l10n_mode": "",
+                "label": "Show Overlay on Hover",
+                "order": 5
+            },
+            "tx_mask_tiles_df1_repeat_palette": {
+                "config": {
+                    "type": "palette"
+                },
+                "description": "",
+                "inlineParent": "tx_mask_tiles_df1_repeat",
+                "key": "tiles_df1_repeat_palette",
+                "label": "",
+                "order": 1
             }
         }
     }

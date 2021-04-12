@@ -1,0 +1,90 @@
+.TilesDf1 {
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: auto;
+}
+
+@media(--screen-mobile) {
+    .TilesDf1--2,
+    .TilesDf1--4 {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media(--screen-tablet) {
+    .TilesDf1--3 {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media(--screen-tablet-landscape) {
+    .TilesDf1--4 {
+        grid-template-columns: auto auto auto auto;
+    }
+}
+
+.TilesDf1__tile {
+    width: 100%;
+    position: relative;
+    z-index: 0;
+}
+
+.TilesDf1__tile:before {
+    display: block;
+    content: "";
+    padding-bottom: var(--media-1by1);
+}
+
+.TilesDf1__tile--overlay:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 20;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: #00000080;
+    opacity: 0;
+    transition: opacity .4s;
+}
+
+.TilesDf1__tile--overlay:hover:after {
+    opacity: 1;
+}
+
+.TilesDf1__tile-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.TilesDf1__tile-background .image {
+    height: 100%;
+}
+
+.TilesDf1__tile-background .image img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.TilesDf1__tile-contentWrapper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 30;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: initial;
+    transition: background 0.4s;
+}

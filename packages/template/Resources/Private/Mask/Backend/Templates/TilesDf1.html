@@ -1,0 +1,114 @@
+<div class="maskBase">
+
+  <f:if condition="{data.tx_mask_tiles_df1_betitle}">
+    <div class="maskBase__label">
+      {data.tx_mask_tiles_df1_betitle}
+    </div>
+  </f:if>
+
+  <div class="maskBase__content">
+    <f:comment><f:if condition="{data_item.tx_mask_tiles_df1_repeat_icon}">
+              <f:for each="{data_item.tx_mask_tiles_df1_repeat_icon}" as="file">
+                <f:image image="{file}" width="200" />
+                {file.description}
+              </f:for>
+            </f:if>
+            <f:if condition="{data_item.tx_mask_tiles_df1_repeat_bgimg}">
+              <f:for each="{data_item.tx_mask_tiles_df1_repeat_bgimg}" as="file">
+                <f:image image="{file}" width="200" />
+                {file.description}
+              </f:for>
+      </f:if></f:comment>
+
+
+    <f:if condition="{data.tx_mask_tiles_df1_repeat}">
+      <div class="table-fit">
+        <table class="table table-hover table-stripe">
+          <thead>
+            <tr>
+              <th>
+                BE Title
+              </th>
+              <th>
+                Headline
+              </th>
+              <th>
+                Button Label
+              </th>
+              <th>
+                Link
+              </th>
+              <th>
+                Overlay
+              </th>
+              <th>
+                BG-Image
+              </th>
+              <th>
+                Icon
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <f:for each="{data.tx_mask_tiles_df1_repeat}" as="tile">
+              <tr>
+                <td>
+                  {f:if(
+                    condition: "{tile.tx_mask_tiles_df1_repeat_betitle}",
+                    then:      "{tile.tx_mask_tiles_df1_repeat_betitle -> f:format.nl2br()}",
+                    else:      "N/A"
+                  )}
+                <td class="col-title">
+                  {f:if(
+                    condition: "{tile.tx_mask_tiles_df1_repeat_headline}",
+                    then:      "<b>{tile.tx_mask_tiles_df1_repeat_headline -> f:format.nl2br()}</b>",
+                    else:      "N/A"
+                  )}
+                <td>
+                  {f:if(
+                    condition: "{tile.tx_mask_tiles_df1_repeat_button_label}",
+                    then:      "{tile.tx_mask_tiles_df1_repeat_button_label -> f:format.nl2br()}",
+                    else:      "N/A"
+                  )}
+                <td>
+                  {f:if(
+                    condition: "{tile.tx_mask_tiles_df1_repeat_link}",
+                    then:      "{tile.tx_mask_tiles_df1_repeat_link -> f:format.nl2br()}",
+                    else:      "N/A"
+                  )}
+                </td>
+                <td>
+                  {f:if(
+                    condition: "{tile.tx_mask_tiles_df1_repeat_overlay = 1}",
+                    then:      "Shown",
+                    else:      "Hidden"
+                  )}
+                </td>
+                <td>
+                  <f:if condition="{tile.tx_mask_tiles_df1_repeat_bgimg}">
+                    <f:then>
+                      <f:render partial="ImageMeta" section="Image" arguments="{image: tile.tx_mask_tiles_df1_repeat_bgimg.0}" />
+                    </f:then>
+                    <f:else>
+                      N/A
+                    </f:else>
+                  </f:if>
+                </td>
+                <td>
+                  <f:if condition="{tile.tx_mask_tiles_df1_repeat_icon}">
+                    <f:then>
+                      <f:render partial="ImageMeta" section="Image" arguments="{image: tile.tx_mask_tiles_df1_repeat_icon.0}" />
+                    </f:then>
+                    <f:else>
+                      N/A
+                    </f:else>
+                  </f:if>
+                </td>
+              </tr>
+            </f:for>
+          </tbody>
+        </table>
+      </div>
+    </f:if>
+  </div>
+</div>

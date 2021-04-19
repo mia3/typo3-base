@@ -83,14 +83,14 @@
             "tiles_df1": {
                 "color": "#000000",
                 "columns": [
-                    "tx_mask_tiles_df1_repeat"
+                    "tx_mask_tiles_df1_palette"
                 ],
                 "description": "2-4 tiles that can have a background image, an icon and a headline, be a link or have a button.",
                 "icon": "",
                 "key": "tiles_df1",
                 "label": "Tile Teaser",
                 "labels": [
-                    "Tiles"
+                    ""
                 ],
                 "shortLabel": ""
             }
@@ -121,6 +121,14 @@
                     "tx_mask_teaser_df1_columns",
                     "tx_mask_linebreak-9o4jhecby",
                     "tx_mask_teaser_df1_repeat"
+                ]
+            },
+            "tx_mask_tiles_df1_palette": {
+                "label": "",
+                "showitem": [
+                    "tx_mask_tiles_df1_columns",
+                    "tx_mask_linebreak-wet8cjq6k",
+                    "tx_mask_tiles_df1_repeat"
                 ]
             }
         },
@@ -168,6 +176,11 @@
             "tx_mask_teaser_df1_repeat": {
                 "tt_content": {
                     "tx_mask_teaser_df1_repeat": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            },
+            "tx_mask_tiles_df1_columns": {
+                "tt_content": {
+                    "tx_mask_tiles_df1_columns": "tinytext"
                 }
             },
             "tx_mask_tiles_df1_repeat": {
@@ -350,6 +363,23 @@
                 },
                 "order": {
                     "slider_df1": 4
+                }
+            },
+            "tx_mask_linebreak-wet8cjq6k": {
+                "config": {
+                    "type": "linebreak"
+                },
+                "description": "",
+                "inPalette": "1",
+                "inlineParent": {
+                    "tiles_df1": "tx_mask_tiles_df1_palette"
+                },
+                "key": "linebreak-wet8cjq6k",
+                "label": {
+                    "tiles_df1": ""
+                },
+                "order": {
+                    "tiles_df1": 2
                 }
             },
             "tx_mask_slider_df1_autoplay": {
@@ -608,6 +638,58 @@
                     "teaser_df1": 3
                 }
             },
+            "tx_mask_tiles_df1_columns": {
+                "config": {
+                    "autoSizeMax": "",
+                    "behaviour": {
+                        "allowLanguageSynchronization": "0"
+                    },
+                    "fileFolder": "",
+                    "fileFolder_extList": "",
+                    "fileFolder_recursions": "",
+                    "foreign_table": "",
+                    "foreign_table_where": "",
+                    "items": [
+                        [
+                            "2 Columns",
+                            "2"
+                        ],
+                        [
+                            "3 Columns",
+                            "3"
+                        ],
+                        [
+                            "4 Columns",
+                            "4"
+                        ]
+                    ],
+                    "maxitems": "",
+                    "renderType": "selectSingle",
+                    "size": "",
+                    "type": "select"
+                },
+                "description": "",
+                "exclude": "1",
+                "inPalette": "1",
+                "inlineParent": {
+                    "tiles_df1": "tx_mask_tiles_df1_palette"
+                },
+                "key": "tiles_df1_columns",
+                "l10n_mode": "",
+                "label": {
+                    "tiles_df1": "Number of Columns"
+                },
+                "order": {
+                    "tiles_df1": 1
+                }
+            },
+            "tx_mask_tiles_df1_palette": {
+                "config": {
+                    "type": "palette"
+                },
+                "description": "",
+                "key": "tiles_df1_palette"
+            },
             "tx_mask_tiles_df1_repeat": {
                 "config": {
                     "appearance": {
@@ -631,16 +713,26 @@
                     "foreign_sortby": "sorting",
                     "foreign_table": "--inlinetable--",
                     "foreign_table_field": "parenttable",
-                    "maxitems": "4",
-                    "minitems": "2",
+                    "maxitems": "",
+                    "minitems": "",
                     "type": "inline"
                 },
                 "description": "",
                 "exclude": "1",
+                "inPalette": "1",
                 "inlineIcon": "",
                 "inlineLabel": "",
+                "inlineParent": {
+                    "tiles_df1": "tx_mask_tiles_df1_palette"
+                },
                 "key": "tiles_df1_repeat",
-                "l10n_mode": ""
+                "l10n_mode": "",
+                "label": {
+                    "tiles_df1": "Tiles"
+                },
+                "order": {
+                    "tiles_df1": 3
+                }
             }
         }
     },
@@ -1234,7 +1326,7 @@
                 "inlineParent": "tx_mask_tiles_df1_repeat_palette",
                 "key": "linebreak-1uhdk3hdn",
                 "label": "",
-                "order": 3
+                "order": 6
             },
             "tx_mask_linebreak-5gtj82bcc": {
                 "config": {
@@ -1245,7 +1337,7 @@
                 "inlineParent": "tx_mask_tiles_df1_repeat_palette",
                 "key": "linebreak-5gtj82bcc",
                 "label": "undefined",
-                "order": 6
+                "order": 9
             },
             "tx_mask_linebreak-soz2goo3t": {
                 "config": {
@@ -1256,7 +1348,7 @@
                 "inlineParent": "tx_mask_tiles_df1_repeat_palette",
                 "key": "linebreak-soz2goo3t",
                 "label": "undefined",
-                "order": 9
+                "order": 12
             },
             "tx_mask_tiles_df1_repeat_betitle": {
                 "config": {
@@ -1280,7 +1372,7 @@
                 "key": "tiles_df1_repeat_betitle",
                 "l10n_mode": "",
                 "label": "BE-Title",
-                "order": 2
+                "order": 5
             },
             "tx_mask_tiles_df1_repeat_bgimg": {
                 "config": {
@@ -1316,7 +1408,7 @@
                 "l10n_mode": "",
                 "label": "Background Image",
                 "options": "file",
-                "order": 11
+                "order": 14
             },
             "tx_mask_tiles_df1_repeat_button_label": {
                 "config": {
@@ -1340,7 +1432,7 @@
                 "key": "tiles_df1_repeat_button_label",
                 "l10n_mode": "",
                 "label": "Button Label",
-                "order": 8
+                "order": 11
             },
             "tx_mask_tiles_df1_repeat_headline": {
                 "config": {
@@ -1365,7 +1457,7 @@
                 "key": "tiles_df1_repeat_headline",
                 "l10n_mode": "",
                 "label": "Headline",
-                "order": 4
+                "order": 7
             },
             "tx_mask_tiles_df1_repeat_icon": {
                 "config": {
@@ -1401,7 +1493,7 @@
                 "l10n_mode": "",
                 "label": "Icon",
                 "options": "file",
-                "order": 10
+                "order": 13
             },
             "tx_mask_tiles_df1_repeat_link": {
                 "config": {
@@ -1434,7 +1526,7 @@
                 "key": "tiles_df1_repeat_link",
                 "l10n_mode": "",
                 "label": "Link",
-                "order": 7
+                "order": 10
             },
             "tx_mask_tiles_df1_repeat_overlay": {
                 "config": {
@@ -1458,7 +1550,7 @@
                 "key": "tiles_df1_repeat_overlay",
                 "l10n_mode": "",
                 "label": "Show Overlay on Hover",
-                "order": 5
+                "order": 8
             },
             "tx_mask_tiles_df1_repeat_palette": {
                 "config": {
@@ -1468,7 +1560,7 @@
                 "inlineParent": "tx_mask_tiles_df1_repeat",
                 "key": "tiles_df1_repeat_palette",
                 "label": "",
-                "order": 1
+                "order": 4
             }
         }
     }

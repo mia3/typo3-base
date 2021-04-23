@@ -1,7 +1,6 @@
 /* Button
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.button
-{
+.button {
   background: var(--isabelline);
   border: 0;
   color: var(--dead-pixel);
@@ -16,18 +15,15 @@
 }
 
 .button:hover,
-.button:focus
-{
+.button:focus {
   outline: none;
 }
 
-.button:active
-{
+.button:active {
   outline: none;
 }
 
-.button[disabled]
-{
+.button[disabled] {
   cursor: not-allowed;
   opacity: 0.5;
 }

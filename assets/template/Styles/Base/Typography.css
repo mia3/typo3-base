@@ -2,26 +2,22 @@
  * Typography
  * –––––––––– */
 
-p
-{
+p {
   font-size: var(--text-font-size);
   line-height: var(--text-line-height);
   margin: 0 0 var(--line);
 }
 
-p:last-child
-{
+p:last-child {
   margin-bottom: 0;
 }
 
-ul, ol
-{
+ul, ol {
   font-size: 1em;
   line-height: 2em;
 }
 
-h1, .h1
-{
+h1, .h1 {
   color: #2ecc40;
   font-size: calc(var(--base) * 6);
   font-weight: normal;
@@ -31,8 +27,7 @@ h1, .h1
   padding: 0;
 }
 
-h2, .h2
-{
+h2, .h2 {
   color: #3d9970;
   font-size: calc(var(--base) * 5);
   font-weight: normal;
@@ -42,8 +37,7 @@ h2, .h2
   padding: 0;
 }
 
-h3, .h3
-{
+h3, .h3 {
   color: #7fdbff;
   font-size: calc(var(--base) * 4);
   font-weight: normal;
@@ -54,8 +48,7 @@ h3, .h3
   word-break: break-word;
 }
 
-h4, .h4
-{
+h4, .h4 {
   color: #39cccc;
   font-size: calc(var(--base) * 3);
   font-weight: normal;

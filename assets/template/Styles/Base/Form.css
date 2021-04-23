@@ -1,24 +1,20 @@
 /*
  * Forms
  * ––––– */
-.form
-{
+.form {
   display: grid;
   grid-gap: var(--line);
 }
 
-.formFeedback
-{
+.formFeedback {
   border: 2px solid var(--steam);
   padding: 15px;
 }
 
-.formFeedback--success
-{
+.formFeedback--success {
   border-color: var(--poisonouse-pesticide);
 }
 
-.formFeedback__title
-{
+.formFeedback__title {
   margin-bottom: var(--line);
 }

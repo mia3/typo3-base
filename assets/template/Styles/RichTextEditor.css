@@ -4,13 +4,11 @@
 @import './Base/Typography.css';
 @import './Utility/Utility.css';
 
-:root
-{
+:root {
   --base: 4px;
 }
 
-.cke_editable
-{
+.cke_editable {
   font-weight: 400;
   line-height: var(--line-2);;
   margin: 0;
@@ -23,18 +21,15 @@
 .cke_panel_listItem h3,
 .cke_panel_listItem h4,
 .cke_panel_listItem h5,
-.cke_panel_listItem h6
-{
+.cke_panel_listItem h6 {
   padding: 0;
 }
 
-.row
-{
+.row {
   max-width: 1170px;
 }
 
-.ckeditor__columns-content
-{
+.ckeditor__columns-content {
   background: #efefef;
   border: 1px solid #ccc;
   border-radius: 5px;

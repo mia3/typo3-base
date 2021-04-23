@@ -1,13 +1,10 @@
-.text
-{
+.text {
 }
 
-.text--twoColumns
-{
+.text--twoColumns {
   column-count: 2;
 }
 
-.text--twoColumns > p
-{
+.text--twoColumns > p {
   margin-top: 0;
 }

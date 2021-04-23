@@ -1,33 +1,28 @@
-.page__header
-{
+.page__header {
   border: 10px solid #001f3f;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.header__logo
-{
+.header__logo {
   display: block;
   height: var(--line-6);
 }
 
-.header__logo img
-{
+.header__logo img {
   height: 100%;
   width: auto;
 }
 
-.page__header .mainMenu
-{
+.page__header .mainMenu {
   display: flex;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.page__header .mainMenu__link
-{
+.page__header .mainMenu__link {
   display: inline-block;
   padding: 10px 20px;
   font-size: calc(var(--base) * 4);

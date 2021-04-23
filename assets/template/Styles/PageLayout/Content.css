@@ -1,16 +1,13 @@
-.scroll--sentinel
-{
+.scroll--sentinel {
   margin-top: -1px;
   min-height: 1px;
   width: 100%;
 }
 
-.page__main
-{
+.page__main {
   border: 10px solid #0074d9;
 }
 
-.page__body
-{
+.page__body {
   position: relative;
 }

@@ -13,6 +13,7 @@ body {
   font-weight: 400;
   line-height: var(--text-line-height);
   margin: 0;
+  font-family: var(--font-family);
 }
 
 * {

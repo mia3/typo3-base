@@ -9,29 +9,29 @@ call_user_func(
         $temporaryColumns = [
             'header_style' => [
                 'exclude' => true,
-                'label' => $ll . 'header_style',
+                'label' => $ll.'header_style',
                 'config' => [
                     'type' => 'select',
                     'renderType' => 'selectSingle',
                     'items' => [
                         [
-                            $ll . 'header_style.default',
+                            $ll.'header_style.default',
                             '0',
                         ],
                         [
-                            $ll . 'header_style.h1',
+                            $ll.'header_style.h1',
                             '1',
                         ],
                         [
-                            $ll . 'header_style.h2',
+                            $ll.'header_style.h2',
                             '2',
                         ],
                         [
-                            $ll . 'header_style.h3',
+                            $ll.'header_style.h3',
                             '3',
                         ],
                         [
-                            $ll . 'header_style.h4',
+                            $ll.'header_style.h4',
                             '4',
                         ],
                     ],
@@ -40,17 +40,17 @@ call_user_func(
             ],
             'header_color' => [
                 'exclude' => true,
-                'label' => $ll . 'header_color',
+                'label' => $ll.'header_color',
                 'config' => [
                     'type' => 'select',
                     'renderType' => 'selectSingle',
                     'items' => [
                         [
-                            $ll . 'header_color.none',
+                            $ll.'header_color.none',
                             '0',
                         ],
                         [
-                            $ll . 'header_color.orange',
+                            $ll.'header_color.orange',
                             '1',
                         ],
                     ],
@@ -67,11 +67,19 @@ call_user_func(
             'after:header_layout'
         );
 
+        $enableHeaderPalette = [
+            'mask_placeholder',
+            'mask_slider_df1',
+            'mask_teaser_df1',
+            'mask_dividervideo_df1',
+            'mask_dividerimage_df1',
+        ];
+
         // Adds header palette to mask elements.
         TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
             'tt_content',
             '--palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.headers;headers',
-            'mask_placeholder,mask_slider_df1,mask_teaser_df1,mask_dividervideo_df1',
+            implode(',', $enableHeaderPalette),
             'after:CType'
         );
     }

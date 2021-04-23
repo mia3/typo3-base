@@ -1,20 +1,16 @@
-.slider
-{
+.slider {
   position: relative;
 }
 
-.slider__contentWrapper
-{
+.slider__contentWrapper {
   position: relative;
 }
 
-.slider__contentWrapper > .image
-{
+.slider__contentWrapper > .image {
   line-height: 0;
 }
 
-.slider__overlay
-{
+.slider__overlay {
   position: absolute;
   top: 0;
   right: 0;
@@ -23,23 +19,19 @@
   opacity: .5;
 }
 
-.slider__overlay--0
-{
+.slider__overlay--0 {
   display: none;
 }
 
-.slider__overlay--1
-{
+.slider__overlay--1 {
   background-color: var(--color-primary);
 }
 
-.slider__overlay--2
-{
+.slider__overlay--2 {
   background-color: var(--color-accent);
 }
 
-.slider__titleWrapper
-{
+.slider__titleWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,13 +43,11 @@
 }
 
 /* Slider vue component */
-slider
-{
+slider {
   display: none;
 }
 
-.slider__navigation
-{
+.slider__navigation {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -72,24 +62,20 @@ slider
   z-index: 10;
 }
 
-.slider__navigation--prev
-{
+.slider__navigation--prev {
   left: 0;
 }
 
-.slider__navigation--next
-{
+.slider__navigation--next {
   right: 0;
 }
 
-.slider__pagination
-{
+.slider__pagination {
   display: flex;
   justify-content: center;
 }
 
-.slider__pagination > .swiper-pagination-bullet
-{
+.slider__pagination > .swiper-pagination-bullet {
   display: inline-block;
   width: 10px;
   height: 10px;
@@ -99,12 +85,10 @@ slider
   cursor: pointer;
 }
 
-.slider__pagination > .swiper-pagination-bullet.swiper-pagination-bullet-active
-{
+.slider__pagination > .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: rgba(0, 0, 0, .5);
 }
 
-.slider__pagination > .swiper-pagination-bullet:first-child
-{
+.slider__pagination > .swiper-pagination-bullet:first-child {
   margin-left: 0;
 }

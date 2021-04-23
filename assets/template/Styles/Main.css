@@ -13,7 +13,7 @@
 @import './Base/Image.css';
 @import './Base/Media.css';
 
-/* PageLayout */
+/* Page Layout */
 @import './PageLayout/Content.css';
 @import './PageLayout/Footer.css';
 @import './PageLayout/Header.css';
@@ -22,10 +22,11 @@
 /* Utility */
 @import './Utility/Utility.css';
 
-/* ContentElements */
+/* Content Elements */
 @import './ContentElements/TwoColumn.css';
 @import './ContentElements/ThreeColumn.css';
 @import './ContentElements/Text.css';
 @import './ContentElements/SliderDf1.css';
 @import './ContentElements/TeaserDf1.css';
 @import './ContentElements/DividervideoDf1.css';
+@import './ContentElements/DividerimageDf1.css';

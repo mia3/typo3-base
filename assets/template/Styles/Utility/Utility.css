@@ -1,30 +1,24 @@
-.text--left
-{
+.text--left {
   text-align: left;
 }
 
-.text--center
-{
+.text--center {
   text-align: center;
 }
 
-.text--right
-{
+.text--right {
   text-align: right;
 }
 
-.text--uppercase
-{
+.text--uppercase {
   text-transform: uppercase;
 }
 
-.text--bold
-{
+.text--bold {
   font-weight: bold;
 }
 
-.image-centered
-{
+.image-centered {
   height: 100%;
   left: 0;
   overflow: hidden;
@@ -34,8 +28,7 @@
   z-index: -1;
 }
 
-.image-centered img
-{
+.image-centered img {
   background-repeat: no-repeat;
   background-size: cover;
   height: auto;
@@ -48,8 +41,7 @@
   width: auto;
 }
 
-.image-centered-small img
-{
+.image-centered-small img {
   min-height: 100%;
   object-fit: cover;
   width: 100%;

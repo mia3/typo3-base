@@ -1,33 +1,27 @@
-.responsive-menu-container
-{
+.responsive-menu-container {
   display: none;
 }
 
-.off-canvas-container .responsive-menu-container
-{
+.off-canvas-container .responsive-menu-container {
   display: block;
   position: relative;
 }
 
-.off-canvas-container .button-close
-{
+.off-canvas-container .button-close {
   z-index: 11;
 }
 
-.responsive-menu
-{
+.responsive-menu {
   color: white;
   margin: 0 0 0 5px;
 }
 
-.responsive-menu a
-{
+.responsive-menu a {
   color: white;
   text-decoration: none;
 }
 
-.page-logo--responsiveMenu
-{
+.page-logo--responsiveMenu {
   display: inline-block;
   height: calc(6 * var(--base));
   margin: calc(3 * var(--base)) 0;
@@ -36,33 +30,26 @@
   width: 100%;
 }
 
-.page-logo--responsiveMenu img
-{
+.page-logo--responsiveMenu img {
   height: 100%;
   width: auto;
 }
 
-@media (--screen-mobile)
-{
-  .page-logo--responsiveMenu
-  {
+@media (--screen-mobile) {
+  .page-logo--responsiveMenu {
     height: calc(7 * var(--base));
     margin: calc(4 * var(--base)) 0;
   }
 }
 
-@media (--screen-tablet-landscape)
-{
-  .responsive-menu-container
-  {
+@media (--screen-tablet-landscape) {
+  .responsive-menu-container {
     display: none;
   }
 }
 
-@media (--screen-tablet)
-{
-  .responsive-menu
-  {
+@media (--screen-tablet) {
+  .responsive-menu {
     margin: 0 0 0 10px;
   }
 }

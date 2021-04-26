@@ -25,6 +25,11 @@
                 "sys_file_reference": {
                     "tx_mask_teaser_df1_repeat_img": "int(11) unsigned DEFAULT '0' NOT NULL"
                 }
+            },
+            "tx_mask_textonimage_df1_media": {
+                "sys_file_reference": {
+                    "tx_mask_textonimage_df1_media": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
             }
         }
     },
@@ -88,6 +93,23 @@
                     "11": "rte"
                 },
                 "shortLabel": ""
+            },
+            "textonimage_df1": {
+                "color": "#000000",
+                "columns": [
+                    "tx_mask_textonimage_df1_palette"
+                ],
+                "description": "",
+                "icon": "",
+                "key": "textonimage_df1",
+                "label": "Text auf Bild",
+                "labels": [
+                    "Text auf Bild"
+                ],
+                "options": {
+                    "1": "rte"
+                },
+                "shortLabel": ""
             }
         },
         "palettes": {
@@ -123,6 +145,15 @@
                     "tx_mask_teaser_df1_columns",
                     "tx_mask_linebreak-9o4jhecby",
                     "tx_mask_teaser_df1_repeat"
+                ]
+            },
+            "tx_mask_textonimage_df1_palette": {
+                "label": "Text auf Bild",
+                "showitem": [
+                    "tx_mask_textonimage_df1_text",
+                    "tx_mask_linebreak-tzcu0011c",
+                    "tx_mask_textonimage_df1_overlay",
+                    "tx_mask_textonimage_df1_media"
                 ]
             }
         },
@@ -180,6 +211,21 @@
             "tx_mask_teaser_df1_repeat": {
                 "tt_content": {
                     "tx_mask_teaser_df1_repeat": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            },
+            "tx_mask_textonimage_df1_media": {
+                "tt_content": {
+                    "tx_mask_textonimage_df1_media": "int(11) unsigned DEFAULT '0' NOT NULL"
+                }
+            },
+            "tx_mask_textonimage_df1_overlay": {
+                "tt_content": {
+                    "tx_mask_textonimage_df1_overlay": "tinytext"
+                }
+            },
+            "tx_mask_textonimage_df1_text": {
+                "tt_content": {
+                    "tx_mask_textonimage_df1_text": "mediumtext"
                 }
             }
         },
@@ -449,6 +495,23 @@
                     "slider_df1": 4
                 }
             },
+            "tx_mask_linebreak-tzcu0011c": {
+                "config": {
+                    "type": "linebreak"
+                },
+                "description": "",
+                "inPalette": "1",
+                "inlineParent": {
+                    "textonimage_df1": "tx_mask_textonimage_df1_palette"
+                },
+                "key": "linebreak-tzcu0011c",
+                "label": {
+                    "textonimage_df1": ""
+                },
+                "order": {
+                    "textonimage_df1": 2
+                }
+            },
             "tx_mask_slider_df1_autoplay": {
                 "config": {
                     "behaviour": {
@@ -704,6 +767,132 @@
                 "order": {
                     "teaser_df1": 3
                 }
+            },
+            "tx_mask_textonimage_df1_media": {
+                "config": {
+                    "appearance": {
+                        "collapseAll": "0",
+                        "expandSingle": "0",
+                        "fileUploadAllowed": "1",
+                        "showAllLocalizationLink": "1",
+                        "showPossibleLocalizationRecords": "1",
+                        "showRemovedLocalizationRecords": "1",
+                        "showSynchronizationLink": "0",
+                        "useSortable": "0"
+                    },
+                    "behaviour": {
+                        "allowLanguageSynchronization": "0"
+                    },
+                    "filter": [
+                        {
+                            "parameters": {
+                                "allowedFileExtensions": ""
+                            }
+                        }
+                    ],
+                    "maxitems": "",
+                    "minitems": ""
+                },
+                "description": "",
+                "exclude": "1",
+                "imageoverlayPalette": "1",
+                "inPalette": "1",
+                "inlineParent": {
+                    "textonimage_df1": "tx_mask_textonimage_df1_palette"
+                },
+                "key": "textonimage_df1_media",
+                "l10n_mode": "",
+                "label": {
+                    "textonimage_df1": "Hintergrundbild"
+                },
+                "options": "file",
+                "order": {
+                    "textonimage_df1": 4
+                }
+            },
+            "tx_mask_textonimage_df1_overlay": {
+                "config": {
+                    "autoSizeMax": "",
+                    "behaviour": {
+                        "allowLanguageSynchronization": "0"
+                    },
+                    "fileFolder": "",
+                    "fileFolder_extList": "",
+                    "fileFolder_recursions": "",
+                    "foreign_table": "",
+                    "foreign_table_where": "",
+                    "items": [
+                        [
+                            "kein Overlay",
+                            "0"
+                        ],
+                        [
+                            "Overlay 1",
+                            "1"
+                        ],
+                        [
+                            "Overlay 2",
+                            "2"
+                        ]
+                    ],
+                    "maxitems": "",
+                    "renderType": "selectSingle",
+                    "size": "",
+                    "type": "select"
+                },
+                "description": "",
+                "exclude": "1",
+                "inPalette": "1",
+                "inlineParent": {
+                    "textonimage_df1": "tx_mask_textonimage_df1_palette"
+                },
+                "key": "textonimage_df1_overlay",
+                "l10n_mode": "",
+                "label": {
+                    "textonimage_df1": "Overlay"
+                },
+                "order": {
+                    "textonimage_df1": 3
+                }
+            },
+            "tx_mask_textonimage_df1_palette": {
+                "config": {
+                    "type": "palette"
+                },
+                "description": "",
+                "key": "textonimage_df1_palette"
+            },
+            "tx_mask_textonimage_df1_text": {
+                "config": {
+                    "behaviour": {
+                        "allowLanguageSynchronization": "0"
+                    },
+                    "cols": "",
+                    "default": "",
+                    "enableRichtext": "1",
+                    "eval": "",
+                    "max": "",
+                    "mode": "",
+                    "placeholder": "",
+                    "rows": "",
+                    "type": "text",
+                    "wrap": "off"
+                },
+                "description": "",
+                "exclude": "1",
+                "inPalette": "1",
+                "inlineParent": {
+                    "textonimage_df1": "tx_mask_textonimage_df1_palette"
+                },
+                "key": "textonimage_df1_text",
+                "l10n_mode": "",
+                "label": {
+                    "textonimage_df1": "Text"
+                },
+                "order": {
+                    "textonimage_df1": 1
+                },
+                "rte": "1"
             }
         }
     },

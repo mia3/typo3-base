@@ -17,12 +17,3 @@ config {
   # Records that are not locallized till be hidden
   sys_language_overlay = hideNonTranslated
 }
-
-[globalVar = GP:L=1]
-  config {
-    language = en
-    locale_all = en_GB.utf8
-    htmlTag_langKey = en
-    sys_language_uid = 1
-  }
-[global]

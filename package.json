@@ -10,7 +10,7 @@
     "mjml": "^4.7.1",
     "postcss-easy-import": "*",
     "postcss-loader": "^3",
-    "swiper": "^5",
+    "swiper": "^6",
     "table": "*",
     "vue": "^2",
     "vue-awesome-swiper": "*",

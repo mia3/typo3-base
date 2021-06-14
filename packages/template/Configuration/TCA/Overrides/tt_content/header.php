@@ -74,6 +74,7 @@ call_user_func(
             'mask_dividervideo_df1',
             'mask_dividerimage_df1',
             'mask_textonimage_df1',
+            'mask_tiles_df1',
         ];
 
         // Adds header palette to mask elements.

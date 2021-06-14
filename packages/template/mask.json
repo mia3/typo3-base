@@ -922,6 +922,40 @@
                     "textonimage_df1": 1
                 },
                 "rte": "1"
+            },
+            "tx_mask_tiles_df1_repeat": {
+                "config": {
+                    "appearance": {
+                        "collapseAll": "0",
+                        "enabledControls": {
+                            "dragdrop": "1"
+                        },
+                        "expandSingle": "0",
+                        "levelLinksPosition": "top",
+                        "newRecordLinkTitle": "",
+                        "showAllLocalizationLink": "1",
+                        "showPossibleLocalizationRecords": "1",
+                        "showRemovedLocalizationRecords": "1",
+                        "showSynchronizationLink": "0",
+                        "useSortable": "0"
+                    },
+                    "behaviour": {
+                        "allowLanguageSynchronization": "0"
+                    },
+                    "foreign_field": "parentid",
+                    "foreign_sortby": "sorting",
+                    "foreign_table": "--inlinetable--",
+                    "foreign_table_field": "parenttable",
+                    "maxitems": "",
+                    "minitems": "",
+                    "type": "inline"
+                },
+                "description": "",
+                "exclude": "1",
+                "inlineIcon": "",
+                "inlineLabel": "",
+                "key": "tiles_df1_repeat",
+                "l10n_mode": ""
             }
         },
         "tx_mask_tiles_df1_repeat": {
@@ -941,7 +975,7 @@
                     "useSortable": "0"
                 },
                 "behaviour": {
-                  " allowLanguageSynchronization": "0"
+                    "allowLanguageSynchronization": "0"
                 },
                 "foreign_field": "parentid",
                 "foreign_sortby": "sorting",

@@ -164,7 +164,7 @@ return [
             'unifiedPageTranslationHandling' => true,
             'yamlImportsFollowDeclarationOrder' => true,
         ],
-        'sitename' => 'MIA3 . TYPO3 Template',
+        'sitename' => 'TYPO3 Template Demo',
         'systemMaintainers' => [
             1,
         ],

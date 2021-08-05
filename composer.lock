@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "60f8a98b34256c2a5d3fd82add14af9f",
+    "content-hash": "be4f895842826f28e99b4cad4c0d52f3",
     "packages": [
         {
             "name": "cogpowered/finediff",
@@ -1298,26 +1298,26 @@
         },
         {
             "name": "mask/mask",
-            "version": "v6.7.1",
+            "version": "v7.0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Gernott/mask.git",
-                "reference": "0241a338837c9fc8502d1eea15ba09dfd4e0f827"
+                "reference": "ede73677703b73331997ee9f2e5c6d9c610b58b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Gernott/mask/zipball/0241a338837c9fc8502d1eea15ba09dfd4e0f827",
-                "reference": "0241a338837c9fc8502d1eea15ba09dfd4e0f827",
+                "url": "https://api.github.com/repos/Gernott/mask/zipball/ede73677703b73331997ee9f2e5c6d9c610b58b3",
+                "reference": "ede73677703b73331997ee9f2e5c6d9c610b58b3",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "php": "^7.2",
-                "typo3/cms-backend": "^10.4 || ~11.1.0",
-                "typo3/cms-core": "^10.4 || ~11.1.0",
-                "typo3/cms-extbase": "^10.4 || ~11.1.0",
-                "typo3/cms-fluid": "^10.4 || ~11.1.0",
-                "typo3/cms-fluid-styled-content": "^10.4 || ~11.1.0"
+                "typo3/cms-backend": "^10.4.11 || ~11.3.0",
+                "typo3/cms-core": "^10.4.11 || ~11.3.0",
+                "typo3/cms-extbase": "^10.4.11 || ~11.3.0",
+                "typo3/cms-fluid": "^10.4.11 || ~11.3.0",
+                "typo3/cms-fluid-styled-content": "^10.4.11 || ~11.3.0"
             },
             "replace": {
                 "typo3-ter/mask": "self.version"
@@ -1373,7 +1373,7 @@
                 "issues": "https://github.com/gernott/mask/issues/",
                 "source": "https://github.com/gernott/mask"
             },
-            "time": "2021-06-16T08:43:31+00:00"
+            "time": "2021-07-18T12:26:58+00:00"
         },
         {
             "name": "mia3/template",

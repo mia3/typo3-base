@@ -1,4 +1,8 @@
-base: 'http://typo3.local'
+base: 'https://typo3.mia3.com/'
+baseVariants:
+  -
+    base: typo3.local
+    condition: 'applicationContext == "Development/Local"'
 errorHandling:
   -
     errorCode: 404
@@ -19,6 +23,7 @@ languages:
     hreflang: de-de
     direction: ltr
     flag: de
+    websiteTitle: ''
 rootPageId: 1
 routes:
   -

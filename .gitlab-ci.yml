@@ -10,11 +10,12 @@ before_script:
   - chmod 600 private_key
   - ssh-add private_key
   - rm private_key
-  - ssh-keyscan -p 2222 'gitlab.mia3.com' >> ~/.ssh/known_hosts # gitlab server
-  - ssh-keyscan -p 22   'typo3.mia3.com'  >> ~/.ssh/known_hosts # deployment target server
+  - ssh-keyscan -p 22 'typo3.mia3.com' >> ~/.ssh/known_hosts
 
 deploy_prod:
   stage: deploy
-  script: make production/deploy
+  script:
+    - cat /etc/resolv.conf
+    - make production/deploy
   only:
     - main

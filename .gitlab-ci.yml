@@ -13,21 +13,8 @@ before_script:
   - ssh-keyscan -p 2222 'gitlab.mia3.com' >> ~/.ssh/known_hosts # gitlab server
   - ssh-keyscan -p 22   'typo3.mia3.com'  >> ~/.ssh/known_hosts # deployment target server
 
-deploy_int:
-  stage: deploy
-  script: make integration/deploy
-  only:
-    - dev
-
-deploy_staging:
-  stage: deploy
-  script: make staging/deploy
-  only:
-    - main
-
 deploy_prod:
   stage: deploy
   script: make production/deploy
   only:
     - main
-  when: manual

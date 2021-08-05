@@ -1,3 +1,0 @@
-packages/
-composer.json
-composer.lock

@@ -1,0 +1,5 @@
+config/
+packages/
+public/typo3conf/LocalConfiguration.php
+composer.json
+composer.lock

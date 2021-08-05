@@ -1,9 +1,9 @@
 <?php
 return [
     'BE' => [
-        'debug' => true,
+        'debug' => false,
         'explicitADmode' => 'explicitAllow',
-        'installToolPassword' => '$argon2i$v=19$m=16384,t=16,p=2$MmxkNy9vSlh4Z3ZkVU9Rcw$sF6CE+EapkwO5eI2/syaXMDY+OtKfx+u5U53NjTJ/8Q',
+        'installToolPassword' => '$argon2i$v=19$m=65536,t=16,p=1$UXJldDJjNXVheXJRSUhjbw$chg+1zYNuIA/5I4UcQDvHYwm/40UHzrvCbyzEC8kUv4',
         'loginSecurityLevel' => 'normal',
         'passwordHashing' => [
             'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\Argon2iPasswordHash',
@@ -18,15 +18,14 @@ return [
             ],
         ],
     ],
-    'EXT' => [],
     'EXTENSIONS' => [
         'backend' => [
-            'backendFavicon' => 'EXT:template/Resources/Public/Media/Favicon/favicon.ico',
-            'backendLogo' => 'EXT:template/Resources/Public/Backend/Logo_3.svg',
-            'loginBackgroundImage' => 'EXT:template/Resources/Public/Backend/Backend_Background.png',
-            'loginFootnote' => '© MIA3 GmbH & Co. KG',
-            'loginHighlightColor' => '#4b113a',
-            'loginLogo' => 'EXT:template/Resources/Public/Backend/Logo_MIA3.svg',
+            'backendFavicon' => '',
+            'backendLogo' => '',
+            'loginBackgroundImage' => '',
+            'loginFootnote' => '',
+            'loginHighlightColor' => '',
+            'loginLogo' => '',
         ],
         'extensionmanager' => [
             'automaticInstallation' => '1',
@@ -36,21 +35,23 @@ return [
             'autoload' => '1',
             'debugMode' => '0',
             'doktypes' => '0,1,4',
+            'flexFormToIrre' => '0',
             'handleErrors' => '0',
+            'pageIntegration' => '1',
             'pagesLanguageConfigurationOverlay' => '0',
             'plugAndPlay' => '0',
             'plugAndPlayDirectory' => 'design',
         ],
         'mask' => [
-            'backend' => 'EXT:template/Resources/Private/Mask/Backend/Templates/',
+            'backend' => 'typo3conf/ext/mask_project/Resources/Private/Mask/Backend/Templates/',
             'backendlayout_pids' => '0,1',
-            'content' => 'EXT:template/Resources/Private/Mask/Frontend/Templates/',
-            'json' => 'EXT:template/mask.json',
-            'layouts' => 'EXT:template/Resources/Private/Mask/Frontend/Layouts/',
-            'layouts_backend' => 'EXT:template/Resources/Private/Mask/Backend/Layouts/',
-            'partials' => 'EXT:template/Resources/Private/Mask/Frontend/Partials/',
-            'partials_backend' => 'EXT:template/Resources/Private/Mask/Backend/Partials/',
-            'preview' => 'EXT:template/Resources/Private/Mask/Backend/Preview/',
+            'content' => 'typo3conf/ext/mask_project/Resources/Private/Mask/Frontend/Templates/',
+            'json' => 'typo3conf/ext/mask_project/Resources/Private/Mask/mask.json',
+            'layouts' => 'typo3conf/ext/mask_project/Resources/Private/Mask/Frontend/Layouts/',
+            'layouts_backend' => 'typo3conf/ext/mask_project/Resources/Private/Mask/Backend/Layouts/',
+            'partials' => 'typo3conf/ext/mask_project/Resources/Private/Mask/Frontend/Partials/',
+            'partials_backend' => 'typo3conf/ext/mask_project/Resources/Private/Mask/Backend/Partials/',
+            'preview' => 'typo3conf/ext/mask_project/Resources/Public/Mask/',
         ],
         'news' => [
             'advancedMediaPreview' => '1',
@@ -72,26 +73,30 @@ return [
             'storageUidImporter' => '1',
             'tagPid' => '1',
         ],
+        'scheduler' => [
+            'maxLifetime' => '1440',
+            'showSampleTasks' => '1',
+        ],
         'vhs' => [
             'disableAssetHandling' => '0',
         ],
     ],
     'FE' => [
-        'debug' => true,
-        'loginSecurityLevel' => 'normal',
+        'debug' => false,
+        'disableNoCacheParameter' => true,
         'passwordHashing' => [
             'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\Argon2iPasswordHash',
             'options' => [],
         ],
     ],
     'GFX' => [
-        'processor' => 'ImageMagick',
-        'processor_allowTemporaryMasksAsPng' => '',
+        'processor' => 'GraphicsMagick',
+        'processor_allowTemporaryMasksAsPng' => false,
         'processor_colorspace' => 'RGB',
         'processor_effects' => false,
-        'processor_enabled' => '1',
-        'processor_path' => '/usr/bin/',
-        'processor_path_lzw' => '/usr/bin/',
+        'processor_enabled' => true,
+        'processor_path' => '/usr/local/bin/',
+        'processor_path_lzw' => '/usr/local/bin/',
     ],
     'LOG' => [
         'TYPO3' => [
@@ -100,7 +105,7 @@ return [
                     'writerConfiguration' => [
                         'notice' => [
                             'TYPO3\CMS\Core\Log\Writer\FileWriter' => [
-                                'disabled' => false,
+                                'disabled' => true,
                             ],
                         ],
                     ],
@@ -109,11 +114,8 @@ return [
         ],
     ],
     'MAIL' => [
-        'templateRootPaths' => [
-            700 => 'EXT:template/Resources/Private/Templates/Email',
-        ],
         'transport' => 'sendmail',
-        'transport_sendmail_command' => '/usr/sbin/sendmail -t -i ',
+        'transport_sendmail_command' => '/usr/sbin/sendmail -t -i',
         'transport_smtp_encrypt' => '',
         'transport_smtp_password' => '',
         'transport_smtp_server' => '',
@@ -127,33 +129,42 @@ return [
                 ],
                 'imagesizes' => [
                     'backend' => 'TYPO3\\CMS\\Core\\Cache\\Backend\\Typo3DatabaseBackend',
+                    'options' => [
+                        'compression' => 1,
+                    ],
                 ],
                 'pages' => [
                     'backend' => 'TYPO3\\CMS\\Core\\Cache\\Backend\\Typo3DatabaseBackend',
+                    'options' => [
+                        'compression' => 1,
+                    ],
                 ],
                 'pagesection' => [
                     'backend' => 'TYPO3\\CMS\\Core\\Cache\\Backend\\Typo3DatabaseBackend',
+                    'options' => [
+                        'compression' => 1,
+                    ],
                 ],
                 'rootline' => [
                     'backend' => 'TYPO3\\CMS\\Core\\Cache\\Backend\\Typo3DatabaseBackend',
+                    'options' => [
+                        'compression' => 1,
+                    ],
                 ],
             ],
         ],
-        'devIPmask' => '*',
-        'displayErrors' => 1,
-        'encryptionKey' => '506070055b32e8b0a9521b685eaf45f49db6bf15dcc0da442a1a3f478bc124c84253929181140ecdb5b8d2446d26ac62',
-        'exceptionalErrors' => 12290,
+        'devIPmask' => '',
+        'displayErrors' => 0,
+        'encryptionKey' => '908c7d4d17ce1c6ff57477a16ca89fecdda1937bddd9e8b5a355c66b7cfae3d7dd0c30cf3b0f5e17eb6340f156187232',
+        'exceptionalErrors' => 4096,
         'features' => [
-            'felogin.extbase' => false,
+            'felogin.extbase' => true,
             'fluidBasedPageModule' => true,
-            'form.legacyUploadMimeTypes' => true,
-            'rearrangedRedirectMiddlewares' => false,
-            'redirects.hitCount' => false,
-            'security.backend.enforceReferrer' => true,
-            'security.frontend.keepSessionDataOnLogout' => false,
+            'rearrangedRedirectMiddlewares' => true,
             'unifiedPageTranslationHandling' => true,
+            'yamlImportsFollowDeclarationOrder' => true,
         ],
-        'sitename' => 'TYPO3 Base',
+        'sitename' => 'MIA3 . TYPO3 Template',
         'systemMaintainers' => [
             1,
         ],

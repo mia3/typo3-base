@@ -1,52 +1,44 @@
 .PHONY: help install test run build
 .DEFAULT_GOAL := help
 
+help:
+	@grep -E '^[a-zA-Z\/_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+
 define env/shell
 	ssh $($1/user)@$($1/host) -p $($1/port) 'cd $($1/path) && $2'
 endef
 
+define env/download
+	rsync -rzPh -e 'ssh -p $($1/port)' --files-from="rsync_download.txt" \
+		'$($1/user)@$($1/host):$($1/path)/' '.'
+endef
+
 define env/upload
-	rsync -rzPh -e 'ssh -p $($1/port)' --files-from="rsync_deploy.txt" \
+	rsync -rzPh -e 'ssh -p $($1/port)' --files-from="rsync_upload.txt" \
 		'./' '$($1/user)@$($1/host):$($1/path)'
 endef
 
-help:
-	@grep -E '^[a-zA-Z\/_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+define env/upload/delete
+	rsync -rz --delete -e 'ssh -p $($1/port)' --files-from="rsync_upload_delete.txt" \
+		'./' '$($1/user)@$($1/host):$($1/path)'
+endef
 
-# --------------------------------------------------------------------- #
-# Local environment                                                     #
-# --------------------------------------------------------------------- #
 
-setup: install setup/database-connection migrate build clear-cache ## Setup the new project
-	./vendor/bin/typo3cms extension:setupactive
-	./vendor/bin/typo3cms backend:createadmin admin
+# ---------------------------------------------------------------------------- #
+# Backup
+# ---------------------------------------------------------------------------- #
+pull-backup: ## Download latest backup (including database)
+	@echo "\033[1;31mNo backup available:\033[0m add this project to \033[1;32moperations.mia3.com\033[0m and replace this command with the backup code."
 
-build/watch: ## Build assets with sourcemaps and watch for changes
-	./node_modules/.bin/encore dev --watch
 
-install: ## Install composer and yarn dependencies
-	composer install
-	yarn install
+# ---------------------------------------------------------------------------- #
+# Local
+# ---------------------------------------------------------------------------- #
+setup: install setup/config migrate build cache ## Setup a new project
+	vendor/bin/typo3cms extension:setupactive
+	vendor/bin/typo3cms backend:createadmin admin
 
-update: ## Update composer and yarn dependencies
-	composer update
-	yarn upgrade
-
-build: ## Build assets with sourcemaps
-	yarn
-	./node_modules/.bin/encore dev
-
-build/production: ## Build minified assets
-	yarn
-	./node_modules/.bin/encore production
-
-migrate: ## Apply database migration
-	./vendor/bin/typo3cms database:updateschema
-
-clear-cache: ## Clear TYPO3 cache
-	./vendor/bin/typo3cms cache:flush
-
-setup/database-connection: ## Create an AdditionalConfiguration.php
+setup/config: ## Generates config file (AdditionalConfiguration.php)
 	@read -p "Enter DB host: " DB_HOST; \
 	read -p "Enter DB name: " DB_NAME; \
 	read -p "Enter DB username: " DB_USER; \
@@ -54,102 +46,89 @@ setup/database-connection: ## Create an AdditionalConfiguration.php
  	cat public/typo3conf/AdditionalConfiguration.php.example \
 	| sed "s/{{host}}/$$DB_HOST/g" | sed "s/{{dbName}}/$$DB_NAME/g" | sed "s/{{user}}/$$DB_USER/g" | sed "s/{{password}}/$$DB_PW/g" > public/typo3conf/AdditionalConfiguration.php;
 
-emails/generate:
-	./node_modules/.bin/mjml ./packages/template/Resources/Private/Email/*.mjml --output ./packages/template/Resources/Private/Templates/Email;
+build: ## Build assets with sourcemaps
+	@yarn
+	@yarn encore dev
+
+build/watch: ## Build assets with sourcemaps and watch for changes
+	@yarn encore dev --watch
+
+build/production: ## Build minified assets
+	@yarn
+	@yarn encore production
+
+install: ## Install dependencies (Composer and Yarn)
+	@composer i
+	@yarn
+
+upgrade: ## Upgrade dependencies (Composer and Yarn)
+	@composer u
+	@yarn upgrade
+	@make migrate
+	@make cache
+
+migrate: ## Update database schema (TYPO3 Database Compare)
+	@vendor/bin/typo3cms database:updateschema "*"
+
+cache: ## Clear cache
+	@vendor/bin/typo3cms cache:flush
+
+emails: ## Generate email templates
+	@yarn mjml ./packages/template/Resources/Private/Email/*.mjml --output ./packages/template/Resources/Private/Templates/Email;
 
 
-# --------------------------------------------------------------------- #
-# Integration environment                                               #
-# Branch: dev                                                           #
-# --------------------------------------------------------------------- #
+# ---------------------------------------------------------------------------- #
+# Integration
+# Branch: dev
+# ---------------------------------------------------------------------------- #
 integration/host =
 integration/user =
 integration/port = 22
 integration/path =
 
-integration/deploy:
-	yarn
-	make build
 
-	# Upload
-	$(call env/upload,integration)
-
-	# Composer
-	$(call env/shell,integration, COMPOSER_DISCARD_CHANGES=true composer install --no-dev --optimize-autoloader --ignore-platform-reqs)
-
-	# TYPO3
-	$(call env/shell,integration, php_cli ./vendor/bin/typo3cms database:updateschema)
-	$(call env/shell,integration, php_cli ./vendor/bin/typo3cms cache:flush)
-
-integration/clear-cache: ## Clears integration cache
-	$(call env/shell,integration, php_cli ./vendor/bin/typo3cms cache:flush)
-
-integration/connection-test: ## Tests connection to your project
-	$(call env/shell,integration, ls -la)
-
-
-# --------------------------------------------------------------------- #
-# Staging environment                                                   #
-# Branch: master                                                        #
-# --------------------------------------------------------------------- #
+# ---------------------------------------------------------------------------- #
+# Staging
+# Branch: main
+# ---------------------------------------------------------------------------- #
 staging/host =
 staging/user =
 staging/port = 22
 staging/path =
 
-staging/deploy:
-	yarn
-	make build
 
-	# Upload
-	$(call env/upload,staging)
-
-	# Composer
-	$(call env/shell,staging, COMPOSER_DISCARD_CHANGES=true composer install --no-dev --optimize-autoloader --ignore-platform-reqs)
-
-	# TYPO3
-	$(call env/shell,staging, php_cli ./vendor/bin/typo3cms database:updateschema)
-	$(call env/shell,staging, php_cli ./vendor/bin/typo3cms cache:flush)
-
-staging/clear-cache: ## Clears staging cache
-	$(call env/shell,staging, php_cli ./vendor/bin/typo3cms cache:flush)
-
-staging/connection-test: ## Tests connection to your project
-	$(call env/shell,staging, ls -la)
-
-
-# --------------------------------------------------------------------- #
-# Production environment                                                #
-# Branch: master (manual)                                               #
-# --------------------------------------------------------------------- #
-production/host =
-production/user =
+# ---------------------------------------------------------------------------- #
+# Production
+# Branch: main (manual)
+# ---------------------------------------------------------------------------- #
+production/host = typo3.mia3.com
+production/user = p284571
 production/port = 22
-production/path =
+production/path = /html/typo3.mia3.com
 
-production/deploy:
-	yarn
-	make build
+production/deploy: build
+	$(call env/upload/delete,production)
+	$(call env/shell,production,composer --no-interaction --optimize-autoloader --no-progress --no-dev --profile install)
+	$(call env/shell,production,vendor/bin/typo3cms database:updateschema | vendor/bin/typo3cms cache:flush)
 
-	# Upload
-	$(call env/upload,production)
-
-	# Composer
-	$(call env/shell,production, COMPOSER_DISCARD_CHANGES=true composer install --no-dev --optimize-autoloader --ignore-platform-reqs)
-
-	# TYPO3
-	$(call env/shell,production, php_cli ./vendor/bin/typo3cms database:updateschema)
-	$(call env/shell,production, php_cli ./vendor/bin/typo3cms cache:flush)
-
-production/clear-cache: ## Clears production cache
-	$(call env/shell,production, php_cli ./vendor/bin/typo3cms cache:flush)
-
-production/connection-test: ## Tests connection to your project
+production/connection-test: ## Test deployment connection
 	$(call env/shell,production, ls -la)
 
+production/ssh: ## Establish SSH connection
+	ssh $(production/user)@$(production/host) -p $(production/port)
 
-# --------------------------------------------------------------------- #
-# Backup                                                                #
-# --------------------------------------------------------------------- #
-pull-backup: ## Download latest files and import database dump from operations.mia3.com
-	@echo "\033[1;31mNo backup available:\033[0m add this project to \033[1;32moperations.mia3.com\033[0m and replace this command with the backup code."
+production/media/push: ## Upload media files (see rsync_upload.txt)
+	$(call env/upload,production)
+
+production/media/pull: ## Download media files (see rsync_download.txt)
+	$(call env/download,production)
+
+production/database/pull: ## Overwrite local database with remote
+	$(call env/shell,production,vendor/bin/typo3cms database:export) > db.sql
+	mysql --defaults-file=my.cnf < db.sql
+	rm db.sql
+
+production/database/push: ## Overwrite remote database with local
+	vendor/bin/typo3cms database:export > db.sql
+	$(call env/shell,production,vendor/bin/typo3cms database:import) < db.sql
+	rm db.sql

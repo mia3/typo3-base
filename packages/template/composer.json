@@ -45,5 +45,10 @@
     "psr-4": {
       "MIA3\\Template\\": "Classes/"
     }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "template"
+    }
   }
 }

@@ -26,8 +26,7 @@ window.onload = function () {
  * Autoloading components from "Components"-directory
  */
 require.context('./Components/', true, /\.vue$/).keys().forEach(function (elementPath) {
-  let component = require('./Components/' +
-    elementPath.replace('./', '')).default;
+  let component = require('./Components/' + elementPath.replace('./', '')).default;
   if (typeof (component.name) == 'undefined') {
     console.warn('Component is missing name!', component);
     return;

@@ -20,8 +20,8 @@
   };
 </script>
 
-<style scoped>
-  @import '../../../Styles/Variables.css';
+<style lang="scss" scoped>
+  @import '../../../Styles/Variables';
 
   .baseTextarea
   {

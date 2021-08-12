@@ -6,13 +6,13 @@
     }
   ],
   "require": {
-    "helhum/typo3-console": "^6.6",
+    "ext-json": "*",
+    "fluidtypo3/flux": "^9.4",
     "fluidtypo3/vhs": "^6.0",
     "georgringer/news": "^8.6",
+    "helhum/typo3-console": "^6.6",
     "mask/mask": "^7.0",
-    "mia3/template": "@dev",
-    "ext-json": "*",
-    "fluidtypo3/flux": "^9.4"
+    "mia3/template": "@dev"
   },
   "config": {
     "sort-packages": true

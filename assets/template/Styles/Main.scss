@@ -1,4 +1,5 @@
-/* Third Party (node_modules) */
+// Third Party (node_modules)
+@import '~normalize.css/normalize.css';
 @import '~glightbox/dist/css/glightbox.min.css';
 @import '~hamburgers/dist/hamburgers.min.css';
 @import '~swiper/swiper.min.css';
@@ -15,35 +16,28 @@
 @import "~bootstrap/scss/root";
 
 // Optional Bootstrap components here
-@import "~bootstrap/scss/reboot";
-@import "~bootstrap/scss/type";
 @import "~bootstrap/scss/buttons";
 @import "~bootstrap/scss/grid";
 
+// Base
 @import './Font';
-
-/* Base */
 @import './Base/Base';
 @import './Base/Button';
 @import './Base/Form';
 @import './Base/Image';
-@import './Base/Media';
 
-/* Page Layout */
+// Page Layout
 @import './PageLayout/Content';
 @import './PageLayout/Footer';
 @import './PageLayout/Header';
 @import './PageLayout/MobileMenu';
 
-/* Utility */
+// Frame Layout
+
+
+// Content Elements
+@import 'ContentElements/TwoColumn';
+@import 'ContentElements/ThreeColumn';
+
+// Utility
 @import './Utility/Utility';
-
-.frame {
-  border: 1px solid coral;
-}
-
-@include media-breakpoint-up(sm) {
-  .frame {
-    border-width: 10px;
-  }
-}

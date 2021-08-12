@@ -1,6 +1,6 @@
-/*
- * Forms
- * ––––– */
+/**
+ * Form Styles
+ * ––––––––––––––––––––––––––––––––––––––––––––––--------------------------- */
 .form {
   display: grid;
   grid-gap: var(--line);
@@ -9,12 +9,14 @@
 .formFeedback {
   border: 2px solid var(--steam);
   padding: 15px;
+
+  &__title {
+    margin-bottom: var(--line);
+  }
+
+  &--success {
+    border-color: var(--poisonouse-pesticide);
+  }
 }
 
-.formFeedback--success {
-  border-color: var(--poisonouse-pesticide);
-}
 
-.formFeedback__title {
-  margin-bottom: var(--line);
-}

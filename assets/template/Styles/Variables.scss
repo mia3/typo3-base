@@ -1,10 +1,8 @@
 :root {
-  --font-family: Arial, Helvetica, sans-serif;
+  --font-family: Roboto, Helvetica, sans-serif;
 
   --base: 6px;
-
   --line: calc(3 * var(--base)); /* 18px */
-
   --line-2: calc(2 * var(--line));
   --line-3: calc(3 * var(--line));
   --line-4: calc(4 * var(--line));
@@ -12,8 +10,7 @@
   --line-6: calc(6 * var(--line));
   --line-10: calc(10 * var(--line));
 
-  /* Media */
-
+  // Media
   --ratio-16by9: calc(16 / 9);
   --ratio-1by1: calc(1 / 1);
   --ratio-3by2: calc(3 / 2);
@@ -25,8 +22,7 @@
   --media-16by9: calc(100% / var(--ratio-16by9));
 
 
-  /* Colors */
-
+  // Colors
   --color-primary: #4b113a;
   --color-secondary: #f3f0ec;
   --color-accent: #c1b5a2;
@@ -38,12 +34,11 @@
   --steam: #ddd;
   --poisonouse-pesticide: #2ecc40;
 
-  /* General Width */
-
+  // General Width
   --page-width: 1440px;
   --container-width: 1048px;
 
-  /* Font */
+  // Font
   --text-font-size: calc(2 * var(--base));
   --text-line-height: var(--line);
 }

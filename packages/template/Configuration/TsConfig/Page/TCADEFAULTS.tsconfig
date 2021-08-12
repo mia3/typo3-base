@@ -4,5 +4,6 @@
 TCAdefaults {
   tt_content {
     header_layout = 3
+    tx_template_container = container
   }
 }

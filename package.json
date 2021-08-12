@@ -11,6 +11,8 @@
     "postcss-css-variables": "^0.17.0",
     "postcss-custom-media": "^7.0.8",
     "postcss-loader": "^5.2.0",
+    "sass": "^1.37.5",
+    "sass-loader": "^10.0.0",
     "swiper": "*",
     "table": "*",
     "vue": "^2",

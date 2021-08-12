@@ -13,10 +13,11 @@ Encore
   .setManifestKeyPrefix('')
   // will output as web/build/app.js
   .addEntry('mia3_scripts', [assetPath + 'Scripts/Main.js'])
-  .addStyleEntry('mia3_styles', [assetPath + 'Styles/Main.css'])
-  .addStyleEntry('mia3_rte', [assetPath + 'Styles/RichTextEditor.css'])
+  .addStyleEntry('mia3_styles', [assetPath + 'Styles/Main.scss'])
+  .addStyleEntry('mia3_rte', [assetPath + 'Styles/RichTextEditor.scss'])
   .enableVueLoader()
-  .enablePostCssLoader()
+  .enableSassLoader()
+  // .enablePostCssLoader()
   .enableSourceMaps(!Encore.isProduction());
 
 // export the final configuration

@@ -3,6 +3,25 @@
 @import '~hamburgers/dist/hamburgers.min.css';
 @import '~swiper/swiper.min.css';
 
+// Required
+@import "~bootstrap/scss/functions";
+
+// Default variable overrides
+$body-bg: null;
+$body-color: null;
+$primary: null;
+
+// Required
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/root";
+
+// Optional Bootstrap components here
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/grid";
+
 @import './Font';
 @import './Variables';
 

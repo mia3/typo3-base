@@ -7,6 +7,6 @@ module.exports = {
     //'postcss-css-variables':{},
 
     // Custom Media Query's
-    'postcss-custom-media': {}
+    // 'postcss-custom-media': {}
   }
 }

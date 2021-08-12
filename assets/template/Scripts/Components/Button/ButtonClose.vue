@@ -27,8 +27,8 @@
   };
 </script>
 
-<style scoped>
-  @import '../../../Styles/Variables.scss';
+<style lang="scss" scoped>
+  @import '../../../Styles/Variables';
 
   .button-close
   {

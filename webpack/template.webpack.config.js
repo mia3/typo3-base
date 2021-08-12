@@ -17,7 +17,6 @@ Encore
   .addStyleEntry('mia3_rte', [assetPath + 'Styles/RichTextEditor.scss'])
   .enableVueLoader()
   .enableSassLoader()
-  // .enablePostCssLoader()
   .enableSourceMaps(!Encore.isProduction());
 
 // export the final configuration

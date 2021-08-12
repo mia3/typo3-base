@@ -7,9 +7,7 @@
 @import "~bootstrap/scss/functions";
 
 // Default variable overrides
-$body-bg: null;
-$body-color: null;
-$primary: null;
+@import './Variables';
 
 // Required
 @import "~bootstrap/scss/variables";
@@ -23,7 +21,6 @@ $primary: null;
 @import "~bootstrap/scss/grid";
 
 @import './Font';
-@import './Variables';
 
 /* Base */
 @import './Base/Base';
@@ -40,3 +37,13 @@ $primary: null;
 
 /* Utility */
 @import './Utility/Utility';
+
+.frame {
+  border: 1px solid coral;
+}
+
+@include media-breakpoint-up(sm) {
+  .frame {
+    border-width: 10px;
+  }
+}

@@ -1,72 +1,80 @@
-<f:if condition="{data.tx_mask_slider_df1_headline_alt_frontend}">
-  <f:then>
-    <f:render section="renderHeadline"
-              arguments="{text: '{data.tx_mask_slider_df1_headline_alt_frontend}', layout:'{data.header_layout}'}"/>
-  </f:then>
-  <f:else if="{data.header}">
-    <f:render section="renderHeadline" arguments="{text: '{data.header}', layout:'{data.header_layout}'}"/>
-  </f:else>
-</f:if>
+<f:layout name="Default" />
+
+<f:section name="Main">
+
+  <f:if condition="{data.tx_mask_slider_df1_headline_alt_frontend}">
+    <f:then>
+      <f:render section="renderHeadline"
+                arguments="{text: '{data.tx_mask_slider_df1_headline_alt_frontend}', layout:'{data.header_layout}'}"/>
+    </f:then>
+    <f:else if="{data.header}">
+      <f:render section="renderHeadline" arguments="{text: '{data.header}', layout:'{data.header_layout}'}"/>
+    </f:else>
+  </f:if>
 
 
-<f:if condition="{data.tx_mask_slider_df1_slides}">
+  <f:if condition="{data.tx_mask_slider_df1_slides}">
 
-  <!-- Mask slider -->
-  <div class="slider">
-    <f:for each="{data.tx_mask_slider_df1_slides}" as="data_item">
-      <div class="slider__slide">
-        <f:if condition="{data_item.tx_mask_slider_df1_slide_text}">
-          {data_item.tx_mask_slider_df1_slide_text}
-        </f:if>
-        <f:if condition="{data_item.tx_mask_slider_df1_slide_image}">
-          <f:for each="{data_item.tx_mask_slider_df1_slide_image}" as="file">
-            <f:image image="{file}" maxWidth="800" cropVariant="default"/>
-            {file.description}
-          </f:for>
-        </f:if>
+    <!-- Mask slider -->
+    <div class="slider">
+      <f:for each="{data.tx_mask_slider_df1_slides}" as="data_item">
+        <div class="slider__slide">
+          <f:if condition="{data_item.tx_mask_slider_df1_slide_text}">
+            {data_item.tx_mask_slider_df1_slide_text}
+          </f:if>
+          <f:if condition="{data_item.tx_mask_slider_df1_slide_image}">
+            <f:for each="{data_item.tx_mask_slider_df1_slide_image}" as="file">
+              <f:image image="{file}" maxWidth="800" cropVariant="default"/>
+              {file.description}
+            </f:for>
+          </f:if>
+        </div>
+      </f:for>
+    </div>
+
+    <!-- Mask slider default -->
+    <div class="tx_mask_slider_df1">
+      <div class="slider">
+        <f:for each="{data.tx_mask_slider_df1_slides}" as="data_item">
+          <div class="slider__slide">
+            <f:if condition="{data_item.tx_mask_slider_df1_slide_text}">
+              {data_item.tx_mask_slider_df1_slide_text}
+            </f:if>
+            <f:if condition="{data_item.tx_mask_slider_df1_slide_image}">
+              <f:for each="{data_item.tx_mask_slider_df1_slide_image}" as="file">
+                <f:image image="{file}" maxWidth="800" cropVariant="default"/>
+                {file.description}
+              </f:for>
+            </f:if>
+          </div>
+        </f:for>
       </div>
-    </f:for>
-  </div>
-
-  <!-- Mask slider default -->
-  <div class="tx_mask_slider_df1">
-    <div class="slider">
-      <f:for each="{data.tx_mask_slider_df1_slides}" as="data_item">
-        <div class="slider__slide">
-          <f:if condition="{data_item.tx_mask_slider_df1_slide_text}">
-            {data_item.tx_mask_slider_df1_slide_text}
-          </f:if>
-          <f:if condition="{data_item.tx_mask_slider_df1_slide_image}">
-            <f:for each="{data_item.tx_mask_slider_df1_slide_image}" as="file">
-              <f:image image="{file}" maxWidth="800" cropVariant="default"/>
-              {file.description}
-            </f:for>
-          </f:if>
-        </div>
-      </f:for>
     </div>
-  </div>
 
-  <!-- Mask Slider Custom -->
-  <div class="tx_mask_slider_ct1">
-    <div class="slider">
-      <f:for each="{data.tx_mask_slider_df1_slides}" as="data_item">
-        <div class="slider__slide">
-          <f:if condition="{data_item.tx_mask_slider_df1_slide_text}">
-            {data_item.tx_mask_slider_df1_slide_text}
-          </f:if>
-          <f:if condition="{data_item.tx_mask_slider_df1_slide_image}">
-            <f:for each="{data_item.tx_mask_slider_df1_slide_image}" as="file">
-              <f:image image="{file}" maxWidth="800" cropVariant="default"/>
-              {file.description}
-            </f:for>
-          </f:if>
-        </div>
-      </f:for>
+    <!-- Mask Slider Custom -->
+    <div class="tx_mask_slider_ct1">
+      <div class="slider">
+        <f:for each="{data.tx_mask_slider_df1_slides}" as="data_item">
+          <div class="slider__slide">
+            <f:if condition="{data_item.tx_mask_slider_df1_slide_text}">
+              {data_item.tx_mask_slider_df1_slide_text}
+            </f:if>
+            <f:if condition="{data_item.tx_mask_slider_df1_slide_image}">
+              <f:for each="{data_item.tx_mask_slider_df1_slide_image}" as="file">
+                <f:image image="{file}" maxWidth="800" cropVariant="default"/>
+                {file.description}
+              </f:for>
+            </f:if>
+          </div>
+        </f:for>
+      </div>
     </div>
-  </div>
+  </f:if>
 
-</f:if>
+</f:section>
+
+
+
 
 
 <f:section name="renderHeadline">

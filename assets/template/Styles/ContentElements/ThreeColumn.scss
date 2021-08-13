@@ -4,42 +4,42 @@
   grid-column-gap: 0;
   grid-template-columns: 1fr;
   grid-template-areas: 'gl' 'gm' 'gr';
+
+  &__left {
+    grid-area: gl;
+  }
+
+  &__middle {
+    grid-area: gm;
+  }
+
+  &__right {
+    grid-area: gr;
+  }
 }
 
-.threeColumn__left {
-  grid-area: gl;
-}
-
-.threeColumn__middle {
-  grid-area: gm;
-}
-
-.threeColumn__right {
-  grid-area: gr;
-}
-
-@media screen and (--screen-tablet) {
+@include media-breakpoint-up(md) {
   .threeColumn {
     grid-gap: var(--line);
-  }
 
-  .threeColumn--33-33-33 {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: 'gl gm gr';
-  }
+    &--33-33-33 {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas: 'gl gm gr';
+    }
 
-  .threeColumn--50-25-25 {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: 'gl gl gm gr';
-  }
+    &--50-25-25 {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas: 'gl gl gm gr';
+    }
 
-  .threeColumn--25-50-25 {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: 'gl gm gm gr';
-  }
+    &--25-50-25 {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas: 'gl gm gm gr';
+    }
 
-  .threeColumn--25-25-50 {
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: 'gl gm gr gr';
+    &--25-25-50 {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas: 'gl gm gr gr';
+    }
   }
 }

@@ -1,15 +1,14 @@
 /*
  * Typography
- * –––––––––– */
-
+ * ––––––––––––––––––––––––––––––––––––––––––––––--------------------------- */
 p {
   font-size: var(--text-font-size);
   line-height: var(--text-line-height);
   margin: 0 0 var(--line);
-}
 
-p:last-child {
-  margin-bottom: 0;
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 ul, ol {

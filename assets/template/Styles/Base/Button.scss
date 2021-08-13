@@ -1,4 +1,4 @@
-/* Button
+/* Button Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .button {
   background: var(--isabelline);
@@ -12,18 +12,15 @@
   cursor: pointer;
   font-size: 1rem;
   text-transform: uppercase;
-}
 
-.button:hover,
-.button:focus {
-  outline: none;
-}
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+  }
 
-.button:active {
-  outline: none;
-}
-
-.button[disabled] {
-  cursor: not-allowed;
-  opacity: 0.5;
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 }

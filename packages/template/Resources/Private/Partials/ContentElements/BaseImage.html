@@ -47,8 +47,8 @@
           arguments="{image: image, variant: 'desktop', maxWidth: config.variants.desktop.maxWidth, width: width, height: height, imageClass: imageClass, zoom: zoom, uid: uid}"
         />
         <f:if condition="{image.description}">
-          <figcaption class="image-captionContainer">
-            <span class="paragraph image-caption ">{image.description}</span>
+          <figcaption class="image__captionContainer">
+            <span class="paragraph image__caption ">{image.description}</span>
           </figcaption>
         </f:if>
       </picture>
@@ -61,8 +61,8 @@
           />
       </f:for>
       <f:if condition="{image.description}">
-        <figcaption class="image-captionContainer">
-          <span class="paragraph image-caption ">{image.description}</span>
+        <figcaption class="image__captionContainer">
+          <span class="paragraph image__caption ">{image.description}</span>
         </figcaption>
       </f:if>
     </f:else>

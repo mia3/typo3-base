@@ -3,29 +3,30 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  .mainMenu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mainMenu__link {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: calc(var(--base) * 4);
+    line-height: calc(var(--base) * 5);
+    text-decoration: none;
+  }
 }
 
 .header__logo {
   display: block;
   height: var(--line-6);
+
+  img {
+    height: 100%;
+    width: auto;
+  }
 }
 
-.header__logo img {
-  height: 100%;
-  width: auto;
-}
-
-.page__header .mainMenu {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.page__header .mainMenu__link {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: calc(var(--base) * 4);
-  line-height: calc(var(--base) * 5);
-  text-decoration: none;
-}

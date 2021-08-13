@@ -35,13 +35,6 @@
   width: auto;
 }
 
-@media (--screen-mobile) {
-  .page-logo--responsiveMenu {
-    height: calc(7 * var(--base));
-    margin: calc(4 * var(--base)) 0;
-  }
-}
-
 @media (--screen-tablet-landscape) {
   .responsive-menu-container {
     display: none;

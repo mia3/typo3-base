@@ -5,9 +5,6 @@
   margin: 0;
   line-height: 0;
 
-  &--fullWidth > img {
-    width: 100%;
-  }
   &--hasCaption {
     position: relative;
   }
@@ -34,3 +31,7 @@
   }
 }
 
+img {
+  height: auto;
+  width: 100%;
+}

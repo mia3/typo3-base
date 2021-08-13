@@ -9,7 +9,7 @@
 <f:section name="Image">
   <f:if condition="{image}">
     <figure
-      class="image{f:if(condition: image.description, then:' image--hasCaption', else: '')}{f:if(condition: '{image.properties.stretch_across_content}', then:' image--fullWidth', else: '')}">
+      class="image{f:if(condition: image.description, then:' image--hasCaption', else: '')}">
       <f:if condition="{image.link}">
         <f:then>
           <f:link.typolink parameter="{image.link}" title="{image.title}">

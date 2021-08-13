@@ -8,7 +8,7 @@ TCEFORM {
 
   tt_content {
     rowDescription.disabled = 1
-    frame_class.disabled = 1
+    frame_class.disabled = 0
     layout.disabled = 1
 
     CType.removeItems (

@@ -1,0 +1,19 @@
+:root {
+  --slider-slide-max-width: 500px;
+}
+
+.tx_mask_slider_df1 {
+  --slider-slide-max-width: 250px;
+}
+
+.tx_mask_slider_ct1 {
+  --slider-slide-max-width: 150px;
+}
+
+.slider {
+  .slider__slide {
+    img {
+      max-width: var(--slider-slide-max-width);
+    }
+  }
+}

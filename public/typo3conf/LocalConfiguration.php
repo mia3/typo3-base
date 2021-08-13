@@ -73,6 +73,10 @@ return [
             'storageUidImporter' => '1',
             'tagPid' => '1',
         ],
+        'scheduler' => [
+            'maxLifetime' => '1440',
+            'showSampleTasks' => '1',
+        ],
         'vhs' => [
             'disableAssetHandling' => '0',
         ],

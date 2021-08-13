@@ -5,15 +5,6 @@
         product-name="cms">
     <header/>
     <body>
-      <trans-unit id="stretch_across_content" resname="stretch_across_content">
-        <source>Stretch across whole content area</source>
-      </trans-unit>
-      <trans-unit id="stretch_across_content.desc" resname="stretch_across_content.desc">
-        <source>For the web optimized pictures are always uploaded as small as necessary. Therefore it can happen, if an
-          image is selected, that it is too small for the content area. With this option the element can be stretched to
-          the full width.
-        </source>
-      </trans-unit>
       <trans-unit id="header_semantic" resname="header_semantic">
         <source>Header Semantic</source>
       </trans-unit>

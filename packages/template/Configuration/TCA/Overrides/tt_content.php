@@ -20,10 +20,6 @@ call_user_func(
                             'container',
                         ],
                         [
-                            'Fluid Container',
-                            'fluidContainer',
-                        ],
-                        [
                             'No container',
                             '',
                         ],

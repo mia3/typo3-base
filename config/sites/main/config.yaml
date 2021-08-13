@@ -1,7 +1,7 @@
 base: 'https://typo3.mia3.com/'
 baseVariants:
   -
-    base: typo3.local
+    base: typo3-template.local
     condition: 'applicationContext == "Development/Local"'
 errorHandling:
   -
